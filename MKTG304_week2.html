@@ -951,7 +951,7 @@ html, body {
     </div>
     <div class="callout" style="margin-top:18px;"><strong>Practical takeaway:</strong> Put your most important instructions at the start <em>and</em> immediately before the task. Never bury them in the middle.</div>
   </div>
-  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 2. Liu et al. (2023) documented the "lost in the middle" phenomenon in a formal study — models reliably underperform on information placed in the centre of long context windows. Temperature is not usually directly controlled in ChatGPT/Claude.ai/Gemini consumer tools, but understanding it explains why regenerating a response is sometimes valid. All three major providers (Anthropic, OpenAI, Google) recommend keeping temperature at default for most tasks. The context window concept is one of the most practically important things in this section. A common student error is pasting a 10-page document into a prompt and then asking a question at the very top, followed by the document. The model processes the question, then reads through the document, and by the time it finishes, the primacy of the question has faded. Always put your question or instruction after the document, not before it — or restate it at the end. This is directly supported by Liu et al. (2023) and by Google's own Gemini documentation, which explicitly recommends placing questions after documents.</div>
+  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 2. Liu et al. (2023) documented the "lost in the middle" phenomenon in a formal study — models reliably underperform on information placed in the centre of long context windows. Temperature is not usually directly controlled in ChatGPT/Claude.ai/Gemini consumer tools, but understanding it explains why regenerating a response is sometimes valid. All three major providers (Anthropic, OpenAI, Google) recommend keeping temperature at default for most tasks. The context window concept is one of the most practically important things in this section. A common student error is pasting a 10-page document into a prompt and then asking a question at the very top, followed by the document. The model processes the question, then reads through the document, and by the time it finishes, the primacy of the question has faded. These two rules are not contradictory — they apply to different parts of the prompt. Role and system instructions should go at the very start. When you are pasting a long document into a prompt, the specific question or task instruction should be restated immediately after the document, not buried before it. Always put your question or instruction after the document, not before it — or restate it at the end. This is directly supported by Liu et al. (2023) and by Google's own Gemini documentation, which explicitly recommends placing questions after documents.</div>
 </div>
 
 <!-- ════════════════════════════════════════════
@@ -1134,7 +1134,7 @@ html, body {
         <div class="label">of AI platform users do so via personal,<br>unmanaged accounts (LayerX Security, 2025)</div>
       </div>
     </div>
-    <div style="color:rgba(255,255,255,0.6);font-size:clamp(13px,1.3vw,15px);">Two risk types: <span style="color:var(--cyan);">prompt injection</span> (direct &amp; indirect) and <span style="color:var(--cyan);">data leakage</span> through shadow AI use.</div>
+    <div style="color:rgba(255,255,255,0.6);font-size:clamp(13px,1.3vw,15px);">Two risk types: <span style="color:var(--cyan);">prompt injection</span> (direct &amp; indirect) and <span style="color:var(--cyan);">data leakage</span> through shadow AI use — personal or unmanaged tool use that sits outside organisational IT oversight.</div>
   </div>
   <div class="speaker-notes">Source: AI Research Report, Section 2. Prompt injection: attackers manipulate instructions an LLM follows — either directly (overriding system prompts/"jailbreaking") or indirectly (embedding malicious instructions in documents the LLM processes). Tenable researchers (November 2025) disclosed 7 vulnerabilities in GPT-4o/5, concluding prompt injection "will probably not be fixed systematically in the near future" because it exploits the fundamental mechanism by which LLMs process language. The 43% figure comes from LayerX Security's 2025 Enterprise AI and SaaS Data Security Report.</div>
 </div>
@@ -1182,7 +1182,7 @@ html, body {
           <div class="col-body">Italy's Garante found OpenAI: processed training data <strong>without adequate legal basis</strong>; failed to notify a March 2023 data breach (440 Italian subscribers' chat histories &amp; payment data); insufficient transparency; no data protection by design. OpenAI must also run a <strong>six-month public information campaign</strong> across Italian media.</div>
         </div>
         <div class="col-card" style="border-top:4px solid #DC2626;">
-          <div class="col-title" style="color:#DC2626;">The hallucination problem — noyb, March 2025</div>
+          <div class="col-title" style="color:#DC2626;">The hallucination problem — noyb (European digital rights NGO), March 2025</div>
           <div class="col-body">ChatGPT falsely stated Norwegian man <strong>Arve Hjalmar Holmen</strong> had been convicted of murdering two of his children. Entirely fabricated. He has no criminal record. OpenAI cited "technical limitations" in correcting it.</div>
         </div>
       </div>
@@ -1487,7 +1487,7 @@ html, body {
           Provide worked examples before the task. <strong>Google:</strong> "Prompts without few-shot examples are likely to be less effective."<br><br>
           <strong>Rules for few-shot design:</strong>
           <ul style="list-style:disc;padding-left:18px;margin-top:8px;font-size:clamp(12px,1.2vw,14px);line-height:1.6;">
-            <li>Use 2–5 examples (too many = overfitting)</li>
+            <li>Use 2–5 examples (too many = overfitting, where the model mimics edge cases rather than the general pattern)</li>
             <li>Consistent formatting across all examples</li>
             <li>Diverse examples covering expected variation</li>
             <li>Most representative example <strong>last</strong> (recency bias)</li>
@@ -1627,8 +1627,7 @@ new GST auto-filing feature.<br><br>
       </div>
     </div>
     <div style="margin-top:16px;background:#F0F7FF;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:14px 18px;font-size:clamp(12px,1.2vw,14px);color:#1E3A5F;line-height:1.7;">
-      <strong>Why this order matters:</strong> Context comes first because it is the single element most likely to transform a generic response into a genuinely useful one. Without context, even a perfectly specified Role, Action, Format, and Target Audience will produce output that is technically correct but situationally wrong. Role comes second because it shapes the interpretive lens for everything that follows. Action is the task itself — precise, verb-led, unambiguous. Format specifies the deliverable. Target Audience closes the loop by reminding the model who ultimately needs to understand the output.<br><br>
-      <strong>The test for a good Context block:</strong> if you removed it entirely, would the model's response still be adequate? If yes, you have not provided enough context.
+      <strong>Why this order matters:</strong> Context comes first because it is the single element most likely to transform a generic response into a genuinely useful one. Without context, even a perfectly specified Role, Action, Format, and Target Audience will produce output that is technically correct but situationally wrong. Role comes second because it shapes the interpretive lens for everything that follows. Action is the task itself — precise, verb-led, unambiguous. Format specifies the deliverable. Target Audience closes the loop by reminding the model who ultimately needs to understand the output.
     </div>
     <div class="key-quote" style="margin-top:14px;">"If removing your Context block would leave an adequate response, you haven't provided enough context."</div>
   </div>
