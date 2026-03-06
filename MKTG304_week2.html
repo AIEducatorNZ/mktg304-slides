@@ -908,11 +908,11 @@ html, body {
     <div class="three-col" style="margin-top:16px;">
       <div class="col-card">
         <div class="col-title" style="font-size:clamp(14px,1.4vw,16px);">📱 The Analogy</div>
-        <div class="col-body">Phone keyboard autocomplete — but trained on hundreds of billions of tokens of human text.</div>
+        <div class="col-body">Phone keyboard autocomplete — but trained on hundreds of billions of tokens of human text.<br><br><span style="font-size:11px;color:var(--muted);display:block;margin-top:4px;"><strong>Example:</strong> "marketing" → tokens "market" + "ing". The sentence "Write me a marketing plan" is ~7 tokens. GPT-4 processed ~300 trillion tokens of training data — roughly every word ever published on the English-language internet, multiple times over.</span></div>
       </div>
       <div class="col-card">
         <div class="col-title" style="font-size:clamp(14px,1.4vw,16px);">🎲 Tokens, Not Words</div>
-        <div class="col-body">Models process <strong>tokens</strong> (~3–4 characters each). Small wording changes shift the probability distribution.</div>
+        <div class="col-body">Models process <strong>tokens</strong> (~3–4 characters each). Small wording changes shift the probability distribution.<br><br><span style="font-size:11px;color:var(--muted);display:block;margin-top:4px;"><strong>Why it matters:</strong> Changing a single word can shift the model's probability distribution enough to produce a completely different output. "Summarise" and "analyse" return different responses to the same document — not because the model understands the difference, but because those words co-occur with different patterns in training data.</span></div>
       </div>
       <div class="col-card">
         <div class="col-title" style="font-size:clamp(14px,1.4vw,16px);">⚡ The Consequence</div>
@@ -923,7 +923,7 @@ html, body {
       <strong>Key implication:</strong> The same prompt can give different results each time — and small changes in phrasing can produce dramatically different outputs.
     </div>
   </div>
-  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 2. Models use transformer-based architectures where every token attends to every other token (self-attention). They predict the statistically most likely continuation of your input — not the "correct" answer. This probabilistic nature is fundamental, not a bug. Ask students: "Why does this matter for how you write prompts?" Expected answer: because precision in language directly shapes the output.</div>
+  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 2. Models use transformer-based architectures where every token attends to every other token (self-attention). They predict the statistically most likely continuation of your input — not the "correct" answer. This probabilistic nature is fundamental, not a bug. Ask students: "Why does this matter for how you write prompts?" Expected answer: because precision in language directly shapes the output. Classroom prompt: Ask students: if you typed the same prompt into ChatGPT ten times right now, would you get the same answer each time? Take a show of hands. Then explain why the answer is no — and why that is a design feature, not a flaw. Temperature controls the degree of randomness, and some randomness is desirable for creative tasks. The problem is that most students don't know this is happening, so they accept the first output as if it were definitive.</div>
 </div>
 
 <!-- ════════════════════════════════════════════
@@ -936,22 +936,22 @@ html, body {
       <div class="col-card" style="border-top:4px solid var(--navy);">
         <div class="col-num" style="font-size:20px;color:var(--navy);">1</div>
         <div class="col-title">Context Window</div>
-        <div class="col-body">The model's working memory. What falls outside it is <strong>forgotten entirely</strong>. Long prompts mean earlier content competes for attention.</div>
+        <div class="col-body">The model's working memory. What falls outside it is <strong>forgotten entirely</strong>. Long prompts mean earlier content competes for attention.<br><br><span style="font-size:11px;color:var(--muted);display:block;margin-top:4px;">Claude's context window is 200,000 tokens (~150,000 words — a full novel). GPT-4o's is 128,000 tokens. In practice, you can paste an entire report and ask questions about it. But the model does not read it the way a human would — it processes the entire window simultaneously, and content in the middle receives systematically less attention than content at the start or end.</span></div>
       </div>
       <div class="col-card" style="border-top:4px solid var(--blue);">
         <div class="col-num" style="font-size:20px;color:var(--blue);">2</div>
         <div class="col-title">Primacy &amp; Recency Bias</div>
-        <div class="col-body">Models pay most attention to the <strong>beginning</strong> and <strong>end</strong> of a prompt. Critical instructions buried in the middle get lost.<br><span style="font-size:11px;color:var(--muted);margin-top:6px;display:block;">Liu et al., 2023 — "Lost in the Middle"</span></div>
+        <div class="col-body">Models pay most attention to the <strong>beginning</strong> and <strong>end</strong> of a prompt. Critical instructions buried in the middle get lost.<br><span style="font-size:11px;color:var(--muted);margin-top:6px;display:block;">Liu et al., 2023 — "Lost in the Middle"</span><br><span style="font-size:11px;color:var(--muted);display:block;margin-top:4px;"><strong>Practical rule:</strong> If you are writing a long prompt with a system role, background context, and a task instruction, always restate the most critical part of your task instruction immediately before the content you want analysed. Do not assume the model remembers what you asked at the top of a 2,000-word prompt by the time it reaches the bottom.</span></div>
       </div>
       <div class="col-card" style="border-top:4px solid var(--cyan);">
         <div class="col-num" style="font-size:20px;color:var(--cyan);">3</div>
         <div class="col-title">Temperature</div>
-        <div class="col-body">Controls randomness. <strong>Low temp</strong> = consistent, predictable. <strong>High temp</strong> = more creative variation. Same prompt ≠ same answer.</div>
+        <div class="col-body">Controls randomness. <strong>Low temp</strong> = consistent, predictable. <strong>High temp</strong> = more creative variation. Same prompt ≠ same answer.<br><br><span style="font-size:11px;color:var(--muted);display:block;margin-top:4px;"><strong>Temp 0</strong> = always picks the single most probable next token. Deterministic, but can feel flat. <strong>Temp 1</strong> (default) = samples probabilistically, producing natural variation. <strong>Temp 2</strong> = high randomness, useful for brainstorming but often incoherent. Consumer tools don't expose this directly — API users can set it precisely.</span></div>
       </div>
     </div>
     <div class="callout" style="margin-top:18px;"><strong>Practical takeaway:</strong> Put your most important instructions at the start <em>and</em> immediately before the task. Never bury them in the middle.</div>
   </div>
-  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 2. Liu et al. (2023) documented the "lost in the middle" phenomenon in a formal study — models reliably underperform on information placed in the centre of long context windows. Temperature is not usually directly controlled in ChatGPT/Claude.ai/Gemini consumer tools, but understanding it explains why regenerating a response is sometimes valid. All three major providers (Anthropic, OpenAI, Google) recommend keeping temperature at default for most tasks.</div>
+  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 2. Liu et al. (2023) documented the "lost in the middle" phenomenon in a formal study — models reliably underperform on information placed in the centre of long context windows. Temperature is not usually directly controlled in ChatGPT/Claude.ai/Gemini consumer tools, but understanding it explains why regenerating a response is sometimes valid. All three major providers (Anthropic, OpenAI, Google) recommend keeping temperature at default for most tasks. The context window concept is one of the most practically important things in this section. A common student error is pasting a 10-page document into a prompt and then asking a question at the very top, followed by the document. The model processes the question, then reads through the document, and by the time it finishes, the primacy of the question has faded. Always put your question or instruction after the document, not before it — or restate it at the end. This is directly supported by Liu et al. (2023) and by Google's own Gemini documentation, which explicitly recommends placing questions after documents.</div>
 </div>
 
 <!-- ════════════════════════════════════════════
@@ -966,11 +966,15 @@ html, body {
     <div style="font-size:clamp(15px,1.7vw,20px);color:rgba(255,255,255,0.75);max-width:700px;line-height:1.65;margin-top:8px;">
       The better you brief it — the clearer the context, the sharper the instruction — the better the prediction.
     </div>
-    <div style="margin-top:32px;padding:18px 28px;border:1.5px solid rgba(0,202,239,0.35);border-radius:10px;color:var(--cyan);font-size:clamp(14px,1.5vw,17px);">
+    <div style="font-size:clamp(13px,1.4vw,16px);color:rgba(255,255,255,0.85);max-width:760px;line-height:1.7;margin-top:12px;">
+      <strong style="color:white;">What this means in practice:</strong> hallucinations — confidently wrong answers — are not bugs. They are the predictable output of a system that generates the most statistically likely continuation of your input, without any mechanism for verifying whether that continuation is true. Every LLM hallucinates. The question is how often, and whether you catch it.<br><br>
+      This is why the next section matters. Understanding how these tools work at a technical level is inseparable from understanding the ethical and professional risks they create.
+    </div>
+    <div style="margin-top:24px;padding:18px 28px;border:1.5px solid rgba(0,202,239,0.35);border-radius:10px;color:var(--cyan);font-size:clamp(14px,1.5vw,17px);">
       Coming up: What goes wrong when that briefing fails — and what it costs society.
     </div>
   </div>
-  <div class="speaker-notes">This slide is a pivot point. The first four slides established how LLMs work technically. This reframes it as a communication challenge — which is the skill students need to develop. The "probability engine" framing also sets up why misinformation, hallucinations, and unpredictable outputs are structurally expected, not accidental. Bridge: "Before we get to prompting technique, we need to be honest about the context in which these tools operate."</div>
+  <div class="speaker-notes">This slide is a pivot point. The first four slides established how LLMs work technically. This reframes it as a communication challenge — which is the skill students need to develop. The "probability engine" framing also sets up why misinformation, hallucinations, and unpredictable outputs are structurally expected, not accidental. Bridge: "Before we get to prompting technique, we need to be honest about the context in which these tools operate." Hallucination is worth spending 60 seconds on here before moving into ethics. Students often think hallucination is a solved problem or a minor issue. It is not. The noyb GDPR case study in the security section (slide 13) is a direct consequence of hallucination — ChatGPT fabricated a criminal conviction for a real, named person, and OpenAI cannot correct it because the false data was never in the training data to begin with. That case is far more powerful if students already understand why hallucination is structurally unavoidable. Plant the seed here.</div>
 </div>
 
 <!-- ════════════════════════════════════════════
@@ -1335,31 +1339,31 @@ html, body {
       <div class="principle-card">
         <div class="p-num">1</div>
         <div class="p-title">Be Clear &amp; Specific</div>
-        <div class="p-desc">Ambiguity is the most common cause of disappointing output.</div>
+        <div class="p-desc">Vague prompts produce vague outputs — not because the model is lazy, but because ambiguity expands the probability space and the model fills it with the most generic response. Specify what you want, for whom, in what format, at what length, and in what tone. Every variable you leave unspecified is a decision you are delegating to the model.</div>
       </div>
       <div class="principle-card" style="border-top-color:var(--blue);">
         <div class="p-num" style="color:var(--blue);">2</div>
         <div class="p-title">Provide Context</div>
-        <div class="p-desc">Give the model what it needs to interpret your request correctly.</div>
+        <div class="p-desc">The model knows nothing about your situation unless you tell it. It cannot see your brief, your client, your previous work, or your constraints. Context is the information the model needs to interpret your request correctly — who you are, who the output is for, what has already happened, and what the stakes are. Without it, the model defaults to the most generic version of your task.</div>
       </div>
       <div class="principle-card" style="border-top-color:var(--cyan);">
         <div class="p-num" style="color:var(--cyan);">3</div>
         <div class="p-title">Specify the Format</div>
-        <div class="p-desc">State length, structure, and tone explicitly. Don't let the model choose.</div>
+        <div class="p-desc">If you do not specify a format, the model will choose one — and its default is usually not what you need. State length (word count or number of points), structure (table, bullet list, paragraphs), tone (formal, conversational, persuasive), and what to include or exclude. A response in the wrong format wastes more time than a response with the wrong content, because format errors are invisible until you try to use the output.</div>
       </div>
       <div class="principle-card" style="border-top-color:var(--purple);">
         <div class="p-num" style="color:var(--purple);">4</div>
         <div class="p-title">Use Affirmative Instructions</div>
-        <div class="p-desc">Tell it what to do, not what to avoid. Empirically more effective (Bsharat et al., 2023).</div>
+        <div class="p-desc">Tell the model what to do, not what to avoid. "Write in plain English for a non-specialist audience" outperforms "Don't use jargon" — empirically, not just intuitively. Bsharat et al. (2023) tested this across GPT-3.5, GPT-4, and LLaMA and found affirmative instructions consistently produced better outputs. Negative instructions create ambiguity; affirmative instructions reduce it.</div>
       </div>
       <div class="principle-card" style="border-top-color:var(--muted);">
         <div class="p-num" style="color:var(--muted);">5</div>
         <div class="p-title">Iterate Systematically</div>
-        <div class="p-desc">Change one variable at a time. Define success before you start.</div>
+        <div class="p-desc">No prompt is perfect on the first attempt. The key discipline is to change one variable at a time so you can attribute what improved. If you rewrite the entire prompt when something is wrong, you will not know what fixed it — and you will repeat the same mistakes in a new prompt. Define what a good output looks like before you start iterating, otherwise you cannot tell whether you are making progress.</div>
       </div>
     </div>
   </div>
-  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 3. All five principles are drawn from primary documentation by OpenAI, Google Gemini, and Anthropic. Principle 4 is grounded in empirical research: Bsharat et al. (2023), "Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4," found that affirmative instructions outperform negative ones consistently. Principle 5 is often overlooked — Anthropic guidance says to define success criteria before you begin iterating, otherwise you cannot tell whether changes are improvements.</div>
+  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 3. All five principles are drawn from primary documentation by OpenAI, Google Gemini, and Anthropic. Principle 4 is grounded in empirical research: Bsharat et al. (2023), "Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4," found that affirmative instructions outperform negative ones consistently. Principle 5 is often overlooked — Anthropic guidance says to define success criteria before you begin iterating, otherwise you cannot tell whether changes are improvements. These five principles are not arbitrary — they are each a response to a specific, predictable failure mode. Principle 1 addresses ambiguity. Principle 2 addresses missing context. Principle 3 addresses format mismatch. Principle 4 addresses instructional clarity. Principle 5 addresses random trial-and-error. When a student's prompt produces a bad output, you can almost always trace it to a failure on one of these five dimensions. Teaching students to diagnose before they rewrite is the most transferable skill in this section.</div>
 </div>
 
 <!-- ════════════════════════════════════════════
@@ -1388,9 +1392,21 @@ html, body {
         <div class="panel-body" style="font-size:clamp(12px,1.2vw,14px);color:#555;">Role ✓ · Audience ✓ · Format ✓ · Tone ✓ · Constraints ✓ · Exclusions ✓</div>
       </div>
     </div>
-    <div class="callout" style="margin-top:16px;"><strong>Key message:</strong> The difference in output quality is the difference between useful and generic. Every one of OpenAI's five format variables — context, outcome, length, format, style — is worth specifying.</div>
+    <div style="margin-top:14px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:14px 18px;">
+      <div style="font-weight:700;font-size:clamp(12px,1.2vw,14px);color:var(--navy);margin-bottom:8px;">Breaking it down:</div>
+      <ul style="list-style:none;padding:0;margin:0;font-size:clamp(11px,1.1vw,13px);color:#334155;line-height:1.7;">
+        <li style="padding:3px 0;border-bottom:1px solid #E2E8F0;"><span style="font-family:Consolas,monospace;color:#14532D;">"You are a senior email copywriter for B2C fintech products in NZ"</span> — <strong>Role:</strong> activates domain-specific tone and vocabulary, sets expertise level</li>
+        <li style="padding:3px 0;border-bottom:1px solid #E2E8F0;"><span style="font-family:Consolas,monospace;color:#14532D;">"200-word promotional email"</span> — <strong>Format:</strong> length and document type specified upfront</li>
+        <li style="padding:3px 0;border-bottom:1px solid #E2E8F0;"><span style="font-family:Consolas,monospace;color:#14532D;">"Audience: sole traders aged 28–45"</span> — <strong>Context:</strong> who this is for shapes word choice and assumed knowledge</li>
+        <li style="padding:3px 0;border-bottom:1px solid #E2E8F0;"><span style="font-family:Consolas,monospace;color:#14532D;">"Tone: conversational, reassuring"</span> — <strong>Format:</strong> overrides the model's default (which for a "promotional email" would likely be salesy)</li>
+        <li style="padding:3px 0;border-bottom:1px solid #E2E8F0;"><span style="font-family:Consolas,monospace;color:#14532D;">"Include one specific pain point"</span> — <strong>Constraint:</strong> required element, prevents generic output</li>
+        <li style="padding:3px 0;border-bottom:1px solid #E2E8F0;"><span style="font-family:Consolas,monospace;color:#14532D;">"End with a CTA to the app"</span> — <strong>Constraint:</strong> required element, shapes structure</li>
+        <li style="padding:3px 0;"><span style="font-family:Consolas,monospace;color:#14532D;">"No jargon. No 'revolutionary.'"</span> — <strong>Exclusion:</strong> affirmative constraints that close off the most common failure modes</li>
+      </ul>
+    </div>
+    <div class="callout" style="margin-top:12px;"><strong>Key message:</strong> The difference in output quality is the difference between useful and generic. Every one of OpenAI's five format variables — context, outcome, length, format, style — is worth specifying.</div>
   </div>
-  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 3.1 and 3.3. OpenAI's specific guidance is to "be specific about the context, outcome, length, format, and style." The strong prompt example here incorporates the Hnry case study context students will use in assessments — intentional. You can live-demonstrate this: type both prompts into a tool and show the output difference in real time.</div>
+  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 3.1 and 3.3. OpenAI's specific guidance is to "be specific about the context, outcome, length, format, and style." The strong prompt example here incorporates the Hnry case study context students will use in assessments — intentional. You can live-demonstrate this: type both prompts into a tool and show the output difference in real time. Walk through this annotation live rather than just showing the before and after. The point is not that the strong prompt is longer — it is that every additional element is doing specific work. Students often think good prompting means writing more. It means writing precisely. A 300-word prompt that is vague in the wrong places will underperform a 100-word prompt that is precise in the right ones. Ask students to identify which of the five principles each annotation maps to — it is a good comprehension check before Exercise 1.</div>
 </div>
 
 <!-- ════════════════════════════════════════════
@@ -1610,9 +1626,13 @@ new GST auto-filing feature.<br><br>
         <div class="c-desc">Who the output is ultimately for. Shapes vocabulary and assumed knowledge.</div>
       </div>
     </div>
-    <div class="key-quote" style="margin-top:18px;">"If removing your Context block would leave an adequate response, you haven't provided enough context."</div>
+    <div style="margin-top:16px;background:#F0F7FF;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:14px 18px;font-size:clamp(12px,1.2vw,14px);color:#1E3A5F;line-height:1.7;">
+      <strong>Why this order matters:</strong> Context comes first because it is the single element most likely to transform a generic response into a genuinely useful one. Without context, even a perfectly specified Role, Action, Format, and Target Audience will produce output that is technically correct but situationally wrong. Role comes second because it shapes the interpretive lens for everything that follows. Action is the task itself — precise, verb-led, unambiguous. Format specifies the deliverable. Target Audience closes the loop by reminding the model who ultimately needs to understand the output.<br><br>
+      <strong>The test for a good Context block:</strong> if you removed it entirely, would the model's response still be adequate? If yes, you have not provided enough context.
+    </div>
+    <div class="key-quote" style="margin-top:14px;">"If removing your Context block would leave an adequate response, you haven't provided enough context."</div>
   </div>
-  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 6. Context is placed first in CRAFT deliberately — it is the most important component and the most commonly under-specified. The test quoted on the slide is from the guide's "Why Context is the Most Important Element" section. For the Proposal Defence, examiners will assess whether students used AI critically and effectively — a well-constructed CRAFT prompt is direct evidence of deliberate, purposeful engagement. Ask: "What would you include in the Context block for a prompt about Hnry's competitive position in Australia?"</div>
+  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 6. Context is placed first in CRAFT deliberately — it is the most important component and the most commonly under-specified. The test quoted on the slide is from the guide's "Why Context is the Most Important Element" section. For the Proposal Defence, examiners will assess whether students used AI critically and effectively — a well-constructed CRAFT prompt is direct evidence of deliberate, purposeful engagement. Ask: "What would you include in the Context block for a prompt about Hnry's competitive position in Australia?" CRAFT is not magic — it is a checklist that forces you to make explicit decisions you would otherwise leave implicit. The reason most student prompts underperform is not that they are poorly written — it is that they are incomplete. CRAFT makes incompleteness visible. A student who works through all five components before running a prompt is doing something qualitatively different from a student who types a question. They are briefing a colleague, not searching Google. That distinction is worth making explicitly here before the exercise.</div>
 </div>
 
 <!-- ════════════════════════════════════════════
@@ -1621,8 +1641,8 @@ new GST auto-filing feature.<br><br>
 <div class="slide slide-content" id="s28">
   <div class="slide-inner">
     <h2 class="slide-title">CRAFT in Action: The Hnry Prompt</h2>
-    <div style="flex:1;overflow:auto;">
-      <div class="code-block" style="font-size:clamp(10px,1.05vw,12.5px);max-height:58vh;">
+    <div style="flex:1;overflow:auto;display:flex;gap:16px;">
+      <div class="code-block" style="font-size:clamp(10px,1.05vw,12.5px);max-height:58vh;flex:1.4;">
 <span class="tag">&lt;context&gt;</span><br>
 <span class="text">You are helping develop a digital marketing strategy for Hnry, a Wellington-based fintech</span><br>
 <span class="text">that automates tax and invoicing for sole traders in NZ, Australia, and the UK. Hnry operates</span><br>
@@ -1648,9 +1668,31 @@ new GST auto-filing feature.<br><br>
 <span class="text">Assume familiarity with digital marketing terminology but not with NZ-specific tax context.</span><br>
 <span class="tag">&lt;/target_audience&gt;</span>
       </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:8px;font-size:clamp(10px,1.0vw,12px);line-height:1.5;justify-content:flex-start;padding-top:2px;">
+        <div style="background:#EFF6FF;border-left:3px solid var(--navy);border-radius:0 6px 6px 0;padding:8px 10px;color:#1E3A5F;">
+          <strong style="display:block;color:var(--navy);margin-bottom:2px;">&lt;context&gt;</strong>
+          Sets the scene — client, market, problem, growth challenge. Four sentences that change everything.
+        </div>
+        <div style="background:#F0FDF4;border-left:3px solid var(--blue);border-radius:0 6px 6px 0;padding:8px 10px;color:#14532D;">
+          <strong style="display:block;color:var(--blue);margin-bottom:2px;">&lt;role&gt;</strong>
+          Specialist expertise + geography + product type. Three specifics that activate the right knowledge domain.
+        </div>
+        <div style="background:#FFF7ED;border-left:3px solid var(--cyan);border-radius:0 6px 6px 0;padding:8px 10px;color:#78350F;">
+          <strong style="display:block;color:var(--cyan);margin-bottom:2px;">&lt;action&gt;</strong>
+          One clear task. Verb-led. Scoped (90 days, two to three channels, specific KPIs). Nothing ambiguous.
+        </div>
+        <div style="background:#FAF5FF;border-left:3px solid var(--purple);border-radius:0 6px 6px 0;padding:8px 10px;color:#4C1D95;">
+          <strong style="display:block;color:var(--purple);margin-bottom:2px;">&lt;format&gt;</strong>
+          Four-part deliverable. Numbered. Each section named. The model cannot misunderstand what is expected.
+        </div>
+        <div style="background:#F8FAFC;border-left:3px solid var(--muted);border-radius:0 6px 6px 0;padding:8px 10px;color:#334155;">
+          <strong style="display:block;color:var(--muted);margin-bottom:2px;">&lt;target_audience&gt;</strong>
+          Shapes vocabulary and assumed knowledge. 'Familiar with digital marketing but not NZ tax context' is a precise, useful instruction.
+        </div>
+      </div>
     </div>
   </div>
-  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 6 "CRAFT in Action: Full Example." This prompt is reproduced directly from the guide. Note: XML tags are particularly effective with Claude (as stated in Anthropic's documentation and Section 7.2 of the guide) — they act as semantic containers that signal to the model what each section contains. The MKTG 304 application note in the guide states: "In your Proposal Defence, you will be asked to explain your AI usage, including the prompts you used. Examiners will assess whether you used AI critically and effectively." A CRAFT prompt like this is strong evidence of deliberate use.</div>
+  <div class="speaker-notes">Source: Prompt Engineering Guide, Section 6 "CRAFT in Action: Full Example." This prompt is reproduced directly from the guide. Note: XML tags are particularly effective with Claude (as stated in Anthropic's documentation and Section 7.2 of the guide) — they act as semantic containers that signal to the model what each section contains. The MKTG 304 application note in the guide states: "In your Proposal Defence, you will be asked to explain your AI usage, including the prompts you used. Examiners will assess whether you used AI critically and effectively." A CRAFT prompt like this is strong evidence of deliberate use. The reason XML tags work particularly well with Claude is that they act as semantic containers — they signal to the model not just what each section says, but what kind of information it contains. This reduces the chance the model confuses background context with an instruction, or treats a constraint as an example. You can run this prompt live during the session if you have internet access — the output quality difference between the CRAFT version and a zero-shot version of the same task ('write a 90-day marketing plan for Hnry') is dramatic enough to be its own teaching moment. If you do this live, ask students to evaluate the output against the Format specification: does it have all four sections? Are the KPIs specific? This is also a preview of how the Proposal Defence examiners will evaluate AI use — not whether AI was used, but whether it was used with deliberate structure and critical judgement.</div>
 </div>
 
 <!-- ════════════════════════════════════════════
