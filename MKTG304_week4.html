@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280">
+  <title>MKTG 304 — SEMrush Setup for Hnry</title>
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── DESIGN TOKENS ── */
+    :root {
+      --navy:       #003B71;   /* Waitematā blue */
+      --blue:       #0076BE;   /* Mahina blue    */
+      --light-blue: #E1F0FA;
+      --body-text:  #1E2D3D;
+    }
+
+    /* ── VIEWPORT ── */
+    html, body {
+      width: 100%; height: 100%;
+      background: #060E1A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── SCALE WRAPPER ── */
+    #scaler {
+      width: 1280px;
+      height: 720px;
+      transform-origin: center center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* ── SLIDE BASE ── */
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+
+    /* ── SHARED FOOTER ── */
+    .sf {
+      height: 44px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      padding: 0 16px 0 24px;
+      flex-shrink: 0;
+    }
+    .sf-left {
+      flex: 1;
+      font-size: 10.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
+    }
+    .sf-counter {
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.3);
+      margin-right: 10px;
+    }
+    .btn {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.82);
+      border: none;
+      border-radius: 4px;
+      padding: 6px 13px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s;
+      margin-left: 5px;
+      font-family: inherit;
+      letter-spacing: 0.02em;
+    }
+    .btn:hover:not(:disabled) { background: rgba(255,255,255,0.2); }
+    .btn:disabled { opacity: 0.25; cursor: not-allowed; }
+
+    /* ════════════════════════════════════════════
+       TITLE SLIDE — s1
+    ════════════════════════════════════════════ */
+    #s1 .sb {
+      flex: 1;
+      background: linear-gradient(148deg, #001528 0%, #002A56 45%, #004890 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 56px 80px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* decorative rings */
+    #s1 .sb::before,
+    #s1 .sb::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.04);
+    }
+    #s1 .sb::before { width: 640px; height: 640px; top: -240px; right: -200px; }
+    #s1 .sb::after  { width: 380px; height: 380px; bottom: -110px; left: -110px; }
+    /* inner ring */
+    #s1 .ring {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.025);
+      top: -140px; right: -140px;
+      pointer-events: none;
+    }
+
+    .t-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .t-title {
+      font-size: 60px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .t-title span { color: #4DBFFF; }
+    .t-sub {
+      font-size: 22px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 44px;
+      position: relative;
+    }
+    .t-hint {
+      padding: 10px 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.32);
+      position: relative;
+    }
+
+    /* ════════════════════════════════════════════
+       STEP SLIDES
+    ════════════════════════════════════════════ */
+    .slide-step .sb {
+      flex: 1;
+      background: #fff;
+      border-left: 7px solid var(--blue);
+      position: relative;
+      overflow: hidden;
+      padding: 36px 72px 28px 76px;
+      display: flex;
+      flex-direction: column;
+    }
+    /* large semi-transparent step number behind heading */
+    .sn {
+      position: absolute;
+      top: 20px;
+      left: 68px;
+      font-size: 96px;
+      font-weight: 900;
+      color: var(--navy);
+      opacity: 0.055;
+      line-height: 1;
+      letter-spacing: -2px;
+      user-select: none;
+      pointer-events: none;
+    }
+    .s-over {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 9px;
+      position: relative;
+      z-index: 1;
+    }
+    .s-head {
+      font-size: 29px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.22;
+      margin-bottom: 18px;
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+    }
+    .s-paras {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      position: relative;
+      z-index: 1;
+    }
+    .s-p {
+      font-size: 14.5px;
+      line-height: 1.67;
+      color: #1E2D3D;
+      max-width: 820px;
+    }
+    /* Why this matters callout */
+    .why {
+      background: var(--light-blue);
+      border-left: 4px solid var(--navy);
+      border-radius: 0 6px 6px 0;
+      padding: 11px 18px;
+      font-size: 13.5px;
+      font-style: italic;
+      color: #132340;
+      max-width: 820px;
+      margin-top: 14px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.55;
+    }
+    .why strong { font-style: normal; font-weight: 700; color: var(--navy); }
+
+    /* ════════════════════════════════════════════
+       WHAT'S NEXT SLIDE — s11
+    ════════════════════════════════════════════ */
+    #s11 .sb {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .next-top {
+      background: linear-gradient(135deg, #001528 0%, #003B71 100%);
+      padding: 36px 72px 32px;
+      flex-shrink: 0;
+    }
+    .next-over {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 12px;
+    }
+    .next-h {
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .next-p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+      max-width: 820px;
+    }
+    .next-p + .next-p { margin-top: 10px; }
+    .next-cols {
+      flex: 1;
+      display: flex;
+      background: #fff;
+    }
+    .nc {
+      flex: 1;
+      padding: 28px 52px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .nc:first-child { border-right: 1px solid #DDE6F0; }
+    .nc-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+    .nc-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .nc-body {
+      font-size: 14px;
+      line-height: 1.62;
+      color: #1E2D3D;
+    }
+  </style>
+</head>
+<body>
+<div id="scaler">
+
+<!-- ════════════════════════════════════════════
+     SLIDE 1 — TITLE
+════════════════════════════════════════════ -->
+<div class="slide active" id="s1">
+  <div class="sb">
+    <div class="ring"></div>
+    <div class="t-eyebrow">MKTG 304 Digital Marketing — Week 4 Tutorial</div>
+    <div class="t-title">Setting up SEMrush<br>for <span>Hnry</span></div>
+    <div class="t-sub">A step-by-step tutorial guide</div>
+    <div class="t-hint">Use ← → arrow keys or Prev / Next to navigate</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">1 / 11</span>
+    <button class="btn btn-prev" onclick="prev()" disabled>← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 2 — STEP 1
+════════════════════════════════════════════ -->
+<div class="slide slide-step" id="s2">
+  <div class="sb">
+    <div class="sn">1</div>
+    <div class="s-over">Step 1</div>
+    <div class="s-head">Create your Hnry project in SEMrush</div>
+    <div class="s-paras">
+      <p class="s-p">You already have a SEMrush account. The next step is to create a dedicated Project for Hnry so that all your analysis tools — Site Audit, Position Tracking, and more — live in one place.</p>
+      <p class="s-p">Click Projects in the left menu, then Create new project. Enter hnry.co.nz as the domain and name the project "Hnry NZ". This container will hold every tool you configure across the semester.</p>
+    </div>
+    <div class="why"><strong>Why this matters:</strong> A project keeps your Hnry analysis organised and separate from any other domains you explore.</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">2 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 3 — STEP 2
+════════════════════════════════════════════ -->
+<div class="slide slide-step" id="s3">
+  <div class="sb">
+    <div class="sn">2</div>
+    <div class="s-over">Step 2</div>
+    <div class="s-head">Get your baseline SEO footprint</div>
+    <div class="s-paras">
+      <p class="s-p">Before configuring any tools, open Domain Overview from the main SEMrush interface and enter hnry.co.nz. Set the country database to New Zealand. Review the organic traffic estimates, number of ranking keywords, top countries driving traffic, and main competitors listed.</p>
+      <p class="s-p">Click into Top Organic Keywords → View details to see the full keyword list and current rankings. Take a screenshot — this is your baseline before any deeper configuration.</p>
+    </div>
+    <div class="why"><strong>Why this matters:</strong> The Domain Overview gives you a snapshot of where Hnry currently stands in search before you start auditing.</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">3 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 4 — STEP 3
+════════════════════════════════════════════ -->
+<div class="slide slide-step" id="s4">
+  <div class="sb">
+    <div class="sn">3</div>
+    <div class="s-over">Step 3</div>
+    <div class="s-head">Set up your first Site Audit</div>
+    <div class="s-paras">
+      <p class="s-p">In your Hnry project dashboard, click Site Audit and create a new campaign for hnry.co.nz. In General Settings, set the crawl limit to 5,000 pages and choose Website as your crawl source. Set the crawl frequency to weekly.</p>
+      <p class="s-p">Launch the audit and wait for it to finish — this typically takes between 5 and 30 minutes depending on site size. Once complete, review the overall health score, errors, warnings, and thematic reports to identify technical and on-page issues.</p>
+    </div>
+    <div class="why"><strong>Why this matters:</strong> The Site Audit reveals technical problems that may be holding back Hnry's organic visibility — this is the foundation of any SEO analysis.</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">4 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 5 — STEP 4
+════════════════════════════════════════════ -->
+<div class="slide slide-step" id="s5">
+  <div class="sb">
+    <div class="sn">4</div>
+    <div class="s-over">Step 4</div>
+    <div class="s-head">Track where Hnry ranks for key terms</div>
+    <div class="s-paras">
+      <p class="s-p">In the project dashboard, click Position Tracking. Enter hnry.co.nz, then configure: search engine as Google, device as both desktop and mobile, and location as New Zealand. Add an initial keyword set by importing from the Domain Overview results you reviewed in Step 2.</p>
+      <p class="s-p">Add 2–3 competitor domains to benchmark against — Hnry's main NZ competitors are a useful starting point. Save and start tracking. Rankings will populate within 24 hours.</p>
+    </div>
+    <div class="why"><strong>Why this matters:</strong> Position Tracking turns a one-off keyword snapshot into an ongoing view of Hnry's visibility, so you can measure the impact of any strategy you recommend.</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">5 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 6 — STEP 5
+════════════════════════════════════════════ -->
+<div class="slide slide-step" id="s6">
+  <div class="sb">
+    <div class="sn">5</div>
+    <div class="s-over">Step 5</div>
+    <div class="s-head">Research and expand Hnry's keyword universe</div>
+    <div class="s-paras">
+      <p class="s-p">From the left menu, open Keyword Overview and enter seed keywords relevant to Hnry — for example "self-employed tax NZ", "freelancer tax New Zealand", and "sole trader accounting". Review volume, keyword difficulty, and CPC to identify which terms are worth targeting.</p>
+      <p class="s-p">Use the Keyword Magic Tool to expand these seeds into related terms, long-tail phrases, and questions. Focus on high-intent, realistic targets: moderate difficulty, meaningful volume, and directly relevant to Hnry's services. Export or save these lists — they will feed into your Position Tracking and content planning later in the course.</p>
+    </div>
+    <div class="why"><strong>Why this matters:</strong> A strong keyword list is the foundation of both the SEO audit (Assignment 2) and the campaign proposal (Assignment 3).</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">6 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 7 — STEP 6
+════════════════════════════════════════════ -->
+<div class="slide slide-step" id="s7">
+  <div class="sb">
+    <div class="sn">6</div>
+    <div class="s-over">Step 6</div>
+    <div class="s-head">Identify page-level improvements</div>
+    <div class="s-paras">
+      <p class="s-p">In your Hnry project, open On Page SEO Checker. Add Hnry's key landing pages (start with the homepage and top product or service pages) and map your target keywords to each page.</p>
+      <p class="s-p">Run the tool to receive suggestions on content improvements, semantic keyword usage, and on-page optimisation. Cross-reference these recommendations with the Site Audit issues for the same URLs — for example, a page flagged for thin content in the audit may also be under-optimised according to the On Page Checker.</p>
+    </div>
+    <div class="why"><strong>Why this matters:</strong> This is where diagnostics become specific, actionable recommendations — exactly what your audit report needs to demonstrate.</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">7 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 8 — STEP 7
+════════════════════════════════════════════ -->
+<div class="slide slide-step" id="s8">
+  <div class="sb">
+    <div class="sn">7</div>
+    <div class="s-over">Step 7</div>
+    <div class="s-head">Understand Hnry's link profile</div>
+    <div class="s-paras">
+      <p class="s-p">From the main menu, open Backlink Analytics and enter hnry.co.nz. Review total backlinks, referring domains, and authority metrics. Then open Backlink Audit within your project to identify any toxic or low-quality links.</p>
+      <p class="s-p">Look at the backlink profiles of Hnry's competitors to spot potential outreach or digital PR opportunities — sites linking to competitors but not to Hnry represent a gap worth noting in your analysis.</p>
+    </div>
+    <div class="why"><strong>Why this matters:</strong> Off-page authority affects how well Hnry ranks; understanding its backlink health helps you assess the full picture of its SEO performance.</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">8 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 9 — STEP 8
+════════════════════════════════════════════ -->
+<div class="slide slide-step" id="s9">
+  <div class="sb">
+    <div class="sn">8</div>
+    <div class="s-over">Step 8</div>
+    <div class="s-head">Benchmark Hnry against the competition</div>
+    <div class="s-paras">
+      <p class="s-p">In Domain Overview or Organic Research, enter 2–3 of Hnry's main NZ competitors and compare their organic traffic, keyword counts, and top-performing pages. Then use the Keyword Gap tool to identify keywords competitors rank for that Hnry does not — these are your opportunity areas.</p>
+      <p class="s-p">Add these competitors to your Position Tracking campaign so you can monitor relative movement over time. Document the gaps you find — they should directly inform the strategic recommendations in your audit report.</p>
+    </div>
+    <div class="why"><strong>Why this matters:</strong> Your analysis of Hnry only becomes meaningful when you understand how it stacks up against the alternatives its customers might choose instead.</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">9 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 10 — STEP 9
+════════════════════════════════════════════ -->
+<div class="slide slide-step" id="s10">
+  <div class="sb">
+    <div class="sn">9</div>
+    <div class="s-over">Step 9</div>
+    <div class="s-head">Turn SEMrush into an ongoing system</div>
+    <div class="s-paras">
+      <p class="s-p">In the project dashboard, configure email alerts or scheduled PDF reports for Site Audit health score, errors, and Position Tracking changes for key keywords. Set a review cadence: weekly for technical health and rankings, monthly for keyword and content strategy.</p>
+      <p class="s-p">Use the SEMrush SEO Dashboard as your at-a-glance view — it surfaces visibility trends, traffic estimates, keyword movement, and open issues in one place. This transforms SEMrush from a setup exercise into a live monitoring tool you can reference throughout the semester.</p>
+    </div>
+    <div class="why"><strong>Why this matters:</strong> Ongoing monitoring means you can track whether Hnry's SEO health is improving or deteriorating — and demonstrate that awareness in your proposal defence.</div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">10 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 11 — WHAT'S NEXT
+════════════════════════════════════════════ -->
+<div class="slide" id="s11">
+  <div class="sb">
+    <div class="next-top">
+      <div class="next-over">What's next</div>
+      <div class="next-h">You're set up. Now the real analysis begins.</div>
+      <p class="next-p">Your Hnry project is now configured with the core tools you'll use across the semester. This week's self-learning task is SEMrush Module 1 (SEO) — the Academy course directly supports the certifications due in Week 4.</p>
+      <p class="next-p">In Week 3 tutorial, you'll return to the Hnry project to run a full SEO analysis and keyword research session using the data you've now set up to collect.</p>
+    </div>
+    <div class="next-cols">
+      <div class="nc">
+        <div class="nc-label">This week</div>
+        <div class="nc-title">Complete SEMrush Module 1 (SEO) in Academy</div>
+        <div class="nc-body">Work through SEMrush Academy's SEO module. The course content maps directly to the certification exam, which counts toward your Week 4 requirements.</div>
+      </div>
+      <div class="nc">
+        <div class="nc-label">Week 3 tutorial</div>
+        <div class="nc-title">SEO analysis and keyword research for Hnry</div>
+        <div class="nc-body">Return to your Hnry project and run a guided analysis session using the Site Audit, Position Tracking, and Keyword tools you've configured today.</div>
+      </div>
+    </div>
+  </div>
+  <div class="sf">
+    <div class="sf-left">MKTG 304 | Digital Marketing &nbsp;·&nbsp; Waipapa Taumata Rau | University of Auckland</div>
+    <span class="sf-counter">11 / 11</span>
+    <button class="btn btn-prev" onclick="prev()">← Prev</button>
+    <button class="btn btn-next" onclick="next()" disabled>Next →</button>
+  </div>
+</div>
+
+</div><!-- #scaler -->
+
+<script>
+  /* ── SCALING ── */
+  const scaler = document.getElementById('scaler');
+  function scale() {
+    const s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    scaler.style.transform = `scale(${s})`;
+  }
+  scale();
+  window.addEventListener('resize', scale);
+
+  /* ── NAVIGATION ── */
+  const slides = [...document.querySelectorAll('.slide')];
+  let cur = 0;
+
+  function updateBtns() {
+    document.querySelectorAll('.btn-prev').forEach(b => b.disabled = (cur === 0));
+    document.querySelectorAll('.btn-next').forEach(b => b.disabled = (cur === slides.length - 1));
+  }
+
+  function go(n) {
+    slides[cur].classList.remove('active');
+    cur = Math.max(0, Math.min(n, slides.length - 1));
+    slides[cur].classList.add('active');
+    updateBtns();
+  }
+
+  function prev() { go(cur - 1); }
+  function next() { go(cur + 1); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prev();
+  });
+</script>
+</body>
+</html>
