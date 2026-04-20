@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MKTG 304 — Influencer Marketing &amp; Social Media Audit</title>
+<!-- Font: Arial used throughout to match UoA PPT Template 2025 -->
+<style>
+/* ===== UoA COLOUR PALETTE =====
+   dk2  / Dark Navy   : #0E2841
+   acc1 / Deep Indigo : #0C0C48
+   acc2 / Bright Blue : #1F2BD3
+   acc3 / Cyan        : #00CAEF
+   acc4 / Muted Purple: #8585A3
+   acc5 / Soft Purple : #8F95E9
+   lt2  / Light Gray  : #E8E8E8
+================================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:      #0E2841;
+  --indigo:    #0C0C48;
+  --blue:      #1F2BD3;
+  --cyan:      #00CAEF;
+  --purple:    #8F95E9;
+  --gray:      #E8E8E8;
+  --muted:     #8585A3;
+  --white:     #FFFFFF;
+  --amber:     #F59E0B;
+  --amber-bg:  #FFFBEB;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #1a1a2e;
+  overflow: hidden;
+}
+
+/* ── DECK WRAPPER ── */
+#deck {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── SLIDES ── */
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity .35s ease, transform .35s ease;
+  pointer-events: none;
+}
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.slide.exit-left {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+/* ── SLIDE TYPES ── */
+
+/* CONTENT slide — light gray */
+.slide-content {
+  background: #F5F7FA;
+}
+.slide-content .slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 64px 72px;
+}
+.slide-content .slide-title {
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 700;
+  color: var(--navy);
+  border-left: 5px solid var(--cyan);
+  padding-left: 16px;
+  margin-bottom: 28px;
+  line-height: 1.25;
+}
+.slide-content .slide-body {
+  flex: 1;
+  color: #1a1a2e;
+  font-size: clamp(14px, 1.5vw, 17px);
+  line-height: 1.65;
+}
+
+/* DARK slide — navy */
+.slide-dark {
+  background: linear-gradient(135deg, var(--indigo) 0%, var(--navy) 100%);
+}
+.slide-dark .slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 80px;
+}
+.slide-dark .slide-title {
+  font-size: clamp(26px, 3.2vw, 44px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.slide-dark .slide-subtitle {
+  font-size: clamp(14px, 1.6vw, 20px);
+  color: var(--cyan);
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.slide-dark .slide-body {
+  color: rgba(255,255,255,0.85);
+  font-size: clamp(13px, 1.4vw, 17px);
+  line-height: 1.7;
+}
+
+/* SECTION divider */
+.slide-section {
+  background: linear-gradient(135deg, var(--indigo) 0%, #0a1628 100%);
+}
+.slide-section .slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 80px;
+  position: relative;
+}
+.slide-section::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 8px;
+  background: linear-gradient(to bottom, var(--cyan), var(--blue));
+}
+.slide-section .section-label {
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 20px;
+}
+.slide-section .slide-title {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.slide-section .slide-body {
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(13px, 1.4vw, 17px);
+  line-height: 1.7;
+}
+
+/* EXERCISE slide */
+.slide-exercise {
+  background: var(--amber-bg);
+}
+.slide-exercise .slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 64px 72px;
+}
+.slide-exercise .exercise-badge {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+  align-self: flex-start;
+}
+.slide-exercise .slide-title {
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 700;
+  color: #78350F;
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+.slide-exercise .slide-body {
+  color: #451A03;
+  font-size: clamp(14px, 1.5vw, 17px);
+  line-height: 1.7;
+}
+.slide-exercise .debrief {
+  margin-top: 16px;
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: #92400E;
+  font-weight: 600;
+}
+
+/* ── SHARED COMPONENTS ── */
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px 22px;
+  border-top: 4px solid var(--cyan);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.stat-card .number {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1.1;
+}
+.stat-card .label {
+  font-size: clamp(12px, 1.2vw, 13px);
+  color: #444;
+  margin-top: 6px;
+  line-height: 1.45;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 12px;
+}
+.col-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+.col-card .col-title {
+  font-size: clamp(13px, 1.3vw, 15px);
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.col-card .col-body {
+  font-size: clamp(12px, 1.2vw, 13px);
+  color: #555;
+  line-height: 1.5;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 8px;
+  flex: 1;
+}
+
+.callout {
+  background: rgba(0,202,239,0.08);
+  border: 1.5px solid var(--cyan);
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-size: clamp(13px, 1.35vw, 15px);
+  color: var(--navy);
+  line-height: 1.6;
+  margin: 14px 0;
+}
+
+.warn-callout {
+  background: rgba(245,158,11,0.08);
+  border: 1.5px solid var(--amber);
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-size: clamp(13px, 1.35vw, 15px);
+  color: #78350F;
+  line-height: 1.6;
+  margin: 14px 0;
+}
+
+.rule-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+.rule-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: clamp(14px, 1.45vw, 16px);
+  line-height: 1.55;
+  color: #1a1a2e;
+}
+.rule-list li::before {
+  content: attr(data-n);
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* Checklist component */
+.check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: clamp(12px, 1.25vw, 14px);
+  line-height: 1.5;
+  color: #1a1a2e;
+  background: white;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.06);
+}
+.check-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--cyan);
+  border-radius: 3px;
+  margin-top: 1px;
+}
+.check-main { flex: 1; }
+.check-main strong { color: var(--navy); }
+.check-tag {
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(31,43,211,0.1);
+  color: var(--blue);
+  padding: 2px 8px;
+  border-radius: 10px;
+  align-self: flex-start;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* Four-item grid */
+.four-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+.report-card {
+  background: white;
+  border-radius: 10px;
+  padding: 18px 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  border-top: 4px solid var(--blue);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.report-card .r-num {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1;
+}
+.report-card .r-title {
+  font-size: clamp(12px, 1.25vw, 14px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.report-card .r-dim {
+  font-size: clamp(10px, 1vw, 12px);
+  color: var(--muted);
+  font-style: italic;
+}
+.report-card .r-body {
+  font-size: clamp(11px, 1.1vw, 13px);
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Framework cards */
+.framework-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+.fw-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  border-left: 5px solid var(--blue);
+}
+.fw-card .fw-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.fw-card .fw-title {
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.fw-card .fw-body {
+  font-size: clamp(12px, 1.2vw, 13px);
+  color: #555;
+  line-height: 1.55;
+}
+
+/* Area cards on opening slides */
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 24px 0 20px;
+}
+.area-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(0,202,239,0.3);
+  border-radius: 10px;
+  padding: 18px 16px;
+  text-align: center;
+}
+.area-card .a-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+.area-card .a-name {
+  font-size: clamp(13px, 1.35vw, 15px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+}
+.area-card .a-time {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 6px;
+}
+
+/* Connect strip on closing slide */
+.connect-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+.connect-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: clamp(13px, 1.4vw, 16px);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.55;
+}
+.connect-list li .c-dot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cyan);
+  margin-top: 5px;
+}
+
+/* Tier table */
+.tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: clamp(12px, 1.25vw, 14px);
+}
+.tier-table th {
+  background: var(--navy);
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+}
+.tier-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  line-height: 1.5;
+  vertical-align: top;
+}
+.tier-table tr:nth-child(even) td { background: #f0f4f8; }
+.tier-table tr:last-child td { border-bottom: none; }
+
+/* ── LEFT SIDEBAR ── */
+#sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 52px;
+  width: 280px;
+  background: rgba(8,8,40,0.97);
+  border-right: 1px solid rgba(0,202,239,0.2);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform .3s ease;
+  backdrop-filter: blur(10px);
+}
+#sidebar.open { transform: translateX(0); }
+
+#sidebar-header {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid rgba(0,202,239,0.15);
+  flex-shrink: 0;
+}
+#sidebar-header .course-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 4px;
+}
+#sidebar-header .course-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+}
+
+#slide-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,202,239,0.3) transparent;
+}
+#slide-list::-webkit-scrollbar { width: 4px; }
+#slide-list::-webkit-scrollbar-track { background: transparent; }
+#slide-list::-webkit-scrollbar-thumb { background: rgba(0,202,239,0.3); border-radius: 2px; }
+
+.nav-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 16px;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: background .15s, border-color .15s;
+  text-decoration: none;
+}
+.nav-item:hover { background: rgba(0,202,239,0.08); }
+.nav-item.active {
+  background: rgba(0,202,239,0.13);
+  border-left-color: var(--cyan);
+}
+.nav-item .n-num {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  min-width: 20px;
+  padding-top: 2px;
+  font-family: Consolas, monospace;
+}
+.nav-item.active .n-num { color: var(--cyan); }
+.nav-item .n-title {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.4;
+}
+.nav-item.active .n-title { color: white; font-weight: 600; }
+.nav-item .n-tag {
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-top: 1px;
+}
+.n-tag.section  { background: rgba(0,202,239,0.15); color: var(--cyan); }
+.n-tag.exercise { background: rgba(245,158,11,0.2);  color: #F59E0B; }
+
+.nav-group {
+  padding: 10px 16px 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+#sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 199;
+}
+#sidebar.open ~ #sidebar-overlay { display: block; }
+
+/* ── BOTTOM BAR ── */
+#nav-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 52px;
+  background: rgba(12,12,72,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+.nav-btn {
+  background: rgba(0,202,239,0.15);
+  border: 1.5px solid rgba(0,202,239,0.4);
+  color: var(--cyan);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.nav-btn:hover  { background: rgba(0,202,239,0.28); border-color: var(--cyan); }
+.nav-btn:disabled { opacity: .3; cursor: default; }
+#slide-counter {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+#notes-hint {
+  color: rgba(255,255,255,0.4);
+  font-size: 12px;
+}
+
+/* ── SPEAKER NOTES PANEL ── */
+#notes-panel {
+  position: fixed;
+  bottom: 52px;
+  left: 0; right: 0;
+  background: rgba(10,10,30,0.97);
+  border-top: 2px solid var(--cyan);
+  padding: 20px 36px 24px;
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+  line-height: 1.7;
+  max-height: 38vh;
+  overflow-y: auto;
+  z-index: 99;
+  transform: translateY(100%);
+  transition: transform .3s ease;
+}
+#notes-panel.visible { transform: translateY(0); }
+#notes-panel h4 {
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.speaker-notes { display: none; }
+
+/* ── REFERENCES PANEL ── */
+#refs-panel {
+  position: fixed;
+  bottom: 52px; left: 0; right: 0;
+  background: rgba(10,10,40,0.97);
+  border-top: 2px solid var(--blue);
+  padding: 16px 36px 20px;
+  max-height: 38vh;
+  overflow-y: auto;
+  z-index: 98;
+  transform: translateY(100%);
+  transition: transform .3s ease;
+  backdrop-filter: blur(8px);
+}
+#refs-panel.visible { transform: translateY(0); }
+#refs-panel h4 {
+  color: #80E3F7;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+#refs-panel ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+#refs-panel ul li {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+#refs-panel ul li::before { content:'›'; color:var(--blue); font-weight:700; flex-shrink:0; margin-top:1px; }
+#refs-panel a { color: #80E3F7; text-decoration:none; border-bottom:1px solid rgba(128,227,247,0.3); transition:color .15s,border-color .15s; }
+#refs-panel a:hover { color:white; border-bottom-color:white; }
+#refs-panel .no-refs { color:rgba(255,255,255,0.35); font-style:italic; font-size:13px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1000px) {
+  .four-col  { grid-template-columns: repeat(2, 1fr); }
+  .area-grid { grid-template-columns: repeat(2, 1fr); }
+  .framework-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 800px) {
+  .three-col, .two-col { grid-template-columns: 1fr; }
+  .four-col  { grid-template-columns: 1fr; }
+}
+
+/* UoA badge */
+.uoa-badge {
+  position: absolute;
+  top: 18px; right: 24px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.slide-content .uoa-badge { color: rgba(14,40,65,0.3); }
+
+</style>
+</head>
+<body>
+
+<div id="deck">
+
+<!-- ════════════════════════════════════════════
+     SLIDE 1 — TITLE
+════════════════════════════════════════════ -->
+<div class="slide slide-dark active" id="s1">
+  <div class="slide-inner" style="justify-content:center;gap:0;">
+    <div class="uoa-badge">MKTG 304 &middot; University of Auckland</div>
+    <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;">MKTG 304 | University of Auckland</div>
+    <h1 class="slide-title" style="font-size:clamp(28px,3.8vw,52px);max-width:820px;">Influencer Marketing &amp; Social Media Audit</h1>
+    <div class="slide-subtitle" style="margin-top:20px;">Week 6 &nbsp;&middot;&nbsp; Tutorial &nbsp;&middot;&nbsp; 90 minutes</div>
+    <div style="margin-top:36px;font-size:clamp(11px,1.1vw,13px);color:rgba(255,255,255,0.32);padding:10px 22px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;display:inline-block;">&#8592; &#8594; navigate &nbsp;&middot;&nbsp; S = speaker notes &nbsp;&middot;&nbsp; R = references &nbsp;&middot;&nbsp; N = slide list</div>
+  </div>
+  <div class="speaker-notes">Welcome to Week 6. The tutorial has two sections. The first covers influencer marketing as a standalone topic with six slides and should take around 20 minutes. The second is a guided working session using Rival IQ to complete the social media audit component of Assignment 2. Students should have their laptops open and Rival IQ accessible before starting. Check at the opening: has everyone set up their Rival IQ landscape with Hnry as the primary account? Students who have not done this will struggle to participate in the second section — do a quick show of hands before moving past the section break.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 2 — OPENING: WHAT WE'RE DOING TODAY
+════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s2">
+  <div class="slide-inner">
+    <div class="uoa-badge">MKTG 304 &middot; Week 6</div>
+    <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;">Opening</div>
+    <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,38px);">What we're doing today</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="area-card" style="text-align:left;">
+        <div class="a-num">Section 1</div>
+        <div class="a-name">Influencer marketing</div>
+        <div class="a-time">20 min</div>
+      </div>
+      <div class="area-card" style="text-align:left;">
+        <div class="a-num">Section 2</div>
+        <div class="a-name">Social media audit with Rival IQ</div>
+        <div class="a-time">60 min</div>
+      </div>
+    </div>
+    <div class="slide-body" style="display:flex;flex-direction:column;gap:10px;margin-top:0;">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,202,239,0.2);border-radius:8px;padding:14px 18px;">
+          <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.8);line-height:1.6;">Influencer marketing is built on borrowed credibility — understand the mechanism before applying the framework.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,202,239,0.2);border-radius:8px;padding:14px 18px;">
+          <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.8);line-height:1.6;">Rival IQ is the primary tool for the social media audit section of Assignment 2. Use this session to complete that work.</div>
+        </div>
+        <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.35);border-radius:8px;padding:14px 18px;">
+          <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.8);line-height:1.6;">AI tools accelerate the analysis. Your critical interpretation and synthesis are what get marked.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">Spend 3–4 minutes on this slide. The two sections are deliberately different in format: the first is conceptual and discussion-based; the second is a working session where students should be actively completing their audit. Make clear that the Rival IQ section is not a demonstration — it is structured working time. Students should be filling in their audit template as they go. Ask: "Who has Rival IQ open and Hnry configured as their primary account?" before proceeding.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 3 — SECTION 1 DIVIDER
+════════════════════════════════════════════ -->
+<div class="slide slide-section" id="s3">
+  <div class="slide-inner">
+    <div class="section-label">Section 1 &mdash; 20 minutes</div>
+    <h2 class="slide-title">Influencer marketing</h2>
+    <div class="slide-body" style="max-width:640px;">
+      What it is, how it works, and how to apply it.
+    </div>
+  </div>
+  <div class="speaker-notes">Transition into Section 1. This section is conceptual and discussion-based — it is shorter than the Rival IQ working session but sets up the analytical vocabulary students will need when they assess Hnry's social media presence and consider influencer strategy as part of their audit. Before advancing, confirm that students have their notes open. There are six slides in this section before the activity.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 4 — WHAT IS INFLUENCER MARKETING?
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s4">
+  <div class="slide-inner">
+    <div class="uoa-badge">Influencer marketing</div>
+    <h2 class="slide-title">What is influencer marketing?</h2>
+    <div class="slide-body">
+      <div class="callout" style="font-size:clamp(14px,1.5vw,16px);margin-bottom:20px;">
+        Influencer marketing is the practice of partnering with individuals who have an established audience and credibility in a niche to promote a brand, product, or service.
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--blue);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;">Unlike celebrity endorsement</div>
+          <div style="font-size:clamp(13px,1.35vw,15px);color:#333;line-height:1.6;">Built on perceived authenticity and audience trust, not fame. The influencer has a direct, ongoing relationship with their audience.</div>
+        </div>
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--navy);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px;">Unlike paid advertising</div>
+          <div style="font-size:clamp(13px,1.35vw,15px);color:#333;line-height:1.6;">The message is delivered through the creator's own voice and format — not a brand-controlled placement.</div>
+        </div>
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--cyan);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">The core mechanism</div>
+          <div style="font-size:clamp(13px,1.35vw,15px);color:#333;line-height:1.6;"><strong style="color:var(--navy);">Borrowed credibility.</strong> The audience trusts the influencer; that trust transfers to the brand.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">The borrowed credibility framing is the most important concept on this slide. Students often describe influencer marketing as "when someone with followers promotes a product," which is accurate but not analytical. The mechanism matters: why does it work? Because the influencer has established trust with their audience, and the act of endorsement transfers a portion of that trust to the brand. This is why authenticity is so commercially valuable — and why forced or over-scripted partnerships tend to underperform. Ask students: "What makes an endorsement feel authentic versus commercial?" before advancing.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 5 — THE INFLUENCER LANDSCAPE
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s5">
+  <div class="slide-inner">
+    <div class="uoa-badge">Influencer marketing</div>
+    <h2 class="slide-title">The influencer landscape</h2>
+    <div class="slide-body">
+      <table class="tier-table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Follower range</th>
+            <th>Key characteristics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nano</strong></td>
+            <td>1K–10K</td>
+            <td>High engagement, niche audiences, low cost, often willing to work for product</td>
+          </tr>
+          <tr>
+            <td><strong>Micro</strong></td>
+            <td>10K–100K</td>
+            <td>Strong engagement, more defined niche, cost-effective for targeted campaigns</td>
+          </tr>
+          <tr>
+            <td><strong>Macro</strong></td>
+            <td>100K–1M</td>
+            <td>Broader reach, more professional, higher cost, engagement begins to dilute</td>
+          </tr>
+          <tr>
+            <td><strong>Mega / Celebrity</strong></td>
+            <td>1M+</td>
+            <td>Mass reach, lowest engagement rates, highest cost and brand risk</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout" style="margin-top:18px;">
+        <strong>Key trade-off:</strong> As reach increases, authenticity and engagement rates typically decline.
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">The follower count benchmarks on this slide are widely used but not universal — they vary by platform and source. Frame them as useful working approximations rather than definitive thresholds. The key teaching point is the trade-off: as reach scales up, the parasocial intimacy that drives engagement tends to dilute. A mega-influencer with five million followers is closer to a TV commercial than a trusted peer recommendation. This is why nano and micro influencers often outperform on engagement rate metrics, even if they reach fewer people in absolute terms. Ask students: "For a brand like Hnry targeting sole traders and freelancers, what tier would you expect to perform best and why?" Hold the answer until Slide 9.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 6 — SELECTING THE RIGHT INFLUENCER
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s6">
+  <div class="slide-inner">
+    <div class="uoa-badge">Influencer marketing</div>
+    <h2 class="slide-title">Selecting the right influencer</h2>
+    <div class="slide-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:12px;">Three selection criteria</div>
+          <ul class="rule-list">
+            <li data-n="1"><div><strong>Audience fit</strong> — does their audience match your target segment?</div></li>
+            <li data-n="2"><div><strong>Content alignment</strong> — does their tone and content style suit the brand?</div></li>
+            <li data-n="3"><div><strong>Credibility signals</strong> — do they have a genuine relationship with their audience?</div></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:12px;">Four KPIs to evaluate before partnering</div>
+          <ul class="check-list">
+            <li>
+              <div class="check-icon"></div>
+              <div class="check-main"><strong>Engagement rate</strong> — likes + comments / followers, benchmarked by tier</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div class="check-main"><strong>Audience demographics</strong> — age, location, gender, via platform analytics or influencer tools</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div class="check-main"><strong>Follower quality</strong> — ratio of real vs bot or inactive accounts</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div class="check-main"><strong>Brand-safe content history</strong> — past partnerships, controversial posts, values alignment</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">The three criteria are a qualitative filter; the four KPIs are a quantitative filter. In practice, good influencer selection uses both. The qualitative criteria come first: if the audience fit is wrong, no engagement rate will compensate. The most common selection error students make in case studies is optimising for reach or follower count without checking audience fit. Emphasise: a micro-influencer with 15,000 followers who speaks directly to New Zealand sole traders is worth more to Hnry than a macro-influencer with 400,000 followers whose audience is broad lifestyle consumers. On follower quality: bot accounts are a significant problem in influencer marketing. Tools like HypeAuditor or Modash can surface the estimated ratio of real vs fake followers. Students should know this check exists even if they haven't run it themselves.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 7 — STRUCTURING THE COLLABORATION
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s7">
+  <div class="slide-inner">
+    <div class="uoa-badge">Influencer marketing</div>
+    <h2 class="slide-title">Structuring the collaboration</h2>
+    <div class="slide-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">Key elements of a brief</div>
+          <ul class="check-list">
+            <li><div class="check-icon"></div><div class="check-main">Campaign objectives</div></li>
+            <li><div class="check-icon"></div><div class="check-main">Key messages</div></li>
+            <li><div class="check-icon"></div><div class="check-main">Deliverables: post type, quantity, timeline</div></li>
+            <li><div class="check-icon"></div><div class="check-main">Usage rights</div></li>
+            <li><div class="check-icon"></div><div class="check-main">Exclusivity clauses</div></li>
+          </ul>
+          <div class="callout" style="margin-top:14px;">
+            Too much control kills authenticity. Too little risks off-brand content. The brief should direct without over-scripting.
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;margin-bottom:10px;">Disclosure obligations in New Zealand</div>
+          <div style="background:#FEF2F2;border:1.5px solid #DC2626;border-radius:8px;padding:16px 18px;">
+            <div style="font-size:clamp(13px,1.35vw,15px);color:#333;line-height:1.7;">
+              The Advertising Standards Authority (ASA) and Commerce Commission both require that paid or gifted partnerships are clearly disclosed. <strong>#ad</strong> or <strong>#sponsored</strong> is the standard. Non-disclosure can constitute misleading conduct under the Fair Trading Act.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">The brief structure is standard across most campaign types, but influencer briefs have a unique tension that other formats do not: the more you control the creative, the less it sounds like the influencer. Students often assume the brand should write the script — push back on this. The most effective influencer content sounds like the creator, not the brand. The disclosure point is non-negotiable and worth spending time on. In New Zealand, the Fair Trading Act applies to marketing communications, and the ASA has issued specific guidance on influencer disclosure. The standard is clear: if there is a commercial relationship — whether paid, gifted, or otherwise — it must be disclosed. Non-disclosure is not a grey area. Ask students: "Have you ever seen an influencer post that you suspected was sponsored but not labelled? What did that do to your perception of the brand?"</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 8 — MEASURING CAMPAIGN PERFORMANCE
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s8">
+  <div class="slide-inner">
+    <div class="uoa-badge">Influencer marketing</div>
+    <h2 class="slide-title">Measuring campaign performance</h2>
+    <div class="slide-body">
+      <div style="font-size:clamp(13px,1.35vw,15px);color:var(--navy);margin-bottom:12px;">Frame by objective first — KPIs follow from goals, not the other way around.</div>
+      <div class="three-col" style="margin-top:0;">
+        <div class="col-card" style="border-top:4px solid var(--navy);">
+          <div class="col-title">Awareness campaigns</div>
+          <div class="col-body">Reach &middot; Impressions &middot; Follower growth &middot; Share of voice &middot; Earned media value</div>
+        </div>
+        <div class="col-card" style="border-top:4px solid var(--blue);">
+          <div class="col-title">Engagement campaigns</div>
+          <div class="col-body">Likes &middot; Comments &middot; Saves &middot; Shares &middot; Engagement rate</div>
+        </div>
+        <div class="col-card" style="border-top:4px solid var(--cyan);">
+          <div class="col-title">Conversion campaigns</div>
+          <div class="col-body">Click-through rate &middot; Website traffic (UTM-tracked) &middot; Promo code redemptions &middot; Cost per acquisition</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:18px;">
+        <strong>Key principle:</strong> Evaluation KPIs must be set before the campaign launches, not after. You need a baseline to measure against.
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">The objective-first framing is the most important structural point on this slide. Students often arrive at measurement by listing every metric they can think of. The correct sequence is: define the objective first, then select the KPIs that measure progress toward that objective. An awareness campaign measured by conversion rate is a category error. A conversion campaign measured by impressions is equally misaligned. The UTM tracking point is practical and worth flagging: without UTM parameters on the link in the influencer's bio or post, website traffic from the campaign is invisible in Google Analytics. This is a common gap in influencer campaigns run by small or early-stage businesses. Earned media value (EMV) is a disputed metric — it has value as a rough proxy but should not be reported uncritically. If students use it in their audit work, they should be able to explain how it is calculated and what its limitations are.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 9 — ACTIVITY: APPLY THE FRAMEWORK TO HNRY
+════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s9">
+  <div class="slide-inner">
+    <div class="exercise-badge">Activity &mdash; Influencer marketing</div>
+    <h2 class="slide-title">Apply the framework to Hnry</h2>
+    <div class="slide-body">
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 18px;margin-bottom:16px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Prompt:</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">"You are the digital marketing manager for Hnry. Choose an influencer tier and identify two or three selection KPIs you would prioritise for a campaign targeting self-employed New Zealanders. Explain your reasoning."</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">What to consider</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">
+            <li>Hnry's target audience: self-employed New Zealanders, including sole traders and contractors</li>
+            <li>Does a nano or micro influencer in the freelancer or tradie space outperform broader macro reach?</li>
+            <li>What does authenticity mean to this specific audience?</li>
+            <li>Which KPIs would give you the most confidence before committing to a partnership?</li>
+          </ul>
+        </div>
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Bridge to Section 2</div>
+          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">Share your reasoning with the group before we move to the social media audit. The analytical framework you apply here — audience fit, engagement, credibility — carries directly into the Rival IQ session.</div>
+        </div>
+      </div>
+      <div class="debrief">Share your reasoning with the group before we move to Section 2.</div>
+    </div>
+  </div>
+  <div class="speaker-notes">Give students 4–5 minutes to work through this individually or in pairs, then take 3–4 responses from the group. The intended answer is that nano or micro influencers in the freelancer, contractor, or tradie space are likely to outperform macro influencers for Hnry, primarily because of audience fit and engagement rate. Hnry's value proposition is niche and trust-dependent — it works best when the audience already identifies with the problem Hnry solves. A tradie with 8,000 followers who talks about running their own business is a better fit than a lifestyle creator with 300,000 followers. For KPIs: engagement rate and audience demographics (specifically NZ-based, self-employed or contractor audience) should rank highest. Follower quality is also worth prioritising given the prevalence of bought followers in some niches. Use this debrief to bridge into Section 2: "Now that we have a framework for thinking about influencer selection and performance, let's apply that same analytical rigour to Hnry's broader social media presence using Rival IQ."</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 10 — SECTION 2 DIVIDER
+════════════════════════════════════════════ -->
+<div class="slide slide-section" id="s10">
+  <div class="slide-inner">
+    <div class="section-label">Section 2 &mdash; 60 minutes</div>
+    <h2 class="slide-title">Social media audit with Rival IQ</h2>
+    <div class="slide-body" style="max-width:640px;">
+      Competitive benchmarking, engagement analysis, and social listening.
+    </div>
+  </div>
+  <div class="speaker-notes">Transition into Section 2. Before advancing, confirm that all students have their Rival IQ landscape configured with Hnry as the primary account and MYOB, Xero, and Solo App as competitors. Students who have not yet created a free Rival IQ account should do so now — the free tier is sufficient for this audit. Note that Rival IQ uses publicly available data for its calculations, so the platform's numbers are benchmarks and estimates, not exact figures from inside each brand's account. Students should note this when writing up their methodology.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 11 — SETTING UP YOUR RIVAL IQ LANDSCAPE
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s11">
+  <div class="slide-inner">
+    <div class="uoa-badge">Social media audit</div>
+    <h2 class="slide-title">Setting up your Rival IQ landscape</h2>
+    <div class="slide-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">Your landscape for this audit</div>
+          <ul class="check-list" style="margin-bottom:14px;">
+            <li><div class="check-icon"></div><div class="check-main"><strong>Primary account:</strong> Hnry (hnry.co.nz)</div></li>
+            <li><div class="check-icon"></div><div class="check-main"><strong>Competitor:</strong> MYOB</div></li>
+            <li><div class="check-icon"></div><div class="check-main"><strong>Competitor:</strong> Xero</div></li>
+            <li><div class="check-icon"></div><div class="check-main"><strong>Competitor:</strong> Solo App</div></li>
+          </ul>
+          <div class="warn-callout" style="margin-top:0;">If your landscape is not yet configured, set it up now before proceeding. You will not be able to complete the comparative analysis without all four accounts.</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-top:14px;margin-bottom:8px;">Platforms covered</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="background:white;border:1px solid #e0e0e0;border-radius:6px;padding:6px 12px;font-size:clamp(12px,1.2vw,13px);color:#333;">Facebook</span>
+            <span style="background:white;border:1px solid #e0e0e0;border-radius:6px;padding:6px 12px;font-size:clamp(12px,1.2vw,13px);color:#333;">Instagram</span>
+            <span style="background:white;border:1px solid #e0e0e0;border-radius:6px;padding:6px 12px;font-size:clamp(12px,1.2vw,13px);color:#333;">Twitter / X</span>
+            <span style="background:white;border:1px solid #e0e0e0;border-radius:6px;padding:6px 12px;font-size:clamp(12px,1.2vw,13px);color:#333;">TikTok</span>
+            <span style="background:white;border:1px solid #e0e0e0;border-radius:6px;padding:6px 12px;font-size:clamp(12px,1.2vw,13px);color:#333;">LinkedIn</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">Four working areas this session</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="background:white;border-radius:8px;padding:12px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--cyan);">
+              <div style="font-weight:700;font-size:clamp(12px,1.2vw,14px);color:var(--navy);">1. Social media presence</div>
+              <div style="font-size:clamp(11px,1.1vw,13px);color:#555;margin-top:4px;">Frequency and consistency</div>
+            </div>
+            <div style="background:white;border-radius:8px;padding:12px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--blue);">
+              <div style="font-weight:700;font-size:clamp(12px,1.2vw,14px);color:var(--navy);">2. Engagement metrics</div>
+              <div style="font-size:clamp(11px,1.1vw,13px);color:#555;margin-top:4px;">Likes, shares, comments, interaction</div>
+            </div>
+            <div style="background:white;border-radius:8px;padding:12px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--navy);">
+              <div style="font-weight:700;font-size:clamp(12px,1.2vw,14px);color:var(--navy);">3. User-generated content</div>
+              <div style="font-size:clamp(11px,1.1vw,13px);color:#555;margin-top:4px;">Quality and relevance</div>
+            </div>
+            <div style="background:white;border-radius:8px;padding:12px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--purple);">
+              <div style="font-weight:700;font-size:clamp(12px,1.2vw,14px);color:var(--navy);">4. Social media strategy</div>
+              <div style="font-size:clamp(11px,1.1vw,13px);color:#555;margin-top:4px;">Effectiveness and reach</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">Before advancing, confirm that all students have their Rival IQ landscape configured with all four accounts. The most common setup issue is that students have only added Hnry and one competitor. Xero and MYOB are the most recognisable benchmarks; Solo App is a smaller, NZ-specific competitor that provides a useful niche comparison. Students who have not yet created a free Rival IQ account should do so now — the free tier is sufficient for this audit. Note that Rival IQ uses publicly available data for its calculations, so engagement rate is computed as total engagement divided by posts, divided by followers. This means the platform's numbers are benchmarks and estimates, not exact figures from inside each brand's account. Students should note this when writing up their methodology.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 12 — ASSESSING SOCIAL MEDIA PRESENCE
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s12">
+  <div class="slide-inner">
+    <div class="uoa-badge">Social media audit</div>
+    <h2 class="slide-title">Assessing social media presence</h2>
+    <div class="slide-body">
+      <div style="font-size:clamp(13px,1.3vw,14px);color:var(--muted);margin-bottom:14px;">Frequency, consistency, and volume of posting</div>
+      <div class="three-col" style="margin-top:0;">
+        <div class="col-card" style="border-top:4px solid var(--navy);">
+          <div class="col-title">Overview Dashboard</div>
+          <div class="col-body">Start here for a high-level view of posting activity. Look for automated insights on audience, activity (posts per week or month), and trends compared to competitors. Bar charts show Hnry's position relative to the landscape average.</div>
+        </div>
+        <div class="col-card" style="border-top:4px solid var(--blue);">
+          <div class="col-title">Leaderboard</div>
+          <div class="col-body">Ranks posting frequency across your competitive landscape. Use the Posts/Month line charts to identify whether Hnry is over- or under-posting relative to MYOB, Xero, and Solo App. This is the cadence calibration view.</div>
+        </div>
+        <div class="col-card" style="border-top:4px solid var(--cyan);">
+          <div class="col-title">Social Posts</div>
+          <div class="col-body">Drill into post-level data for timing patterns, frequency trends, and top and bottom performers. Use this to identify whether Hnry's posting schedule is consistent or irregular.</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:16px;">
+        <strong>What to record in your audit template:</strong> Average posts per week or month across platforms &middot; How Hnry's posting frequency compares to each competitor &middot; Whether the posting pattern is consistent or showing gaps
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">The Overview Dashboard is the right starting point for students who are new to Rival IQ. It surfaces automated insights that give a useful orientation before diving into the detail. The Leaderboard is where the competitive comparison becomes concrete: students can see at a glance whether Hnry is posting more or less than its competitors and whether that frequency correlates with higher or lower engagement. The key analytical question here is not "how often does Hnry post?" but "is Hnry's posting cadence appropriate given its audience and competitive context?" A brand posting twice a week might be under-investing relative to competitors, or it might be posting at a quality-over-quantity level that serves it well. The data surfaces the pattern; the student supplies the interpretation. Remind students: frequency data without context is not analysis. Connecting frequency to engagement outcomes is where the analytical value is.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 13 — EVALUATING ENGAGEMENT METRICS
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s13">
+  <div class="slide-inner">
+    <div class="uoa-badge">Social media audit</div>
+    <h2 class="slide-title">Evaluating engagement metrics</h2>
+    <div class="slide-body">
+      <div style="font-size:clamp(13px,1.3vw,14px);color:var(--muted);margin-bottom:14px;">Likes, shares, comments, and overall interaction rates</div>
+      <div class="three-col" style="margin-top:0;">
+        <div class="col-card" style="border-top:4px solid var(--navy);">
+          <div class="col-title">Overview Dashboard</div>
+          <div class="col-body">Breaks down engagement by section. Look at dynamic charts for engagement rate, likes, comments, shares, and reactions. These are normalised for fair cross-brand comparison.</div>
+        </div>
+        <div class="col-card" style="border-top:4px solid var(--blue);">
+          <div class="col-title">Leaderboard</div>
+          <div class="col-body">Ranks engagement metrics with competitor averages and time-series line charts. Compare Hnry's likes, shares, and comments relative to audience size against MYOB, Xero, and Solo App.</div>
+        </div>
+        <div class="col-card" style="border-top:4px solid var(--cyan);">
+          <div class="col-title">Social Posts</div>
+          <div class="col-body">Reveals per-post engagement breakdowns. Use post tags to categorise high-interaction content and identify what content types are driving Hnry's best-performing posts.</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:14px;">
+        <strong>Engagement rate formula:</strong> (Total Engagement / Posts) / Followers — the public data calculation Rival IQ uses for fair comparison across accounts of different sizes.
+      </div>
+      <div style="font-size:clamp(12px,1.25vw,14px);color:var(--navy);margin-top:12px;"><strong>What to record:</strong> Hnry's average engagement rate by platform &middot; How it benchmarks against each competitor &middot; Which post types drive the highest engagement for Hnry</div>
+    </div>
+  </div>
+  <div class="speaker-notes">Engagement rate is the most important normalising metric in social media analytics. Raw like counts are misleading because they scale with audience size. Engagement rate removes the size effect and enables genuine comparison between accounts. Students often misread high follower counts as a sign of strong performance — push them to look at rate, not volume. The common finding for mid-size accounting and financial services brands is that MYOB and Xero have large audiences but relatively low engagement rates, because their content tends toward product announcements and corporate messaging. Solo App, being smaller and more niche, may show a higher rate despite a smaller reach. If that pattern appears in the data, it is a useful teaching moment: size does not equal effectiveness. When reviewing per-post data, students should look for patterns in content type, not just the top performers in isolation. One viral post can skew averages significantly.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 14 — USER-GENERATED CONTENT AND SOCIAL LISTENING
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s14">
+  <div class="slide-inner">
+    <div class="uoa-badge">Social media audit</div>
+    <h2 class="slide-title">User-generated content and social listening</h2>
+    <div class="slide-body">
+      <div style="font-size:clamp(13px,1.3vw,14px);color:var(--muted);margin-bottom:14px;">Mentions, sentiment, and brand conversation</div>
+      <div class="framework-grid" style="margin-top:0;">
+        <div class="fw-card">
+          <div class="fw-num">Social Listening</div>
+          <div class="fw-title">Primary tool for UGC analysis</div>
+          <div class="fw-body">Monitor mentions, sentiment (via NLP analysis), conversation themes, and user posts across social and web sources including Reddit and Twitter / X. Use the query builder to filter for relevance. Look at emojis, brand praise, and brand criticism separately.</div>
+        </div>
+        <div class="fw-card" style="border-left-color:var(--cyan);">
+          <div class="fw-num">Post Tagging</div>
+          <div class="fw-title">Isolate UGC and influencer content</div>
+          <div class="fw-body">In Social Posts, use tags to flag UGC or influencer content. This allows you to isolate and measure content that originated outside the brand's own account.</div>
+        </div>
+        <div class="fw-card" style="border-left-color:var(--navy);">
+          <div class="fw-num">Discover Tool</div>
+          <div class="fw-title">Find user creators in Hnry's niche</div>
+          <div class="fw-body">Use to find user creators in Hnry's niche — self-employment, freelancing, and financial independence content creators in the New Zealand market.</div>
+        </div>
+        <div class="fw-card" style="border-left-color:var(--purple);">
+          <div class="fw-num">What to assess</div>
+          <div class="fw-title">Three areas of focus</div>
+          <div class="fw-body">Volume and sentiment of brand mentions &middot; Whether UGC content is high quality and relevant to Hnry's audience &middot; Whether Hnry is actively engaging with user content or ignoring it</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:14px;">
+        UGC analysis depends on whether Hnry has a meaningful volume of organic brand mentions. If mention volume is low, this is itself a finding about brand conversation and community health.
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">Social listening is the most often underused feature in Rival IQ for student audits. Many students focus entirely on the brand's own posts and ignore what users are saying about the brand organically. This section asks students to reverse that perspective: what is the brand's community saying, and is the brand listening? For Hnry, the relevant conversation is likely concentrated among sole traders, contractors, and small business operators. The New Zealand freelancer community is active on LinkedIn and, to a lesser extent, Twitter / X. If Social Listening surfaces negative sentiment around fees, tax complexity, or customer service, that is strategically important information for the audit. Conversely, positive UGC from satisfied customers is a potential influencer or ambassador pipeline — connecting this to the influencer marketing framework from Section 1 is a useful synthesis move. Low mention volume is a legitimate finding: it may indicate that Hnry's audience is not a social-sharing community, or that the brand has not yet built enough awareness to generate organic conversation.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 15 — COMPETITOR COMPARISON
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s15">
+  <div class="slide-inner">
+    <div class="uoa-badge">Social media audit</div>
+    <h2 class="slide-title">Competitor comparison</h2>
+    <div class="slide-body">
+      <div style="font-size:clamp(13px,1.3vw,14px);color:var(--muted);margin-bottom:14px;">MYOB, Xero, and Solo App — a side-by-side view</div>
+      <div class="three-col" style="margin-top:0;">
+        <div class="col-card" style="border-top:4px solid var(--navy);">
+          <div class="col-title">Presence comparison</div>
+          <div class="col-body" style="font-size:clamp(11px,1.1vw,12px);color:var(--muted);margin-bottom:4px;">Overview / Leaderboard</div>
+          <div class="col-body">Side-by-side view of posts per week, audience size, and growth trends. Look for patterns: is high posting frequency correlated with higher engagement, or does quality outperform quantity?</div>
+        </div>
+        <div class="col-card" style="border-top:4px solid var(--blue);">
+          <div class="col-title">Engagement comparison</div>
+          <div class="col-body" style="font-size:clamp(11px,1.1vw,12px);color:var(--muted);margin-bottom:4px;">Leaderboard</div>
+          <div class="col-body">Ranks engagement rates, likes, shares, and comments. Identify where Hnry leads, matches, or lags behind each competitor. A competitor posting at high frequency but achieving low engagement signals quality-over-quantity as a strategic implication.</div>
+        </div>
+        <div class="col-card" style="border-top:4px solid var(--cyan);">
+          <div class="col-title">Content strategy comparison</div>
+          <div class="col-body" style="font-size:clamp(11px,1.1vw,12px);color:var(--muted);margin-bottom:4px;">Social Posts</div>
+          <div class="col-body">Review the top posts for each competitor. What content formats are driving their best engagement? Identify formats Hnry could adopt and formats Hnry should avoid based on competitor performance data.</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:16px;">
+        <strong>What to record:</strong> One key strategic observation per competitor &middot; One content format a competitor uses effectively that Hnry does not &middot; One area where Hnry has a measurable advantage
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">The competitor comparison is the most strategically valuable component of the social media audit. The audit template requires students to go beyond description ("MYOB posts more than Hnry") and offer interpretation ("MYOB's higher posting frequency does not produce proportionally higher engagement, suggesting that content quality or audience relevance is the constraint, not volume"). Push students to make this interpretive move. The three competitor structure is useful because MYOB and Xero represent the established incumbents, while Solo App represents a newer, digitally native challenger with a potentially more engaged niche audience. If Solo App's engagement rate outperforms both incumbents, that is a signal about the strategic value of niche focus and authentic content. Students who are writing up their Assignment 2 audit should use this slide as the backbone for their competitor analysis section, adding specific data points from their Rival IQ landscape.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 16 — ACTIVITY: RUNNING THE RIVAL IQ ANALYSIS
+════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s16">
+  <div class="slide-inner">
+    <div class="exercise-badge">Activity &mdash; Social media audit</div>
+    <h2 class="slide-title">Running the Rival IQ analysis</h2>
+    <div class="slide-body">
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 18px;margin-bottom:16px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Your task:</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">Work through the four analysis areas in sequence using Rival IQ. For each area, record your findings directly in your audit template. Use your preferred LLM alongside Rival IQ to help interpret the data — but apply your own critical judgement before accepting any AI-generated interpretation.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">The four areas</div>
+          <ol style="padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">
+            <li>Social media presence — frequency and consistency across platforms</li>
+            <li>Engagement metrics — rates and patterns against competitors</li>
+            <li>UGC and social listening — mention volume, sentiment, and community health</li>
+            <li>Social media strategy — what is Hnry doing well, and where are the gaps?</li>
+          </ol>
+        </div>
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Critical review</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">
+            <li>Are the AI findings specific to Hnry's context, or generic social media observations?</li>
+            <li>Does the LLM identify the competitor most similar to Hnry's strategic position?</li>
+            <li>Where does the output require your own judgement to make it useful?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="debrief">Build a prompt that provides context about Hnry, the competitor landscape, and the specific Rival IQ data. Ask for strategic interpretation and a summary table of findings by area. Share your prompt in the debrief — compare outputs.</div>
+    </div>
+  </div>
+  <div class="speaker-notes">Give students 35–40 minutes for this activity. Circulate actively — the most common failure mode is students recording data from Rival IQ without interpreting what it means for Hnry's strategy. A finding like "Hnry posts 3.2 times per week on Instagram" is not useful in an audit without the comparative context (is that above or below the landscape average?) and the strategic implication (should Hnry post more, less, or differently?). For students who are struggling with interpretation, a useful prompt is: "What would you tell Hnry's marketing manager to do differently based on this data?" That forces a practical, action-oriented framing that tends to surface better analysis than purely descriptive approaches. The LLM prompt guidance in the debrief is intentionally minimal — students should construct the prompt themselves rather than following a template. This is a prompt engineering exercise as much as a social media audit exercise. In the debrief, ask two or three students to share their prompts and compare the quality of the outputs they received.</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 17 — CLOSE
+════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s17">
+  <div class="slide-inner">
+    <div class="uoa-badge">MKTG 304 &middot; Week 6</div>
+    <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;">Close</div>
+    <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,38px);">Wrapping up Week 6</h2>
+    <ul class="connect-list">
+      <li><span class="c-dot"></span><span>Influencer marketing works through borrowed credibility — the mechanism explains why authenticity and audience fit matter more than reach alone.</span></li>
+      <li><span class="c-dot"></span><span>Tier selection and KPI setting must be driven by campaign objective, not follower count.</span></li>
+      <li><span class="c-dot"></span><span>Rival IQ makes the social media audit comparative — always interpret Hnry's data against the competitive landscape, not in isolation.</span></li>
+      <li><span class="c-dot"></span><span>AI accelerates the analysis. The interpretation and synthesis are yours.</span></li>
+    </ul>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;">
+      <div style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.35);border-radius:8px;padding:14px 18px;">
+        <div style="font-size:11px;font-weight:700;color:var(--amber);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">Before next tutorial</div>
+        <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">Complete all five sections of the social media audit using Rival IQ. Bring a working draft of the full Assignment 2 audit to the next tutorial. If you have unresolved analytical questions from the Rival IQ session, note them specifically so we can address them.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,202,239,0.25);border-radius:8px;padding:14px 18px;">
+        <div style="font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">Connecting the two sections</div>
+        <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">A brand's organic social presence is the context in which any influencer partnership operates. The strongest audit reports draw connections across sections rather than treating each area in isolation.</div>
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">Close by connecting the two sections explicitly. The influencer marketing framework from Section 1 and the social media audit from Section 2 are not unrelated — a brand's organic social media presence is the context in which any influencer partnership operates. If Hnry's own social content is weak, an influencer campaign may drive traffic to a platform that fails to reinforce the message. Conversely, a brand with strong social content provides better context and credibility for influencer endorsements. The strongest audit reports will make connections like this across sections rather than treating each analysis area in isolation. Confirm the Assignment 2 due date from the course outline and ask: "What is one specific finding from today's Rival IQ session that you want to include in your audit?" Take a few responses to surface common patterns.</div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- ── LEFT SIDEBAR ── -->
+<nav id="sidebar">
+  <div id="sidebar-header">
+    <div class="course-label">MKTG 304 &middot; University of Auckland</div>
+    <div class="course-title">Influencer Marketing &amp; Social Media Audit</div>
+  </div>
+  <div id="slide-list">
+    <div class="nav-group">Opening</div>
+    <div class="nav-item active" onclick="goTo(1);closeSidebar()"><span class="n-num">01</span><span class="n-title">Title</span></div>
+    <div class="nav-item" onclick="goTo(2);closeSidebar()"><span class="n-num">02</span><span class="n-title">What we're doing today</span></div>
+
+    <div class="nav-group">Section 1 &mdash; Influencer marketing</div>
+    <div class="nav-item" onclick="goTo(3);closeSidebar()"><span class="n-num">03</span><span class="n-title">Influencer marketing</span><span class="n-tag section">Section</span></div>
+    <div class="nav-item" onclick="goTo(4);closeSidebar()"><span class="n-num">04</span><span class="n-title">What is influencer marketing?</span></div>
+    <div class="nav-item" onclick="goTo(5);closeSidebar()"><span class="n-num">05</span><span class="n-title">The influencer landscape</span></div>
+    <div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">Selecting the right influencer</span></div>
+    <div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">Structuring the collaboration</span></div>
+    <div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">Measuring campaign performance</span></div>
+    <div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">Apply the framework to Hnry</span><span class="n-tag exercise">Activity</span></div>
+
+    <div class="nav-group">Section 2 &mdash; Social media audit</div>
+    <div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Social media audit with Rival IQ</span><span class="n-tag section">Section</span></div>
+    <div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">Setting up your Rival IQ landscape</span></div>
+    <div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">Assessing social media presence</span></div>
+    <div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Evaluating engagement metrics</span></div>
+    <div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">User-generated content and social listening</span></div>
+    <div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">Competitor comparison</span></div>
+    <div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">Running the Rival IQ analysis</span><span class="n-tag exercise">Activity</span></div>
+
+    <div class="nav-group">Close</div>
+    <div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">Wrapping up Week 6</span></div>
+  </div>
+</nav>
+<div id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- ── NAV BAR ── -->
+<div id="nav-bar">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <button class="nav-btn" id="btn-menu" onclick="toggleSidebar()" title="Slide navigator (N)" style="padding:8px 14px;font-size:16px;line-height:1;">&#9776;</button>
+    <button class="nav-btn" id="btn-prev" onclick="navigate(-1)">&#8592; Prev</button>
+  </div>
+  <span id="slide-counter">1 / 17</span>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <span id="notes-hint" style="font-size:11px;">S = notes &nbsp;&middot;&nbsp; R = refs &nbsp;&middot;&nbsp; N = nav</span>
+    <button class="nav-btn" id="btn-refs" onclick="toggleRefs()" title="References (R)" style="padding:8px 14px;">&#128218; Refs</button>
+    <button class="nav-btn" id="btn-next" onclick="navigate(1)">Next &#8594;</button>
+  </div>
+</div>
+
+<!-- ── REFERENCES PANEL ── -->
+<div id="refs-panel">
+  <h4>References &amp; Sources</h4>
+  <ul id="refs-content"></ul>
+</div>
+
+<!-- ── SPEAKER NOTES PANEL ── -->
+<div id="notes-panel">
+  <h4>Speaker Notes</h4>
+  <div id="notes-content"></div>
+</div>
+
+<script>
+// ── SOURCES DATA (keyed by slide number) ──
+const SOURCES = {
+  1:  [],
+  2:  [],
+  3:  [],
+  4:  [],
+  5:  [],
+  6:  [],
+  7:  [
+    { label: 'Advertising Standards Authority New Zealand — Influencer Marketing Code', url: 'https://www.asa.co.nz' },
+    { label: 'Commerce Commission New Zealand — Fair Trading Act 1986', url: 'https://www.comcom.govt.nz/fair-trading/' },
+  ],
+  8:  [],
+  9:  [],
+  10: [],
+  11: [
+    { label: 'Rival IQ — Social media analytics platform', url: 'https://www.rivaliq.com' },
+  ],
+  12: [
+    { label: 'Rival IQ — Social media analytics platform', url: 'https://www.rivaliq.com' },
+  ],
+  13: [
+    { label: 'Rival IQ — Social media analytics platform', url: 'https://www.rivaliq.com' },
+  ],
+  14: [
+    { label: 'Rival IQ — Social media analytics platform', url: 'https://www.rivaliq.com' },
+  ],
+  15: [
+    { label: 'Rival IQ — Social media analytics platform', url: 'https://www.rivaliq.com' },
+  ],
+  16: [],
+  17: [],
+};
+
+// ── STATE ──
+const TOTAL = 17;
+let current    = 1;
+let notesOpen  = false;
+let sidebarOpen = false;
+let refsOpen   = false;
+
+// ── HELPERS ──
+function getSlide(n)   { return document.getElementById('s' + n); }
+function getCounter()  { return document.getElementById('slide-counter'); }
+function getNotes(n) {
+  const s = getSlide(n);
+  if (!s) return '';
+  const el = s.querySelector('.speaker-notes');
+  return el ? el.textContent.trim() : '(No notes for this slide.)';
+}
+
+// ── NAVIGATION ──
+function navigate(dir) {
+  const next = current + dir;
+  if (next < 1 || next > TOTAL) return;
+
+  const cur = getSlide(current);
+  const nxt = getSlide(next);
+
+  nxt.style.transition = 'none';
+  nxt.style.transform  = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
+  nxt.style.opacity    = '0';
+
+  cur.classList.remove('active');
+  cur.style.transition = 'opacity .32s ease, transform .32s ease';
+  cur.style.transform  = dir > 0 ? 'translateX(-60px)' : 'translateX(60px)';
+  cur.style.opacity    = '0';
+
+  current = next;
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      nxt.style.transition = 'opacity .32s ease, transform .32s ease';
+      nxt.style.transform  = 'translateX(0)';
+      nxt.style.opacity    = '1';
+      nxt.classList.add('active');
+      updateUI();
+    });
+  });
+
+  setTimeout(() => {
+    cur.style.transition = '';
+    cur.style.transform  = '';
+    cur.style.opacity    = '';
+    nxt.style.transition = '';
+    nxt.style.transform  = '';
+    nxt.style.opacity    = '';
+  }, 400);
+}
+
+function goTo(n) {
+  if (n === current || n < 1 || n > TOTAL) return;
+  const cur = getSlide(current);
+  const nxt = getSlide(n);
+  cur.classList.remove('active');
+  current = n;
+  nxt.classList.add('active');
+  updateUI();
+}
+
+function updateUI() {
+  getCounter().textContent = current + ' / ' + TOTAL;
+  document.getElementById('btn-prev').disabled = current === 1;
+  document.getElementById('btn-next').disabled = current === TOTAL;
+  if (notesOpen) {
+    document.getElementById('notes-content').textContent = getNotes(current);
+  }
+  if (refsOpen) {
+    renderRefs(current);
+  }
+  const items = document.querySelectorAll('.nav-item');
+  items.forEach((el, i) => {
+    el.classList.toggle('active', i === current - 1);
+  });
+  const activeItem = document.querySelector('.nav-item.active');
+  if (activeItem) {
+    activeItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+}
+
+// ── REFERENCES ──
+function renderRefs(n) {
+  const list = document.getElementById('refs-content');
+  const sources = SOURCES[n] || [];
+  if (sources.length === 0) {
+    list.innerHTML = '<li class="no-refs" style="list-style:none;">No specific sources for this slide.</li>';
+    return;
+  }
+  list.innerHTML = sources.map(s => {
+    const link = s.url
+      ? `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`
+      : `<span style="color:rgba(255,255,255,0.65);">${s.label}</span>`;
+    return `<li>${link}</li>`;
+  }).join('');
+}
+function toggleRefs() {
+  refsOpen = !refsOpen;
+  if (refsOpen && notesOpen) { notesOpen = false; document.getElementById('notes-panel').classList.remove('visible'); }
+  document.getElementById('refs-panel').classList.toggle('visible', refsOpen);
+  if (refsOpen) renderRefs(current);
+}
+
+// ── SIDEBAR ──
+function toggleSidebar() {
+  sidebarOpen = !sidebarOpen;
+  document.getElementById('sidebar').classList.toggle('open', sidebarOpen);
+  document.getElementById('sidebar-overlay').style.display = sidebarOpen ? 'block' : 'none';
+}
+function closeSidebar() {
+  sidebarOpen = false;
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').style.display = 'none';
+}
+
+// ── SPEAKER NOTES ──
+function toggleNotes() {
+  notesOpen = !notesOpen;
+  if (notesOpen && refsOpen) { refsOpen = false; document.getElementById('refs-panel').classList.remove('visible'); }
+  const panel = document.getElementById('notes-panel');
+  panel.classList.toggle('visible', notesOpen);
+  if (notesOpen) {
+    document.getElementById('notes-content').textContent = getNotes(current);
+  }
+}
+
+// ── KEYBOARD ──
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); navigate(1); }
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    { e.preventDefault(); navigate(-1); }
+  if (e.key === 's' || e.key === 'S') toggleNotes();
+  if (e.key === 'r' || e.key === 'R') toggleRefs();
+  if (e.key === 'n' || e.key === 'N') toggleSidebar();
+});
+
+// ── INIT ──
+updateUI();
+</script>
+</body>
+</html>
