@@ -323,15 +323,33 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
     <div class="exercise-badge">Activity 1 · Claude.ai or ChatGPT · 25 minutes</div>
     <h2 class="slide-title">Build your KPI calculator</h2>
     <div class="slide-body">
+      <p style="margin-bottom:12px;">Your calculator needs to take <strong>four inputs</strong>, not two. Each one changes the output in a meaningful way.</p>
+      <div class="three-col" style="margin-bottom:14px;">
+        <div class="col-card">
+          <div class="col-title">Tactic</div>
+          <div class="col-body">e.g. Meta Ads, Google Search, SEO, email marketing, influencer marketing.</div>
+        </div>
+        <div class="col-card">
+          <div class="col-title">Monthly budget (NZD)</div>
+          <div class="col-body">The spend allocated to this tactic for the month.</div>
+        </div>
+        <div class="col-card" style="border-left:4px solid var(--cyan);">
+          <div class="col-title" style="color:var(--blue);">Industry vertical</div>
+          <div class="col-body">e.g. trades, e-commerce, professional services. Industry directly affects CPM ranges, CTRs, and conversion rates — generic benchmarks without it are much less useful.</div>
+        </div>
+      </div>
+      <div class="col-card" style="margin-bottom:14px;border-left:4px solid var(--cyan);">
+        <div class="col-title" style="color:var(--blue);">Campaign goal</div>
+        <div class="col-body" style="font-size:clamp(12px,1.2vw,14px);">What is this tactic trying to achieve? The goal determines which KPIs matter. A Meta Ads campaign supporting <strong>brand awareness</strong> is measured on reach, impressions, and frequency. The same budget supporting <strong>lead generation</strong> is measured on CPL, form completions, and conversion rate. The calculator should surface different KPIs depending on the goal selected.</div>
+      </div>
       <ul class="step-list">
-        <li data-n="1"><div><strong>Write your prompt (8 min):</strong> Use the CRAFT meta prompt to construct your full prompt. Do not open the build tool yet. Write your prompt in a notes document first. Make sure your Format instruction specifies the three output sections clearly.</div></li>
-        <li data-n="2"><div><strong>Build and review (12 min):</strong> Paste your prompt into Claude.ai or ChatGPT and review the artefact or canvas output. Test at least two different tactics and two different budget levels. Note where outputs feel strong and where they feel uncertain or generic.</div></li>
-        <li data-n="3"><div><strong>Reflect (5 min):</strong> Whole-group discussion. What worked? Where did Format make the biggest difference? What would you change in a second iteration?</div></li>
+        <li data-n="1"><div><strong>Write your prompt (8 min):</strong> Use the CRAFT meta prompt. Specify all four inputs in your Action element. Make sure your Format instruction describes the three output sections: KPI table, projected outcomes panel, and interpretive note.</div></li>
+        <li data-n="2"><div><strong>Build and review (12 min):</strong> Test the same tactic and budget across two different goals or two different industry verticals and compare the outputs. Note where the results shift and where they stay generic.</div></li>
+        <li data-n="3"><div><strong>Reflect (5 min):</strong> Whole-group discussion. How did adding industry and goal change the output? Where did Format make the biggest difference?</div></li>
       </ul>
-      <div class="warn-callout">Benchmark reliability varies by tactic. Meta Ads and Google Search have well-documented benchmarks. Influencer marketing and programmatic display are spottier. That variation is worth noting in your interpretive output.</div>
     </div>
   </div>
-  <div class="speaker-notes">Circulate during Step 2. The most common issue will be students whose Format instruction was too vague and whose output is a wall of text rather than a structured tool. Use those cases as teachable moments in the debrief. Do not prompt students to add an industry field during the build. Let that emerge naturally in the reflection — ask the group what they tried to improve their second iteration and draw out the industry variable as a class observation.</div>
+  <div class="speaker-notes">The four-input framing is the key teaching point on this slide. Students who only use tactic and budget will get broad, global benchmarks that are not very useful for a real client brief. Industry vertical tightens the CPM and CTR ranges significantly — a trades business in NZ running Meta Ads has a very different benchmark profile from a fashion e-commerce brand. The goal input is equally important: make sure students understand that awareness, consideration, and conversion objectives each produce a different KPI set for the same tactic. During the debrief, ask a student to share what changed when they switched the goal from awareness to lead generation on the same tactic and budget.</div>
 </div>
 
 <!-- SLIDE 14: Section — Activity 2 -->
@@ -360,10 +378,14 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
           <div class="col-body">A feature within the Hnry app that automatically logs and calculates business mileage for tax purposes. It removes the need for manual record-keeping and ensures sole traders claim every legitimate vehicle expense.</div>
         </div>
       </div>
-      <div class="callout" style="margin-top:16px;"><strong>Primary audience:</strong> tradespeople, freelancers, and contractors in New Zealand who use a personal vehicle daily for work and file their own tax returns through Hnry.</div>
+      <div class="col-card" style="margin-top:16px;border-left:5px solid var(--cyan);">
+        <div class="col-title" style="color:var(--blue);">The influencer campaign</div>
+        <div class="col-body" style="font-size:clamp(12px,1.25vw,14px);">Hnry has partnered with <strong>Bob the Builder</strong>, a New Zealand trade influencer with a strong following among tradespeople and contractors. This landing page is the dedicated destination for Bob's audience. It must feel personal to his followers, reflect his tone and world, and capture a <strong>unique promotional code (BOBBUILDS)</strong> that attributes sign-ups directly to the campaign. Every visitor arriving from Bob's content should feel this page was made for them.</div>
+      </div>
+      <div class="callout" style="margin-top:14px;"><strong>Primary audience:</strong> tradespeople and contractors in New Zealand who follow Bob the Builder, use their vehicle daily for work, and are open to tools that make their financial admin easier.</div>
     </div>
   </div>
-  <div class="speaker-notes">Give students two minutes to read the brief before they start the meta prompt. They should arrive at the tool with a strategic point of view: what is the single most important pain point? What does the ideal CTA say and why?</div>
+  <div class="speaker-notes">Give students two minutes to read the brief before they start the meta prompt. The influencer dimension adds meaningful complexity: the page has to serve two masters simultaneously — Hnry's brand and Bob's audience relationship. Students should think about how much of Bob's voice and persona should come through on the page versus Hnry's own brand tone. The promo code is both a conversion mechanic and a tracking tool; it should be prominent without dominating the page.</div>
 </div>
 
 <!-- SLIDE 16: Landing page decisions -->
@@ -372,16 +394,18 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
     <div class="uoa-badge">Activity 2</div>
     <h2 class="slide-title">Strategic decisions to resolve before you prompt</h2>
     <div class="slide-body">
-      <p style="margin-bottom:14px;">Your CRAFT prompt for the landing page needs to resolve four questions before you open Lovable.</p>
+      <p style="margin-bottom:14px;">This is not a generic product landing page. It is a dedicated influencer campaign page. Your CRAFT prompt needs to resolve six questions before you open Lovable.</p>
       <ul class="rule-list">
-        <li data-n="1"><div><strong>What is the single most important pain point?</strong> Manual mileage logging is tedious, error-prone, and causes sole traders to miss legitimate deductions.</div></li>
-        <li data-n="2"><div><strong>What sections does the page need?</strong> Suggested structure: hero with headline and CTA, pain and solution section, three to four key benefits, social proof, and a final CTA.</div></li>
-        <li data-n="3"><div><strong>What is the primary CTA and why?</strong> Consider: "Start tracking free," "Connect your Hnry account," or "See how much you could claim."</div></li>
-        <li data-n="4"><div><strong>How specific is your target audience in the prompt?</strong> Not just "sole traders" — write "tradespeople and contractors in New Zealand who use their vehicle daily for work."</div></li>
+        <li data-n="1"><div><strong>What is the single most important pain point?</strong> Manual mileage logging is tedious, error-prone, and costs tradespeople money in missed deductions.</div></li>
+        <li data-n="2"><div><strong>How does Bob's voice come through on the page?</strong> The page should feel like a recommendation from Bob to his audience, not a generic Hnry ad. Where does his persona appear — headline, intro copy, social proof?</div></li>
+        <li data-n="3"><div><strong>How is the promo code BOBBUILDS displayed?</strong> It needs to be prominent and easy to copy or apply at sign-up. Where does it sit on the page and how is it framed?</div></li>
+        <li data-n="4"><div><strong>What sections does the page need?</strong> Suggested structure: hero personalised to Bob's audience, pain and solution section, key benefits, promo code panel, and a final CTA.</div></li>
+        <li data-n="5"><div><strong>What is the primary CTA?</strong> Consider: "Claim your offer," "Use code BOBBUILDS to get started," or "Start tracking — Bob's exclusive deal inside."</div></li>
+        <li data-n="6"><div><strong>How specific is your audience in the prompt?</strong> These are Bob's followers — tradespeople who trust his recommendation and are arriving already warmed up. That changes the tone considerably.</div></li>
       </ul>
     </div>
   </div>
-  <div class="speaker-notes">The specificity question is the most important one. Generic prompts produce generic pages. Students who write "New Zealand tradie who drives to job sites every day" will get better copy than students who write "small business owner." Push them to be specific before they start.</div>
+  <div class="speaker-notes">The influencer page brief is richer than a standard landing page brief because it layers the influencer's audience relationship on top of the product message. Push students to think about the warm audience dynamic: someone arriving from Bob's content is not a cold visitor. They already have some trust and curiosity. The page should capitalise on that rather than starting from scratch with a pain-point hook. The promo code question is worth dwelling on: where it sits, how it is framed, and whether it is the CTA or a supporting element are all legitimate strategic choices with different implications for conversion.</div>
 </div>
 
 <!-- SLIDE 17: Activity 2 build -->
@@ -391,14 +415,14 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
     <h2 class="slide-title">Build your Hnry landing page</h2>
     <div class="slide-body">
       <ul class="step-list">
-        <li data-n="1"><div><strong>Write your prompt (8 min):</strong> Use the CRAFT meta prompt to construct your landing page prompt. Resolve the four strategic questions on the previous slide before you open Lovable. The Format instruction should specify every section the page needs.</div></li>
-        <li data-n="2"><div><strong>Build and review (12 min):</strong> Paste your prompt into Lovable at lovable.dev and review the generated page. Does the headline speak to the pain point? Does the CTA reflect a considered choice? Does the page feel like it was written for a New Zealand tradie or does it feel generic? Make one round of targeted refinements.</div></li>
-        <li data-n="3"><div><strong>Reflect (5 min):</strong> Whole-group discussion. How did the Format element shape the page structure? Where did the tool default to something generic and what did it take to move it toward something specific?</div></li>
+        <li data-n="1"><div><strong>Write your prompt (8 min):</strong> Use the CRAFT meta prompt. Resolve the six strategic questions on the previous slide before you open Lovable. Your Format instruction should specify every section including the promo code panel and how Bob's voice appears on the page.</div></li>
+        <li data-n="2"><div><strong>Build and review (12 min):</strong> Paste your prompt into Lovable at lovable.dev and review the generated page. Ask yourself: does this feel like a page made specifically for Bob's audience, or could it belong to any influencer? Is the promo code BOBBUILDS prominent and easy to act on? Make one round of targeted refinements.</div></li>
+        <li data-n="3"><div><strong>Reflect (5 min):</strong> Whole-group discussion. How did the influencer layer change your brief compared to a standard product page? Where did the tool default to something generic and what did it take to make it feel personal?</div></li>
       </ul>
-      <div class="callout" style="background:rgba(245,158,11,0.12);border-color:var(--amber);color:#78350F;">Lovable produces a hosted URL. You can share your landing page right now. That is the standard you are building to.</div>
+      <div class="callout" style="background:rgba(245,158,11,0.12);border-color:var(--amber);color:#78350F;">Lovable produces a hosted URL. You are building something you could hand to a client or an influencer partner right now. That is the standard you are building to.</div>
     </div>
   </div>
-  <div class="speaker-notes">The reflection question to close this activity is: what is the relationship between brief quality and output quality? Students should be able to articulate that clearly by the end of this activity. It connects back to every other discipline in marketing — from creative briefs to media briefs to research briefs.</div>
+  <div class="speaker-notes">The key reflection question for this activity is whether students can articulate the difference between a product landing page and an influencer landing page. The warm audience dynamic, the promo code attribution mechanic, and the dual-brand challenge (Hnry's voice plus Bob's voice) are all distinctly influencer-specific considerations that would not appear in a standard brief. If students produced something that looks like a generic Hnry page with a promo code bolted on, that is a useful failure mode to discuss: what in the brief led to that outcome, and what would they change?</div>
 </div>
 
 <!-- SLIDE 18: Connecting the two activities -->
