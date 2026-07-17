@@ -1295,7 +1295,7 @@ html, body {
 <div class="speaker-notes">Remind students to have an AI tool open and ready before they sit back down. Part 2 moves quickly and the exercise is the centrepiece - no time to troubleshoot logins once we start.</div>
 </div>
 <!-- ════════════════════════════════════════════════
-     SLIDE 23 - SECTION: PART 2
+     SLIDE 22 - SECTION: PART 2
 ════════════════════════════════════════════════ -->
 <div class="slide slide-section" id="s22">
 <div class="slide-inner">
@@ -1314,7 +1314,7 @@ html, body {
 <div class="speaker-notes">Verbal bridge: "You've certified in the techniques. Context, examples, constraints, decompose, chain of thought, role assignment - you know what these are. The question is how you deploy them together, deliberately, for a specific purpose. That's CRAFT." Keep this slide to 60 seconds and move straight in.</div>
 </div>
 <!-- ════════════════════════════════════════════════
-     SLIDE 24 - CRAFT FRAMEWORK
+     SLIDE 23 - CRAFT FRAMEWORK
 ════════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s23">
 <div class="slide-inner">
@@ -1353,45 +1353,9 @@ html, body {
 <div class="speaker-notes">5 minutes. Walk through each letter with one sentence. Emphasise that Context is the most commonly under-specified element - and the one with the biggest impact. The test at the bottom is worth saying aloud: "If you could remove your context block and still get an adequate response, you haven't provided enough context." This connects directly to the engagement question about the AI context document.</div>
 </div>
 <!-- ════════════════════════════════════════════════
-     SLIDE 25 - META-PROMPT LINK
+     SLIDE 24 - CRAFT IN ACTION: MUSIC PLANET
 ════════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s24">
-  <div class="slide-inner" style="justify-content:center;">
-    <h2 class="slide-title">Meta-Prompting: Use the Prompt Builder</h2>
-    <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px;">
-      <div class="callout" style="font-size:clamp(18px,2vw,24px);font-weight:700;text-align:center;padding:22px 28px;line-height:1.45;">
-        Paste the meta-prompt into Claude, ChatGPT, or Gemini and follow the instructions.
-      </div>
-      <div class="two-col" style="gap:22px;flex:0;margin-top:0;">
-        <div class="col-card" style="border-top:4px solid var(--navy);">
-          <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">How it works</div>
-          <div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
-            The meta-prompt asks you structured questions about your task, audience, context, constraints, and output format. It then produces a stronger prompt that you can copy, paste, and execute.
-          </div>
-        </div>
-        <div class="col-card" style="border-top:4px solid var(--cyan);">
-          <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">Why use it?</div>
-          <div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
-            It helps you avoid vague, under-specified prompts. Instead of trying to craft the perfect prompt from scratch, you use the tool to build one deliberately.
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:4px;">
-        <a href="https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing" target="_blank" rel="noopener" style="display:inline-block;background:var(--blue);color:white;text-decoration:none;font-weight:700;font-size:clamp(15px,1.6vw,19px);padding:16px 28px;border-radius:10px;box-shadow:0 3px 14px rgba(31,43,211,0.25);">
-          Open the Meta-Prompt Document
-        </a>
-        <div style="margin-top:14px;font-size:clamp(12px,1.2vw,14px);color:var(--muted);word-break:break-all;">
-          https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">Explain that students do not need to manually build complex prompts from scratch. They paste the linked meta-prompt into their AI tool, answer its questions, and then run the generated prompt. Emphasise that it is a scaffold for producing a better prompt, not a replacement for judgment.</div>
-</div>
-<!-- ════════════════════════════════════════════════
-     SLIDE 26 - CRAFT IN ACTION: MUSIC PLANET
-════════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s25">
 <div class="slide-inner">
 <h2 class="slide-title">CRAFT in Action: Music Planet</h2>
 <div style="flex:1;overflow:auto;display:flex;gap:16px;">
@@ -1454,28 +1418,91 @@ html, body {
 <div class="speaker-notes">5 minutes. Walk through the annotations column rather than reading the prompt aloud. The point is how each element does specific work - not just that it's long. You can run this live if internet is available; the output difference versus a zero-shot version ("write a market research report for Music Planet") is dramatic enough to be its own teaching moment.</div>
 </div>
 <!-- ════════════════════════════════════════════════
-     SLIDE 27 - LIVE EXERCISE
+     SLIDE 25 - META-CRAFT PROMPT LINK
 ════════════════════════════════════════════════ -->
-<div class="slide slide-exercise" id="s26">
-<div class="slide-inner">
-<div class="exercise-badge">Live Exercise - 15 minutes</div>
-<h2 class="slide-title">Build the Music Planet Market Research Report</h2>
-<div class="slide-body">
-<ul class="rule-list" style="margin-top:8px;">
-<li data-n="1">Run the CRAFT prompt on your device. Read the output critically - what's strong, what's missing, what might be hallucinated?</li>
-<li data-n="2">Add the meta-prompt. Ask the AI to evaluate its own output against the three criteria from the previous slide, then revise.</li>
-<li data-n="3">Apply your own Discernment. What would you change, add, or verify before using this document in a real assessment?</li>
-</ul>
-<div style="margin-top:20px;background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:16px 20px;">
-<div style="font-weight:700;color:#78350F;margin-bottom:6px;">Save this document.</div>
-<div style="color:#78350F;font-size:clamp(13px,1.35vw,15px);">This is your Music Planet context document. Paste it into future AI prompts for A3 and A4 to give the model the background it needs. The better this document is, the better every output will be.</div>
-</div>
-</div>
-</div>
-<div class="speaker-notes">15 minutes. Circulate and prompt discussion: What did the meta-prompt catch that the first output missed? What would you still want to verify independently? Common issues: generic competitor names, customer segments that could apply to any retailer, brand voice that's too safe. The goal isn't a perfect document - it's students experiencing the Description-Discernment loop in practice and understanding why iteration matters.</div>
+<div class="slide slide-content" id="s25">
+  <div class="slide-inner" style="justify-content:center;">
+    <h2 class="slide-title">Meta-CRAFT: Use the Prompt Builder</h2>
+    <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px;">
+      <div class="callout" style="font-size:clamp(18px,2vw,24px);font-weight:700;text-align:center;padding:22px 28px;line-height:1.45;">
+        Open the linked Meta-CRAFT prompt, paste it into Claude, ChatGPT, or Gemini, and follow the instructions.
+      </div>
+      <div class="two-col" style="gap:22px;flex:0;margin-top:0;">
+        <div class="col-card" style="border-top:4px solid var(--navy);">
+          <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">How it works</div>
+          <div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
+            The Meta-CRAFT prompt asks structured questions about your task, audience, context, role, constraints, and output format. It then produces a stronger prompt that you can copy, paste, and execute.
+          </div>
+        </div>
+        <div class="col-card" style="border-top:4px solid var(--cyan);">
+          <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">Why use it?</div>
+          <div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
+            It helps you avoid vague, under-specified prompts. Instead of trying to craft the perfect prompt from scratch, you use the tool to build one deliberately.
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:4px;">
+        <a href="https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing" target="_blank" rel="noopener" style="display:inline-block;background:var(--blue);color:white;text-decoration:none;font-weight:700;font-size:clamp(15px,1.6vw,19px);padding:16px 28px;border-radius:10px;box-shadow:0 3px 14px rgba(31,43,211,0.25);">
+          Open the Meta-CRAFT Prompt
+        </a>
+        <div style="margin-top:14px;font-size:clamp(12px,1.2vw,14px);color:var(--muted);word-break:break-all;">
+          https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">Explain that students do not need to manually build complex prompts from scratch. They paste the linked Meta-CRAFT prompt into their AI tool, answer its questions, and then run the generated prompt. Emphasise that it is a scaffold for producing a better prompt, not a replacement for judgment.</div>
 </div>
 <!-- ════════════════════════════════════════════════
-     SLIDE 28 - DEBRIEF + CLOSING
+     SLIDE 26 - LIVE EXERCISE
+════════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s26">
+  <div class="slide-inner">
+    <div class="exercise-badge">Live Exercise - 15 minutes</div>
+    <h2 class="slide-title">Using the Meta-CRAFT Prompt</h2>
+    <div class="slide-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;">
+        <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:12px;">
+          <div style="font-size:clamp(13px,1.35vw,15px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;">Step 1</div>
+          <div style="font-size:clamp(17px,1.8vw,22px);font-weight:700;color:#78350F;line-height:1.35;">Think about the context first</div>
+          <div style="font-size:clamp(13px,1.35vw,15px);color:#78350F;line-height:1.6;">
+            Before opening your AI tool, identify the information the model will need to produce something genuinely useful for A3 and A4.
+          </div>
+          <ul style="margin:0;padding-left:20px;color:#78350F;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">
+            <li>What is the task?</li>
+            <li>What do you already know about Music Planet?</li>
+            <li>What evidence, research, constraints, or objectives should the model consider?</li>
+            <li>What would make the final output specific rather than generic?</li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="background:white;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            <strong style="color:var(--navy);">2. Open the Meta-CRAFT prompt</strong><br>
+            <span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Use the link on the previous slide. Copy the complete Meta-CRAFT prompt and paste it into ChatGPT, Claude, or Gemini.</span>
+          </div>
+          <div style="background:white;border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            <strong style="color:var(--blue);">3. Activate it and provide your context</strong><br>
+            <span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">When asked for context, provide the information you identified in Step 1. Better context produces a better final prompt.</span>
+          </div>
+          <div style="background:white;border-left:4px solid var(--cyan);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            <strong style="color:var(--cyan);">4. Work through the guided questions</strong><br>
+            <span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">The Meta-CRAFT prompt will help define the role, action, format, and target audience.</span>
+          </div>
+          <div style="background:white;border-left:4px solid var(--purple);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            <strong style="color:var(--purple);">5. Run the finished prompt</strong><br>
+            <span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Copy the complete prompt into a new AI conversation and run it to generate your actual output.</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;background:#FFF7ED;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;color:#78350F;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">
+        <strong>Your job is to supply strong context.</strong> The Meta-CRAFT prompt helps construct the rest.
+      </div>
+    </div>
+  </div>
+  <div class="speaker-notes">Students should not manually design every CRAFT component before activating the Meta-CRAFT prompt. Their first job is to think carefully about useful context for A3 and A4. The prompt builder should then guide them through role, action, format, and target audience. Emphasise that the finished prompt should be run in a new AI conversation and checked before the output is used.</div>
+</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 27 - DEBRIEF + CLOSING
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s27">
 <div class="slide-inner" style="justify-content:center;gap:20px;">
@@ -1529,9 +1556,9 @@ html, body {
 <div class="nav-group">Using AI Well</div>
 <div class="nav-item" onclick="goTo(22);closeSidebar()"><span class="n-num">22</span><span class="n-title">From Cert to Practice</span><span class="n-tag section">Section</span></div>
 <div class="nav-item" onclick="goTo(23);closeSidebar()"><span class="n-num">23</span><span class="n-title">The CRAFT Framework</span></div>
-<div class="nav-item" onclick="goTo(24);closeSidebar()"><span class="n-num">24</span><span class="n-title">Meta-Prompt Builder</span></div>
-<div class="nav-item" onclick="goTo(25);closeSidebar()"><span class="n-num">25</span><span class="n-title">CRAFT in Action</span></div>
-<div class="nav-item" onclick="goTo(26);closeSidebar()"><span class="n-num">26</span><span class="n-title">Live Exercise</span><span class="n-tag exercise">Exercise</span></div>
+<div class="nav-item" onclick="goTo(24);closeSidebar()"><span class="n-num">24</span><span class="n-title">CRAFT in Action</span></div>
+<div class="nav-item" onclick="goTo(25);closeSidebar()"><span class="n-num">25</span><span class="n-title">Meta-CRAFT Prompt</span></div>
+<div class="nav-item" onclick="goTo(26);closeSidebar()"><span class="n-num">26</span><span class="n-title">Run Meta-CRAFT</span><span class="n-tag exercise">Exercise</span></div>
 <div class="nav-item" onclick="goTo(27);closeSidebar()"><span class="n-num">27</span><span class="n-title">Closing</span></div>
 </div>
 </nav>
@@ -1615,13 +1642,14 @@ const SOURCES = {
     { label: 'Anthropic - Prompt Engineering Overview', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview' },
   ],
   24: [
-    { label: 'Shared meta-prompt document', url: 'https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing' },
-  ],
-  25: [
     { label: 'Prompt Engineering Guide, MKTG 304 §6 - CRAFT in Action', url: '' },
     { label: 'Anthropic - Using XML Tags for Structured Prompts', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview' },
   ],
+  25: [
+    { label: 'Shared Meta-CRAFT prompt document', url: 'https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing' },
+  ],
   26: [
+    { label: 'Shared Meta-CRAFT prompt document', url: 'https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing' },
     { label: 'Prompt Engineering Guide, MKTG 304 §6 - CRAFT Framework', url: '' },
     { label: 'Prompt Engineering Guide, MKTG 304 §9 - AI Use in MKTG 304 Assessments', url: '' },
   ],
