@@ -891,7 +891,6 @@ html, body {
 <!-- ════════════════════════════════════════════════
      SLIDE 3 - ENGAGEMENT QUESTION 1
 ════════════════════════════════════════════════ -->
-
 <!-- ════════════════════════════════════════════════
      SLIDE 4 - ENGAGEMENT QUESTION 2
 ════════════════════════════════════════════════ -->
@@ -1000,17 +999,38 @@ html, body {
 <!-- ════════════════════════════════════════════════
      SLIDE 11 - ENGAGEMENT QUESTION 9
 ════════════════════════════════════════════════ -->
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 11 - ENGAGEMENT QUESTION 9
+════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s10">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
 <div style="display:flex;align-items:center;gap:14px;">
 <div style="font-size:clamp(10px,1vw,11px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);">Discussion 8 of 8</div>
-<div style="background:#00CAEF;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Context Document</div>
+<div style="background:#00CAEF;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Client Intelligence Brief</div>
 </div>
-<div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:860px;">
-      Every time you start a new AI conversation for a client task, the model knows nothing about your client, their market, or their goals. If you were building a single reference document to fix that for Music Planet, what would you put in it?
+<div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:900px;">
+      Every time you begin a new AI conversation, the model starts with little or no knowledge of the client. Imagine you could create one canonical document to include with every client prompt. It would give the AI the context it needs to produce specific, relevant, and useful work rather than generic answers.<br/><br/>
+      What should we call this document, and what information would it need to contain?
     </div>
 </div>
-<div class="speaker-notes"></div>
+<div class="speaker-notes">Use this as a bridge into the practical prompting work. The name we want students to arrive at is Client Intelligence Brief: a canonical client document that can be pasted into future AI prompts so the model has enough context to produce specific, relevant work.
+
+Ideas that should ideally surface during discussion:
+- Client background, products, services, and business model.
+- Market context and relevant industry trends.
+- Target markets and buyer personas.
+- Competitors and the client's positioning.
+- Value proposition and key differentiators.
+- Brand identity, tone of voice, and key messaging.
+- Current marketing channels and digital presence.
+- Business and marketing objectives.
+- Challenges, constraints, and opportunities.
+- Relevant research, evidence, and source material.
+- Important facts the AI must not invent or assume.
+- Known gaps or questions requiring further research.
+
+Teaching point: this document is broader than a market research report. It includes market intelligence, brand context, strategic priorities, evidence, constraints, and assumptions. The stronger the Client Intelligence Brief, the less generic the AI output will be.</div>
 </div>
 <!-- ════════════════════════════════════════════════
      SLIDE 12 - AGENDA
@@ -1121,7 +1141,7 @@ html, body {
 </div>
 </div>
 <div style="margin-top:20px;color:rgba(255,255,255,0.5);font-size:clamp(11px,1.1vw,13px);font-style:italic;">
-      Anthropic C+ · OpenAI C · Google C− · xAI &amp; Meta D  (SaferAI / Future of Life Institute, 2025)
+      Anthropic C+ · OpenAI C · Google C- · xAI &amp; Meta D  (SaferAI / Future of Life Institute, 2025)
     </div>
 </div>
 <div class="speaker-notes">Source: AI Research Report, Section 1. The grading used a letter-grade scale across two independent 2025 studies. Progress from 3 to 12 companies is real - but 12 is still a fraction of the industry. Keep this slide to 2 minutes and move into the harms.</div>
@@ -1421,85 +1441,85 @@ html, body {
      SLIDE 25 - META-CRAFT PROMPT LINK
 ════════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s25">
-  <div class="slide-inner" style="justify-content:center;">
-    <h2 class="slide-title">Meta-CRAFT: Use the Prompt Builder</h2>
-    <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px;">
-      <div class="callout" style="font-size:clamp(18px,2vw,24px);font-weight:700;text-align:center;padding:22px 28px;line-height:1.45;">
+<div class="slide-inner" style="justify-content:center;">
+<h2 class="slide-title">Meta-CRAFT: Use the Prompt Builder</h2>
+<div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px;">
+<div class="callout" style="font-size:clamp(18px,2vw,24px);font-weight:700;text-align:center;padding:22px 28px;line-height:1.45;">
         Open the linked Meta-CRAFT prompt, paste it into Claude, ChatGPT, or Gemini, and follow the instructions.
       </div>
-      <div class="two-col" style="gap:22px;flex:0;margin-top:0;">
-        <div class="col-card" style="border-top:4px solid var(--navy);">
-          <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">How it works</div>
-          <div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
+<div class="two-col" style="gap:22px;flex:0;margin-top:0;">
+<div class="col-card" style="border-top:4px solid var(--navy);">
+<div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">How it works</div>
+<div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
             The Meta-CRAFT prompt asks structured questions about your task, audience, context, role, constraints, and output format. It then produces a stronger prompt that you can copy, paste, and execute.
           </div>
-        </div>
-        <div class="col-card" style="border-top:4px solid var(--cyan);">
-          <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">Why use it?</div>
-          <div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
+</div>
+<div class="col-card" style="border-top:4px solid var(--cyan);">
+<div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">Why use it?</div>
+<div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
             It helps you avoid vague, under-specified prompts. Instead of trying to craft the perfect prompt from scratch, you use the tool to build one deliberately.
           </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:4px;">
-        <a href="https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing" target="_blank" rel="noopener" style="display:inline-block;background:var(--blue);color:white;text-decoration:none;font-weight:700;font-size:clamp(15px,1.6vw,19px);padding:16px 28px;border-radius:10px;box-shadow:0 3px 14px rgba(31,43,211,0.25);">
+</div>
+</div>
+<div style="text-align:center;margin-top:4px;">
+<a href="https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing" rel="noopener" style="display:inline-block;background:var(--blue);color:white;text-decoration:none;font-weight:700;font-size:clamp(15px,1.6vw,19px);padding:16px 28px;border-radius:10px;box-shadow:0 3px 14px rgba(31,43,211,0.25);" target="_blank">
           Open the Meta-CRAFT Prompt
         </a>
-        <div style="margin-top:14px;font-size:clamp(12px,1.2vw,14px);color:var(--muted);word-break:break-all;">
+<div style="margin-top:14px;font-size:clamp(12px,1.2vw,14px);color:var(--muted);word-break:break-all;">
           https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">Explain that students do not need to manually build complex prompts from scratch. They paste the linked Meta-CRAFT prompt into their AI tool, answer its questions, and then run the generated prompt. Emphasise that it is a scaffold for producing a better prompt, not a replacement for judgment.</div>
+</div>
+</div>
+</div>
+<div class="speaker-notes">Explain that students do not need to manually build complex prompts from scratch. They paste the linked Meta-CRAFT prompt into their AI tool, answer its questions, and then run the generated prompt. Emphasise that it is a scaffold for producing a better prompt, not a replacement for judgment.</div>
 </div>
 <!-- ════════════════════════════════════════════════
      SLIDE 26 - LIVE EXERCISE
 ════════════════════════════════════════════════ -->
 <div class="slide slide-exercise" id="s26">
-  <div class="slide-inner">
-    <div class="exercise-badge">Live Exercise - 15 minutes</div>
-    <h2 class="slide-title">Using the Meta-CRAFT Prompt</h2>
-    <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;">
-        <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:12px;">
-          <div style="font-size:clamp(13px,1.35vw,15px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;">Step 1</div>
-          <div style="font-size:clamp(17px,1.8vw,22px);font-weight:700;color:#78350F;line-height:1.35;">Think about the context first</div>
-          <div style="font-size:clamp(13px,1.35vw,15px);color:#78350F;line-height:1.6;">
+<div class="slide-inner">
+<div class="exercise-badge">Live Exercise - 15 minutes</div>
+<h2 class="slide-title">Using the Meta-CRAFT Prompt</h2>
+<div class="slide-body">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;">
+<div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:12px;">
+<div style="font-size:clamp(13px,1.35vw,15px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;">Step 1</div>
+<div style="font-size:clamp(17px,1.8vw,22px);font-weight:700;color:#78350F;line-height:1.35;">Think about the context first</div>
+<div style="font-size:clamp(13px,1.35vw,15px);color:#78350F;line-height:1.6;">
             Before opening your AI tool, identify the information the model will need to produce something genuinely useful for A3 and A4.
           </div>
-          <ul style="margin:0;padding-left:20px;color:#78350F;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">
-            <li>What is the task?</li>
-            <li>What do you already know about Music Planet?</li>
-            <li>What evidence, research, constraints, or objectives should the model consider?</li>
-            <li>What would make the final output specific rather than generic?</li>
-          </ul>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="background:white;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-            <strong style="color:var(--navy);">2. Open the Meta-CRAFT prompt</strong><br>
-            <span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Use the link on the previous slide. Copy the complete Meta-CRAFT prompt and paste it into ChatGPT, Claude, or Gemini.</span>
-          </div>
-          <div style="background:white;border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-            <strong style="color:var(--blue);">3. Activate it and provide your context</strong><br>
-            <span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">When asked for context, provide the information you identified in Step 1. Better context produces a better final prompt.</span>
-          </div>
-          <div style="background:white;border-left:4px solid var(--cyan);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-            <strong style="color:var(--cyan);">4. Work through the guided questions</strong><br>
-            <span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">The Meta-CRAFT prompt will help define the role, action, format, and target audience.</span>
-          </div>
-          <div style="background:white;border-left:4px solid var(--purple);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-            <strong style="color:var(--purple);">5. Run the finished prompt</strong><br>
-            <span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Copy the complete prompt into a new AI conversation and run it to generate your actual output.</span>
-          </div>
-        </div>
+<ul style="margin:0;padding-left:20px;color:#78350F;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">
+<li>What is the task?</li>
+<li>What do you already know about Music Planet?</li>
+<li>What evidence, research, constraints, or objectives should the model consider?</li>
+<li>What would make the final output specific rather than generic?</li>
+</ul>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="background:white;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<strong style="color:var(--navy);">2. Open the Meta-CRAFT prompt</strong><br/>
+<span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Use the link on the previous slide. Copy the complete Meta-CRAFT prompt and paste it into ChatGPT, Claude, or Gemini.</span>
+</div>
+<div style="background:white;border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<strong style="color:var(--blue);">3. Activate it and provide your context</strong><br/>
+<span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">When asked for context, provide the information you identified in Step 1. Better context produces a better final prompt.</span>
+</div>
+<div style="background:white;border-left:4px solid var(--cyan);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<strong style="color:var(--cyan);">4. Work through the guided questions</strong><br/>
+<span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">The Meta-CRAFT prompt will help define the role, action, format, and target audience.</span>
+</div>
+<div style="background:white;border-left:4px solid var(--purple);border-radius:0 8px 8px 0;padding:11px 15px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<strong style="color:var(--purple);">5. Run the finished prompt</strong><br/>
+<span style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Copy the complete prompt into a new AI conversation and run it to generate your actual output.</span>
+</div>
+</div>
+</div>
+<div style="margin-top:16px;background:#FFF7ED;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;color:#78350F;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">
+<strong>Your job is to supply strong context.</strong> The Meta-CRAFT prompt helps construct the rest.
       </div>
-      <div style="margin-top:16px;background:#FFF7ED;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;color:#78350F;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">
-        <strong>Your job is to supply strong context.</strong> The Meta-CRAFT prompt helps construct the rest.
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">Students should not manually design every CRAFT component before activating the Meta-CRAFT prompt. Their first job is to think carefully about useful context for A3 and A4. The prompt builder should then guide them through role, action, format, and target audience. Emphasise that the finished prompt should be run in a new AI conversation and checked before the output is used.</div>
+</div>
+</div>
+<div class="speaker-notes">Students should not manually design every CRAFT component before activating the Meta-CRAFT prompt. Their first job is to think carefully about useful context for A3 and A4. The prompt builder should then guide them through role, action, format, and target audience. Emphasise that the finished prompt should be run in a new AI conversation and checked before the output is used.</div>
 </div>
 <!-- ════════════════════════════════════════════════
      SLIDE 27 - DEBRIEF + CLOSING
@@ -1537,7 +1557,7 @@ html, body {
 <div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">Q5 - D-D Loop</span><span class="n-tag" style="background:rgba(143,149,233,0.2);color:#8F95E9;">Description</span></div>
 <div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">Q6 - Discernment</span><span class="n-tag" style="background:rgba(22,163,74,0.2);color:#16A34A;">Discernment</span></div>
 <div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">Q7 - Diligence</span><span class="n-tag" style="background:rgba(245,158,11,0.2);color:#F59E0B;">Diligence</span></div>
-<div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Q8 - Context Document</span><span class="n-tag" style="background:rgba(0,202,239,0.15);color:var(--cyan);">Context</span></div>
+<div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Q8 - Client Intelligence Brief</span><span class="n-tag" style="background:rgba(0,202,239,0.15);color:var(--cyan);">Context</span></div>
 <div class="nav-group">Introduction</div>
 <div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">Session Agenda</span></div>
 <div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">Learning Outcomes</span></div>
@@ -1591,6 +1611,7 @@ html, body {
 
 // ── SOURCES DATA (keyed by slide number) ──
 const SOURCES = {
+  1: [],
   2: [],
   3: [],
   4: [],
@@ -1602,57 +1623,20 @@ const SOURCES = {
   10: [],
   11: [],
   12: [],
-  13: [
-    { label: 'Liu et al. (2023) - "Lost in the Middle" (arXiv)', url: 'https://arxiv.org/abs/2307.03172' },
-    { label: 'Prompt Engineering Guide, MKTG 304 §2 - Positional Effects, Temperature', url: '' },
-  ],
-  14: [
-    { label: 'METR (Dec 2025) - Common Elements of Frontier AI Safety Policies', url: 'https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/' },
-    { label: 'Future of Life Institute (2025) - AI Safety Index', url: 'https://futureoflife.org/ai-safety-index-summer-2025/' },
-  ],
-  15: [
-    { label: 'AI Research Report, MKTG 304 §1 - Key Debates and Tensions', url: '' },
-  ],
-  16: [
-    { label: 'Fortune (Oct 2024) - ~50% of OpenAI Safety Staff Departed', url: 'https://fortune.com' },
-    { label: 'TIME (Feb 2026) - Anthropic Drops Flagship Safety Pledge', url: 'https://time.com/7380854/exclusive-anthropic-drops-flagship-safety-pledge/' },
-    { label: 'AI Research Report, MKTG 304 §1 - Real-World Example', url: '' },
-  ],
-  17: [
-    { label: 'OWASP Top 10 for LLM Applications 2025', url: 'https://genai.owasp.org/llm-top-10/' },
-    { label: 'LayerX Security - Enterprise AI and SaaS Data Security Report 2025', url: 'https://layerxsecurity.com' },
-  ],
-  18: [
-    { label: 'Metomic (2025) - Is ChatGPT Safe for Business in 2026?', url: 'https://www.metomic.io/resource-centre/is-chatgpt-a-security-risk-to-your-business' },
-    { label: 'AI Research Report, MKTG 304 §2-3 - So What? Security & Privacy', url: '' },
-  ],
-  19: [
-    { label: 'IEA (Apr 2025) - Energy and AI Report', url: 'https://www.iea.org/reports/energy-and-ai' },
-    { label: 'Google (2025) - Environmental Report', url: 'https://blog.google' },
-    { label: 'Luccioni, Jernite & Strubell (2024) - Power Hungry Processing (ACM FAccT)', url: 'https://doi.org/10.1145/3630106.3658542' },
-  ],
-  20: [
-    { label: 'Constellation Energy (Sep 2024) - Crane Clean Energy Center', url: 'https://www.constellationenergy.com' },
-    { label: 'AI Research Report, MKTG 304 §4 - Real-World Example', url: '' },
-  ],
+  13: [{"label": "Liu et al. (2023) - \"Lost in the Middle\" (arXiv)", "url": "https://arxiv.org/abs/2307.03172"}, {"label": "Prompt Engineering Guide, MKTG 304 §2 - Positional Effects, Temperature", "url": ""}],
+  14: [{"label": "METR (Dec 2025) - Common Elements of Frontier AI Safety Policies", "url": "https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/"}, {"label": "Future of Life Institute (2025) - AI Safety Index", "url": "https://futureoflife.org/ai-safety-index-summer-2025/"}],
+  15: [{"label": "AI Research Report, MKTG 304 §1 - Key Debates and Tensions", "url": ""}],
+  16: [{"label": "Fortune (Oct 2024) - ~50% of OpenAI Safety Staff Departed", "url": "https://fortune.com"}, {"label": "TIME (Feb 2026) - Anthropic Drops Flagship Safety Pledge", "url": "https://time.com/7380854/exclusive-anthropic-drops-flagship-safety-pledge/"}, {"label": "AI Research Report, MKTG 304 §1 - Real-World Example", "url": ""}],
+  17: [{"label": "OWASP Top 10 for LLM Applications 2025", "url": "https://genai.owasp.org/llm-top-10/"}, {"label": "LayerX Security - Enterprise AI and SaaS Data Security Report 2025", "url": "https://layerxsecurity.com"}],
+  18: [{"label": "Metomic (2025) - Is ChatGPT Safe for Business in 2026?", "url": "https://www.metomic.io/resource-centre/is-chatgpt-a-security-risk-to-your-business"}, {"label": "AI Research Report, MKTG 304 §2-3 - So What? Security & Privacy", "url": ""}],
+  19: [{"label": "IEA (Apr 2025) - Energy and AI Report", "url": "https://www.iea.org/reports/energy-and-ai"}, {"label": "Google (2025) - Environmental Report", "url": "https://blog.google"}, {"label": "Luccioni, Jernite & Strubell (2024) - Power Hungry Processing (ACM FAccT)", "url": "https://doi.org/10.1145/3630106.3658542"}],
+  20: [{"label": "Constellation Energy (Sep 2024) - Crane Clean Energy Center", "url": "https://www.constellationenergy.com"}, {"label": "AI Research Report, MKTG 304 §4 - Real-World Example", "url": ""}],
   21: [],
   22: [],
-  23: [
-    { label: 'Prompt Engineering Guide, MKTG 304 §6 - The CRAFT Framework', url: '' },
-    { label: 'Anthropic - Prompt Engineering Overview', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview' },
-  ],
-  24: [
-    { label: 'Prompt Engineering Guide, MKTG 304 §6 - CRAFT in Action', url: '' },
-    { label: 'Anthropic - Using XML Tags for Structured Prompts', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview' },
-  ],
-  25: [
-    { label: 'Shared Meta-CRAFT prompt document', url: 'https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing' },
-  ],
-  26: [
-    { label: 'Shared Meta-CRAFT prompt document', url: 'https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing' },
-    { label: 'Prompt Engineering Guide, MKTG 304 §6 - CRAFT Framework', url: '' },
-    { label: 'Prompt Engineering Guide, MKTG 304 §9 - AI Use in MKTG 304 Assessments', url: '' },
-  ],
+  23: [{"label": "Prompt Engineering Guide, MKTG 304 §6 - The CRAFT Framework", "url": ""}, {"label": "Anthropic - Prompt Engineering Overview", "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"}],
+  24: [{"label": "Prompt Engineering Guide, MKTG 304 §6 - CRAFT in Action", "url": ""}, {"label": "Anthropic - Using XML Tags for Structured Prompts", "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"}],
+  25: [{"label": "Shared Meta-CRAFT prompt document", "url": "https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing"}],
+  26: [{"label": "Shared Meta-CRAFT prompt document", "url": "https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing"}, {"label": "Prompt Engineering Guide, MKTG 304 §6 - CRAFT Framework", "url": ""}, {"label": "Prompt Engineering Guide, MKTG 304 §9 - AI Use in MKTG 304 Assessments", "url": ""}],
   27: [],
 };
 
