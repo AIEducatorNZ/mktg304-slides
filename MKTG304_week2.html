@@ -5,21 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>MKTG 304 - AI in the Real World</title>
-<!-- Font: Arial used throughout to match UoA PPT Template 2025 (Arial is the majorFont and minorFont in theme1.xml) -->
 <style>
-/* ===== UoA COLOUR PALETTE (extracted from UoA PPT Template 2025.potx theme1.xml) =====
-   dk2  / Dark Navy   : #0E2841
-   acc1 / Deep Indigo : #0C0C48
-   acc2 / Bright Blue : #1F2BD3
-   acc3 / Cyan        : #00CAEF
-   acc4 / Muted Purple: #8585A3
-   acc5 / Soft Purple : #8F95E9
-   acc6 / Light Cyan  : #80E3F7
-   lt2  / Light Gray  : #E8E8E8
-   white              : #FFFFFF
-   black              : #000000
-================================================================ */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -42,7 +28,6 @@ html, body {
   overflow: hidden;
 }
 
-/* ── DECK WRAPPER ── */
 #deck {
   position: relative;
   width: 100vw;
@@ -50,7 +35,6 @@ html, body {
   overflow: hidden;
 }
 
-/* ── SLIDES ── */
 .slide {
   position: absolute;
   inset: 0;
@@ -71,12 +55,7 @@ html, body {
   transform: translateX(-60px);
 }
 
-/* ── SLIDE TYPES ── */
-
-/* CONTENT slide - white */
-.slide-content {
-  background: #F5F7FA;
-}
+.slide-content { background: #F5F7FA; }
 .slide-content .slide-inner {
   flex: 1;
   display: flex;
@@ -99,7 +78,6 @@ html, body {
   line-height: 1.65;
 }
 
-/* DARK slide - navy (title, section dividers, closing) */
 .slide-dark {
   background: linear-gradient(135deg, var(--indigo) 0%, var(--navy) 100%);
 }
@@ -129,7 +107,6 @@ html, body {
   line-height: 1.7;
 }
 
-/* SECTION divider */
 .slide-section {
   background: linear-gradient(135deg, var(--indigo) 0%, #0a1628 100%);
 }
@@ -169,10 +146,7 @@ html, body {
   line-height: 1.7;
 }
 
-/* EXERCISE slide */
-.slide-exercise {
-  background: var(--amber-bg);
-}
+.slide-exercise { background: var(--amber-bg); }
 .slide-exercise .slide-inner {
   flex: 1;
   display: flex;
@@ -204,27 +178,8 @@ html, body {
   font-size: clamp(14px, 1.5vw, 17px);
   line-height: 1.7;
 }
-.slide-exercise .prompt-box {
-  background: #FEF3C7;
-  border: 2px solid var(--amber);
-  border-radius: 8px;
-  padding: 16px 20px;
-  font-style: italic;
-  font-size: clamp(14px, 1.5vw, 17px);
-  color: #78350F;
-  margin: 16px 0;
-}
-.slide-exercise .debrief {
-  margin-top: 16px;
-  font-size: clamp(13px, 1.3vw, 15px);
-  color: #92400E;
-  font-weight: 600;
-}
 
-/* BREAK slide */
-.slide-break {
-  background: #1a1a2e;
-}
+.slide-break { background: #1a1a2e; }
 .slide-break .slide-inner {
   flex: 1;
   display: flex;
@@ -250,34 +205,6 @@ html, body {
   padding: 24px 32px;
 }
 
-/* ── SHARED COMPONENTS ── */
-
-.stat-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.stat-number {
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 700;
-  color: var(--cyan);
-  line-height: 1;
-}
-.stat-label {
-  font-size: clamp(12px, 1.2vw, 14px);
-  color: var(--muted);
-  margin-top: 4px;
-  line-height: 1.4;
-}
-
-.stat-grid {
-  display: grid;
-  gap: 24px;
-  margin-top: 12px;
-}
-.stat-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-.stat-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-
 .stat-card {
   background: white;
   border-radius: 10px;
@@ -297,10 +224,7 @@ html, body {
   margin-top: 6px;
   line-height: 1.45;
 }
-.stat-card.dark {
-  background: var(--indigo);
-  border-top-color: var(--cyan);
-}
+.stat-card.dark { background: var(--indigo); border-top-color: var(--cyan); }
 .stat-card.dark .number { color: var(--cyan); }
 .stat-card.dark .label { color: rgba(255,255,255,0.75); }
 
@@ -354,15 +278,11 @@ html, body {
   letter-spacing: 1.5px;
   margin-bottom: 12px;
 }
-.panel.weak .panel-title { color: #DC2626; }
-.panel.strong .panel-title { color: #16A34A; }
 .panel .panel-body {
   font-size: clamp(13px, 1.3vw, 15px);
   color: #333;
   line-height: 1.65;
 }
-.panel.weak { border-top: 4px solid #DC2626; }
-.panel.strong { border-top: 4px solid #16A34A; }
 
 .key-quote {
   background: linear-gradient(135deg, var(--indigo), var(--navy));
@@ -418,32 +338,8 @@ html, body {
   margin-top: 2px;
 }
 
-.pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 16px 0;
-}
-.pill {
-  background: var(--navy);
-  color: var(--cyan);
-  border-radius: 20px;
-  padding: 6px 16px;
-  font-size: clamp(12px, 1.2vw, 14px);
-  font-weight: 600;
-}
-
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 8px;
-}
-.tl-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
+.timeline { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.tl-item { display: flex; align-items: flex-start; gap: 16px; }
 .tl-date {
   flex-shrink: 0;
   min-width: 110px;
@@ -460,102 +356,21 @@ html, body {
   padding-left: 14px;
 }
 
-.five-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-  margin-top: 16px;
-}
-.principle-card {
-  background: white;
-  border-radius: 10px;
-  padding: 16px 14px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-  border-top: 4px solid var(--blue);
-}
-.principle-card .p-num {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--blue);
-  margin-bottom: 6px;
-}
-.principle-card .p-title {
-  font-size: clamp(11px, 1.1vw, 13px);
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-.principle-card .p-desc {
-  font-size: clamp(10px, 1vw, 12px);
-  color: #666;
-  line-height: 1.5;
-}
-
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-  margin-top: 12px;
-}
-.tech-card {
-  background: white;
-  border-radius: 8px;
-  padding: 14px 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  border-bottom: 3px solid var(--cyan);
-}
-.tech-card .t-name {
-  font-size: clamp(12px, 1.2vw, 14px);
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-.tech-card .t-desc {
-  font-size: clamp(10px, 1vw, 12px);
-  color: #555;
-  margin-bottom: 6px;
-  line-height: 1.45;
-}
-.tech-card .t-use {
-  font-size: clamp(10px, 1vw, 11px);
-  color: var(--blue);
-  font-style: italic;
-}
-
 .craft-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 14px;
   margin-top: 16px;
 }
-.craft-card {
-  border-radius: 10px;
-  padding: 18px 14px;
-  text-align: center;
-}
+.craft-card { border-radius: 10px; padding: 18px 14px; text-align: center; }
 .craft-card:nth-child(1) { background: #EFF6FF; }
 .craft-card:nth-child(2) { background: #F0FDF4; }
 .craft-card:nth-child(3) { background: #FFF7ED; }
 .craft-card:nth-child(4) { background: #FDF4FF; }
 .craft-card:nth-child(5) { background: #FFF1F2; }
-.craft-card .c-letter {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 4px;
-}
-.craft-card .c-word {
-  font-size: clamp(12px, 1.2vw, 14px);
-  font-weight: 700;
-  color: var(--blue);
-  margin-bottom: 8px;
-}
-.craft-card .c-desc {
-  font-size: clamp(10px, 1vw, 12px);
-  color: #555;
-  line-height: 1.5;
-}
+.craft-card .c-letter { font-size: 32px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.craft-card .c-word { font-size: clamp(12px, 1.2vw, 14px); font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+.craft-card .c-desc { font-size: clamp(10px, 1vw, 12px); color: #555; line-height: 1.5; }
 
 .code-block {
   background: #1e2030;
@@ -569,45 +384,8 @@ html, body {
   max-height: 50vh;
 }
 .code-block .tag { color: var(--cyan); }
-.code-block .attr { color: #8F95E9; }
 .code-block .text { color: #e6edf3; }
 
-.adv-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 12px;
-}
-.adv-card {
-  background: white;
-  border-radius: 10px;
-  padding: 22px 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-  border-left: 5px solid var(--blue);
-}
-.adv-card .a-title {
-  font-size: clamp(14px, 1.4vw, 16px);
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 10px;
-}
-.adv-card .a-tag {
-  display: inline-block;
-  background: var(--blue);
-  color: white;
-  font-size: 11px;
-  padding: 2px 8px;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-.adv-card .a-body {
-  font-size: clamp(12px, 1.25vw, 14px);
-  color: #444;
-  line-height: 1.6;
-}
-
-/* ── LEFT SIDEBAR ── */
 #sidebar {
   position: fixed;
   top: 0; left: 0; bottom: 52px;
@@ -651,7 +429,6 @@ html, body {
   scrollbar-color: rgba(0,202,239,0.3) transparent;
 }
 #slide-list::-webkit-scrollbar { width: 4px; }
-#slide-list::-webkit-scrollbar-track { background: transparent; }
 #slide-list::-webkit-scrollbar-thumb { background: rgba(0,202,239,0.3); border-radius: 2px; }
 
 .nav-item {
@@ -662,15 +439,9 @@ html, body {
   cursor: pointer;
   border-left: 3px solid transparent;
   transition: background .15s, border-color .15s;
-  text-decoration: none;
 }
-.nav-item:hover {
-  background: rgba(0,202,239,0.08);
-}
-.nav-item.active {
-  background: rgba(0,202,239,0.13);
-  border-left-color: var(--cyan);
-}
+.nav-item:hover { background: rgba(0,202,239,0.08); }
+.nav-item.active { background: rgba(0,202,239,0.13); border-left-color: var(--cyan); }
 .nav-item .n-num {
   flex-shrink: 0;
   font-size: 10px;
@@ -681,11 +452,7 @@ html, body {
   font-family: Consolas, monospace;
 }
 .nav-item.active .n-num { color: var(--cyan); }
-.nav-item .n-title {
-  font-size: 12px;
-  color: rgba(255,255,255,0.65);
-  line-height: 1.4;
-}
+.nav-item .n-title { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.4; }
 .nav-item.active .n-title { color: white; font-weight: 600; }
 .nav-item .n-tag {
   flex-shrink: 0;
@@ -701,7 +468,6 @@ html, body {
 .n-tag.exercise { background: rgba(245,158,11,0.2); color: #F59E0B; }
 .n-tag.break { background: rgba(143,133,163,0.2); color: var(--muted); }
 
-/* Sidebar group divider */
 .nav-group {
   padding: 10px 16px 4px;
   font-size: 9px;
@@ -711,7 +477,6 @@ html, body {
   color: rgba(255,255,255,0.25);
 }
 
-/* Overlay when sidebar open on small screens */
 #sidebar-overlay {
   display: none;
   position: fixed;
@@ -721,7 +486,6 @@ html, body {
 }
 #sidebar.open ~ #sidebar-overlay { display: block; }
 
-/* ── BOTTOM BAR ── */
 #nav-bar {
   position: fixed;
   bottom: 0; left: 0; right: 0;
@@ -748,22 +512,12 @@ html, body {
 }
 .nav-btn:hover { background: rgba(0,202,239,0.28); border-color: var(--cyan); }
 .nav-btn:disabled { opacity: .3; cursor: default; }
-#slide-counter {
-  color: rgba(255,255,255,0.7);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-#notes-hint {
-  color: rgba(255,255,255,0.4);
-  font-size: 12px;
-}
+#slide-counter { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+#notes-hint { color: rgba(255,255,255,0.4); font-size: 12px; }
 
-/* ── SPEAKER NOTES PANEL ── */
 #notes-panel {
   position: fixed;
-  bottom: 52px;
-  left: 0; right: 0;
+  bottom: 52px; left: 0; right: 0;
   background: rgba(10,10,30,0.97);
   border-top: 2px solid var(--cyan);
   padding: 20px 36px 24px;
@@ -777,18 +531,10 @@ html, body {
   transition: transform .3s ease;
 }
 #notes-panel.visible { transform: translateY(0); }
-#notes-panel h4 {
-  color: var(--cyan);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
+#notes-panel h4 { color: var(--cyan); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
 
-/* ── SPEAKER NOTES per slide (hidden in normal view) ── */
 .speaker-notes { display: none; }
 
-/* ── REFERENCES PANEL ── */
 #refs-panel {
   position: fixed;
   bottom: 52px; left: 0; right: 0;
@@ -803,47 +549,18 @@ html, body {
   backdrop-filter: blur(8px);
 }
 #refs-panel.visible { transform: translateY(0); }
-#refs-panel h4 {
-  color: #80E3F7;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
+#refs-panel h4 { color: #80E3F7; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
 #refs-panel ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
-#refs-panel ul li {
-  font-size: 13px;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.5;
-  display: flex; align-items: flex-start; gap: 8px;
-}
+#refs-panel ul li { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; display: flex; align-items: flex-start; gap: 8px; }
 #refs-panel ul li::before { content:'›'; color:var(--blue); font-weight:700; flex-shrink:0; margin-top:1px; }
-#refs-panel a { color: #80E3F7; text-decoration:none; border-bottom:1px solid rgba(128,227,247,0.3); transition:color .15s,border-color .15s; }
+#refs-panel a { color: #80E3F7; text-decoration:none; border-bottom:1px solid rgba(128,227,247,0.3); }
 #refs-panel a:hover { color:white; border-bottom-color:white; }
 #refs-panel .no-refs { color:rgba(255,255,255,0.35); font-style:italic; font-size:13px; }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .three-col, .five-grid, .craft-grid, .tech-grid { grid-template-columns: 1fr 1fr; }
+  .three-col, .craft-grid { grid-template-columns: 1fr 1fr; }
   .two-col { grid-template-columns: 1fr; }
-  .stat-grid.cols-3 { grid-template-columns: 1fr; }
 }
-
-/* Logo placeholder top-right */
-.uoa-badge {
-  position: absolute;
-  top: 18px; right: 24px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-}
-.slide-content .uoa-badge { color: rgba(14,40,65,0.3); }
-
-
-
-/* Additional resilience for the restored control bar */
 @media (max-width: 720px) {
   #nav-bar { padding: 0 10px; gap: 8px; }
   .nav-btn { padding: 7px 10px; font-size: 12px; }
@@ -851,19 +568,14 @@ html, body {
   #btn-refs, #btn-notes { padding: 7px 9px !important; font-size: 0; }
   #btn-refs::after { content: '📚'; font-size: 15px; }
   #btn-notes::after { content: '🗒'; font-size: 15px; }
-  .slide-content .slide-inner,
-  .slide-exercise .slide-inner { padding-left: 28px; padding-right: 28px; }
-  .slide-dark .slide-inner,
-  .slide-section .slide-inner { padding-left: 36px; padding-right: 36px; }
+  .slide-content .slide-inner, .slide-exercise .slide-inner { padding-left: 28px; padding-right: 28px; }
+  .slide-dark .slide-inner, .slide-section .slide-inner { padding-left: 36px; padding-right: 36px; }
 }
-
 </style>
 </head>
 <body>
 <div id="deck">
-<!-- ════════════════════════════════════════════════
-     SLIDE 1 - TITLE
-════════════════════════════════════════════════ -->
+
 <!-- ════════════════════════════════════════════════
      SLIDE 1 - TITLE
 ════════════════════════════════════════════════ -->
@@ -871,7 +583,7 @@ html, body {
 <div class="slide-inner" style="justify-content:center;gap:0;">
 <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;">MKTG 304 | University of Auckland</div>
 <h1 class="slide-title" style="font-size:clamp(28px,3.8vw,52px);max-width:820px;">AI in the Real World:<br/>Prompting, Ethics, and What<br/>You Actually Need to Know</h1>
-<div class="slide-subtitle" style="margin-top:20px;">1 hour 45 minutes  ·  Lecture  ·  2026</div>
+<div class="slide-subtitle" style="margin-top:20px;">1 hour 45 minutes &nbsp;·&nbsp; Lecture &nbsp;·&nbsp; 2026</div>
 <div style="margin-top:48px;display:flex;gap:20px;flex-wrap:wrap;">
 <div style="padding:14px 22px;border:1.5px solid rgba(0,202,239,0.35);border-radius:8px;color:rgba(255,255,255,0.7);font-size:14px;">Part 1: The Reality of AI</div>
 <div style="padding:14px 22px;border:1.5px solid rgba(0,202,239,0.35);border-radius:8px;color:rgba(255,255,255,0.7);font-size:14px;">Part 2: How to Use It Well</div>
@@ -879,8 +591,9 @@ html, body {
 </div>
 <div class="speaker-notes">Welcome and frame the session. Two halves: first section covers ethics, security and environment - the professional context students need. Second half is practical and produces a real artefact. Students have already completed the Anthropic AI Fluency certification - build on that foundation rather than repeating it. The engagement questions at the start activate what they already know.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 2 - ENGAGEMENT QUESTIONS
+     SLIDE 2 - ENGAGEMENT QUESTIONS INTRO
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s2">
 <div class="slide-inner" style="justify-content:center;align-items:center;text-align:center;gap:0;">
@@ -888,11 +601,9 @@ html, body {
 </div>
 <div class="speaker-notes">Transition slide introducing the opening engagement questions.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
      SLIDE 3 - ENGAGEMENT QUESTION 1
-════════════════════════════════════════════════ -->
-<!-- ════════════════════════════════════════════════
-     SLIDE 4 - ENGAGEMENT QUESTION 2
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s3">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
@@ -901,13 +612,14 @@ html, body {
 <div style="background:#00CAEF;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Modalities</div>
 </div>
 <div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:860px;">
-      A client asks you to produce 30 social media captions for a product launch next week. A colleague suggests just running them all through Claude. Is that Automation, Augmentation, or Agency - and is it the right call?
-    </div>
+A client asks you to produce 30 social media captions for a product launch next week. A colleague suggests just running them all through Claude. Is that Automation, Augmentation, or Agency — and is it the right call?
 </div>
-<div class="speaker-notes"></div>
 </div>
+<div class="speaker-notes">It's Automation as described. The right-call question is where discussion gets interesting: who checks 30 outputs? Is the brief specific enough? Will they be generic? Push students toward the idea that this probably should be Augmentation.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 5 - ENGAGEMENT QUESTION 3
+     SLIDE 4 - ENGAGEMENT QUESTION 2
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s4">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
@@ -916,13 +628,14 @@ html, body {
 <div style="background:#F59E0B;color:#78350F;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Hallucination</div>
 </div>
 <div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:860px;">
-      An AI drafts a competitive analysis for your client presentation. It includes specific market share figures and cites two industry reports. What do you do before that slide goes to the client?
-    </div>
+An AI drafts a competitive analysis for your client presentation. It includes specific market share figures and cites two industry reports. What do you do before that slide goes to the client?
 </div>
-<div class="speaker-notes"></div>
 </div>
+<div class="speaker-notes">Looking for: verify every figure independently, check the reports actually exist and say what the AI claims. Specific factual claims — numbers, citations — are exactly where hallucination is most common and most dangerous professionally.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 6 - ENGAGEMENT QUESTION 4
+     SLIDE 5 - ENGAGEMENT QUESTION 3
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s5">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
@@ -931,13 +644,14 @@ html, body {
 <div style="background:#00CAEF;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Delegation</div>
 </div>
 <div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:860px;">
-      Your team is about to use AI to develop a brand strategy for a new client. What questions should you be asking before anyone opens a chat window?
-    </div>
+Your team is about to use AI to develop a brand strategy for a new client. What questions should you be asking before anyone opens a chat window?
 </div>
-<div class="speaker-notes"></div>
 </div>
+<div class="speaker-notes">Looking for Goal & Task Awareness: What is the actual goal? Which parts require human judgment? What platform is appropriate — data privacy implications of putting client info into a consumer tool? What will the client expect? The key insight: Delegation is a strategic pause, not a preamble.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 7 - ENGAGEMENT QUESTION 5
+     SLIDE 6 - ENGAGEMENT QUESTION 4
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s6">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
@@ -946,28 +660,30 @@ html, body {
 <div style="background:#8F95E9;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Description</div>
 </div>
 <div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:860px;">
-      Two students submit AI-assisted campaign proposals. One is generic and could apply to any brand; the other is sharp and specific. Neither student is more creative than the other. What's most likely the actual difference between them?
-    </div>
+Two students submit AI-assisted campaign proposals. One is generic and could apply to any brand; the other is sharp and specific. Neither student is more creative than the other. What's most likely the actual difference between them?
 </div>
-<div class="speaker-notes"></div>
 </div>
+<div class="speaker-notes">The difference is upstream — in the quality of context and constraints given in the prompt, not in the output. The generic output means the AI defaulted to the most common version of "campaign proposal" in training data. Also likely: the sharper student iterated rather than accepting the first output.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 8 - ENGAGEMENT QUESTION 6
+     SLIDE 7 - ENGAGEMENT QUESTION 5
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s7">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
 <div style="display:flex;align-items:center;gap:14px;">
 <div style="font-size:clamp(10px,1vw,11px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);">Discussion 5 of 8</div>
-<div style="background:#8F95E9;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Description-Discernment Loop</div>
+<div style="background:#8F95E9;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Description–Discernment Loop</div>
 </div>
 <div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:860px;">
-      You prompt an AI for a media strategy and the output is mediocre. Your first instinct is to try a completely different prompt. What should you actually do first - and why?
-    </div>
+You prompt an AI for a media strategy and the output is mediocre. Your first instinct is to try a completely different prompt. What should you actually do first — and why?
 </div>
-<div class="speaker-notes"></div>
 </div>
+<div class="speaker-notes">Evaluate before rewriting. Is it a prompt-writing problem or an AI capability problem? Rewriting without diagnosing means you might fix the wrong thing. Walk through what evaluation looks like: accuracy, relevance, tone, completeness — then make a targeted change.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 9 - ENGAGEMENT QUESTION 7
+     SLIDE 8 - ENGAGEMENT QUESTION 6
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s8">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
@@ -976,13 +692,14 @@ html, body {
 <div style="background:#16A34A;color:#052e16;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Discernment</div>
 </div>
 <div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:860px;">
-      An AI produces a buyer persona for Music Planet. It reads confidently and is well written. What would you actually do before using it - and what specifically are you looking for?
-    </div>
+An AI produces a buyer persona for Music Planet. It reads confidently and is well written. What would you actually do before using it — and what specifically are you looking for?
 </div>
-<div class="speaker-notes"></div>
 </div>
+<div class="speaker-notes">Beyond "read it carefully": Does the demographic data match Music Planet's actual customer base? Are motivations and behaviours plausible or generic? Does it reflect AI bias in assumptions about age, gender, income? What's missing? Could you test it against real customer data? Well-written confidence is exactly when Discernment matters most.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 10 - ENGAGEMENT QUESTION 8
+     SLIDE 9 - ENGAGEMENT QUESTION 7
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s9">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
@@ -991,17 +708,14 @@ html, body {
 <div style="background:#F59E0B;color:#78350F;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Diligence</div>
 </div>
 <div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:860px;">
-      You use AI heavily to draft a proposal for a real client. You review it, make some edits, and submit it as your work. Is that acceptable - and what would Diligence actually require of you beyond just reviewing it?
-    </div>
+You use AI heavily to draft a proposal for a real client. You review it, make some edits, and submit it as your work. Is that acceptable — and what would Diligence actually require of you beyond just reviewing it?
 </div>
-<div class="speaker-notes"></div>
 </div>
-<!-- ════════════════════════════════════════════════
-     SLIDE 11 - ENGAGEMENT QUESTION 9
-════════════════════════════════════════════════ -->
+<div class="speaker-notes">Deliberately ambiguous. Yes, it can be acceptable — but Transparency diligence requires disclosure in accordance with context norms. Deployment diligence requires genuine verification, not just a read-through. Core principle: AI assistance does not transfer responsibility. You own the proposal regardless of how it was produced.</div>
+</div>
 
 <!-- ════════════════════════════════════════════════
-     SLIDE 11 - ENGAGEMENT QUESTION 9
+     SLIDE 10 - ENGAGEMENT QUESTION 8
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s10">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
@@ -1010,9 +724,9 @@ html, body {
 <div style="background:#00CAEF;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Client Intelligence Brief</div>
 </div>
 <div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:900px;">
-      Every time you begin a new AI conversation, the model starts with little or no knowledge of the client. Imagine you could create one canonical document to include with every client prompt. It would give the AI the context it needs to produce specific, relevant, and useful work rather than generic answers.<br/><br/>
-      What should we call this document, and what information would it need to contain?
-    </div>
+Every time you begin a new AI conversation, the model starts with little or no knowledge of the client. Imagine you could create one canonical document to include with every client prompt — giving the AI the context it needs to produce specific, relevant, and useful work rather than generic answers.<br/><br/>
+What should we call this document, and what information would it need to contain?
+</div>
 </div>
 <div class="speaker-notes">Use this as a bridge into the practical prompting work. The name we want students to arrive at is Client Intelligence Brief: a canonical client document that can be pasted into future AI prompts so the model has enough context to produce specific, relevant work.
 
@@ -1032,24 +746,25 @@ Ideas that should ideally surface during discussion:
 
 Teaching point: this document is broader than a market research report. It includes market intelligence, brand context, strategic priorities, evidence, constraints, and assumptions. The stronger the Client Intelligence Brief, the less generic the AI output will be.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 12 - AGENDA
+     SLIDE 11 - AGENDA
 ════════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s11">
 <div class="slide-inner">
 <h2 class="slide-title">Session Agenda</h2>
 <div class="two-col" style="gap:28px;margin-top:0;">
 <div class="panel" style="border-top:4px solid var(--navy);">
-<div class="panel-title" style="color:var(--navy);">PART 1 - The Reality</div>
+<div class="panel-title" style="color:var(--navy);">PART 1 — The Reality</div>
 <ul class="rule-list">
-<li data-n="1">Practical limits of AI tools</li>
+<li data-n="1">How LLMs work — beyond the certification</li>
 <li data-n="2">Ethics &amp; governance</li>
 <li data-n="3">Security &amp; privacy</li>
 <li data-n="4">Environmental impact</li>
 </ul>
 </div>
 <div class="panel" style="border-top:4px solid var(--cyan);">
-<div class="panel-title" style="color:var(--blue);">PART 2 - Using AI Well</div>
+<div class="panel-title" style="color:var(--blue);">PART 2 — Using AI Well</div>
 <ul class="rule-list">
 <li data-n="1">The CRAFT framework</li>
 <li data-n="2">Meta-prompting</li>
@@ -1058,14 +773,15 @@ Teaching point: this document is broader than a market research report. It inclu
 </div>
 </div>
 <div class="key-quote" style="margin-top:24px;font-size:clamp(15px,1.6vw,19px);">
-      "Who is responsible when AI causes harm?"<br/>
+"Who is responsible when AI causes harm?"<br/>
 <span style="font-size:0.85em;opacity:0.8;font-style:normal;">Keep this question in mind. We'll return to it at the end.</span>
 </div>
 </div>
 <div class="speaker-notes">Part 1 gives the professional context - the risks and responsibilities students need to understand before they use these tools on real client work. Part 2 is practical and produces a real artefact. Plant the accountability question now; return to it at the close.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 13 - LEARNING OUTCOMES
+     SLIDE 12 - LEARNING OUTCOMES
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s12">
 <div class="slide-inner" style="justify-content:center;gap:32px;">
@@ -1085,14 +801,15 @@ Teaching point: this document is broader than a market research report. It inclu
 </div>
 <div style="display:flex;gap:20px;align-items:flex-start;">
 <div style="flex-shrink:0;width:36px;height:36px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;">4</div>
-<div style="color:rgba(255,255,255,0.9);font-size:clamp(15px,1.6vw,19px);line-height:1.5;">Produce a <strong style="color:var(--cyan);">Music Planet market research report</strong> you can use as context in future assessments</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(15px,1.6vw,19px);line-height:1.5;">Produce a <strong style="color:var(--cyan);">Music Planet Client Intelligence Brief</strong> you can use as context in future assessments</div>
 </div>
 </div>
 </div>
 <div class="speaker-notes">Outcome 4 is the tangible deliverable - students leave with something they will actually use. Frame it that way: this isn't a hypothetical exercise, it's a document that will improve every AI-assisted task they do for this client for the rest of the course.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 14 - LLM MECHANICS: WHAT YOU NEED TO KNOW
+     SLIDE 13 - LLM MECHANICS
 ════════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s13">
 <div class="slide-inner">
@@ -1101,35 +818,36 @@ Teaching point: this document is broader than a market research report. It inclu
 <div class="col-card" style="border-top:4px solid var(--navy);">
 <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">Positional effects</div>
 <div class="col-body">Models pay most attention to the <strong>beginning</strong> and <strong>end</strong> of a prompt. Critical instructions buried in the middle get lost.<br/><br/>
-<span style="font-size:11px;color:var(--muted);display:block;margin-top:8px;">Liu et al. (2023) - "Lost in the Middle"</span><br/>
-<strong>Practical rule:</strong> Put your role and system instructions first. Put your specific task instruction immediately after any document you paste in - never before it.</div>
+<span style="font-size:11px;color:var(--muted);display:block;margin-top:8px;">Liu et al. (2023) — "Lost in the Middle"</span><br/>
+<strong>Practical rule:</strong> Put your context and role first. Put your specific task instruction immediately after any document you paste in — never before it. This maps directly onto the CRAFT framework in Part 2.</div>
 </div>
 <div class="col-card" style="border-top:4px solid var(--cyan);">
 <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">Temperature</div>
-<div class="col-body">Controls randomness. The same prompt will not always give the same answer - and that is by design.<br/><br/>
+<div class="col-body">Controls randomness. The same prompt will not always give the same answer — and that is by design.<br/><br/>
 <strong>Low temp</strong> = consistent, predictable.<br/>
 <strong>High temp</strong> = more creative variation.<br/><br/>
-        Consumer tools don't expose this directly, but understanding it explains why regenerating a response is sometimes valid - and why you should never treat the first output as definitive.</div>
+Consumer tools don't expose this directly, but understanding it explains why regenerating a response is sometimes valid — and why you should never treat the first output as definitive.</div>
 </div>
 </div>
-<div class="callout" style="margin-top:16px;">Everything else - hallucination, context windows, knowledge cutoffs, stochasticity - you covered in your certification. Apply that knowledge throughout today.</div>
+<div class="callout" style="margin-top:16px;">Everything else — hallucination, context windows, knowledge cutoffs, stochasticity — you covered in your certification. Apply that knowledge throughout today.</div>
 </div>
 <div class="speaker-notes">Keep this brief - 3 minutes maximum. Students know the fundamentals. These two points are the ones with the most direct practical impact on prompt quality that the certification doesn't specifically name. The callout is a respectful acknowledgement that they did the work - don't re-teach what they already know.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 15 - SECTION: ETHICS
+     SLIDE 14 - THE GOVERNANCE GAP
 ════════════════════════════════════════════════ -->
 <div class="slide slide-section" id="s14">
 <div class="slide-inner">
-<div class="section-label">Part 1 - Ethics &amp; Governance</div>
+<div class="section-label">Part 1 — Ethics &amp; Governance</div>
 <h2 class="slide-title">The Governance Gap</h2>
 <div class="slide-body" style="max-width:680px;margin-bottom:28px;">
-      Deployment speed has outpaced governance maturity. The gap is widening, not closing.
-    </div>
+Deployment speed has outpaced governance maturity. The gap is widening, not closing.
+</div>
 <div style="display:flex;gap:28px;flex-wrap:wrap;">
 <div class="stat-card dark">
 <div class="number">3</div>
-<div class="label">AI companies had published frontier<br/>safety policies - August 2024</div>
+<div class="label">AI companies had published frontier<br/>safety policies — August 2024</div>
 </div>
 <div class="stat-card dark">
 <div class="number">12</div>
@@ -1141,13 +859,14 @@ Teaching point: this document is broader than a market research report. It inclu
 </div>
 </div>
 <div style="margin-top:20px;color:rgba(255,255,255,0.5);font-size:clamp(11px,1.1vw,13px);font-style:italic;">
-      Anthropic C+ · OpenAI C · Google C- · xAI &amp; Meta D  (SaferAI / Future of Life Institute, 2025)
-    </div>
+Anthropic C+ · OpenAI C · Google C− · xAI &amp; Meta D &nbsp;(SaferAI / Future of Life Institute, 2025)
+</div>
 </div>
 <div class="speaker-notes">Source: AI Research Report, Section 1. The grading used a letter-grade scale across two independent 2025 studies. Progress from 3 to 12 companies is real - but 12 is still a fraction of the industry. Keep this slide to 2 minutes and move into the harms.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 16 - HARMS THAT ARE ALREADY HERE
+     SLIDE 15 - HARMS THAT ARE ALREADY HERE
 ════════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s15">
 <div class="slide-inner">
@@ -1171,10 +890,11 @@ Teaching point: this document is broader than a market research report. It inclu
 </div>
 <div class="callout" style="margin-top:16px;">These harms are documented, ongoing, and in several cases already subject to litigation and regulatory action.</div>
 </div>
-<div class="speaker-notes">Keep to 3 minutes. The three columns give equal weight to harms that are directly relevant to students entering marketing roles - targeting, creative work, and content. Ask verbally: "If you used AI to generate a product image for a client campaign, do you think you'd need to disclose that?" There's no clean NZ-specific legal answer yet - that ambiguity is the point.</div>
+<div class="speaker-notes">Keep to 3 minutes. Ask verbally: "If you used AI to generate a product image for a client campaign, do you think you'd need to disclose that?" There's no clean NZ-specific legal answer yet — that ambiguity is the point.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 17 - OPENAI SAFETY EXODUS
+     SLIDE 16 - OPENAI SAFETY EXODUS
 ════════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s16">
 <div class="slide-inner">
@@ -1185,32 +905,33 @@ Teaching point: this document is broader than a market research report. It inclu
 <div class="tl-text">Ilya Sutskever (co-founder) departs. Jan Leike resigns as Superalignment co-leader. Team subsequently disbanded.</div>
 </div>
 <div class="tl-item">
-<div class="tl-date">May-Oct 2024</div>
+<div class="tl-date">May–Oct 2024</div>
 <div class="tl-text">~50% of safety-focused staff gone. Wave of departures includes Kokotajlo, O'Keefe, Murati, McGrew, Zoph.</div>
 </div>
 <div class="tl-item">
 <div class="tl-date">Feb 2026</div>
-<div class="tl-text">OpenAI's Mission Alignment team dissolved - <strong>third safety team disbanded in under two years</strong>. Same month: Anthropic drops its Responsible Scaling Policy pledge under commercial pressure.</div>
+<div class="tl-text">OpenAI's Mission Alignment team dissolved — <strong>third safety team disbanded in under two years</strong>. Same month: Anthropic drops its Responsible Scaling Policy pledge under commercial pressure.</div>
 </div>
 </div>
 <div class="key-quote" style="margin-top:16px;">"Create a safety team. Dissolve it. Create another. Dissolve it."<br/><span style="font-style:normal;font-size:0.85em;opacity:0.8;">This is a structural story, not a personnel story.</span></div>
 </div>
-<div class="speaker-notes">Keep to 3 minutes. The key insight: safety commitments are negotiable under commercial pressure - at every major lab, not just OpenAI. The Anthropic RSP detail in February 2026 lands harder when students are using Claude. Ask verbally: "What does repeated disbanding of safety teams tell you about the incentive structures?" Then move on - don't let this become a debate.</div>
+<div class="speaker-notes">Keep to 3 minutes. The key insight: safety commitments are negotiable under commercial pressure — at every major lab, not just OpenAI. The Anthropic RSP detail in February 2026 lands harder when students are using Claude. Ask verbally: "What does repeated disbanding of safety teams tell you about the incentive structures?" Then move on.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 18 - SECTION: SECURITY & PRIVACY
+     SLIDE 17 - THE ATTACK SURFACE IS LANGUAGE
 ════════════════════════════════════════════════ -->
 <div class="slide slide-section" id="s17">
 <div class="slide-inner">
-<div class="section-label">Part 1 - Security &amp; Privacy</div>
+<div class="section-label">Part 1 — Security &amp; Privacy</div>
 <h2 class="slide-title">The Attack Surface Is Language</h2>
 <div class="slide-body" style="max-width:680px;margin-bottom:28px;">
-      LLM security risks differ from traditional software. The vulnerability is natural language itself.
-    </div>
+LLM security risks differ from traditional software. The vulnerability is natural language itself.
+</div>
 <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px;">
 <div class="stat-card dark" style="flex:1;min-width:220px;">
 <div class="number">#1</div>
-<div class="label">Prompt injection - OWASP Top 10<br/>for LLM Applications (2025)</div>
+<div class="label">Prompt injection — OWASP Top 10<br/>for LLM Applications (2025)</div>
 </div>
 <div class="stat-card dark" style="flex:1;min-width:220px;">
 <div class="number">43%</div>
@@ -1219,14 +940,15 @@ Teaching point: this document is broader than a market research report. It inclu
 </div>
 <div style="color:rgba(255,255,255,0.6);font-size:clamp(13px,1.3vw,15px);">Two risk types: <span style="color:var(--cyan);">prompt injection</span> and <span style="color:var(--cyan);">data leakage</span> through unmanaged tool use outside organisational IT oversight.</div>
 </div>
-<div class="speaker-notes">2 minutes. The 43% figure is the one that lands - nearly half of employees using AI at work are doing so on personal accounts with no organisational oversight. That's the data leakage risk in one number.</div>
+<div class="speaker-notes">2 minutes. The 43% figure is the one that lands — nearly half of employees using AI at work are doing so on personal accounts with no organisational oversight. That's the data leakage risk in one number.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 19 - THREE PROFESSIONAL RULES
+     SLIDE 18 - THREE PROFESSIONAL RULES
 ════════════════════════════════════════════════ -->
 <div class="slide slide-dark" id="s18">
 <div class="slide-inner" style="justify-content:center;">
-<div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;">Three Rules - Starting Now</div>
+<div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;">Three Rules — Starting Now</div>
 <div style="display:flex;flex-direction:column;gap:20px;max-width:740px;">
 <div style="display:flex;gap:18px;align-items:flex-start;">
 <div style="flex-shrink:0;width:36px;height:36px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;">1</div>
@@ -1242,101 +964,182 @@ Teaching point: this document is broader than a market research report. It inclu
 </div>
 </div>
 </div>
-<div class="speaker-notes">2 minutes. Rule 3 is the one that surprises students most. Free-tier users operate with significantly less data protection than enterprise deployments despite sharing similarly sensitive information. These three rules apply immediately - including today's exercise. Note: for the Music Planet exercise, we are not sharing any real confidential client data, so consumer tools are fine for this session.</div>
+<div class="speaker-notes">2 minutes. Rule 3 is the one that surprises students most. Note: for the Music Planet exercise, we are not sharing any real confidential client data, so consumer tools are fine for this session.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 20 - SECTION: ENVIRONMENTAL IMPACT
+     SLIDE 19 - THE NUMBERS
 ════════════════════════════════════════════════ -->
 <div class="slide slide-section" id="s19">
 <div class="slide-inner">
-<div class="section-label">Part 1 - Environmental Impact</div>
+<div class="section-label">Part 1 — Environmental Impact</div>
 <h2 class="slide-title">The Numbers</h2>
-<div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:20px;">
-<div class="stat-card dark" style="flex:1;min-width:200px;">
-<div class="number">51%</div>
-<div class="label">Google's total emissions increase<br/>2019-2024</div>
+<div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:18px;">
+<div class="stat-card dark" style="flex:1;min-width:180px;">
+<div class="number">~500 TWh</div>
+<div class="label">Global data centre electricity in 2025 — up 70 TWh in one year (IEA, 2026)</div>
 </div>
-<div class="stat-card dark" style="flex:1;min-width:200px;">
-<div class="number">80-90%</div>
-<div class="label">of AI computing energy consumed by<br/><em>inference</em> - answering queries, not training</div>
+<div class="stat-card dark" style="flex:1;min-width:180px;">
+<div class="number">80–90%</div>
+<div class="label">of AI computing energy consumed by <em>inference</em> — answering queries, not training</div>
 </div>
-<div class="stat-card dark" style="flex:1;min-width:200px;">
-<div class="number" style="font-size:clamp(22px,2.4vw,32px);">~945 TWh</div>
-<div class="label">Projected global data centre electricity<br/>by 2030 - Japan's entire annual demand (IEA, 2025)</div>
+<div class="stat-card dark" style="flex:1;min-width:180px;">
+<div class="number">25%</div>
+<div class="label">Microsoft emissions rise year-on-year in FY25 as AI infrastructure expanded</div>
 </div>
 </div>
-<div style="color:rgba(255,255,255,0.65);font-size:clamp(13px,1.3vw,15px);line-height:1.6;">Microsoft committed to carbon-negative by 2030. Its FY2024 report showed emissions had risen <strong style="color:white;">23.4% above its 2020 baseline.</strong> Chief Sustainability Officer: <em>"The moon has gotten further away."</em></div>
+<div style="background:rgba(0,202,239,0.08);border-left:4px solid var(--cyan);border-radius:0 8px 8px 0;padding:13px 18px;color:rgba(255,255,255,0.85);font-size:clamp(13px,1.35vw,15px);line-height:1.6;margin-bottom:14px;">
+<strong style="color:var(--cyan);">New Zealand context:</strong> 85.5% of NZ electricity is renewable (2024) — but 64% of the 1,780 MW now in NZ’s new load pipeline is data centres. The issue is less today’s average emissions than where future demand lands.
 </div>
-<div class="speaker-notes">3 minutes. The inference figure (80-90%) is the counterintuitive point - the environmental cost is driven by daily queries, not the periodic training runs that get the headlines. The Microsoft quote lands well. The practical takeaway for students is covered verbally: AI-generated content at scale is not environmentally neutral, and this is increasingly a reputational and regulatory consideration for brands.</div>
+<div style="color:rgba(255,255,255,0.55);font-size:clamp(11px,1.1vw,13px);font-style:italic;">
+Efficiency is real — Google improved TPU compute carbon intensity threefold across five generations. But demand is growing faster than efficiency can offset. That is the rebound effect.
 </div>
+</div>
+<div class="speaker-notes">3 minutes. The inference figure (80–90%) is the counterintuitive point — the environmental cost is driven by daily queries, not the headline training runs. The NZ context is new and relevant to this audience: a renewable grid does not mean zero impact when a large pipeline of new data-centre demand is coming. Microsoft’s 25% year-on-year rise is from their FY25 report, which they did not hide — worth noting that candour exists.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 21 - THREE MILE ISLAND
+     SLIDE 20 - WATER: WHAT WE KNOW AND DON'T
 ════════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s20">
 <div class="slide-inner">
-<h2 class="slide-title">Case Study: Three Mile Island - September 2024</h2>
-<div class="two-col" style="flex:1;">
-<div>
-<div class="col-card" style="border-top:4px solid var(--navy);margin-bottom:16px;">
-<div class="col-title">The deal</div>
-<div class="col-body">Microsoft-Constellation Energy: 20-year power purchase agreement to restart Three Mile Island Unit 1 (closed 2019). Would add <strong>837 MW</strong> of carbon-free electricity - specifically to power AI data centres.</div>
+<h2 class="slide-title">Water: What We Know and What We Don’t</h2>
+<div class="two-col" style="flex:1;gap:22px;">
+<div style="display:flex;flex-direction:column;gap:14px;">
+<div class="col-card" style="border-top:4px solid var(--navy);">
+<div class="col-title">Withdrawal vs Consumption</div>
+<div class="col-body" style="font-size:clamp(13px,1.35vw,15px);line-height:1.6;">
+<strong>Withdrawal</strong> — water taken from a source; some is returned.<br/><br/>
+<strong>Consumption</strong> — water not returned, usually because it evaporates through cooling towers.<br/><br/>
+These are not the same thing, and most headlines do not tell you which one they mean.
 </div>
-<div class="stat-card" style="border-top-color:var(--blue);">
-<div class="number" style="color:var(--navy);">10+ GW</div>
-<div class="label">New US nuclear capacity agreed by major tech companies by December 2025</div>
+</div>
+<div class="col-card" style="border-top:4px solid var(--blue);">
+<div class="col-title">The “Bottle of Water” Claim</div>
+<div class="col-body" style="font-size:clamp(13px,1.35vw,15px);line-height:1.6;">
+The famous GPT-3 estimate — 500 mL per 10–50 responses — was one model, one Microsoft data centre, specific cooling assumptions, U.S. electricity mix.<br/><br/>
+<strong>It is not a universal figure.</strong> The same researchers say WUE varies by location, season, load, and cooling design.
+</div>
 </div>
 </div>
 <div style="display:flex;flex-direction:column;gap:14px;">
-<div class="col-card" style="border-top:4px solid var(--cyan);flex:1;">
-<div class="col-title">Also signed</div>
-<div class="col-body">
-<strong>Google</strong> - deal with Kairos Power for up to 500 MW<br/><br/>
-<strong>Amazon</strong> - $20bn investment in nuclear-adjacent infrastructure<br/><br/>
-<strong>Meta</strong> - seeking 1-4 GW of new nuclear generation
-          </div>
-</div>
-<div class="key-quote" style="margin:0;">AI's energy demands are now restarting reactors that were uneconomic before LLMs existed.</div>
+<div class="col-card" style="border-top:4px solid var(--cyan);">
+<div class="col-title">The Hidden Water Cost</div>
+<div class="col-body" style="font-size:clamp(13px,1.35vw,15px);line-height:1.6;">
+On-site cooling is only part of the picture. <strong>Generating the electricity a data centre uses also consumes water</strong> — at the power station, off-site.<br/><br/>
+In some regions, that indirect water use exceeds the direct on-site figure. A data centre with low on-site WUE can still have a large total water footprint depending on its grid.
 </div>
 </div>
+<div style="background:#EFF6FF;border-radius:10px;padding:16px 18px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;color:var(--navy);margin-bottom:8px;">Amazon — 2025 Sustainability Report</div>
+<div style="display:flex;gap:10px;align-items:stretch;">
+<div style="flex:1;background:white;border-radius:8px;padding:12px 14px;text-align:center;border-top:3px solid #16A34A;">
+<div style="font-size:clamp(20px,2.2vw,28px);font-weight:700;color:#16A34A;">48%</div>
+<div style="font-size:clamp(11px,1.1vw,13px);color:#555;margin-top:4px;line-height:1.4;">withdrawals in <strong>low</strong> water-stress regions</div>
 </div>
-<div class="speaker-notes">2 minutes. The point isn't the nuclear debate - it's the scale signal. When your daily queries are restarting nuclear reactors, the environmental footprint of AI is no longer abstract. For brand decisions and client advice: this is increasingly a reputational and regulatory consideration.</div>
+<div style="flex:1;background:white;border-radius:8px;padding:12px 14px;text-align:center;border-top:3px solid #DC2626;">
+<div style="font-size:clamp(20px,2.2vw,28px);font-weight:700;color:#DC2626;">22%</div>
+<div style="font-size:clamp(11px,1.1vw,13px);color:#555;margin-top:4px;line-height:1.4;">withdrawals in <strong>high or extremely high</strong> water-stress regions</div>
 </div>
+</div>
+<div style="font-size:11px;color:var(--muted);margin-top:8px;">Same company. Very different local impact depending on where the server is.</div>
+</div>
+</div>
+</div>
+<div style="margin-top:10px;background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:11px 16px;color:#78350F;font-size:clamp(12px,1.25vw,14px);line-height:1.55;">
+<strong>The honest answer:</strong> AI-specific water disclosure is still weak across the industry. No standardised reporting exists. The data gap is real — which is itself information worth knowing.
+</div>
+</div>
+<div class="speaker-notes">3 minutes. The key teaching points: (1) withdrawal and consumption are different — most headlines conflate them; (2) the famous 500mL figure is assumption-dependent and cannot be applied universally; (3) the hidden off-site water is often bigger than the on-site figure; (4) the Amazon regional split shows that the same company has very different local impacts depending on geography. The honest-answer callout connects back to Discernment — this is exactly the kind of confident-sounding claim that falls apart when you interrogate the assumptions. The data gap is also a fair point: we cannot give students a clean number because the industry does not publish one.</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 21 - WHAT THIS MEANS FOR MARKETERS
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s21">
+<div class="slide-inner">
+<h2 class="slide-title">What This Means for Marketers</h2>
+<div style="display:flex;gap:20px;flex:1;">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:2px;">Environmental intensity of common tasks</div>
+<div style="display:flex;align-items:center;gap:12px;background:#F0FDF4;border-radius:8px;padding:10px 14px;">
+<div style="width:12px;height:12px;border-radius:50%;background:#16A34A;flex-shrink:0;"></div>
+<div style="font-size:clamp(13px,1.35vw,15px);color:#14532D;"><strong>Lower</strong> — one well-planned text prompt, bounded summarisation</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;background:#FFF7ED;border-radius:8px;padding:10px 14px;">
+<div style="width:12px;height:12px;border-radius:50%;background:#F59E0B;flex-shrink:0;"></div>
+<div style="font-size:clamp(13px,1.35vw,15px);color:#78350F;"><strong>Moderate</strong> — repeated regeneration of similar text, long-document analysis</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;background:#FFF1F2;border-radius:8px;padding:10px 14px;">
+<div style="width:12px;height:12px;border-radius:50%;background:#DC2626;flex-shrink:0;"></div>
+<div style="font-size:clamp(13px,1.35vw,15px);color:#7F1D1D;"><strong>Higher</strong> — high-resolution image generation, short-form video, large-scale personalisation at campaign scale</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;background:#F5F3FF;border-radius:8px;padding:10px 14px;">
+<div style="width:12px;height:12px;border-radius:50%;background:#7C3AED;flex-shrink:0;"></div>
+<div style="font-size:clamp(13px,1.35vw,15px);color:#4C1D95;"><strong>Highly variable</strong> — always-on chatbots, agentic workflows with hidden model calls</div>
+</div>
+<div class="callout" style="margin-top:4px;font-size:clamp(12px,1.25vw,14px);">One careful prompt ≠ 80 ad variants + 40 images + 10 videos + an always-on agent. Volume, modality, and automation all increase impact.</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:2px;">Before — During — After</div>
+<div style="background:white;border-radius:10px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.07);display:flex;flex-direction:column;gap:10px;flex:1;">
+<div style="border-left:4px solid var(--navy);padding-left:12px;">
+<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">Before</div>
+<div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.5;">Does this task need AI? Is a smaller or non-generative tool adequate? Is text enough?</div>
+</div>
+<div style="border-left:4px solid var(--blue);padding-left:12px;">
+<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:3px;">During</div>
+<div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.5;">Plan before prompting. Limit near-duplicate retries. Revise a useful draft rather than starting over.</div>
+</div>
+<div style="border-left:4px solid var(--cyan);padding-left:12px;">
+<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:3px;">After</div>
+<div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.5;">Stop when marginal value drops. Read provider sustainability claims with healthy scepticism. Disclose AI use honestly.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="speaker-notes">3 minutes. The intensity gradient should feel familiar — it maps directly onto decisions students will make in A3 and A4. The rebound point is the one worth lingering on: the environmental risk for marketing teams isn’t the single prompt, it’s the workflow that generates 80 ad variants, 20 synthetic personas, 40 images, and then runs an always-on agent to keep refining them. The before/during/after framework is from the report and is deliberately simple — three questions, not a checklist of twelve. The goal is not abstinence, it is informed professional judgment. Source: The Hidden Footprint of Helpful Machines, Tables 3 and 5.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
      SLIDE 22 - BREAK
 ════════════════════════════════════════════════ -->
-<div class="slide slide-break" id="s21">
+<div class="slide slide-break" id="s22">
 <div class="slide-inner">
 <div class="break-title">☕ Back in 10 minutes</div>
 <div class="break-prompt">
-<div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,202,239,0.7);margin-bottom:12px;font-weight:700;">While you're up</div>
-      Open ChatGPT, Claude, or Gemini on your device.<br/><br/>We're going to build something in Part 2 - <strong style="color:white;">you'll need it ready.</strong>
+<div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,202,239,0.7);margin-bottom:12px;font-weight:700;">While you’re up</div>
+Open ChatGPT, Claude, or Gemini on your device.<br/><br/>We’re going to build something in Part 2 — <strong style="color:white;">you’ll need it ready.</strong>
 </div>
 </div>
-<div class="speaker-notes">Remind students to have an AI tool open and ready before they sit back down. Part 2 moves quickly and the exercise is the centrepiece - no time to troubleshoot logins once we start.</div>
+<div class="speaker-notes">Remind students to have an AI tool open and ready before they sit back down. Part 2 moves quickly and the exercise is the centrepiece — no time to troubleshoot logins once we start.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 22 - SECTION: PART 2
+     SLIDE 23 - FROM CERTIFICATION TO PRACTICE
 ════════════════════════════════════════════════ -->
-<div class="slide slide-section" id="s22">
+<div class="slide slide-section" id="s23">
 <div class="slide-inner">
-<div class="section-label">Part 2 - Using AI Well</div>
+<div class="section-label">Part 2 — Using AI Well</div>
 <h2 class="slide-title">From the Certification to Practice</h2>
 <div class="slide-body" style="max-width:720px;">
-      You already know the six prompting techniques. What the certification doesn't give you is a <strong style="color:var(--cyan);">framework for combining them</strong> - and a way to make the AI <strong style="color:var(--cyan);">critique its own output</strong> before you accept it.<br/><br/>
-      That's what the next 40 minutes are for.
-    </div>
+You already know the six prompting techniques. What the certification doesn't give you is a <strong style="color:var(--cyan);">framework for combining them</strong> — and a way to make the AI <strong style="color:var(--cyan);">critique its own output</strong> before you accept it.<br/><br/>
+That's what the next 40 minutes are for.
+</div>
 <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;">
 <div style="padding:14px 22px;border:1.5px solid rgba(0,202,239,0.35);border-radius:8px;color:rgba(255,255,255,0.7);font-size:14px;">CRAFT framework</div>
 <div style="padding:14px 22px;border:1.5px solid rgba(0,202,239,0.35);border-radius:8px;color:rgba(255,255,255,0.7);font-size:14px;">Meta-prompting</div>
 <div style="padding:14px 22px;border:1.5px solid rgba(0,202,239,0.35);border-radius:8px;color:rgba(255,255,255,0.7);font-size:14px;">Live exercise → Music Planet report</div>
 </div>
 </div>
-<div class="speaker-notes">Verbal bridge: "You've certified in the techniques. Context, examples, constraints, decompose, chain of thought, role assignment - you know what these are. The question is how you deploy them together, deliberately, for a specific purpose. That's CRAFT." Keep this slide to 60 seconds and move straight in.</div>
+<div class="speaker-notes">Verbal bridge: "You've certified in the techniques. Context, examples, constraints, decompose, chain of thought, role assignment — you know what these are. The question is how you deploy them together, deliberately, for a specific purpose. That's CRAFT." Keep this slide to 60 seconds and move straight in.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 23 - CRAFT FRAMEWORK
+     SLIDE 24 - THE CRAFT FRAMEWORK
 ════════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s23">
+<div class="slide slide-content" id="s24">
 <div class="slide-inner">
 <h2 class="slide-title">The CRAFT Framework</h2>
 <div class="craft-grid">
@@ -1368,14 +1171,15 @@ Teaching point: this document is broader than a market research report. It inclu
 </div>
 <div style="margin-top:16px;background:#F0F7FF;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:14px 18px;font-size:clamp(13px,1.3vw,15px);color:#1E3A5F;line-height:1.6;">
 <strong>Context comes first</strong> because it is the single element most likely to transform a generic response into a genuinely useful one. If removing your Context block would leave an adequate response, you haven't provided enough context.
-    </div>
 </div>
-<div class="speaker-notes">5 minutes. Walk through each letter with one sentence. Emphasise that Context is the most commonly under-specified element - and the one with the biggest impact. The test at the bottom is worth saying aloud: "If you could remove your context block and still get an adequate response, you haven't provided enough context." This connects directly to the engagement question about the AI context document.</div>
 </div>
+<div class="speaker-notes">5 minutes. Walk through each letter with one sentence. Emphasise that Context is the most commonly under-specified element — and the one with the biggest impact. The test at the bottom is worth saying aloud.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 24 - CRAFT IN ACTION: MUSIC PLANET
+     SLIDE 25 - CRAFT IN ACTION: MUSIC PLANET
 ════════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s24">
+<div class="slide slide-content" id="s25">
 <div class="slide-inner">
 <h2 class="slide-title">CRAFT in Action: Music Planet</h2>
 <div style="flex:1;overflow:auto;display:flex;gap:16px;">
@@ -1399,7 +1203,7 @@ Teaching point: this document is broader than a market research report. It inclu
 <span class="tag">&lt;/action&gt;</span><br/><br/>
 <span class="tag">&lt;format&gt;</span><br/>
 <span class="text">1. Company overview and positioning</span><br/>
-<span class="text">2. Target customer segments (2-3, with demographics and behaviours)</span><br/>
+<span class="text">2. Target customer segments (2–3, with demographics and behaviours)</span><br/>
 <span class="text">3. Competitive landscape (direct and indirect competitors)</span><br/>
 <span class="text">4. Current digital presence assessment</span><br/>
 <span class="text">5. Key marketing challenges and opportunities</span><br/>
@@ -1414,80 +1218,83 @@ Teaching point: this document is broader than a market research report. It inclu
 <div style="flex:1;display:flex;flex-direction:column;gap:8px;font-size:clamp(10px,1.0vw,12px);line-height:1.5;padding-top:2px;">
 <div style="background:#EFF6FF;border-left:3px solid var(--navy);border-radius:0 6px 6px 0;padding:8px 10px;color:#1E3A5F;">
 <strong style="display:block;color:var(--navy);margin-bottom:2px;">Context</strong>
-          Specific enough to be Music Planet - not generic "music retailer." The key challenge is named.
-        </div>
+Specific enough to be Music Planet — not generic "music retailer." The key challenge is named.
+</div>
 <div style="background:#F0FDF4;border-left:3px solid var(--blue);border-radius:0 6px 6px 0;padding:8px 10px;color:#14532D;">
 <strong style="display:block;color:var(--blue);margin-bottom:2px;">Role</strong>
-          NZ retail specialism matters. Generic "marketing expert" would produce generic output.
-        </div>
+NZ retail specialism matters. Generic "marketing expert" would produce generic output.
+</div>
 <div style="background:#FFF7ED;border-left:3px solid var(--cyan);border-radius:0 6px 6px 0;padding:8px 10px;color:#78350F;">
 <strong style="display:block;color:var(--cyan);margin-bottom:2px;">Action</strong>
-          States the purpose of the document - "for all future AI-assisted marketing tasks" - which shapes what the AI includes.
-        </div>
+States the purpose of the document — "for all future AI-assisted marketing tasks" — which shapes what the AI includes.
+</div>
 <div style="background:#FAF5FF;border-left:3px solid var(--purple);border-radius:0 6px 6px 0;padding:8px 10px;color:#4C1D95;">
 <strong style="display:block;color:var(--purple);margin-bottom:2px;">Format</strong>
-          Six numbered sections. The AI cannot misunderstand the structure.
-        </div>
+Six numbered sections. The AI cannot misunderstand the structure.
+</div>
 <div style="background:#F8FAFC;border-left:3px solid var(--muted);border-radius:0 6px 6px 0;padding:8px 10px;color:#334155;">
 <strong style="display:block;color:var(--muted);margin-bottom:2px;">Target Audience</strong>
-          Calibrates depth and assumed knowledge precisely.
-        </div>
+Calibrates depth and assumed knowledge precisely.
 </div>
 </div>
 </div>
-<div class="speaker-notes">5 minutes. Walk through the annotations column rather than reading the prompt aloud. The point is how each element does specific work - not just that it's long. You can run this live if internet is available; the output difference versus a zero-shot version ("write a market research report for Music Planet") is dramatic enough to be its own teaching moment.</div>
 </div>
+<div class="speaker-notes">5 minutes. Walk through the annotations column rather than reading the prompt aloud. The point is how each element does specific work — not just that it's long. You can run this live if internet is available.</div>
+</div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 25 - META-CRAFT PROMPT LINK
+     SLIDE 26 - META-CRAFT PROMPT LINK
 ════════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s25">
+<div class="slide slide-content" id="s26">
 <div class="slide-inner" style="justify-content:center;">
 <h2 class="slide-title">Meta-CRAFT: Use the Prompt Builder</h2>
 <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px;">
 <div class="callout" style="font-size:clamp(18px,2vw,24px);font-weight:700;text-align:center;padding:22px 28px;line-height:1.45;">
-        Open the linked Meta-CRAFT prompt, paste it into Claude, ChatGPT, or Gemini, and follow the instructions.
-      </div>
+Open the linked Meta-CRAFT prompt, paste it into Claude, ChatGPT, or Gemini, and follow the instructions.
+</div>
 <div class="two-col" style="gap:22px;flex:0;margin-top:0;">
 <div class="col-card" style="border-top:4px solid var(--navy);">
 <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">How it works</div>
 <div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
-            The Meta-CRAFT prompt asks structured questions about your task, audience, context, role, constraints, and output format. It then produces a stronger prompt that you can copy, paste, and execute.
-          </div>
+The Meta-CRAFT prompt asks structured questions about your task, audience, context, role, constraints, and output format. It then produces a stronger prompt that you can copy, paste, and execute.
+</div>
 </div>
 <div class="col-card" style="border-top:4px solid var(--cyan);">
 <div class="col-title" style="font-size:clamp(15px,1.5vw,18px);">Why use it?</div>
 <div class="col-body" style="font-size:clamp(14px,1.45vw,17px);line-height:1.65;">
-            It helps you avoid vague, under-specified prompts. Instead of trying to craft the perfect prompt from scratch, you use the tool to build one deliberately.
-          </div>
+It helps you avoid vague, under-specified prompts. Instead of trying to craft the perfect prompt from scratch, you use the tool to build one deliberately.
+</div>
 </div>
 </div>
 <div style="text-align:center;margin-top:4px;">
 <a href="https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing" rel="noopener" style="display:inline-block;background:var(--blue);color:white;text-decoration:none;font-weight:700;font-size:clamp(15px,1.6vw,19px);padding:16px 28px;border-radius:10px;box-shadow:0 3px 14px rgba(31,43,211,0.25);" target="_blank">
-          Open the Meta-CRAFT Prompt
-        </a>
+Open the Meta-CRAFT Prompt
+</a>
 <div style="margin-top:14px;font-size:clamp(12px,1.2vw,14px);color:var(--muted);word-break:break-all;">
-          https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing
-        </div>
+https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing
+</div>
 </div>
 </div>
 </div>
 <div class="speaker-notes">Explain that students do not need to manually build complex prompts from scratch. They paste the linked Meta-CRAFT prompt into their AI tool, answer its questions, and then run the generated prompt. Emphasise that it is a scaffold for producing a better prompt, not a replacement for judgment.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 26 - LIVE EXERCISE
+     SLIDE 27 - LIVE EXERCISE
 ════════════════════════════════════════════════ -->
-<div class="slide slide-exercise" id="s26">
+<div class="slide slide-exercise" id="s27">
 <div class="slide-inner">
-<div class="exercise-badge">Live Exercise - 15 minutes</div>
+<div class="exercise-badge">Live Exercise — 15 minutes</div>
 <h2 class="slide-title">Using the Meta-CRAFT Prompt</h2>
+<div style="font-size:clamp(13px,1.35vw,15px);color:#92400E;font-weight:600;margin-bottom:6px;">Deliverable: your Music Planet Client Intelligence Brief</div>
 <div class="slide-body">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;">
 <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:12px;">
 <div style="font-size:clamp(13px,1.35vw,15px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;">Step 1</div>
 <div style="font-size:clamp(17px,1.8vw,22px);font-weight:700;color:#78350F;line-height:1.35;">Think about the context first</div>
 <div style="font-size:clamp(13px,1.35vw,15px);color:#78350F;line-height:1.6;">
-            Before opening your AI tool, identify the information the model will need to produce something genuinely useful for A3 and A4.
-          </div>
+Before opening your AI tool, identify the information the model will need to produce something genuinely useful for A3 and A4.
+</div>
 <ul style="margin:0;padding-left:20px;color:#78350F;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">
 <li>What is the task?</li>
 <li>What do you already know about Music Planet?</li>
@@ -1516,31 +1323,34 @@ Teaching point: this document is broader than a market research report. It inclu
 </div>
 <div style="margin-top:16px;background:#FFF7ED;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;color:#78350F;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">
 <strong>Your job is to supply strong context.</strong> The Meta-CRAFT prompt helps construct the rest.
-      </div>
+</div>
 </div>
 </div>
 <div class="speaker-notes">Students should not manually design every CRAFT component before activating the Meta-CRAFT prompt. Their first job is to think carefully about useful context for A3 and A4. The prompt builder should then guide them through role, action, format, and target audience. Emphasise that the finished prompt should be run in a new AI conversation and checked before the output is used.</div>
 </div>
+
 <!-- ════════════════════════════════════════════════
-     SLIDE 27 - DEBRIEF + CLOSING
+     SLIDE 28 - CLOSING
 ════════════════════════════════════════════════ -->
-<div class="slide slide-dark" id="s27">
+<div class="slide slide-dark" id="s28">
 <div class="slide-inner" style="justify-content:center;gap:20px;">
 <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);">Session Close</div>
 <div style="font-size:clamp(18px,2vw,26px);color:rgba(255,255,255,0.7);margin-bottom:4px;">Return to the opening question:</div>
 <div style="font-size:clamp(22px,2.8vw,38px);font-weight:700;color:white;line-height:1.3;max-width:820px;">"Who is responsible when AI causes harm?"</div>
 <div style="background:rgba(0,202,239,0.1);border:1.5px solid rgba(0,202,239,0.3);border-radius:12px;padding:22px 28px;max-width:820px;color:rgba(255,255,255,0.9);font-size:clamp(15px,1.6vw,19px);line-height:1.65;margin-top:8px;">
-      "There is no clean answer yet. But knowing the risks, building with care, and being transparent about how you worked - <strong style="color:var(--cyan);">that is what professional competence looks like now.</strong>"
-    </div>
+"There is no clean answer yet. But knowing the risks, building with care, and being transparent about how you worked — <strong style="color:var(--cyan);">that is what professional competence looks like now.</strong>"
+</div>
 <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;">
 <div style="padding:12px 20px;border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.6);font-size:13px;">Save your Music Planet context document</div>
 <div style="padding:12px 20px;border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.6);font-size:13px;">Use it in A3 and A4 prompts</div>
 <div style="padding:12px 20px;border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.6);font-size:13px;">Any questions?</div>
 </div>
 </div>
-<div class="speaker-notes">Close the loop on the opening question. The honest answer - accountability is fragmented, governance is lagging - is not cynical. It's the accurate picture students need. Three practical reminders: (1) save the context document and use it; (2) the CRAFT framework applies to every AI task in A3 and A4; (3) Diligence - verify, disclose, take responsibility - is not optional when working with a real client.</div>
+<div class="speaker-notes">Close the loop on the opening question. The honest answer — accountability is fragmented, governance is lagging — is not cynical. It's the accurate picture students need. Three practical reminders: (1) save your Client Intelligence Brief and use it; (2) the CRAFT framework applies to every AI task in A3 and A4; (3) Diligence — verify, disclose, take responsibility — is not optional when working with a real client.</div>
 </div>
+
 </div><!-- /deck -->
+
 <nav id="sidebar">
 <div id="sidebar-header">
 <div class="course-label">MKTG 304 · University of Auckland</div>
@@ -1548,16 +1358,16 @@ Teaching point: this document is broader than a market research report. It inclu
 </div>
 <div id="slide-list">
 <div class="nav-item active" onclick="goTo(1);closeSidebar()"><span class="n-num">01</span><span class="n-title">Title</span></div>
-<div class="nav-item" onclick="goTo(2);closeSidebar()"><span class="n-num">02</span><span class="n-title">Engagement Questions</span><span class="n-tag section">Section</span></div>
 <div class="nav-group">Engagement Questions</div>
-<div class="nav-item" onclick="goTo(3);closeSidebar()"><span class="n-num">03</span><span class="n-title">Q1 - Modalities</span><span class="n-tag" style="background:rgba(0,202,239,0.15);color:var(--cyan);">Modalities</span></div>
-<div class="nav-item" onclick="goTo(4);closeSidebar()"><span class="n-num">04</span><span class="n-title">Q2 - Hallucination</span><span class="n-tag" style="background:rgba(245,158,11,0.2);color:#F59E0B;">Hallucination</span></div>
-<div class="nav-item" onclick="goTo(5);closeSidebar()"><span class="n-num">05</span><span class="n-title">Q3 - Delegation</span><span class="n-tag" style="background:rgba(0,202,239,0.15);color:var(--cyan);">Delegation</span></div>
-<div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">Q4 - Description Gap</span><span class="n-tag" style="background:rgba(143,149,233,0.2);color:#8F95E9;">Description</span></div>
-<div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">Q5 - D-D Loop</span><span class="n-tag" style="background:rgba(143,149,233,0.2);color:#8F95E9;">Description</span></div>
-<div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">Q6 - Discernment</span><span class="n-tag" style="background:rgba(22,163,74,0.2);color:#16A34A;">Discernment</span></div>
-<div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">Q7 - Diligence</span><span class="n-tag" style="background:rgba(245,158,11,0.2);color:#F59E0B;">Diligence</span></div>
-<div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Q8 - Client Intelligence Brief</span><span class="n-tag" style="background:rgba(0,202,239,0.15);color:var(--cyan);">Context</span></div>
+<div class="nav-item" onclick="goTo(2);closeSidebar()"><span class="n-num">02</span><span class="n-title">Intro</span><span class="n-tag section">Section</span></div>
+<div class="nav-item" onclick="goTo(3);closeSidebar()"><span class="n-num">03</span><span class="n-title">Q1 — Modalities</span><span class="n-tag" style="background:rgba(0,202,239,0.15);color:var(--cyan);">Modalities</span></div>
+<div class="nav-item" onclick="goTo(4);closeSidebar()"><span class="n-num">04</span><span class="n-title">Q2 — Hallucination</span><span class="n-tag" style="background:rgba(245,158,11,0.2);color:#F59E0B;">Hallucination</span></div>
+<div class="nav-item" onclick="goTo(5);closeSidebar()"><span class="n-num">05</span><span class="n-title">Q3 — Delegation</span><span class="n-tag" style="background:rgba(0,202,239,0.15);color:var(--cyan);">Delegation</span></div>
+<div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">Q4 — Description Gap</span><span class="n-tag" style="background:rgba(143,149,233,0.2);color:#8F95E9;">Description</span></div>
+<div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">Q5 — D–D Loop</span><span class="n-tag" style="background:rgba(143,149,233,0.2);color:#8F95E9;">Description</span></div>
+<div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">Q6 — Discernment</span><span class="n-tag" style="background:rgba(22,163,74,0.2);color:#16A34A;">Discernment</span></div>
+<div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">Q7 — Diligence</span><span class="n-tag" style="background:rgba(245,158,11,0.2);color:#F59E0B;">Diligence</span></div>
+<div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Q8 — Client Intelligence Brief</span><span class="n-tag" style="background:rgba(0,202,239,0.15);color:var(--cyan);">Context</span></div>
 <div class="nav-group">Introduction</div>
 <div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">Session Agenda</span></div>
 <div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">Learning Outcomes</span></div>
@@ -1571,85 +1381,103 @@ Teaching point: this document is broader than a market research report. It inclu
 <div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">Three Professional Rules</span></div>
 <div class="nav-group">Environmental Impact</div>
 <div class="nav-item" onclick="goTo(19);closeSidebar()"><span class="n-num">19</span><span class="n-title">The Numbers</span><span class="n-tag section">Section</span></div>
-<div class="nav-item" onclick="goTo(20);closeSidebar()"><span class="n-num">20</span><span class="n-title">Three Mile Island</span></div>
-<div class="nav-item" onclick="goTo(21);closeSidebar()"><span class="n-num">21</span><span class="n-title">Break</span><span class="n-tag break">Break</span></div>
+<div class="nav-item" onclick="goTo(20);closeSidebar()"><span class="n-num">20</span><span class="n-title">Water</span></div>
+<div class="nav-item" onclick="goTo(21);closeSidebar()"><span class="n-num">21</span><span class="n-title">What This Means for Marketers</span></div>
+<div class="nav-item" onclick="goTo(22);closeSidebar()"><span class="n-num">22</span><span class="n-title">Break</span><span class="n-tag break">Break</span></div>
 <div class="nav-group">Using AI Well</div>
-<div class="nav-item" onclick="goTo(22);closeSidebar()"><span class="n-num">22</span><span class="n-title">From Cert to Practice</span><span class="n-tag section">Section</span></div>
-<div class="nav-item" onclick="goTo(23);closeSidebar()"><span class="n-num">23</span><span class="n-title">The CRAFT Framework</span></div>
-<div class="nav-item" onclick="goTo(24);closeSidebar()"><span class="n-num">24</span><span class="n-title">CRAFT in Action</span></div>
-<div class="nav-item" onclick="goTo(25);closeSidebar()"><span class="n-num">25</span><span class="n-title">Meta-CRAFT Prompt</span></div>
-<div class="nav-item" onclick="goTo(26);closeSidebar()"><span class="n-num">26</span><span class="n-title">Run Meta-CRAFT</span><span class="n-tag exercise">Exercise</span></div>
-<div class="nav-item" onclick="goTo(27);closeSidebar()"><span class="n-num">27</span><span class="n-title">Closing</span></div>
+<div class="nav-item" onclick="goTo(23);closeSidebar()"><span class="n-num">23</span><span class="n-title">From Cert to Practice</span><span class="n-tag section">Section</span></div>
+<div class="nav-item" onclick="goTo(24);closeSidebar()"><span class="n-num">24</span><span class="n-title">The CRAFT Framework</span></div>
+<div class="nav-item" onclick="goTo(25);closeSidebar()"><span class="n-num">25</span><span class="n-title">CRAFT in Action</span></div>
+<div class="nav-item" onclick="goTo(26);closeSidebar()"><span class="n-num">26</span><span class="n-title">Meta-CRAFT Prompt</span></div>
+<div class="nav-item" onclick="goTo(27);closeSidebar()"><span class="n-num">27</span><span class="n-title">Run Meta-CRAFT</span><span class="n-tag exercise">Exercise</span></div>
+<div class="nav-item" onclick="goTo(28);closeSidebar()"><span class="n-num">28</span><span class="n-title">Closing</span></div>
 </div>
 </nav>
 <div id="sidebar-overlay" onclick="closeSidebar()"></div>
+
 <!-- ── NAV BAR ── -->
 <div id="nav-bar">
 <div style="display:flex;align-items:center;gap:12px;">
 <button class="nav-btn" id="btn-menu" onclick="toggleSidebar()" style="padding:8px 14px;font-size:16px;line-height:1;" title="Slide navigator (N)">☰</button>
-<button class="nav-btn" disabled="" id="btn-prev" onclick="navigate(-1)">← Prev</button>
+<button class="nav-btn" disabled id="btn-prev" onclick="navigate(-1)">← Prev</button>
 </div>
-<span id="slide-counter">1 / 27</span>
+<span id="slide-counter">1 / 28</span>
 <div style="display:flex;align-items:center;gap:12px;">
-<span id="notes-hint" style="font-size:11px;">S = notes  ·  R = refs  ·  N = nav</span>
+<span id="notes-hint" style="font-size:11px;">S = notes &nbsp;·&nbsp; R = refs &nbsp;·&nbsp; N = nav</span>
 <button class="nav-btn" id="btn-refs" onclick="toggleRefs()" style="padding:8px 14px;" title="References (R)">📚 Refs</button>
 <button class="nav-btn" id="btn-notes" onclick="toggleNotes()" style="padding:8px 14px;" title="Speaker notes (S)">🗒 Notes</button>
 <button class="nav-btn" id="btn-next" onclick="navigate(1)">Next →</button>
 </div>
 </div>
+
 <!-- ── REFERENCES PANEL ── -->
 <div id="refs-panel">
 <h4>References &amp; Sources</h4>
 <ul id="refs-content"></ul>
 </div>
+
 <!-- ── SPEAKER NOTES PANEL ── -->
 <div id="notes-panel">
 <h4>Speaker Notes</h4>
 <div id="notes-content"></div>
 </div>
-<script>
 
-// ── SOURCES DATA (keyed by slide number) ──
+<script>
 const SOURCES = {
-  1: [],
-  2: [],
-  3: [],
-  4: [],
-  5: [],
-  6: [],
-  7: [],
-  8: [],
-  9: [],
-  10: [],
-  11: [],
-  12: [],
-  13: [{"label": "Liu et al. (2023) - \"Lost in the Middle\" (arXiv)", "url": "https://arxiv.org/abs/2307.03172"}, {"label": "Prompt Engineering Guide, MKTG 304 §2 - Positional Effects, Temperature", "url": ""}],
-  14: [{"label": "METR (Dec 2025) - Common Elements of Frontier AI Safety Policies", "url": "https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/"}, {"label": "Future of Life Institute (2025) - AI Safety Index", "url": "https://futureoflife.org/ai-safety-index-summer-2025/"}],
-  15: [{"label": "AI Research Report, MKTG 304 §1 - Key Debates and Tensions", "url": ""}],
-  16: [{"label": "Fortune (Oct 2024) - ~50% of OpenAI Safety Staff Departed", "url": "https://fortune.com"}, {"label": "TIME (Feb 2026) - Anthropic Drops Flagship Safety Pledge", "url": "https://time.com/7380854/exclusive-anthropic-drops-flagship-safety-pledge/"}, {"label": "AI Research Report, MKTG 304 §1 - Real-World Example", "url": ""}],
-  17: [{"label": "OWASP Top 10 for LLM Applications 2025", "url": "https://genai.owasp.org/llm-top-10/"}, {"label": "LayerX Security - Enterprise AI and SaaS Data Security Report 2025", "url": "https://layerxsecurity.com"}],
-  18: [{"label": "Metomic (2025) - Is ChatGPT Safe for Business in 2026?", "url": "https://www.metomic.io/resource-centre/is-chatgpt-a-security-risk-to-your-business"}, {"label": "AI Research Report, MKTG 304 §2-3 - So What? Security & Privacy", "url": ""}],
-  19: [{"label": "IEA (Apr 2025) - Energy and AI Report", "url": "https://www.iea.org/reports/energy-and-ai"}, {"label": "Google (2025) - Environmental Report", "url": "https://blog.google"}, {"label": "Luccioni, Jernite & Strubell (2024) - Power Hungry Processing (ACM FAccT)", "url": "https://doi.org/10.1145/3630106.3658542"}],
-  20: [{"label": "Constellation Energy (Sep 2024) - Crane Clean Energy Center", "url": "https://www.constellationenergy.com"}, {"label": "AI Research Report, MKTG 304 §4 - Real-World Example", "url": ""}],
-  21: [],
-  22: [],
-  23: [{"label": "Prompt Engineering Guide, MKTG 304 §6 - The CRAFT Framework", "url": ""}, {"label": "Anthropic - Prompt Engineering Overview", "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"}],
-  24: [{"label": "Prompt Engineering Guide, MKTG 304 §6 - CRAFT in Action", "url": ""}, {"label": "Anthropic - Using XML Tags for Structured Prompts", "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"}],
-  25: [{"label": "Shared Meta-CRAFT prompt document", "url": "https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing"}],
-  26: [{"label": "Shared Meta-CRAFT prompt document", "url": "https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing"}, {"label": "Prompt Engineering Guide, MKTG 304 §6 - CRAFT Framework", "url": ""}, {"label": "Prompt Engineering Guide, MKTG 304 §9 - AI Use in MKTG 304 Assessments", "url": ""}],
-  27: [],
+  1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [],
+  11: [], 12: [],
+  13: [
+    { label: 'Liu et al. (2023) — "Lost in the Middle" (arXiv)', url: 'https://arxiv.org/abs/2307.03172' },
+    { label: 'Prompt Engineering Guide, MKTG 304 §2 — Positional Effects, Temperature', url: '' }
+  ],
+  14: [
+    { label: 'METR (Dec 2025) — Common Elements of Frontier AI Safety Policies', url: 'https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/' },
+    { label: 'Future of Life Institute (2025) — AI Safety Index', url: 'https://futureoflife.org/ai-safety-index-summer-2025/' }
+  ],
+  15: [{ label: 'AI Research Report, MKTG 304 §1 — Key Debates and Tensions', url: '' }],
+  16: [
+    { label: 'Fortune (Oct 2024) — ~50% of OpenAI Safety Staff Departed', url: 'https://fortune.com' },
+    { label: 'TIME (Feb 2026) — Anthropic Drops Flagship Safety Pledge', url: 'https://time.com/7380854/exclusive-anthropic-drops-flagship-safety-pledge/' },
+    { label: 'AI Research Report, MKTG 304 §1 — Real-World Example', url: '' }
+  ],
+  17: [
+    { label: 'OWASP Top 10 for LLM Applications 2025', url: 'https://genai.owasp.org/llm-top-10/' },
+    { label: 'LayerX Security — Enterprise AI and SaaS Data Security Report 2025', url: 'https://layerxsecurity.com' }
+  ],
+  18: [
+    { label: 'Metomic (2025) — Is ChatGPT Safe for Business in 2026?', url: 'https://www.metomic.io/resource-centre/is-chatgpt-a-security-risk-to-your-business' },
+    { label: 'AI Research Report, MKTG 304 §2–3 — So What? Security & Privacy', url: '' }
+  ],
+  19: [
+    { label: 'IEA (Apr 2025) — Energy and AI Report', url: 'https://www.iea.org/reports/energy-and-ai' },
+    { label: 'Google (2025) — Environmental Report', url: 'https://blog.google' },
+    { label: 'Luccioni, Jernite & Strubell (2024) — Power Hungry Processing (ACM FAccT)', url: 'https://doi.org/10.1145/3630106.3658542' }
+  ],
+  20: [
+    { label: 'Constellation Energy (Sep 2024) — Crane Clean Energy Center', url: 'https://www.constellationenergy.com' },
+    { label: 'AI Research Report, MKTG 304 §4 — Real-World Example', url: '' }
+  ],
+  21: [], 22: [],
+  24: [
+    { label: 'Prompt Engineering Guide, MKTG 304 §6 — The CRAFT Framework', url: '' },
+    { label: 'Anthropic — Prompt Engineering Overview', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview' }
+  ],
+  25: [
+    { label: 'Prompt Engineering Guide, MKTG 304 §6 — CRAFT in Action', url: '' },
+    { label: 'Anthropic — Using XML Tags for Structured Prompts', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview' }
+  ],
+  26: [{ label: 'Shared Meta-CRAFT prompt document', url: 'https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing' }],
+  27: [
+    { label: 'Shared Meta-CRAFT prompt document', url: 'https://docs.google.com/document/d/1iwvN3umgZqXl8dWtd2cMcq29TXge-bZkPZRUvLRO6Wg/edit?usp=sharing' },
+    { label: 'Prompt Engineering Guide, MKTG 304 §9 — AI Use in MKTG 304 Assessments', url: '' }
+  ],
+  28: []
 };
 
-// ── STATE ──
-const TOTAL = 27;
-let current = 1;
-let notesOpen = false;
-let sidebarOpen = false;
-let refsOpen = false;
+const TOTAL = 28;
+let current = 1, notesOpen = false, sidebarOpen = false, refsOpen = false;
 
-// ── HELPERS ──
 function getSlide(n) { return document.getElementById('s' + n); }
-function getCounter() { return document.getElementById('slide-counter'); }
 function getNotes(n) {
   const s = getSlide(n);
   if (!s) return '';
@@ -1657,12 +1485,10 @@ function getNotes(n) {
   return el ? el.textContent.trim() : '(No notes for this slide.)';
 }
 
-// ── NAVIGATION ──
 function navigate(dir) {
   const next = current + dir;
   if (next < 1 || next > TOTAL) return;
-  const cur = getSlide(current);
-  const nxt = getSlide(next);
+  const cur = getSlide(current), nxt = getSlide(next);
   nxt.style.transition = 'none';
   nxt.style.transform = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
   nxt.style.opacity = '0';
@@ -1681,60 +1507,37 @@ function navigate(dir) {
     });
   });
   setTimeout(() => {
-    cur.style.transition = '';
-    cur.style.transform = '';
-    cur.style.opacity = '';
-    nxt.style.transition = '';
-    nxt.style.transform = '';
-    nxt.style.opacity = '';
+    cur.style.transition = cur.style.transform = cur.style.opacity = '';
+    nxt.style.transition = nxt.style.transform = nxt.style.opacity = '';
   }, 400);
 }
 
 function goTo(n) {
   if (n === current || n < 1 || n > TOTAL) return;
-  const cur = getSlide(current);
-  const nxt = getSlide(n);
-  cur.classList.remove('active');
+  getSlide(current).classList.remove('active');
   current = n;
-  nxt.classList.add('active');
+  getSlide(n).classList.add('active');
   updateUI();
 }
 
 function updateUI() {
-  getCounter().textContent = current + ' / ' + TOTAL;
+  document.getElementById('slide-counter').textContent = current + ' / ' + TOTAL;
   document.getElementById('btn-prev').disabled = current === 1;
   document.getElementById('btn-next').disabled = current === TOTAL;
-  if (notesOpen) {
-    document.getElementById('notes-content').textContent = getNotes(current);
-  }
-  if (refsOpen) {
-    renderRefs(current);
-  }
-  const items = document.querySelectorAll('.nav-item');
-  items.forEach((el, i) => {
-    el.classList.toggle('active', i === current - 1);
-  });
-  const activeItem = document.querySelector('.nav-item.active');
-  if (activeItem) {
-    activeItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  }
+  if (notesOpen) document.getElementById('notes-content').textContent = getNotes(current);
+  if (refsOpen) renderRefs(current);
+  document.querySelectorAll('.nav-item').forEach((el, i) => el.classList.toggle('active', i === current - 1));
+  const a = document.querySelector('.nav-item.active');
+  if (a) a.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
-// ── REFERENCES ──
 function renderRefs(n) {
   const list = document.getElementById('refs-content');
   const sources = SOURCES[n] || [];
-  if (sources.length === 0) {
-    list.innerHTML = '<li class="no-refs" style="list-style:none;">No specific sources for this slide.</li>';
-    return;
-  }
-  list.innerHTML = sources.map(s => {
-    const link = s.url
-      ? `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`
-      : `<span style="color:rgba(255,255,255,0.65);">${s.label}</span>`;
-    return `<li>${link}</li>`;
-  }).join('');
+  if (!sources.length) { list.innerHTML = '<li class="no-refs" style="list-style:none;">No specific sources for this slide.</li>'; return; }
+  list.innerHTML = sources.map(s => `<li>${s.url ? `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>` : `<span style="color:rgba(255,255,255,0.65);">${s.label}</span>`}</li>`).join('');
 }
+
 function toggleRefs() {
   refsOpen = !refsOpen;
   if (refsOpen && notesOpen) { notesOpen = false; document.getElementById('notes-panel').classList.remove('visible'); }
@@ -1742,36 +1545,29 @@ function toggleRefs() {
   if (refsOpen) renderRefs(current);
 }
 
-// ── SIDEBAR ──
 function toggleSidebar() {
   sidebarOpen = !sidebarOpen;
   document.getElementById('sidebar').classList.toggle('open', sidebarOpen);
   document.getElementById('sidebar-overlay').style.display = sidebarOpen ? 'block' : 'none';
 }
+
 function closeSidebar() {
   sidebarOpen = false;
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('sidebar-overlay').style.display = 'none';
 }
 
-// ── SPEAKER NOTES TOGGLE ──
 function toggleNotes() {
   notesOpen = !notesOpen;
   if (notesOpen && refsOpen) { refsOpen = false; document.getElementById('refs-panel').classList.remove('visible'); }
-  const panel = document.getElementById('notes-panel');
-  panel.classList.toggle('visible', notesOpen);
-  if (notesOpen) {
-    document.getElementById('notes-content').textContent = getNotes(current);
-  }
+  document.getElementById('notes-panel').classList.toggle('visible', notesOpen);
+  if (notesOpen) document.getElementById('notes-content').textContent = getNotes(current);
 }
 
-// ── KEYBOARD ──
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', e => {
   switch(e.key) {
-    case 'ArrowRight': case 'ArrowDown': case 'PageDown':
-      e.preventDefault(); navigate(1); break;
-    case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
-      e.preventDefault(); navigate(-1); break;
+    case 'ArrowRight': case 'ArrowDown': case 'PageDown': e.preventDefault(); navigate(1); break;
+    case 'ArrowLeft': case 'ArrowUp': case 'PageUp': e.preventDefault(); navigate(-1); break;
     case 's': case 'S': toggleNotes(); break;
     case 'n': case 'N': toggleSidebar(); break;
     case 'r': case 'R': toggleRefs(); break;
@@ -1780,17 +1576,11 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// ── TOUCH / SWIPE ──
 let touchStartX = 0;
 document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
-document.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
-}, {passive:true});
+document.addEventListener('touchend', e => { if (Math.abs(e.changedTouches[0].clientX - touchStartX) > 50) navigate(e.changedTouches[0].clientX < touchStartX ? 1 : -1); }, {passive:true});
 
-// ── INIT ──
 updateUI();
-
 </script>
 </body>
 </html>
