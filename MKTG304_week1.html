@@ -27,6 +27,8 @@ html, body {
   overflow: hidden;
 }
 
+/* The fixed bottom navigation bar is 52px high. Slides are constrained above it so bottom content is not hidden behind the footer. */
+
 #deck {
   position: relative;
   width: 100vw;
@@ -36,7 +38,7 @@ html, body {
 
 .slide {
   position: absolute;
-  inset: 0;
+  top: 0; right: 0; bottom: 52px; left: 0;
   display: flex;
   flex-direction: column;
   opacity: 0;
@@ -59,7 +61,7 @@ html, body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 48px 64px 24px;
+  padding: 38px 64px 30px;
 }
 .slide-content .slide-title {
   font-size: clamp(22px, 2.4vw, 30px);
@@ -67,7 +69,7 @@ html, body {
   color: var(--navy);
   border-left: 5px solid var(--cyan);
   padding-left: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
   line-height: 1.25;
 }
 .slide-content .slide-body {
@@ -85,7 +87,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 48px 80px;
+  padding: 40px 80px 34px;
 }
 .slide-dark .slide-title {
   font-size: clamp(26px, 3.2vw, 44px);
@@ -114,7 +116,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 48px 80px;
+  padding: 40px 80px 34px;
   position: relative;
 }
 .slide-section::after {
@@ -417,7 +419,7 @@ html, body {
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
   align-items: stretch;
-  margin-top: 24px;
+  margin-top: 18px;
 }
 .tool-card {
   background: white;
@@ -534,7 +536,7 @@ html, body {
 .stat-panel {
   background: white;
   border-radius: 10px;
-  padding: 18px 18px;
+  padding: 15px 16px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.07);
   border-top: 4px solid var(--cyan);
 }
@@ -554,7 +556,7 @@ html, body {
 .award-card {
   background: white;
   border-radius: 12px;
-  padding: 26px 28px;
+  padding: 22px 24px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   border-top: 5px solid var(--cyan);
 }
@@ -581,7 +583,7 @@ html, body {
 .assignment-card {
   background: white;
   border-radius: 10px;
-  padding: 17px 15px;
+  padding: 14px 13px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.07);
   border-top: 4px solid var(--cyan);
 }
