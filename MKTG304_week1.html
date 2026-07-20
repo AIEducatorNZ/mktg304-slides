@@ -650,6 +650,55 @@ html, body {
   word-break: break-word;
 }
 
+
+.uoa-logo-feature {
+  position: absolute;
+  top: 42px;
+  right: 74px;
+  width: clamp(180px, 18vw, 280px);
+  height: auto;
+  background: white;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+  z-index: 6;
+}
+
+.uoa-logo-small {
+  position: absolute;
+  top: 22px;
+  right: 46px;
+  width: clamp(82px, 8vw, 118px);
+  height: auto;
+  background: white;
+  padding: 7px 10px;
+  border-radius: 7px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.14);
+  z-index: 6;
+}
+
+.slide:not(#s1) .slide-title {
+  max-width: calc(100% - 150px);
+}
+
+@media (max-width: 720px) {
+  .uoa-logo-feature {
+    top: 22px;
+    right: 24px;
+    width: 142px;
+    padding: 10px 12px;
+  }
+  .uoa-logo-small {
+    top: 14px;
+    right: 18px;
+    width: 70px;
+    padding: 5px 7px;
+  }
+  .slide:not(#s1) .slide-title {
+    max-width: calc(100% - 88px);
+  }
+}
+
 #sidebar {
   position: fixed;
   top: 0; left: 0; bottom: 52px;
@@ -849,6 +898,7 @@ html, body {
 
 <!-- SLIDE 1 - TITLE -->
 <div class="slide slide-dark active" id="s1">
+<img class="uoa-logo-feature" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner" style="justify-content:center;gap:0;">
 <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;">MKTG 304 | Week 1</div>
 <h1 class="slide-title" style="font-size:clamp(30px,4vw,58px);max-width:820px;">Welcome to<br/>Digital Marketing 304</h1>
@@ -864,6 +914,7 @@ html, body {
 
 <!-- SLIDE 2 - AGENDA -->
 <div class="slide slide-content" id="s2">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <h2 class="slide-title">Session Agenda</h2>
 <div class="two-col" style="gap:28px;margin-top:0;align-items:stretch;">
@@ -891,6 +942,7 @@ html, body {
 
 <!-- SLIDE 3 - COURSE LEARNING OUTCOMES -->
 <div class="slide slide-content" id="s3">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <h2 class="slide-title">Course Learning Outcomes</h2>
 <div class="compact-grid">
@@ -907,6 +959,7 @@ html, body {
 
 <!-- SLIDE 4 - COURSE DELIVERY -->
 <div class="slide slide-section" id="s4">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <div class="section-label">Course Delivery</div>
 <h2 class="slide-title">Course Delivery and Expectations</h2>
@@ -927,6 +980,7 @@ html, body {
 
 <!-- SLIDE 5 - AI DRIVEN -->
 <div class="slide slide-content" id="s5">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <h2 class="slide-title">AI Driven</h2>
 <div class="slide-body">
@@ -944,6 +998,7 @@ html, body {
 
 <!-- SLIDE 6 - WHY AI MATTERS -->
 <div class="slide slide-content" id="s6">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <h2 class="slide-title">Why AI Matters for You — Right Now</h2>
 <div class="two-col" style="flex:1;">
@@ -967,6 +1022,7 @@ html, body {
 
 <!-- SLIDE 7 - UNIVERSITIES PART 1 -->
 <div class="slide slide-content" id="s7">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <h2 class="slide-title">What Universities Must Do, Part 1</h2>
 <div class="three-col" style="flex:1;">
@@ -981,6 +1037,7 @@ html, body {
 
 <!-- SLIDE 8 - CREATER -->
 <div class="slide slide-content" id="s8">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <h2 class="slide-title">What Universities Must Do, Part 2: The CREATER Skills</h2>
 <div class="creater-grid">
@@ -999,6 +1056,7 @@ html, body {
 
 <!-- SLIDE 9 - GENDER GAPS -->
 <div class="slide slide-content" id="s9">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <div class="evidence-hero">
 <div class="evidence-title">Global Evidence on Gender Gaps &amp; Generative AI</div>
@@ -1013,6 +1071,7 @@ html, body {
 
 <!-- SLIDE 10 - NZ AI -->
 <div class="slide slide-content" id="s10">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <h2 class="slide-title">Why AI Matters in New Zealand — and to You</h2>
 <div class="stat-panel-grid">
@@ -1026,6 +1085,7 @@ html, body {
 
 <!-- SLIDE 11 - AWARD WINNING -->
 <div class="slide slide-content" id="s11">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <h2 class="slide-title">Award Winning</h2>
 <div class="award-grid">
@@ -1038,6 +1098,7 @@ html, body {
 
 <!-- SLIDE 12 - COURSE ASSIGNMENTS -->
 <div class="slide slide-content" id="s12">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner">
 <h2 class="slide-title">Course Assignments</h2>
 <div class="assignment-grid">
@@ -1053,6 +1114,7 @@ html, body {
 
 <!-- SLIDE 13 - CLIENT COMPANY -->
 <div class="slide slide-dark" id="s13">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner" style="justify-content:center;gap:28px;">
 <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);">The Client Company</div>
 <h1 class="slide-title" style="font-size:clamp(36px,5vw,72px);margin-bottom:0;">Music Planet</h1>
@@ -1066,6 +1128,7 @@ html, body {
 
 <!-- SLIDE 14 - CLASS REPRESENTATIVES -->
 <div class="slide slide-content" id="s14">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner" style="justify-content:center;">
 <h2 class="slide-title">Class Representatives Wanted</h2>
 <div class="contact-card">
@@ -1080,6 +1143,7 @@ html, body {
 
 <!-- SLIDE 15 - CLOSING -->
 <div class="slide slide-dark" id="s15">
+<img class="uoa-logo-small" src="images/uoa%20logo.jpg" alt="University of Auckland logo"/>
 <div class="slide-inner" style="justify-content:center;gap:22px;">
 <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);">Questions and Next Steps</div>
 <h1 class="slide-title" style="font-size:clamp(36px,5vw,72px);margin-bottom:2px;">Questions?</h1>
