@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKTG 304 — SEMrush Setup for Hnry</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MKTG 304 - Setting Up SEMrush for Music Planet</title>
 <style>
-/* ===== UoA COLOUR PALETTE =====
-   navy  / Waitematā Blue : #003B71
-   blue  / Mahina Blue    : #0076BE
-   light : #E1F0FA
-   white : #FFFFFF
-================================================================ */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:       #003B71;
-  --blue:       #0076BE;
-  --light-blue: #E1F0FA;
-  --white:      #FFFFFF;
-  --muted:      #5A7A9A;
-  --cyan:       #00AEEF;
+  --navy:   #0E2841;
+  --indigo: #0C0C48;
+  --blue:   #1F2BD3;
+  --cyan:   #00CAEF;
+  --purple: #8F95E9;
+  --gray:   #E8E8E8;
+  --muted:  #8585A3;
+  --white:  #FFFFFF;
+  --amber:  #F59E0B;
+  --amber-bg: #FFFBEB;
 }
 
 html, body {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  background: #060E1A;
+  background: #1a1a2e;
   overflow: hidden;
 }
 
-/* ── DECK ── */
 #deck {
   position: relative;
   width: 100vw;
@@ -38,7 +34,6 @@ html, body {
   overflow: hidden;
 }
 
-/* ── SLIDES ── */
 .slide {
   position: absolute;
   inset: 0;
@@ -46,219 +41,357 @@ html, body {
   flex-direction: column;
   opacity: 0;
   transform: translateX(60px);
-  transition: opacity .32s ease, transform .32s ease;
+  transition: opacity .35s ease, transform .35s ease;
   pointer-events: none;
-  padding-bottom: 52px;
 }
 .slide.active {
   opacity: 1;
   transform: translateX(0);
   pointer-events: auto;
 }
-
-/* ── TITLE SLIDE ── */
-.slide-title .slide-inner {
-  flex: 1;
-  background: linear-gradient(148deg, #001528 0%, #002A56 48%, #004890 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 48px 80px 40px;
-  position: relative;
-  overflow: hidden;
-}
-.slide-title .slide-inner::before,
-.slide-title .slide-inner::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.04);
-}
-.slide-title .slide-inner::before { width: 640px; height: 640px; top: -240px; right: -200px; }
-.slide-title .slide-inner::after  { width: 380px; height: 380px; bottom: -110px; left: -110px; }
-
-.t-eyebrow {
-  font-size: clamp(10px, 1.1vw, 13px);
-  font-weight: 700;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.38);
-  margin-bottom: 28px;
-}
-.t-title {
-  font-size: clamp(36px, 4.5vw, 60px);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.12;
-  margin-bottom: 18px;
-}
-.t-title span { color: #4DBFFF; }
-.t-sub {
-  font-size: clamp(16px, 1.9vw, 24px);
-  font-weight: 400;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 40px;
-}
-.t-hint {
-  padding: 10px 24px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 6px;
-  font-size: clamp(11px, 1.15vw, 13px);
-  color: rgba(255,255,255,0.32);
+.slide.exit-left {
+  opacity: 0;
+  transform: translateX(-60px);
 }
 
-/* ── STEP SLIDES ── */
-.slide-step .slide-inner {
-  flex: 1;
-  background: #fff;
-  border-left: 7px solid var(--blue);
-  position: relative;
-  overflow: hidden;
-  padding: clamp(24px, 3.5vh, 42px) clamp(40px, 5.5vw, 80px) clamp(20px, 2.5vh, 32px) clamp(44px, 5.8vw, 84px);
-  display: flex;
-  flex-direction: column;
-}
-.sn {
-  position: absolute;
-  top: clamp(12px, 2vh, 24px);
-  left: clamp(40px, 5.2vw, 76px);
-  font-size: clamp(72px, 8vw, 110px);
-  font-weight: 700;
-  color: var(--navy);
-  opacity: 0.055;
-  line-height: 1;
-  user-select: none;
-  pointer-events: none;
-}
-.s-over {
-  font-size: clamp(9px, 0.95vw, 11px);
-  font-weight: 700;
-  letter-spacing: 3.5px;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: clamp(6px, 0.8vh, 10px);
-  position: relative;
-  z-index: 1;
-}
-.s-head {
-  font-size: clamp(20px, 2.4vw, 32px);
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.2;
-  margin-bottom: clamp(14px, 1.8vh, 22px);
-  max-width: 72vw;
-  position: relative;
-  z-index: 1;
-}
-.s-paras {
+.slide-content { background: #F5F7FA; }
+.slide-content .slide-inner {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.2vh, 14px);
-  position: relative;
-  z-index: 1;
+  padding: 48px 64px 24px;
 }
-.s-p {
-  font-size: clamp(13px, 1.4vw, 17px);
-  line-height: 1.67;
-  color: #1E2D3D;
-  max-width: 80vw;
-}
-.why {
-  background: var(--light-blue);
-  border-left: 4px solid var(--navy);
-  border-radius: 0 6px 6px 0;
-  padding: clamp(9px, 1.2vh, 13px) clamp(14px, 1.8vw, 20px);
-  font-size: clamp(12px, 1.25vw, 15px);
-  font-style: italic;
-  color: #132340;
-  max-width: 80vw;
-  margin-top: clamp(10px, 1.4vh, 18px);
-  position: relative;
-  z-index: 1;
-  line-height: 1.55;
-}
-.why strong { font-style: normal; font-weight: 700; color: var(--navy); }
-
-/* ── WHAT'S NEXT SLIDE ── */
-.slide-next .slide-inner {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-.next-top {
-  background: linear-gradient(135deg, #001528 0%, #003B71 100%);
-  padding: clamp(24px, 3.5vh, 44px) clamp(40px, 5.5vw, 80px) clamp(20px, 2.5vh, 36px);
-}
-.next-over {
-  font-size: clamp(9px, 0.95vw, 11px);
-  font-weight: 700;
-  letter-spacing: 3.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 12px;
-}
-.next-h {
-  font-size: clamp(20px, 2.4vw, 32px);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: clamp(10px, 1.5vh, 18px);
-}
-.next-p {
-  font-size: clamp(13px, 1.4vw, 16px);
-  line-height: 1.65;
-  color: rgba(255,255,255,0.65);
-  max-width: 80vw;
-}
-.next-p + .next-p { margin-top: 10px; }
-.next-cols {
-  flex: 1;
-  display: flex;
-  background: #fff;
-  min-height: 0;
-}
-.nc {
-  flex: 1;
-  padding: clamp(20px, 2.8vh, 36px) clamp(32px, 4vw, 60px);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.nc:first-child { border-right: 1px solid #DDE6F0; }
-.nc-label {
-  font-size: clamp(9px, 0.95vw, 11px);
+.slide-content .slide-eyebrow {
+  font-size: clamp(10px, 1vw, 12px);
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--blue);
+  margin-bottom: 12px;
 }
-.nc-title {
-  font-size: clamp(15px, 1.7vw, 20px);
+.slide-content .slide-title {
+  font-size: clamp(22px, 2.4vw, 30px);
   font-weight: 700;
   color: var(--navy);
-  line-height: 1.3;
+  border-left: 5px solid var(--cyan);
+  padding-left: 16px;
+  margin-bottom: 24px;
+  line-height: 1.25;
 }
-.nc-body {
-  font-size: clamp(13px, 1.35vw, 16px);
-  line-height: 1.62;
-  color: #1E2D3D;
+.slide-content .slide-body {
+  flex: 1;
+  color: #1a1a2e;
+  font-size: clamp(14px, 1.5vw, 17px);
+  line-height: 1.65;
+}
+.slide-content .slide-body p + p { margin-top: 14px; }
+
+.slide-dark {
+  background: linear-gradient(135deg, var(--indigo) 0%, var(--navy) 100%);
+}
+.slide-dark .slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 80px;
+}
+.slide-dark .slide-title {
+  font-size: clamp(26px, 3.2vw, 44px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.slide-dark .slide-subtitle {
+  font-size: clamp(14px, 1.6vw, 20px);
+  color: var(--cyan);
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.slide-dark .slide-body {
+  color: rgba(255,255,255,0.85);
+  font-size: clamp(13px, 1.4vw, 17px);
+  line-height: 1.7;
 }
 
-/* ── SPEAKER NOTES (hidden in slide, read by JS) ── */
-.speaker-notes { display: none; }
+.slide-section {
+  background: linear-gradient(135deg, var(--indigo) 0%, #0a1628 100%);
+}
+.slide-section .slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 80px;
+  position: relative;
+}
+.slide-section::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 8px;
+  background: linear-gradient(to bottom, var(--cyan), var(--blue));
+}
+.slide-section .section-label {
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 20px;
+}
+.slide-section .slide-title {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.slide-section .slide-body {
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(13px, 1.4vw, 17px);
+  line-height: 1.7;
+}
 
-/* ── LEFT SIDEBAR ── */
+.slide-exercise { background: var(--amber-bg); }
+.slide-exercise .slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 64px 24px;
+}
+.slide-exercise .exercise-badge {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+  align-self: flex-start;
+}
+.slide-exercise .slide-title {
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 700;
+  color: #78350F;
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+.slide-exercise .slide-body {
+  color: #451A03;
+  font-size: clamp(14px, 1.5vw, 17px);
+  line-height: 1.7;
+}
+
+.slide-break { background: #1a1a2e; }
+.slide-break .slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 48px;
+}
+.slide-break .break-title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+.slide-break .break-prompt {
+  max-width: 600px;
+  font-size: clamp(15px, 1.6vw, 19px);
+  color: var(--cyan);
+  line-height: 1.6;
+  border: 2px solid rgba(0,202,239,0.3);
+  border-radius: 12px;
+  padding: 24px 32px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px 22px;
+  border-top: 4px solid var(--cyan);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.stat-card .number {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1.1;
+}
+.stat-card .label {
+  font-size: clamp(12px, 1.2vw, 13px);
+  color: #444;
+  margin-top: 6px;
+  line-height: 1.45;
+}
+.stat-card.dark { background: var(--indigo); border-top-color: var(--cyan); }
+.stat-card.dark .number { color: var(--cyan); }
+.stat-card.dark .label { color: rgba(255,255,255,0.75); }
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 12px;
+}
+.col-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+.col-card .col-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.col-card .col-title {
+  font-size: clamp(13px, 1.3vw, 15px);
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.col-card .col-body {
+  font-size: clamp(12px, 1.2vw, 13px);
+  color: #555;
+  line-height: 1.5;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 8px;
+  flex: 1;
+}
+.panel {
+  background: white;
+  border-radius: 10px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+.panel .panel-title {
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+.panel .panel-body {
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: #333;
+  line-height: 1.65;
+}
+
+.key-quote {
+  background: linear-gradient(135deg, var(--indigo), var(--navy));
+  color: white;
+  border-radius: 10px;
+  padding: 20px 24px;
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-style: italic;
+  line-height: 1.6;
+  margin: 16px 0;
+  border-left: 5px solid var(--cyan);
+}
+
+.callout {
+  background: rgba(0,202,239,0.08);
+  border: 1.5px solid var(--cyan);
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-size: clamp(13px, 1.35vw, 15px);
+  color: var(--navy);
+  line-height: 1.6;
+  margin: 14px 0;
+}
+
+.chip-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.chip {
+  padding: 8px 16px;
+  border: 1.5px solid rgba(0,202,239,0.35);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(12px, 1.3vw, 14px);
+}
+.chip-light {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(31,43,211,0.08);
+  color: var(--blue);
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 600;
+}
+
+.rule-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+.rule-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: clamp(14px, 1.45vw, 16px);
+  line-height: 1.55;
+  color: #1a1a2e;
+}
+.rule-list li::before {
+  content: attr(data-n);
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.gap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+.gap-card {
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-align: center;
+}
+.gap-card .g-name { font-size: clamp(13px, 1.3vw, 15px); font-weight: 700; }
+.gap-card .g-desc { font-size: clamp(10px, 1vw, 12px); color: #555; margin-top: 4px; line-height: 1.4; }
+.gap-card.focus { background: #EFF6FF; border: 1.5px solid var(--blue); }
+.gap-card.focus .g-name { color: var(--blue); }
+.gap-card.dim { background: #F5F7FA; border: 1.5px solid var(--gray); }
+.gap-card.dim .g-name { color: var(--muted); }
+
 #sidebar {
   position: fixed;
   top: 0; left: 0; bottom: 52px;
-  width: 288px;
-  background: rgba(0, 10, 26, 0.97);
-  border-right: 1px solid rgba(0, 174, 239, 0.18);
+  width: 300px;
+  background: rgba(8,8,40,0.97);
+  border-right: 1px solid rgba(0,202,239,0.2);
   z-index: 200;
   display: flex;
   flex-direction: column;
@@ -270,7 +403,7 @@ html, body {
 
 #sidebar-header {
   padding: 18px 20px 14px;
-  border-bottom: 1px solid rgba(0, 174, 239, 0.12);
+  border-bottom: 1px solid rgba(0,202,239,0.15);
   flex-shrink: 0;
 }
 #sidebar-header .course-label {
@@ -293,11 +426,10 @@ html, body {
   overflow-y: auto;
   padding: 8px 0;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0,174,239,0.3) transparent;
+  scrollbar-color: rgba(0,202,239,0.3) transparent;
 }
 #slide-list::-webkit-scrollbar { width: 4px; }
-#slide-list::-webkit-scrollbar-track { background: transparent; }
-#slide-list::-webkit-scrollbar-thumb { background: rgba(0,174,239,0.3); border-radius: 2px; }
+#slide-list::-webkit-scrollbar-thumb { background: rgba(0,202,239,0.3); border-radius: 2px; }
 
 .nav-item {
   display: flex;
@@ -308,11 +440,8 @@ html, body {
   border-left: 3px solid transparent;
   transition: background .15s, border-color .15s;
 }
-.nav-item:hover { background: rgba(0,174,239,0.08); }
-.nav-item.active {
-  background: rgba(0,174,239,0.13);
-  border-left-color: var(--cyan);
-}
+.nav-item:hover { background: rgba(0,202,239,0.08); }
+.nav-item.active { background: rgba(0,202,239,0.13); border-left-color: var(--cyan); }
 .nav-item .n-num {
   flex-shrink: 0;
   font-size: 10px;
@@ -323,11 +452,7 @@ html, body {
   font-family: Consolas, monospace;
 }
 .nav-item.active .n-num { color: var(--cyan); }
-.nav-item .n-title {
-  font-size: 12px;
-  color: rgba(255,255,255,0.65);
-  line-height: 1.4;
-}
+.nav-item .n-title { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.4; }
 .nav-item.active .n-title { color: white; font-weight: 600; }
 .nav-item .n-tag {
   flex-shrink: 0;
@@ -339,7 +464,9 @@ html, body {
   border-radius: 3px;
   margin-top: 1px;
 }
-.n-tag.step { background: rgba(0,118,190,0.2); color: #4DBFFF; }
+.n-tag.section { background: rgba(0,202,239,0.15); color: var(--cyan); }
+.n-tag.step { background: rgba(31,43,211,0.2); color: #9BA3FF; }
+.n-tag.break { background: rgba(143,133,163,0.2); color: var(--muted); }
 
 .nav-group {
   padding: 10px 16px 4px;
@@ -359,53 +486,42 @@ html, body {
 }
 #sidebar.open ~ #sidebar-overlay { display: block; }
 
-/* ── BOTTOM NAV BAR ── */
 #nav-bar {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   height: 52px;
-  background: rgba(0, 21, 50, 0.97);
-  border-top: 1px solid rgba(0,118,190,0.3);
+  background: rgba(12,12,72,0.95);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 28px;
   z-index: 100;
   backdrop-filter: blur(8px);
 }
 .nav-btn {
-  background: rgba(0,118,190,0.15);
-  border: 1.5px solid rgba(0,118,190,0.4);
-  color: #4DBFFF;
-  font-size: 13px;
+  background: rgba(0,202,239,0.15);
+  border: 1.5px solid rgba(0,202,239,0.4);
+  color: var(--cyan);
+  font-size: 14px;
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
-  padding: 7px 18px;
+  padding: 8px 20px;
   border-radius: 6px;
   cursor: pointer;
   transition: background .2s, border-color .2s;
 }
-.nav-btn:hover { background: rgba(0,118,190,0.3); border-color: var(--blue); }
+.nav-btn:hover { background: rgba(0,202,239,0.28); border-color: var(--cyan); }
 .nav-btn:disabled { opacity: .3; cursor: default; }
-#slide-counter {
-  color: rgba(255,255,255,0.7);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-#notes-hint {
-  color: rgba(255,255,255,0.35);
-  font-size: 11px;
-}
+#slide-counter { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+#notes-hint { color: rgba(255,255,255,0.4); font-size: 12px; }
 
-/* ── SPEAKER NOTES PANEL ── */
 #notes-panel {
   position: fixed;
   bottom: 52px; left: 0; right: 0;
-  background: rgba(0, 10, 26, 0.97);
+  background: rgba(10,10,30,0.97);
   border-top: 2px solid var(--cyan);
-  padding: 18px 36px 22px;
-  color: rgba(255,255,255,0.88);
+  padding: 20px 36px 24px;
+  color: rgba(255,255,255,0.9);
   font-size: 14px;
   line-height: 1.7;
   max-height: 38vh;
@@ -415,19 +531,14 @@ html, body {
   transition: transform .3s ease;
 }
 #notes-panel.visible { transform: translateY(0); }
-#notes-panel h4 {
-  color: var(--cyan);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
+#notes-panel h4 { color: var(--cyan); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
 
-/* ── REFERENCES PANEL ── */
+.speaker-notes { display: none; }
+
 #refs-panel {
   position: fixed;
   bottom: 52px; left: 0; right: 0;
-  background: rgba(0, 10, 30, 0.97);
+  background: rgba(10,10,40,0.97);
   border-top: 2px solid var(--blue);
   padding: 16px 36px 20px;
   max-height: 38vh;
@@ -438,358 +549,492 @@ html, body {
   backdrop-filter: blur(8px);
 }
 #refs-panel.visible { transform: translateY(0); }
-#refs-panel h4 {
-  color: #80CFFF;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-#refs-panel ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-#refs-panel ul li {
-  font-size: 13px;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.5;
-  display: flex; align-items: flex-start; gap: 8px;
-}
-#refs-panel ul li::before { content: '›'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-#refs-panel a { color: #80CFFF; text-decoration: none; border-bottom: 1px solid rgba(128,207,255,0.3); transition: color .15s, border-color .15s; }
-#refs-panel a:hover { color: white; border-bottom-color: white; }
-.no-refs { color: rgba(255,255,255,0.32); font-style: italic; font-size: 13px; }
+#refs-panel h4 { color: #80E3F7; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+#refs-panel ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+#refs-panel ul li { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; display: flex; align-items: flex-start; gap: 8px; }
+#refs-panel ul li::before { content:'›'; color:var(--blue); font-weight:700; flex-shrink:0; margin-top:1px; }
+#refs-panel a { color: #80E3F7; text-decoration:none; border-bottom:1px solid rgba(128,227,247,0.3); }
+#refs-panel a:hover { color:white; border-bottom-color:white; }
+#refs-panel .no-refs { color:rgba(255,255,255,0.35); font-style:italic; font-size:13px; }
 
+@media (max-width: 900px) {
+  .three-col, .gap-grid { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  #nav-bar { padding: 0 10px; gap: 8px; }
+  .nav-btn { padding: 7px 10px; font-size: 12px; }
+  #notes-hint { display: none; }
+  #btn-refs, #btn-notes { padding: 7px 9px !important; font-size: 0; }
+  #btn-refs::after { content: '📚'; font-size: 15px; }
+  #btn-notes::after { content: '🗒'; font-size: 15px; }
+  .slide-content .slide-inner, .slide-exercise .slide-inner { padding-left: 28px; padding-right: 28px; }
+  .slide-dark .slide-inner, .slide-section .slide-inner { padding-left: 36px; padding-right: 36px; }
+}
 </style>
 </head>
 <body>
-
 <div id="deck">
 
-<!-- ════════════════════════════════════════════
-     SLIDE 1 — TITLE
-════════════════════════════════════════════ -->
-<div class="slide slide-title active" id="s1">
-  <div class="slide-inner">
-    <div class="t-eyebrow">MKTG 304 Digital Marketing — Week 4 Tutorial</div>
-    <div class="t-title">Setting up SEMrush<br>for <span>Hnry</span></div>
-    <div class="t-sub">A step-by-step tutorial guide</div>
-    <div class="t-hint">← → navigate &nbsp;·&nbsp; S = speaker notes &nbsp;·&nbsp; R = references &nbsp;·&nbsp; N = slide list</div>
-  </div>
-  <div class="speaker-notes">Welcome to Week 4 tutorial. Before starting, confirm that all students have logged into their SEMrush accounts — they should have received access via the course LMS. Students who haven't activated their account should do so now before Step 1. This tutorial is hands-on: students should complete each step on their own device as you walk through the slides. Expect Step 3 (Site Audit) to take some time to process in the background — launch it early and move forward while it runs. The full setup (Steps 1–9) is designed to be completed in a 50-minute tutorial. Steps 1–4 are highest priority; Steps 5–9 can be completed independently if time runs short. Bridge to content: "SEMrush is the primary tool you'll use for Assignments 2 and 3. Getting it set up correctly today means every subsequent tutorial builds on real Hnry data."</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 1 - TITLE
+════════════════════════════════════════════════ -->
+<div class="slide slide-dark active" id="s1">
+<div class="slide-inner" style="justify-content:center;gap:0;">
+<div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;">MKTG 304 | University of Auckland</div>
+<h1 class="slide-title" style="font-size:clamp(28px,3.8vw,52px);max-width:820px;">Setting Up SEMrush<br/>for Music Planet</h1>
+<div class="slide-subtitle" style="margin-top:20px;">Building the tools to audit a real client's search presence</div>
+<div class="slide-subtitle" style="color:rgba(255,255,255,0.55);font-size:clamp(13px,1.4vw,17px);margin-top:0;">Week [TBD] &nbsp;·&nbsp; Tutorial &nbsp;·&nbsp; 2026</div>
+<div class="chip-row" style="margin-top:44px;">
+<div class="chip">01 &nbsp;Set up &amp; baseline</div>
+<div class="chip">02 &nbsp;Core diagnostics</div>
+<div class="chip">03 &nbsp;Benchmark &amp; monitor</div>
+</div>
+</div>
+<div class="speaker-notes">Welcome to the tutorial. This is a hands-on session: students work in their own SEMrush account as we move through the slides, completing each step on their own device. Before Step 1, confirm everyone has SEMrush access via the course. Anyone who has not activated their account should do that now. The full setup runs across nine steps and is designed to fit the tutorial block. Steps 1 to 4 are the priority; Steps 5 to 9 can be finished independently if time runs short. Bridge: everything we configure today feeds directly into the Assignment 2 Digital Audit, so this is real client data collection, not a throwaway exercise. Week number and the following tutorial are to be confirmed.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 2 — STEP 1
-════════════════════════════════════════════ -->
-<div class="slide slide-step" id="s2">
-  <div class="slide-inner">
-    <div class="sn">1</div>
-    <div class="s-over">Step 1</div>
-    <div class="s-head">Create your Hnry project in SEMrush</div>
-    <div class="s-paras">
-      <p class="s-p">You already have a SEMrush account. The next step is to create a dedicated Project for Hnry so that all your analysis tools — Site Audit, Position Tracking, and more — live in one place.</p>
-      <p class="s-p">Click Projects in the left menu, then Create new project. Enter hnry.co.nz as the domain and name the project "Hnry NZ". This container will hold every tool you configure across the semester.</p>
-    </div>
-    <div class="why"><strong>Why this matters:</strong> A project keeps your Hnry analysis organised and separate from any other domains you explore.</div>
-  </div>
-  <div class="speaker-notes">Common issues at this step: (1) Students entering "www.hnry.co.nz" — advise them to use the bare domain "hnry.co.nz" without the www prefix. SEMrush will detect the canonical version. (2) Students who cannot find the Projects tab — it is in the left sidebar, sometimes collapsed. Ask them to look for a folder icon. (3) Free-tier accounts may have a project limit — if students hit a limit, they should delete any test projects created during onboarding. Once everyone has a project created, confirm the dashboard is showing the Hnry project before moving to Step 2. The project name "Hnry NZ" is a convention — students can use any name, but consistency will help when you refer to the project in later tutorials.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 2 - ENGAGEMENT INTRO
+════════════════════════════════════════════════ -->
+<div class="slide slide-section" id="s2">
+<div class="slide-inner">
+<div class="section-label">Opening Discussion</div>
+<h2 class="slide-title">Engagement Questions</h2>
+<div class="slide-body" style="max-width:720px;">
+Three general SEO questions, applied to Music Planet, before we open any tools. We have not audited the site yet, so these are about how you think, not what the data says.
+</div>
+<div style="margin-top:20px;color:rgba(255,255,255,0.5);font-size:clamp(12px,1.2vw,14px);">On-page &nbsp;·&nbsp; Off-page &nbsp;·&nbsp; Technical &nbsp;&nbsp;|&nbsp;&nbsp; 2 to 3 minutes each</div>
+</div>
+<div class="speaker-notes">These warm up SEO thinking across the three pillars we investigate today: on-page, off-page, and technical. Keep them open and discussion-led. There is no audit data yet, so the point is reasoning, not recall. Each question is a chip opportunity, aim to get every attending student contributing at least once across the three.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 3 — STEP 2
-════════════════════════════════════════════ -->
-<div class="slide slide-step" id="s3">
-  <div class="slide-inner">
-    <div class="sn">2</div>
-    <div class="s-over">Step 2</div>
-    <div class="s-head">Get your baseline SEO footprint</div>
-    <div class="s-paras">
-      <p class="s-p">Before configuring any tools, open Domain Overview from the main SEMrush interface and enter hnry.co.nz. Set the country database to New Zealand. Review the organic traffic estimates, number of ranking keywords, top countries driving traffic, and main competitors listed.</p>
-      <p class="s-p">Click into Top Organic Keywords → View details to see the full keyword list and current rankings. Take a screenshot — this is your baseline before any deeper configuration.</p>
-    </div>
-    <div class="why"><strong>Why this matters:</strong> The Domain Overview gives you a snapshot of where Hnry currently stands in search before you start auditing.</div>
-  </div>
-  <div class="speaker-notes">Walk students through the Domain Overview metrics. Key things to highlight: Organic Traffic is an estimate, not actual GA data — explain that SEMrush models traffic from click-through rates applied to keyword rankings. Authority Score (0–100) is a composite metric combining backlink profile, organic traffic, and spam signals — it is similar to Moz's Domain Authority. Ranking Keywords: ask students to note the number and compare with competitors they identify. The "New Zealand" database is important — hnry.co.nz targets NZ primarily, so national data is more relevant than global. Ask students: "What keywords do you expect Hnry to rank for?" Before they look at the data — this primes them to think strategically rather than just record whatever SEMrush shows. Screenshot prompt: "Take a screenshot of the Domain Overview now. You'll need this for Assignment 2 as your baseline data point."</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 3 - Q1 ON-PAGE
+════════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s3">
+<div class="slide-inner" style="justify-content:center;gap:32px;">
+<div style="display:flex;align-items:center;gap:14px;">
+<div style="font-size:clamp(10px,1vw,11px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);">Discussion 1 of 3</div>
+<div style="background:#00CAEF;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">On-Page</div>
+</div>
+<div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:880px;">
+Someone searches "beginner guitar NZ" and lands on a Music Planet product page. Beyond price and specs, what would that page itself need to actually answer the question and earn the ranking?
+</div>
+</div>
+<div class="speaker-notes">Looking for: content that matches the intent behind the search. A beginner wants guidance, not just a buy button. Useful signals include what makes a guitar suitable for beginners, notes on size and playability, starter bundles, clear and genuinely helpful descriptions, reviews, and links to related buying guides. The point: on-page SEO is not keyword stuffing, it is answering the query better than the competing page. This bridges to Step 6, the On Page SEO Checker.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 4 — STEP 3
-════════════════════════════════════════════ -->
-<div class="slide slide-step" id="s4">
-  <div class="slide-inner">
-    <div class="sn">3</div>
-    <div class="s-over">Step 3</div>
-    <div class="s-head">Set up your first Site Audit</div>
-    <div class="s-paras">
-      <p class="s-p">In your Hnry project dashboard, click Site Audit and create a new campaign for hnry.co.nz. In General Settings, set the crawl limit to 5,000 pages and choose Website as your crawl source. Set the crawl frequency to weekly.</p>
-      <p class="s-p">Launch the audit and wait for it to finish — this typically takes between 5 and 30 minutes depending on site size. Once complete, review the overall health score, errors, warnings, and thematic reports to identify technical and on-page issues.</p>
-    </div>
-    <div class="why"><strong>Why this matters:</strong> The Site Audit reveals technical problems that may be holding back Hnry's organic visibility — this is the foundation of any SEO analysis.</div>
-  </div>
-  <div class="speaker-notes">Launch the audit at the start of this step and move forward — it runs in the background. Students can return to review results during Steps 5–7. Key settings to watch: crawl limit of 5,000 is more than sufficient for hnry.co.nz (the site has fewer than 500 indexed pages based on current estimates). Crawl source: "Website" is correct; "Sitemap" is an alternative but requires knowing the sitemap URL. Weekly frequency is appropriate for a monitoring setup. When the audit completes, direct students to the three headline metrics: Health Score (%), Errors (red), and Warnings (yellow). Common errors to anticipate on hnry.co.nz: missing alt text on images, slow page load times, and potentially some duplicate meta descriptions across product pages. Remind students: "The Site Audit is a diagnostic, not a verdict. Every site has issues. What matters is whether the issues are significant and whether Hnry is addressing them."</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 4 - Q2 OFF-PAGE
+════════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s4">
+<div class="slide-inner" style="justify-content:center;gap:32px;">
+<div style="display:flex;align-items:center;gap:14px;">
+<div style="font-size:clamp(10px,1vw,11px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);">Discussion 2 of 3</div>
+<div style="background:#F59E0B;color:#78350F;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Off-Page</div>
+</div>
+<div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:880px;">
+Music Planet and a competitor list the same guitar at the same price, but one consistently outranks the other in Google. If the pages are equally good, what off-page factors might explain the gap?
+</div>
+</div>
+<div class="speaker-notes">Looking for: domain authority, the quantity and quality of referring domains, brand signals, site age and trust, and links from relevant NZ music and media sites. Off-page is largely about who vouches for you. This sets up Step 7, backlinks, and Step 8, the competitor gap. Ask verbally: where would a NZ music retailer earn links? Music blogs, musician communities and forums, gear-review sites, and school or community-music resources.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 5 — STEP 4
-════════════════════════════════════════════ -->
-<div class="slide slide-step" id="s5">
-  <div class="slide-inner">
-    <div class="sn">4</div>
-    <div class="s-over">Step 4</div>
-    <div class="s-head">Track where Hnry ranks for key terms</div>
-    <div class="s-paras">
-      <p class="s-p">In the project dashboard, click Position Tracking. Enter hnry.co.nz, then configure: search engine as Google, device as both desktop and mobile, and location as New Zealand. Add an initial keyword set by importing from the Domain Overview results you reviewed in Step 2.</p>
-      <p class="s-p">Add 2–3 competitor domains to benchmark against — Hnry's main NZ competitors are a useful starting point. Save and start tracking. Rankings will populate within 24 hours.</p>
-    </div>
-    <div class="why"><strong>Why this matters:</strong> Position Tracking turns a one-off keyword snapshot into an ongoing view of Hnry's visibility, so you can measure the impact of any strategy you recommend.</div>
-  </div>
-  <div class="speaker-notes">For competitor domains, suggest students add: myob.com (large incumbent), xero.com (dominant NZ accounting SaaS), and possibly freeagent.com (UK-origin competitor with NZ presence). These three represent the main competitive set Hnry faces in NZ search. Keyword import from Domain Overview: students should import the top 20–30 keywords by traffic. They can refine the list after completing the Keyword Magic Tool step. Mobile vs Desktop tracking: explain that Google uses mobile-first indexing, so mobile rankings are now the primary signal — but desktop often differs. Running both gives the full picture. Rankings take 24 hours: this is a good point to emphasise that SEO is not instant. Ask students: "Why do you think tracking competitors' rankings alongside Hnry's might be useful?" Expected answer: to understand relative movement — if Hnry improves but competitors improve faster, the net position may not have changed.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 5 - Q3 TECHNICAL
+════════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s5">
+<div class="slide-inner" style="justify-content:center;gap:32px;">
+<div style="display:flex;align-items:center;gap:14px;">
+<div style="font-size:clamp(10px,1vw,11px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);">Discussion 3 of 3</div>
+<div style="background:#8F95E9;color:#0E2841;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;">Technical</div>
+</div>
+<div style="font-size:clamp(22px,2.6vw,38px);font-weight:700;color:white;line-height:1.35;max-width:880px;">
+Music Planet's online store keeps adding product pages, many of them nearly identical. What technical problems can quietly build up and drag on search performance as the catalogue grows?
+</div>
+</div>
+<div class="speaker-notes">Looking for: duplicate or thin content across similar products, duplicate meta descriptions, crawl budget wasted on low-value URLs, slow image-heavy pages, weak internal linking, orphaned pages, and URL bloat from faceted navigation. This is exactly what the Site Audit in Step 3 surfaces. The teaching point: technical SEO is invisible until it is measured, which is why the audit exists.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 6 — STEP 5
-════════════════════════════════════════════ -->
-<div class="slide slide-step" id="s6">
-  <div class="slide-inner">
-    <div class="sn">5</div>
-    <div class="s-over">Step 5</div>
-    <div class="s-head">Research and expand Hnry's keyword universe</div>
-    <div class="s-paras">
-      <p class="s-p">From the left menu, open Keyword Overview and enter seed keywords relevant to Hnry — for example "self-employed tax NZ", "freelancer tax New Zealand", and "sole trader accounting". Review volume, keyword difficulty, and CPC to identify which terms are worth targeting.</p>
-      <p class="s-p">Use the Keyword Magic Tool to expand these seeds into related terms, long-tail phrases, and questions. Focus on high-intent, realistic targets: moderate difficulty, meaningful volume, and directly relevant to Hnry's services. Export or save these lists — they will feed into your Position Tracking and content planning later in the course.</p>
-    </div>
-    <div class="why"><strong>Why this matters:</strong> A strong keyword list is the foundation of both the SEO audit (Assignment 2) and the campaign proposal (Assignment 3).</div>
-  </div>
-  <div class="speaker-notes">Keyword Difficulty (KD%): explain that KD is scored 0–100. For a relatively small site like hnry.co.nz, realistic targets are KD 0–40. Terms above 60 are likely dominated by major publications or large-authority competitors (MYOB, Xero, IRD). Volume in NZ context: NZ has a small population (~5 million), so monthly search volumes will look low — 50–200/month for a specific term is meaningful in NZ. Students often dismiss low-volume terms, but in a small market these can be highly valuable. CPC: useful as a proxy for commercial intent. Terms with high CPC are terms advertisers are bidding on, which suggests strong buyer intent. Seed keywords to walk through live: "sole trader tax NZ", "invoice app NZ", "hnry tax" (branded). Have students identify at least 5 non-branded target keywords before moving on. Bridge: "These keywords will go into your Position Tracking campaign (Step 4) and will also structure the keyword section of your Assignment 2 audit."</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 6 - SESSION AGENDA
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s6">
+<div class="slide-inner">
+<h2 class="slide-title">Session Agenda</h2>
+<div class="three-col" style="margin-top:4px;">
+<div class="col-card" style="border-top:4px solid var(--navy);">
+<div class="col-num">01</div>
+<div class="col-title">Set Up &amp; Baseline</div>
+<div class="col-body">Create the Music Planet project and capture its starting SEO footprint. Steps 1 to 2.</div>
+</div>
+<div class="col-card" style="border-top:4px solid var(--blue);">
+<div class="col-num">02</div>
+<div class="col-title">Core Diagnostics</div>
+<div class="col-body">Site Audit, position tracking, and two-tool keyword research. Steps 3 to 6.</div>
+</div>
+<div class="col-card" style="border-top:4px solid var(--cyan);">
+<div class="col-num">03</div>
+<div class="col-title">Benchmark &amp; Monitor</div>
+<div class="col-body">Compare against Rockshop and MusicWorks, then set up ongoing tracking. Steps 7 to 9.</div>
+</div>
+</div>
+<div class="callout" style="margin-top:24px;">
+<strong>Workflow:</strong> set up, baseline, diagnose, benchmark, monitor. Nine steps, one project, all feeding your Assignment 2 Digital Audit.
+</div>
+</div>
+<div class="speaker-notes">Frame the arc. First we build the container and capture where Music Planet starts. Then we run the diagnostics that reveal issues. Then we put those issues in competitive context and make the whole thing ongoing. Remind students the priority is Steps 1 to 4, with the rest able to be finished independently. Everything today feeds Assignment 2.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 7 — STEP 6
-════════════════════════════════════════════ -->
-<div class="slide slide-step" id="s7">
-  <div class="slide-inner">
-    <div class="sn">6</div>
-    <div class="s-over">Step 6</div>
-    <div class="s-head">Identify page-level improvements</div>
-    <div class="s-paras">
-      <p class="s-p">In your Hnry project, open On Page SEO Checker. Add Hnry's key landing pages (start with the homepage and top product or service pages) and map your target keywords to each page.</p>
-      <p class="s-p">Run the tool to receive suggestions on content improvements, semantic keyword usage, and on-page optimisation. Cross-reference these recommendations with the Site Audit issues for the same URLs — for example, a page flagged for thin content in the audit may also be under-optimised according to the On Page Checker.</p>
-    </div>
-    <div class="why"><strong>Why this matters:</strong> This is where diagnostics become specific, actionable recommendations — exactly what your audit report needs to demonstrate.</div>
-  </div>
-  <div class="speaker-notes">Key landing pages to add: hnry.co.nz (homepage), hnry.co.nz/features (or equivalent product page), hnry.co.nz/pricing, and hnry.co.nz/blog (if a blog exists). Map keywords from Step 5 to the most relevant page — for example, "sole trader accounting NZ" maps to the homepage or features page. The On Page Checker generates three types of recommendations: Strategy (backlink opportunities and semantic ideas), Ideas (content improvements for the specific page), and Technical (on-page technical issues). Focus on the Ideas tab first — this is where actionable content suggestions live. Cross-referencing with Site Audit: if Site Audit flagged the homepage for "low word count" and On Page Checker recommends adding semantic keywords, these are the same problem viewed from two angles. Assignment 2 note: "When you write up your audit report, you should cite both tools where they corroborate each other — this shows triangulated analysis, not just a list of tool outputs."</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 7 - LEARNING OUTCOMES
+════════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s7">
+<div class="slide-inner" style="justify-content:center;gap:28px;">
+<div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);">By the end of this session, you will be able to</div>
+<div style="display:flex;flex-direction:column;gap:18px;max-width:820px;">
+<div style="display:flex;gap:20px;align-items:flex-start;">
+<div style="flex-shrink:0;width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:15px;">1</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(14px,1.5vw,18px);line-height:1.5;">Set up a <strong style="color:var(--cyan);">structured SEMrush project</strong> for a real client</div>
+</div>
+<div style="display:flex;gap:20px;align-items:flex-start;">
+<div style="flex-shrink:0;width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:15px;">2</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(14px,1.5vw,18px);line-height:1.5;">Establish a <strong style="color:var(--cyan);">baseline SEO footprint</strong> using Domain Overview</div>
+</div>
+<div style="display:flex;gap:20px;align-items:flex-start;">
+<div style="flex-shrink:0;width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:15px;">3</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(14px,1.5vw,18px);line-height:1.5;">Run and interpret a <strong style="color:var(--cyan);">Site Audit</strong> to surface technical and on-page issues</div>
+</div>
+<div style="display:flex;gap:20px;align-items:flex-start;">
+<div style="flex-shrink:0;width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:15px;">4</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(14px,1.5vw,18px);line-height:1.5;">Build keyword and position-tracking sets, using <strong style="color:var(--cyan);">AnswerThePublic and SEMrush together</strong>, benchmarked against real competitors</div>
+</div>
+<div style="display:flex;gap:20px;align-items:flex-start;">
+<div style="flex-shrink:0;width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:15px;">5</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(14px,1.5vw,18px);line-height:1.5;">Assess <strong style="color:var(--cyan);">off-page authority and competitive gaps</strong> to feed your Assignment 2 Digital Audit</div>
+</div>
+</div>
+</div>
+<div class="speaker-notes">Outcome 5 is the throughline: everything today is in service of the Digital Audit. Outcome 4 names the two-tool workflow deliberately, students should leave able to move from AnswerThePublic to SEMrush with a clear sense of what each tool is for and why you use them in sequence.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 8 — STEP 7
-════════════════════════════════════════════ -->
-<div class="slide slide-step" id="s8">
-  <div class="slide-inner">
-    <div class="sn">7</div>
-    <div class="s-over">Step 7</div>
-    <div class="s-head">Understand Hnry's link profile</div>
-    <div class="s-paras">
-      <p class="s-p">From the main menu, open Backlink Analytics and enter hnry.co.nz. Review total backlinks, referring domains, and authority metrics. Then open Backlink Audit within your project to identify any toxic or low-quality links.</p>
-      <p class="s-p">Look at the backlink profiles of Hnry's competitors to spot potential outreach or digital PR opportunities — sites linking to competitors but not to Hnry represent a gap worth noting in your analysis.</p>
-    </div>
-    <div class="why"><strong>Why this matters:</strong> Off-page authority affects how well Hnry ranks; understanding its backlink health helps you assess the full picture of its SEO performance.</div>
-  </div>
-  <div class="speaker-notes">Key metrics to highlight in Backlink Analytics: Referring Domains (more important than total backlinks — 100 links from 100 different domains is better than 1,000 links from one domain), Authority Score of referring domains (higher = more valuable), and follow vs. nofollow ratio. Toxic score: SEMrush assigns a toxicity score (0–100) to backlinks. Scores above 45 are flagged as potentially harmful. For hnry.co.nz, there are likely very few toxic links — it is a legitimate, actively marketed product. Backlink Gap vs. competitors: this is the most strategically useful output for Assignment 3. A site linking to MYOB and Xero but not Hnry is a potential digital PR target. Ask students: "What types of sites do you think would link to a freelancer tax tool?" Expected answers: freelancer community sites, NZ business publications (Stuff Business, BusinessDesk), accounting and finance blogs, IRD adjacent resources.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 8 - STEP 1
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s8">
+<div class="slide-inner">
+<div class="slide-eyebrow">Step 1 of 9 · Set Up &amp; Baseline</div>
+<h2 class="slide-title">Create your Music Planet project</h2>
+<div class="slide-body">
+<p>You already have a SEMrush account. The first step is to create a dedicated Project for Music Planet, so that every analysis tool you configure, Site Audit, Position Tracking and the rest, lives in one place.</p>
+<p>Click <strong>Projects</strong>, then <strong>Create new project</strong>. Enter <strong>musicplanet.co.nz</strong> as the domain, using the bare domain without the www prefix, and name the project "Music Planet NZ". This container will hold everything you set up across the semester.</p>
+<div class="callout"><strong>Why this matters:</strong> a project keeps your Music Planet analysis organised and separate from any other domain you explore.</div>
+</div>
+</div>
+<div class="speaker-notes">Common issues at this step. Students entering www.musicplanet.co.nz, advise the bare domain, SEMrush detects the canonical version. Students who cannot find the Projects tab, it is in the left sidebar and sometimes collapsed, look for the folder icon. Limited plans may cap the number of projects, if students hit a limit they should delete any test projects created during onboarding. Confirm everyone can see the Music Planet project on their dashboard before Step 2. The project name is a convention, students can use any name, but consistency helps when you refer to it in later tutorials.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 9 — STEP 8
-════════════════════════════════════════════ -->
-<div class="slide slide-step" id="s9">
-  <div class="slide-inner">
-    <div class="sn">8</div>
-    <div class="s-over">Step 8</div>
-    <div class="s-head">Benchmark Hnry against the competition</div>
-    <div class="s-paras">
-      <p class="s-p">In Domain Overview or Organic Research, enter 2–3 of Hnry's main NZ competitors and compare their organic traffic, keyword counts, and top-performing pages. Then use the Keyword Gap tool to identify keywords competitors rank for that Hnry does not — these are your opportunity areas.</p>
-      <p class="s-p">Add these competitors to your Position Tracking campaign so you can monitor relative movement over time. Document the gaps you find — they should directly inform the strategic recommendations in your audit report.</p>
-    </div>
-    <div class="why"><strong>Why this matters:</strong> Your analysis of Hnry only becomes meaningful when you understand how it stacks up against the alternatives its customers might choose instead.</div>
-  </div>
-  <div class="speaker-notes">Recommended competitors to use in the Keyword Gap analysis: xero.com, myob.com, and either freeagent.com or hnry.co.uk (Hnry's own UK site, to compare how the same brand performs in a different market). Keyword Gap interpretation: the tool returns four categories — Missing (Hnry has no ranking, competitors do), Weak (Hnry ranks but lower than competitors), Strong (Hnry outperforms), and Untapped (none rank, but all have it in their keyword universe). Focus on Missing and Weak — these are direct strategic gaps. Top-performing pages: comparing competitor pages that drive the most traffic reveals content format and topic preferences that Hnry may not be addressing. For example, if Xero has a "sole trader tax guide NZ" that drives significant traffic, this is both a keyword gap and a content gap. Assignment 2 framework: "The competitive gap section of your audit should explain why each gap exists and what Hnry would need to do to close it — not just list that the gap exists."</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 9 - STEP 2
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s9">
+<div class="slide-inner">
+<div class="slide-eyebrow">Step 2 of 9 · Set Up &amp; Baseline</div>
+<h2 class="slide-title">Capture the baseline SEO footprint</h2>
+<div class="slide-body">
+<p>Before configuring any tools, open <strong>Domain Overview</strong> and enter musicplanet.co.nz. Set the country database to <strong>New Zealand</strong>. Review the organic traffic estimate, the number of ranking keywords, the top countries driving traffic, and the main competitors SEMrush lists.</p>
+<p>Click into <strong>Top Organic Keywords</strong>, then <strong>View details</strong>, to see the full keyword list and current rankings. Take a screenshot. This is your baseline before any deeper configuration.</p>
+<div class="callout"><strong>Why this matters:</strong> the Domain Overview shows where Music Planet stands in search today, your reference point for everything that follows.</div>
+</div>
+</div>
+<div class="speaker-notes">Walk through the metrics. Organic Traffic is a model, not GA data, SEMrush estimates it from click-through rates applied to keyword rankings. Authority Score (0 to 100) is a composite of backlink profile, organic traffic and spam signals, similar to Moz's Domain Authority. Ask students, before they look at the data, what they expect Music Planet to rank for, this primes strategic thinking rather than passive recording. The New Zealand database matters, Music Planet is an NZ business, so national data is more relevant than global. Screenshot prompt: save the Domain Overview now, it is your Assignment 2 baseline data point.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 10 — STEP 9
-════════════════════════════════════════════ -->
-<div class="slide slide-step" id="s10">
-  <div class="slide-inner">
-    <div class="sn">9</div>
-    <div class="s-over">Step 9</div>
-    <div class="s-head">Turn SEMrush into an ongoing system</div>
-    <div class="s-paras">
-      <p class="s-p">In the project dashboard, configure email alerts or scheduled PDF reports for Site Audit health score, errors, and Position Tracking changes for key keywords. Set a review cadence: weekly for technical health and rankings, monthly for keyword and content strategy.</p>
-      <p class="s-p">Use the SEMrush SEO Dashboard as your at-a-glance view — it surfaces visibility trends, traffic estimates, keyword movement, and open issues in one place. This transforms SEMrush from a setup exercise into a live monitoring tool you can reference throughout the semester.</p>
-    </div>
-    <div class="why"><strong>Why this matters:</strong> Ongoing monitoring means you can track whether Hnry's SEO health is improving or deteriorating — and demonstrate that awareness in your proposal defence.</div>
-  </div>
-  <div class="speaker-notes">Email reports: set these up to a personal email address. Students are not required to submit reports as evidence, but receiving weekly updates keeps them aware of SEMrush data passively. Scheduled reports can be PDF or CSV — PDF is more accessible for non-technical stakeholders and is the format most likely to be used in a professional context. Position Tracking alerts: configure alerts for significant ranking changes (e.g., movement of ±5 positions for key terms). This mirrors professional practice where SEO managers set up alerts for major fluctuations. SEO Dashboard: walk students through the dashboard widgets — Visibility Score, Traffic trend, ranking distribution (top 3 / 4–10 / 11–20 / 21–50 / 51–100), and open Site Audit issues. Proposal Defence connection: "Examiners will ask you to demonstrate active use of SEMrush. A student who can show trend data over several weeks — and explain what changed and why — demonstrates a higher level of engagement than a student who ran a one-off audit."</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 10 - STEP 3
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s10">
+<div class="slide-inner">
+<div class="slide-eyebrow">Step 3 of 9 · Core Diagnostics</div>
+<h2 class="slide-title">Run your first Site Audit</h2>
+<div class="slide-body">
+<p>In your project dashboard, click <strong>Site Audit</strong> and create a campaign for musicplanet.co.nz. In Settings, set the crawl limit to <strong>5,000 pages</strong>, choose <strong>Website</strong> as the source, and set the frequency to <strong>weekly</strong>.</p>
+<p>Launch it and keep moving, it runs in the background and takes roughly 5 to 30 minutes. When it finishes, review the overall health score, errors, warnings, and thematic reports to identify technical and on-page issues.</p>
+<div class="callout"><strong>Retail note:</strong> a Shopify store carries many product and collection URLs, so crawl scope matters more here than it would for a simple brochure site. The Site Audit is the foundation of any SEO analysis.</div>
+</div>
+</div>
+<div class="speaker-notes">Launch the audit at the start of this step and move forward, students return to review results during Steps 5 to 7. Crawl limit of 5,000 is ample. Crawl source Website is correct, Sitemap is an alternative if you know the sitemap URL. Weekly frequency suits a monitoring setup. When it completes, direct students to the three headline metrics: Health Score, Errors in red, Warnings in yellow. Issues to anticipate on a music retail store, framed as things to look for rather than confirmed facts: missing image alt text, image-heavy pages loading slowly, thin or duplicate content across similar product pages, and duplicate meta descriptions. Remind students an audit is a diagnostic, not a verdict, every site has issues, what matters is whether they are significant and whether Music Planet is addressing them.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 11 — WHAT'S NEXT
-════════════════════════════════════════════ -->
-<div class="slide slide-next" id="s11">
-  <div class="slide-inner">
-    <div class="next-top">
-      <div class="next-over">What's next</div>
-      <div class="next-h">You're set up. Now the real analysis begins.</div>
-      <p class="next-p">Your Hnry project is now configured with the core tools you'll use across the semester. This week's self-learning task is SEMrush Module 1 (SEO) — the Academy course directly supports the certifications due in Week 4.</p>
-      <p class="next-p">In Week 3 tutorial, you'll return to the Hnry project to run a full SEO analysis and keyword research session using the data you've now set up to collect.</p>
-    </div>
-    <div class="next-cols">
-      <div class="nc">
-        <div class="nc-label">This week</div>
-        <div class="nc-title">Complete SEMrush Module 1 (SEO) in Academy</div>
-        <div class="nc-body">Work through SEMrush Academy's SEO module. The course content maps directly to the certification exam, which counts toward your Week 4 requirements. Allow approximately two hours.</div>
-      </div>
-      <div class="nc">
-        <div class="nc-label">Week 3 tutorial</div>
-        <div class="nc-title">SEO analysis and keyword research for Hnry</div>
-        <div class="nc-body">Return to your Hnry project and run a guided analysis session using the Site Audit, Position Tracking, and Keyword tools you've configured today. Bring your notes from this tutorial.</div>
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">Close the tutorial by confirming what students should have completed: a Hnry project with Site Audit running (or complete), Position Tracking configured with at least one keyword and one competitor, and a Domain Overview screenshot saved. SEMrush Academy Module 1: available at semrush.com/academy. The SEO Fundamentals course is the most directly relevant. It covers keyword research, on-page optimisation, link building, and technical SEO — all of which align with Assignment 2. Certifications: on successful completion of the module quiz, students receive a certificate. These are submitted via the LMS assessment portal by the Week 4 deadline. Week 3 preparation: ask students to bring a short list (5–10) of keywords they identified in Step 5 today. In Week 3 they will use these as starting points for a structured keyword research exercise using Keyword Magic Tool and Keyword Gap.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 11 - STEP 4
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s11">
+<div class="slide-inner">
+<div class="slide-eyebrow">Step 4 of 9 · Core Diagnostics</div>
+<h2 class="slide-title">Track where Music Planet ranks</h2>
+<div class="slide-body">
+<p>In the project dashboard, click <strong>Position Tracking</strong>. Enter musicplanet.co.nz, then configure: search engine <strong>Google</strong>, device <strong>desktop and mobile</strong>, location <strong>New Zealand</strong>. Add an initial keyword set by importing from the Domain Overview results you reviewed in Step 2.</p>
+<p>Add Music Planet's two main NZ competitors to benchmark against. Save and start tracking. Rankings will populate within 24 hours.</p>
+<div class="chip-row" style="margin-top:4px;">
+<span class="chip-light">therockshop.co.nz</span>
+<span class="chip-light">musicworks.co.nz</span>
+</div>
+<div class="callout"><strong>Why this matters:</strong> Position Tracking turns a one-off keyword snapshot into an ongoing view, so you can measure the impact of any strategy you recommend.</div>
+</div>
+</div>
+<div class="speaker-notes">Competitor domains: therockshop.co.nz and musicworks.co.nz, the two main NZ specialist music retailers. Keyword import from Domain Overview, students should import the top 20 to 30 keywords by traffic and refine after the keyword step. Mobile versus desktop, Google uses mobile-first indexing so mobile is the primary signal, but desktop often differs, running both gives the full picture. Rankings take 24 hours, a good moment to stress that SEO is not instant. Ask students why tracking competitors alongside Music Planet is useful, expected answer: relative movement, if Music Planet improves but competitors improve faster, the net position may not have changed.</div>
 </div>
 
-</div><!-- #deck -->
+<!-- ════════════════════════════════════════════════
+     SLIDE 12 - STEP 5 (two phases)
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s12">
+<div class="slide-inner">
+<div class="slide-eyebrow">Step 5 of 9 · Core Diagnostics</div>
+<h2 class="slide-title">Build Music Planet's keyword universe</h2>
+<div class="two-col" style="margin-top:0;">
+<div class="panel" style="border-top:4px solid var(--navy);">
+<div class="panel-title" style="color:var(--navy);">Phase 1 · AnswerThePublic</div>
+<div class="panel-body">
+Paste musicplanet.co.nz into AnswerThePublic and review the <strong>Suggested For You</strong> keywords and content ideas it generates from the site. Optionally, run one seed such as "guitar" or "digital piano" for the deeper Search Cloud of real questions. Shortlist the most relevant, realistic terms.
+</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--cyan);">
+<div class="panel-title" style="color:var(--blue);">Phase 2 · SEMrush</div>
+<div class="panel-body">
+Take your shortlist into <strong>Keyword Overview</strong> and the <strong>Keyword Magic Tool</strong>, set the NZ database, and check volume, difficulty and CPC to decide what is worth targeting. Add one head term manually, "guitars nz" or "musical instruments nz", for contrast.
+</div>
+</div>
+</div>
+<div class="callout" style="margin-top:16px;">One tool surfaces the questions people ask; the other tells you which are worth answering. Different tools, different jobs.</div>
+</div>
+</div>
+<div class="speaker-notes">The point of this step is tool familiarity and a clean handoff. AnswerThePublic's free tier allows three searches a day and unlocks fully once students register with a simple Google login, so they should choose their seeds deliberately rather than burning searches by trial and error. It shows no volume, difficulty or CPC, which is exactly why the exercise then moves to SEMrush. Check the URL "Suggested For You" feature works on a plain free account before class, the fallback is a manual seed such as "guitar".
 
-<!-- ── SIDEBAR / TOC ── -->
+Worked example from Music Planet's actual URL output. Commercial or product-intent terms to test for winnability: "digital piano under 1000 nz", "beginner synth nz", "electronic drum kit nz", "guitar pedals nz", and the very specific "nux mg30 nz", an ultra-long-tail product term that is almost certainly low difficulty and high intent, showing why the very long tail is often where a smaller retailer actually wins. Content and informational ideas that double as blog or guide topics and tie back to the Week 3 journey work: "acoustic vs electric guitar nz", "home studio setup on a budget", "best beginner keyboards nz". Branded: "music planet nz review", the case where you would expect Music Planet to rank already. Then the manually added head term, "musical instruments nz" or "guitars nz", which will look tempting in the suggestions and fall apart on difficulty, that is the teaching contrast: a smaller retailer wins on the specific, winnable long tail, not the head term. On difficulty bands, realistic targets sit lower, very high KD terms are dominated by big-authority sites. NZ volumes look small because the market is small, 50 to 200 a month can still be meaningful.</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 13 - STEP 6
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s13">
+<div class="slide-inner">
+<div class="slide-eyebrow">Step 6 of 9 · Core Diagnostics</div>
+<h2 class="slide-title">Identify page-level improvements</h2>
+<div class="slide-body">
+<p>In your project, open <strong>On Page SEO Checker</strong>. Add Music Planet's key pages, starting with the homepage, the top category or collection pages, and a few key product pages, and map your target keywords to each.</p>
+<p>Run the tool for suggestions on content improvements, semantic keyword usage, and on-page optimisation. Cross-reference these against the Site Audit issues for the same URLs, a page flagged for thin content in the audit may also be under-optimised here.</p>
+<div class="callout"><strong>Why this matters:</strong> this is where diagnostics become specific, actionable recommendations, exactly what your audit needs to demonstrate.</div>
+</div>
+</div>
+<div class="speaker-notes">Key pages to add: the homepage, a top category page such as guitars or keyboards, the delivery or pricing page if relevant, and a couple of high-value product pages. Map keywords from Step 5 to the most relevant page, for example a beginner-guitar term to the relevant category or product page. The Checker generates three types of recommendation, Strategy, Ideas and Technical, focus on the Ideas tab first, that is where the actionable content suggestions live. Cross-referencing with the Site Audit: if the audit flags a page for low word count and the Checker recommends semantic keywords, these are the same problem viewed from two angles. Assignment 2 note: when writing up the audit, cite both tools where they corroborate each other, that shows triangulated analysis rather than a list of tool outputs.</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 14 - STEP 7
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s14">
+<div class="slide-inner">
+<div class="slide-eyebrow">Step 7 of 9 · Benchmark &amp; Monitor</div>
+<h2 class="slide-title">Understand Music Planet's link profile</h2>
+<div class="slide-body">
+<p>Open <strong>Backlink Analytics</strong> and enter musicplanet.co.nz. Review total backlinks, referring domains, and authority metrics. Then open <strong>Backlink Audit</strong> within your project to identify any toxic or low-quality links.</p>
+<p>Look at the backlink profiles of Rockshop and MusicWorks to spot outreach or digital PR opportunities, sites linking to a competitor but not to Music Planet represent a gap worth noting.</p>
+<div class="chip-row" style="margin-top:4px;">
+<span class="chip-light">NZ music blogs &amp; media</span>
+<span class="chip-light">musician communities</span>
+<span class="chip-light">gear-review sites</span>
+<span class="chip-light">school &amp; education resources</span>
+</div>
+<div class="callout"><strong>Why this matters:</strong> off-page authority affects how well Music Planet ranks; its backlink health completes the picture.</div>
+</div>
+</div>
+<div class="speaker-notes">Key metrics in Backlink Analytics: Referring Domains matters more than total backlinks, 100 links from 100 different domains beats 1,000 from one. The Authority Score of referring domains, higher is more valuable. The follow versus nofollow ratio. Toxic score, SEMrush assigns a 0 to 100 toxicity score, above roughly 45 is flagged as potentially harmful. The Backlink Gap against competitors is the most strategically useful output, a site linking to Rockshop and MusicWorks but not Music Planet is a potential digital PR target. Ask students what types of site would link to a music retailer, expected answers: NZ music and business media, musician forums and communities, gear-review blogs, and school or community-music resources.</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 15 - STEP 8
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s15">
+<div class="slide-inner">
+<div class="slide-eyebrow">Step 8 of 9 · Benchmark &amp; Monitor</div>
+<h2 class="slide-title">Benchmark against the competition</h2>
+<div class="slide-body">
+<p>In <strong>Organic Research</strong> or Domain Overview, enter Rockshop and MusicWorks and compare their organic traffic, keyword counts, and top-performing pages. Then use the <strong>Keyword Gap</strong> tool to find keywords they rank for that Music Planet does not, your opportunity areas.</p>
+<p>Add these competitors to your Position Tracking so you can watch relative movement over time. Document the gaps, they should directly inform your strategic recommendations.</p>
+<div class="gap-grid">
+<div class="gap-card focus"><div class="g-name">Missing</div><div class="g-desc">Competitors rank, Music Planet does not</div></div>
+<div class="gap-card focus"><div class="g-name">Weak</div><div class="g-desc">Ranks, but lower than competitors</div></div>
+<div class="gap-card dim"><div class="g-name">Strong</div><div class="g-desc">Music Planet outperforms</div></div>
+<div class="gap-card dim"><div class="g-name">Untapped</div><div class="g-desc">None rank yet</div></div>
+</div>
+</div>
+</div>
+<div class="speaker-notes">Recommended competitors: therockshop.co.nz and musicworks.co.nz. Keyword Gap interpretation, the tool returns four categories, Missing (competitors rank, Music Planet has none), Weak (ranks but lower), Strong (outperforms), and Untapped (none rank yet). Focus on Missing and Weak, the direct strategic gaps. Comparing top-performing pages reveals content formats and topics Music Planet may not be addressing, for example if Rockshop has a high-traffic beginner-guitar guide, that is both a keyword gap and a content gap. Assignment 2 framing: the competitive gap section should explain why each gap exists and what Music Planet would need to do to close it, not just list that the gap exists.</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 16 - STEP 9
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s16">
+<div class="slide-inner">
+<div class="slide-eyebrow">Step 9 of 9 · Benchmark &amp; Monitor</div>
+<h2 class="slide-title">Turn SEMrush into an ongoing system</h2>
+<div class="slide-body">
+<p>In the project dashboard, configure email alerts or scheduled PDF reports for Site Audit health score and errors, and for Position Tracking changes on key keywords. Set a review cadence and use the <strong>SEO Dashboard</strong> as your at-a-glance view of visibility trends, traffic estimates, keyword movement, and open issues.</p>
+<div class="chip-row" style="margin-top:4px;">
+<span class="chip-light">Weekly: technical health + rankings</span>
+<span class="chip-light">Monthly: keyword + content strategy</span>
+</div>
+<div class="callout"><strong>Why this matters:</strong> ongoing monitoring lets you show whether Music Planet's SEO health is improving or slipping, and demonstrate that awareness in your Assignment 2 audit.</div>
+</div>
+</div>
+<div class="speaker-notes">Email reports to a personal address, students are not required to submit them, but receiving weekly updates keeps them passively aware of the data. Scheduled reports can be PDF or CSV, PDF is more accessible for non-technical stakeholders and is the format most likely to be used professionally. Position Tracking alerts, configure for significant changes, for example movement of plus or minus 5 positions on key terms, mirroring professional practice. SEO Dashboard widgets: Visibility Score, Traffic trend, ranking distribution, and open Site Audit issues. Assignment 2 connection: a student who can show trend data over several weeks and explain what changed and why demonstrates deeper engagement than one who ran a single one-off audit.</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 17 - WHAT'S NEXT
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s17">
+<div class="slide-inner">
+<h2 class="slide-title">You're set up. Now the real analysis begins.</h2>
+<div class="slide-body" style="flex:0;max-width:820px;margin-bottom:8px;">
+Your Music Planet project is now configured with the core tools you will use across the semester. Everything you have set up today feeds directly into the Assignment 2 Digital Audit.
+</div>
+<div class="two-col" style="margin-top:8px;">
+<div class="panel" style="border-top:4px solid var(--navy);">
+<div class="panel-title" style="color:var(--blue);">This week</div>
+<div class="panel-body">
+<strong>Self-learning certification [TBD]</strong><br/>
+Complete the assigned SEMrush Academy certification. The course content maps directly to the work you have set up today. <span style="color:var(--muted);">[Certification and deadline to be confirmed.]</span>
+</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--cyan);">
+<div class="panel-title" style="color:var(--blue);">Next tutorial [TBD]</div>
+<div class="panel-body">
+Return to your Music Planet project and run a full analysis using the Site Audit, Position Tracking and keyword data you configured today. <span style="color:var(--muted);">[Focus to be confirmed.]</span> Bring your notes from this session.
+</div>
+</div>
+</div>
+</div>
+<div class="speaker-notes">Close by confirming what students should now have: a Music Planet project with the Site Audit running or complete, Position Tracking configured with at least one keyword and one competitor, and a Domain Overview screenshot saved. Placeholders: the self-learning certification, its deadline, and the focus of the next tutorial are to be confirmed by Patrick. Reinforce the throughline, everything set up today feeds Assignment 2, the Digital Audit.</div>
+</div>
+
+</div><!-- /deck -->
+
 <nav id="sidebar">
-  <div id="sidebar-header">
-    <div class="course-label">MKTG 304 · Week 4 Tutorial</div>
-    <div class="course-title">SEMrush Setup for Hnry</div>
-  </div>
-  <div id="slide-list">
-    <div class="nav-group">Introduction</div>
-    <div class="nav-item active" onclick="goTo(1);closeSidebar()">
-      <span class="n-num">01</span>
-      <span class="n-title">Setting up SEMrush for Hnry</span>
-    </div>
-    <div class="nav-group">Steps 1–5 — Core Setup</div>
-    <div class="nav-item" onclick="goTo(2);closeSidebar()">
-      <span class="n-num">02</span><span class="n-title">Step 1 — Create your Hnry project</span><span class="n-tag step">Step</span>
-    </div>
-    <div class="nav-item" onclick="goTo(3);closeSidebar()">
-      <span class="n-num">03</span><span class="n-title">Step 2 — Domain Overview baseline</span><span class="n-tag step">Step</span>
-    </div>
-    <div class="nav-item" onclick="goTo(4);closeSidebar()">
-      <span class="n-num">04</span><span class="n-title">Step 3 — Site Audit</span><span class="n-tag step">Step</span>
-    </div>
-    <div class="nav-item" onclick="goTo(5);closeSidebar()">
-      <span class="n-num">05</span><span class="n-title">Step 4 — Position Tracking</span><span class="n-tag step">Step</span>
-    </div>
-    <div class="nav-item" onclick="goTo(6);closeSidebar()">
-      <span class="n-num">06</span><span class="n-title">Step 5 — Keyword research</span><span class="n-tag step">Step</span>
-    </div>
-    <div class="nav-group">Steps 6–9 — Deep Analysis</div>
-    <div class="nav-item" onclick="goTo(7);closeSidebar()">
-      <span class="n-num">07</span><span class="n-title">Step 6 — On-page SEO Checker</span><span class="n-tag step">Step</span>
-    </div>
-    <div class="nav-item" onclick="goTo(8);closeSidebar()">
-      <span class="n-num">08</span><span class="n-title">Step 7 — Backlink analysis</span><span class="n-tag step">Step</span>
-    </div>
-    <div class="nav-item" onclick="goTo(9);closeSidebar()">
-      <span class="n-num">09</span><span class="n-title">Step 8 — Competitor benchmarking</span><span class="n-tag step">Step</span>
-    </div>
-    <div class="nav-item" onclick="goTo(10);closeSidebar()">
-      <span class="n-num">10</span><span class="n-title">Step 9 — Reporting &amp; monitoring</span><span class="n-tag step">Step</span>
-    </div>
-    <div class="nav-group">Close</div>
-    <div class="nav-item" onclick="goTo(11);closeSidebar()">
-      <span class="n-num">11</span><span class="n-title">What's next</span>
-    </div>
-  </div>
+<div id="sidebar-header">
+<div class="course-label">MKTG 304 · University of Auckland</div>
+<div class="course-title">Setting Up SEMrush for Music Planet</div>
+</div>
+<div id="slide-list">
+<div class="nav-item active" onclick="goTo(1);closeSidebar()"><span class="n-num">01</span><span class="n-title">Title</span></div>
+<div class="nav-group">Opening Discussion</div>
+<div class="nav-item" onclick="goTo(2);closeSidebar()"><span class="n-num">02</span><span class="n-title">Intro</span><span class="n-tag section">Section</span></div>
+<div class="nav-item" onclick="goTo(3);closeSidebar()"><span class="n-num">03</span><span class="n-title">Q1 — On-Page</span><span class="n-tag" style="background:rgba(0,202,239,0.15);color:var(--cyan);">On-Page</span></div>
+<div class="nav-item" onclick="goTo(4);closeSidebar()"><span class="n-num">04</span><span class="n-title">Q2 — Off-Page</span><span class="n-tag" style="background:rgba(245,158,11,0.2);color:#F59E0B;">Off-Page</span></div>
+<div class="nav-item" onclick="goTo(5);closeSidebar()"><span class="n-num">05</span><span class="n-title">Q3 — Technical</span><span class="n-tag" style="background:rgba(143,149,233,0.2);color:#8F95E9;">Technical</span></div>
+<div class="nav-group">Introduction</div>
+<div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">Session Agenda</span></div>
+<div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">Learning Outcomes</span></div>
+<div class="nav-group">Set Up &amp; Baseline</div>
+<div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">Step 1 — Create project</span><span class="n-tag step">Step</span></div>
+<div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">Step 2 — Domain Overview baseline</span><span class="n-tag step">Step</span></div>
+<div class="nav-group">Core Diagnostics</div>
+<div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Step 3 — Site Audit</span><span class="n-tag step">Step</span></div>
+<div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">Step 4 — Position Tracking</span><span class="n-tag step">Step</span></div>
+<div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">Step 5 — Keyword research</span><span class="n-tag step">Step</span></div>
+<div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Step 6 — On Page SEO Checker</span><span class="n-tag step">Step</span></div>
+<div class="nav-group">Benchmark &amp; Monitor</div>
+<div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">Step 7 — Backlink analysis</span><span class="n-tag step">Step</span></div>
+<div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">Step 8 — Competitor benchmarking</span><span class="n-tag step">Step</span></div>
+<div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">Step 9 — Reporting &amp; monitoring</span><span class="n-tag step">Step</span></div>
+<div class="nav-group">Close</div>
+<div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">What's Next</span></div>
+</div>
 </nav>
 <div id="sidebar-overlay" onclick="closeSidebar()"></div>
 
-<!-- ── BOTTOM NAV BAR ── -->
+<!-- ── NAV BAR ── -->
 <div id="nav-bar">
-  <div style="display:flex;align-items:center;gap:10px;">
-    <button class="nav-btn" id="btn-menu" onclick="toggleSidebar()" title="Slide list (N)" style="padding:7px 12px;font-size:15px;line-height:1;">&#9776;</button>
-    <button class="nav-btn" id="btn-prev" onclick="navigate(-1)">&#8592; Prev</button>
-  </div>
-  <span id="slide-counter">1 / 11</span>
-  <div style="display:flex;align-items:center;gap:10px;">
-    <span id="notes-hint">S = notes &nbsp;·&nbsp; R = refs &nbsp;·&nbsp; N = nav</span>
-    <button class="nav-btn" onclick="toggleRefs()" title="References (R)">&#128218; Refs</button>
-    <button class="nav-btn" onclick="toggleNotes()" title="Speaker notes (S)">&#128203; Notes</button>
-    <button class="nav-btn" id="btn-next" onclick="navigate(1)">Next &#8594;</button>
-  </div>
+<div style="display:flex;align-items:center;gap:12px;">
+<button class="nav-btn" id="btn-menu" onclick="toggleSidebar()" style="padding:8px 14px;font-size:16px;line-height:1;" title="Slide navigator (N)">☰</button>
+<button class="nav-btn" disabled id="btn-prev" onclick="navigate(-1)">← Prev</button>
+</div>
+<span id="slide-counter">1 / 17</span>
+<div style="display:flex;align-items:center;gap:12px;">
+<span id="notes-hint" style="font-size:11px;">S = notes &nbsp;·&nbsp; R = refs &nbsp;·&nbsp; N = nav</span>
+<button class="nav-btn" id="btn-refs" onclick="toggleRefs()" style="padding:8px 14px;" title="References (R)">📚 Refs</button>
+<button class="nav-btn" id="btn-notes" onclick="toggleNotes()" style="padding:8px 14px;" title="Speaker notes (S)">🗒 Notes</button>
+<button class="nav-btn" id="btn-next" onclick="navigate(1)">Next →</button>
+</div>
 </div>
 
 <!-- ── REFERENCES PANEL ── -->
 <div id="refs-panel">
-  <h4>References &amp; Sources</h4>
-  <ul id="refs-content"></ul>
+<h4>References &amp; Sources</h4>
+<ul id="refs-content"></ul>
 </div>
 
 <!-- ── SPEAKER NOTES PANEL ── -->
 <div id="notes-panel">
-  <h4>Speaker Notes</h4>
-  <div id="notes-content"></div>
+<h4>Speaker Notes</h4>
+<div id="notes-content"></div>
 </div>
 
 <script>
-// ── SOURCES (keyed by slide number) ──
 const SOURCES = {
-  1: [],
-  2: [
-    { label: 'SEMrush — Projects overview and setup guide', url: 'https://www.semrush.com/kb/612-projects' },
-    { label: 'SEMrush Academy — SEO Fundamentals Course', url: 'https://www.semrush.com/academy/courses/seo-fundamentals-course-with-greg-gifford/' },
-  ],
-  3: [
-    { label: 'SEMrush — Domain Overview tool documentation', url: 'https://www.semrush.com/kb/397-domain-overview' },
-    { label: 'SEMrush — Understanding Authority Score', url: 'https://www.semrush.com/kb/1078-authority-score' },
-  ],
-  4: [
-    { label: 'SEMrush — Site Audit setup and configuration', url: 'https://www.semrush.com/kb/11-site-audit' },
-    { label: 'SEMrush — Site Audit: understanding your report', url: 'https://www.semrush.com/kb/562-site-audit-report' },
-  ],
-  5: [
-    { label: 'SEMrush — Position Tracking setup guide', url: 'https://www.semrush.com/kb/612-position-tracking' },
-    { label: 'SEMrush — Competitor comparison in Position Tracking', url: 'https://www.semrush.com/kb/721-competitors-discovery' },
-  ],
-  6: [
-    { label: 'SEMrush — Keyword Magic Tool guide', url: 'https://www.semrush.com/kb/669-keyword-magic-tool' },
-    { label: 'SEMrush — Keyword Overview documentation', url: 'https://www.semrush.com/kb/397-keyword-overview' },
-    { label: 'SEMrush — Understanding Keyword Difficulty', url: 'https://www.semrush.com/kb/749-keyword-difficulty' },
-  ],
-  7: [
-    { label: 'SEMrush — On Page SEO Checker documentation', url: 'https://www.semrush.com/kb/613-on-page-seo-checker' },
-    { label: 'Moz — On-Page SEO: what it is and how to do it', url: 'https://moz.com/learn/seo/on-page-factors' },
-  ],
+  1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [],
   8: [
-    { label: 'SEMrush — Backlink Analytics documentation', url: 'https://www.semrush.com/kb/398-backlink-analytics' },
-    { label: 'SEMrush — Backlink Audit guide', url: 'https://www.semrush.com/kb/612-backlink-audit' },
-    { label: 'SEMrush — Backlink Gap tool', url: 'https://www.semrush.com/kb/862-backlink-gap' },
+    { label: 'SEMrush — Projects overview and setup guide', url: 'https://www.semrush.com/kb/612-projects' },
+    { label: 'SEMrush Academy — SEO Fundamentals Course', url: 'https://www.semrush.com/academy/courses/seo-fundamentals-course-with-greg-gifford/' }
   ],
   9: [
-    { label: 'SEMrush — Keyword Gap tool documentation', url: 'https://www.semrush.com/kb/862-keyword-gap' },
-    { label: 'SEMrush — Organic Research: competitor analysis', url: 'https://www.semrush.com/kb/396-organic-research' },
+    { label: 'SEMrush — Domain Overview tool documentation', url: 'https://www.semrush.com/kb/397-domain-overview' },
+    { label: 'SEMrush — Understanding Authority Score', url: 'https://www.semrush.com/kb/1078-authority-score' }
   ],
   10: [
-    { label: 'SEMrush — My Reports and scheduled reporting', url: 'https://www.semrush.com/kb/612-my-reports' },
-    { label: 'SEMrush — SEO Dashboard guide', url: 'https://www.semrush.com/kb/612-seo-dashboard' },
+    { label: 'SEMrush — Site Audit setup and configuration', url: 'https://www.semrush.com/kb/11-site-audit' },
+    { label: 'SEMrush — Site Audit: understanding your report', url: 'https://www.semrush.com/kb/562-site-audit-report' }
   ],
   11: [
-    { label: 'SEMrush Academy — SEO Fundamentals Course', url: 'https://www.semrush.com/academy/courses/seo-fundamentals-course-with-greg-gifford/' },
-    { label: 'SEMrush Academy — all courses and certifications', url: 'https://www.semrush.com/academy/' },
+    { label: 'SEMrush — Position Tracking setup guide', url: 'https://www.semrush.com/kb/612-position-tracking' },
+    { label: 'SEMrush — Competitor comparison in Position Tracking', url: 'https://www.semrush.com/kb/721-competitors-discovery' }
   ],
+  12: [
+    { label: 'AnswerThePublic — Starter Guide (URL and keyword search)', url: 'https://answerthepublic.zendesk.com/hc/en-us/articles/13932754469275-AnswerThePublic-Starter-Guide' },
+    { label: 'AnswerThePublic — Is There a Free Version? (daily limits)', url: 'https://answerthepublic.zendesk.com/hc/en-us/articles/22617503900187-Is-There-a-Free-Version-of-AnswerThePublic' },
+    { label: 'SEMrush — Keyword Magic Tool guide', url: 'https://www.semrush.com/kb/669-keyword-magic-tool' },
+    { label: 'SEMrush — Understanding Keyword Difficulty', url: 'https://www.semrush.com/kb/749-keyword-difficulty' }
+  ],
+  13: [
+    { label: 'SEMrush — On Page SEO Checker documentation', url: 'https://www.semrush.com/kb/613-on-page-seo-checker' },
+    { label: 'Moz — On-Page SEO: what it is and how to do it', url: 'https://moz.com/learn/seo/on-page-factors' }
+  ],
+  14: [
+    { label: 'SEMrush — Backlink Analytics documentation', url: 'https://www.semrush.com/kb/398-backlink-analytics' },
+    { label: 'SEMrush — Backlink Audit guide', url: 'https://www.semrush.com/kb/612-backlink-audit' },
+    { label: 'SEMrush — Backlink Gap tool', url: 'https://www.semrush.com/kb/862-backlink-gap' }
+  ],
+  15: [
+    { label: 'SEMrush — Keyword Gap tool documentation', url: 'https://www.semrush.com/kb/862-keyword-gap' },
+    { label: 'SEMrush — Organic Research: competitor analysis', url: 'https://www.semrush.com/kb/396-organic-research' }
+  ],
+  16: [
+    { label: 'SEMrush — My Reports and scheduled reporting', url: 'https://www.semrush.com/kb/612-my-reports' },
+    { label: 'SEMrush — SEO Dashboard guide', url: 'https://www.semrush.com/kb/612-seo-dashboard' }
+  ],
+  17: [
+    { label: 'SEMrush Academy — SEO Fundamentals Course', url: 'https://www.semrush.com/academy/courses/seo-fundamentals-course-with-greg-gifford/' },
+    { label: 'SEMrush Academy — all courses and certifications', url: 'https://www.semrush.com/academy/' }
+  ]
 };
 
-// ── STATE ──
-const TOTAL = 11;
-let current = 1;
-let notesOpen = false;
-let sidebarOpen = false;
-let refsOpen = false;
+const TOTAL = 17;
+let current = 1, notesOpen = false, sidebarOpen = false, refsOpen = false;
 
-// ── HELPERS ──
 function getSlide(n) { return document.getElementById('s' + n); }
 function getNotes(n) {
   const s = getSlide(n);
@@ -798,25 +1043,18 @@ function getNotes(n) {
   return el ? el.textContent.trim() : '(No notes for this slide.)';
 }
 
-// ── NAVIGATION ──
 function navigate(dir) {
   const next = current + dir;
   if (next < 1 || next > TOTAL) return;
-
-  const cur = getSlide(current);
-  const nxt = getSlide(next);
-
+  const cur = getSlide(current), nxt = getSlide(next);
   nxt.style.transition = 'none';
   nxt.style.transform = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
   nxt.style.opacity = '0';
-
   cur.classList.remove('active');
   cur.style.transition = 'opacity .32s ease, transform .32s ease';
   cur.style.transform = dir > 0 ? 'translateX(-60px)' : 'translateX(60px)';
   cur.style.opacity = '0';
-
   current = next;
-
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       nxt.style.transition = 'opacity .32s ease, transform .32s ease';
@@ -826,24 +1064,17 @@ function navigate(dir) {
       updateUI();
     });
   });
-
   setTimeout(() => {
-    cur.style.transition = '';
-    cur.style.transform = '';
-    cur.style.opacity = '';
-    nxt.style.transition = '';
-    nxt.style.transform = '';
-    nxt.style.opacity = '';
+    cur.style.transition = cur.style.transform = cur.style.opacity = '';
+    nxt.style.transition = nxt.style.transform = nxt.style.opacity = '';
   }, 400);
 }
 
 function goTo(n) {
   if (n === current || n < 1 || n > TOTAL) return;
-  const cur = getSlide(current);
-  const nxt = getSlide(n);
-  cur.classList.remove('active');
+  getSlide(current).classList.remove('active');
   current = n;
-  nxt.classList.add('active');
+  getSlide(n).classList.add('active');
   updateUI();
 }
 
@@ -853,28 +1084,18 @@ function updateUI() {
   document.getElementById('btn-next').disabled = current === TOTAL;
   if (notesOpen) document.getElementById('notes-content').textContent = getNotes(current);
   if (refsOpen) renderRefs(current);
-  document.querySelectorAll('.nav-item').forEach((el, i) => {
-    el.classList.toggle('active', i === current - 1);
-  });
-  const activeItem = document.querySelector('.nav-item.active');
-  if (activeItem) activeItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  document.querySelectorAll('.nav-item').forEach((el, i) => el.classList.toggle('active', i === current - 1));
+  const a = document.querySelector('.nav-item.active');
+  if (a) a.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
-// ── REFERENCES ──
 function renderRefs(n) {
   const list = document.getElementById('refs-content');
   const sources = SOURCES[n] || [];
-  if (sources.length === 0) {
-    list.innerHTML = '<li class="no-refs" style="list-style:none;">No specific sources for this slide.</li>';
-    return;
-  }
-  list.innerHTML = sources.map(s => {
-    const link = s.url
-      ? `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`
-      : `<span style="color:rgba(255,255,255,0.65);">${s.label}</span>`;
-    return `<li>${link}</li>`;
-  }).join('');
+  if (!sources.length) { list.innerHTML = '<li class="no-refs" style="list-style:none;">No specific sources for this slide.</li>'; return; }
+  list.innerHTML = sources.map(s => `<li>${s.url ? `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>` : `<span style="color:rgba(255,255,255,0.65);">${s.label}</span>`}</li>`).join('');
 }
+
 function toggleRefs() {
   refsOpen = !refsOpen;
   if (refsOpen && notesOpen) { notesOpen = false; document.getElementById('notes-panel').classList.remove('visible'); }
@@ -882,19 +1103,18 @@ function toggleRefs() {
   if (refsOpen) renderRefs(current);
 }
 
-// ── SIDEBAR ──
 function toggleSidebar() {
   sidebarOpen = !sidebarOpen;
   document.getElementById('sidebar').classList.toggle('open', sidebarOpen);
   document.getElementById('sidebar-overlay').style.display = sidebarOpen ? 'block' : 'none';
 }
+
 function closeSidebar() {
   sidebarOpen = false;
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('sidebar-overlay').style.display = 'none';
 }
 
-// ── SPEAKER NOTES ──
 function toggleNotes() {
   notesOpen = !notesOpen;
   if (notesOpen && refsOpen) { refsOpen = false; document.getElementById('refs-panel').classList.remove('visible'); }
@@ -902,30 +1122,22 @@ function toggleNotes() {
   if (notesOpen) document.getElementById('notes-content').textContent = getNotes(current);
 }
 
-// ── KEYBOARD ──
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', e => {
   switch(e.key) {
-    case 'ArrowRight': case 'ArrowDown': case 'PageDown':
-      e.preventDefault(); navigate(1); break;
-    case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
-      e.preventDefault(); navigate(-1); break;
+    case 'ArrowRight': case 'ArrowDown': case 'PageDown': e.preventDefault(); navigate(1); break;
+    case 'ArrowLeft': case 'ArrowUp': case 'PageUp': e.preventDefault(); navigate(-1); break;
     case 's': case 'S': toggleNotes(); break;
     case 'n': case 'N': toggleSidebar(); break;
     case 'r': case 'R': toggleRefs(); break;
     case 'Home': e.preventDefault(); goTo(1); break;
-    case 'End':  e.preventDefault(); goTo(TOTAL); break;
+    case 'End': e.preventDefault(); goTo(TOTAL); break;
   }
 });
 
-// ── TOUCH / SWIPE ──
 let touchStartX = 0;
-document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive: true});
-document.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
-}, {passive: true});
+document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', e => { if (Math.abs(e.changedTouches[0].clientX - touchStartX) > 50) navigate(e.changedTouches[0].clientX < touchStartX ? 1 : -1); }, {passive:true});
 
-// ── INIT ──
 updateUI();
 </script>
 </body>
