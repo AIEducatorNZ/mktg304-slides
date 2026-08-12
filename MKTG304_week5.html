@@ -528,6 +528,36 @@ html, body {
   line-height: 1.6;
 }
 
+/* Simple data table (traffic analytics) */
+.kpi-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  font-size: clamp(11px, 1.15vw, 13px);
+}
+.kpi-table th {
+  background: var(--navy);
+  color: white;
+  text-align: left;
+  padding: 9px 14px;
+  font-size: clamp(10px, 1.05vw, 12px);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.kpi-table td {
+  padding: 9px 14px;
+  border-top: 1px solid #EEF1F5;
+  color: #333;
+  line-height: 1.45;
+  vertical-align: top;
+}
+.kpi-table td.goal { font-weight: 700; color: var(--navy); }
+.kpi-table .fill { color: var(--muted); font-style: italic; }
+
 /* ── LEFT SIDEBAR ── */
 #sidebar {
   position: fixed;
@@ -748,6 +778,14 @@ html, body {
   .three-col, .two-col { grid-template-columns: 1fr; }
   .four-col  { grid-template-columns: 1fr; }
 }
+@media (max-width: 720px) {
+  #nav-bar { padding: 0 10px; gap: 8px; }
+  .nav-btn { padding: 7px 10px; font-size: 12px; }
+  #notes-hint { display: none; }
+  #btn-refs, #btn-notes { padding: 7px 9px !important; font-size: 0; }
+  #btn-refs::after { content: '📚'; font-size: 15px; }
+  #btn-notes::after { content: '🗒'; font-size: 15px; }
+}
 
 /* UoA badge */
 .uoa-badge {
@@ -776,11 +814,11 @@ html, body {
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;">MKTG 304 | University of Auckland</div>
     <h1 class="slide-title" style="font-size:clamp(28px,3.8vw,52px);max-width:820px;">Digital Audit Workshop</h1>
     <div class="slide-subtitle" style="margin-top:20px;">Week 5 &nbsp;&middot;&nbsp; Tutorial &nbsp;&middot;&nbsp; 90 minutes</div>
+    <div style="margin-top:14px;font-size:clamp(13px,1.3vw,15px);color:rgba(255,255,255,0.55);">Client: Music Planet &nbsp;&middot;&nbsp; musicplanet.co.nz</div>
     <div style="margin-top:36px;font-size:clamp(11px,1.1vw,13px);color:rgba(255,255,255,0.32);padding:10px 22px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;display:inline-block;">&#8592; &#8594; navigate &nbsp;&middot;&nbsp; S = speaker notes &nbsp;&middot;&nbsp; R = references &nbsp;&middot;&nbsp; N = slide list</div>
   </div>
-  <div class="speaker-notes">Welcome to Week 5. This is a 90-minute working session — not a lecture. Students should have their laptops open, their audit template open in a separate window, and their preferred AI tool ready to go. The session is structured around four sequential sections that map directly to four of the five sections in the Assignment 2 audit template. The fifth section (social media) is not covered today. Check in at the start: has everyone downloaded their GA4 CSVs? Has everyone verified their SEMrush setup from Week 4? Students who haven't set up SEMrush correctly will struggle in Section 1 — do a quick show of hands before starting.</div>
+  <div class="speaker-notes">This is Week 5, a 90-minute working session rather than a lecture, built around one continuous exercise: producing four sections of the Assignment 2 digital audit for Music Planet, the New Zealand music retailer at musicplanet.co.nz. If you were not in the room, treat this deck as a self-paced workbook: work through the sections in order, attempt each activity slide as if you were doing it live, and use these speaker notes to understand what a good outcome looks like at each step, not just what the task instruction says. The four sections covered today are SEO, Website overview, Traffic analytics, and Paid advertising; the fifth section, Social media, is not covered in this session and is completed independently, see the closing slide for what that involves. Before starting, you will need three things ready: Semrush configured for Music Planet (from Week 4), your provided GA4 exports, and a browser open to the Meta Ad Library. Each section maps to one part of the Assignment 2 audit template, so keep that template open and fill it in as you go, section by section, rather than leaving it until the end.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 2 — OPENING: WHAT WE'RE DOING TODAY
 ════════════════════════════════════════════ -->
@@ -815,19 +853,18 @@ html, body {
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
         <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,202,239,0.2);border-radius:8px;padding:14px 18px;">
           <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;color:var(--cyan);margin-bottom:6px;">How the four sections connect</div>
-          <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">Each section reveals a different layer of Hnry's digital presence. Together they build a single, coherent picture for your audit report.</div>
+          <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">Each section reveals a different layer of Music Planet's digital presence. Together they build a single, coherent picture for your audit report.</div>
         </div>
         <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.35);border-radius:8px;padding:14px 18px;">
-          <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;color:var(--amber);margin-bottom:6px;">AI + your judgement</div>
+          <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;color:var(--amber);margin-bottom:6px;">AI plus your judgement</div>
           <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">AI tools accelerate the data collection and analysis. Your critical judgement, interpretation, and synthesis are what get marked.</div>
         </div>
       </div>
       <div style="font-size:clamp(11px,1.1vw,13px);color:rgba(255,255,255,0.4);padding-top:4px;">Have your audit template open alongside this session throughout.</div>
     </div>
   </div>
-  <div class="speaker-notes">Spend 5 minutes on this slide framing the session. Key messages to land: (1) The four sections today are not independent tasks — they should be read together. SEO tells you how Hnry gets found; the website audit tells you what users find when they arrive; analytics tells you what actually happens; paid advertising tells you what Hnry is investing on top of organic. (2) AI is the accelerant, not the author. Every output students generate today needs to be read critically. The marks are not for running tools — they are for the quality of interpretation and synthesis. (3) Have the audit template open right now. Students should be filling it in as they work through each section, not saving it all for later. Ask: "Who has their template open?" before proceeding.</div>
+  <div class="speaker-notes">This slide sets the shape of the whole session. Four sections, each roughly 15 to 25 minutes, each producing one part of your audit: Section 1 (SEO) shows how Music Planet is found in search; Section 2 (Website overview) evaluates the experience once someone arrives; Section 3 (Traffic analytics) shows what actually happens when they do; Section 4 (Paid advertising) shows what Music Planet pays to accelerate all of that. These are not four separate assignments, they are four layers of one argument about Music Planet's digital marketing, and your audit report should read that way, drawing connections between sections rather than treating each as a standalone checklist. Throughout, AI tools such as ChatGPT, Claude, or Gemini do the heavy lifting on data processing, but the marks are for your interpretation: does the finding actually matter, what does it mean specifically for Music Planet, and would a professional reader agree with your read of the evidence? If you are working through this independently rather than live in the tutorial, have your audit template open and fill it in section by section as you go, exactly as you would in the room.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 3 — OPENING: YOUR TOOLKIT FOR TODAY
 ════════════════════════════════════════════ -->
@@ -836,11 +873,11 @@ html, body {
     <div class="uoa-badge">MKTG 304 &middot; Week 5</div>
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;">Opening &mdash; 5 minutes</div>
     <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,38px);">Your toolkit for today</h2>
-    <div style="font-size:clamp(13px,1.3vw,15px);color:rgba(255,255,255,0.6);margin-bottom:4px;max-width:680px;">Each section uses a different primary tool. Have all four ready before we start.</div>
+    <div style="font-size:clamp(13px,1.3vw,15px);color:rgba(255,255,255,0.6);margin-bottom:4px;max-width:680px;">Each section uses a different primary tool. Have them ready before we start.</div>
     <div class="area-grid">
       <div class="area-card">
         <div class="a-num">Section 1 &mdash; SEO analysis</div>
-        <div class="a-name">SEMrush</div>
+        <div class="a-name">Semrush</div>
         <div class="a-time" style="color:rgba(255,255,255,0.55);font-size:clamp(11px,1.1vw,12px);line-height:1.45;margin-top:8px;">Site audit &middot; organic research &middot; backlinks &middot; keyword gap</div>
       </div>
       <div class="area-card">
@@ -851,21 +888,20 @@ html, body {
       <div class="area-card">
         <div class="a-num">Section 3 &mdash; Traffic analytics</div>
         <div class="a-name">Google Analytics 4</div>
-        <div class="a-time" style="color:rgba(255,255,255,0.55);font-size:clamp(11px,1.1vw,12px);line-height:1.45;margin-top:8px;">Four CSV exports: traffic &middot; pages &middot; events &middot; conversions</div>
+        <div class="a-time" style="color:rgba(255,255,255,0.55);font-size:clamp(11px,1.1vw,12px);line-height:1.45;margin-top:8px;">Provided GA4 exports: channel &middot; engagement &middot; pages &middot; key events</div>
       </div>
       <div class="area-card">
         <div class="a-num">Section 4 &mdash; Paid advertising</div>
-        <div class="a-name">Meta Ads Library</div>
-        <div class="a-time" style="color:rgba(255,255,255,0.55);font-size:clamp(11px,1.1vw,12px);line-height:1.45;margin-top:8px;">Formats &middot; message angles &middot; offer types &middot; creative patterns</div>
+        <div class="a-name">GA4 + Meta Ad Library</div>
+        <div class="a-time" style="color:rgba(255,255,255,0.55);font-size:clamp(11px,1.1vw,12px);line-height:1.45;margin-top:8px;">Channel report for paid activity &middot; Ad Library for creative</div>
       </div>
     </div>
     <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-radius:8px;padding:12px 18px;font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.7);line-height:1.6;margin-top:4px;">
       Your LLM (ChatGPT, Claude, or Gemini) runs alongside all four sections. It is the accelerant, not the analyst. The analytical judgements are yours.
     </div>
   </div>
-  <div class="speaker-notes">Use this slide to ensure everyone has their tools accessible before diving into Section 1. Do a quick check: Who has SEMrush open with Hnry configured? Who has their four GA4 CSVs downloaded? Who knows where to find the Meta Ads Library? Manus does not need to be open yet — students will generate and run their prompt during Section 2. The note at the bottom is important framing: the LLM is used in all four sections but it is not the one doing the thinking. This reinforces the critical evaluation expectation that runs throughout the session.</div>
+  <div class="speaker-notes">Each of the four sections needs a different primary tool, and it is worth confirming access to all of them before starting rather than partway through an activity. Section 1 (SEO) uses Semrush, which should already be configured for Music Planet from Week 4: Site Audit, Organic Research, On Page SEO Checker, Backlink Analytics, Backlink Audit, Domain Overview, Keyword Gap, and Position Tracking should all be showing data. Section 2 (Website overview) uses Manus, an AI browsing agent, run via a MetaPrompt you generate yourself; Manus does not need to be open until Section 2. Section 3 (Traffic analytics) uses the GA4 exports provided for this exercise; note that students do not have live GA4 login access to Music Planet's account, so you are working from a fixed set of exports covering a defined period, not a live dashboard. Section 4 (Paid advertising) is structured differently from earlier versions of this course: it combines the same GA4 exports, for the paid channel rows, with the Meta Ad Library, a free public tool at facebook.com/ads/library, because GA4 tells you what paid channels actually delivered while the Ad Library shows the creative strategy behind them, and neither source alone gives the full picture. Across all four sections, your LLM of choice runs alongside as an accelerant. It should never be the one making the final judgement call, that is your job as the analyst, and the marks reflect that.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 4 — SECTION 1 DIVIDER
 ════════════════════════════════════════════ -->
@@ -874,12 +910,11 @@ html, body {
     <div class="section-label">Section 1 &mdash; 25 minutes</div>
     <h2 class="slide-title">SEO analysis</h2>
     <div class="slide-body" style="max-width:640px;">
-      On-page, technical, and off-page SEO — plus a competitor comparison. Working directly in SEMrush with your AI tool alongside.
+      On-page, technical, and off-page SEO, plus a competitor comparison against Rockshop and MusicWorks. Working directly in Semrush with your AI tool alongside.
     </div>
   </div>
-  <div class="speaker-notes">Transition into Section 1. Before advancing, confirm that all students have their SEMrush Hnry project open (set up in Week 4). Students who don't have this set up should spend the first few minutes of this section getting it configured — direct them to the Week 4 slides if needed. Remind students to have their audit template open on the side. This section has four slides: what the template requires, verifying the SEMrush setup, identifying which reports to download, and analysing those reports.</div>
+  <div class="speaker-notes">Section 1 covers SEO analysis across the next four slides: what the audit template requires, verifying your Semrush setup, an activity where you use an LLM to identify which Semrush reports answer each part of the template, and a second activity where you use an LLM to analyse those reports. Throughout, the two named competitors for Music Planet are Rockshop (therockshop.co.nz) and MusicWorks (musicworks.co.nz); all competitor comparisons in this section, and later in the social media section, use these same two businesses so your analysis stays comparable across the whole audit. If your Semrush project for Music Planet is not yet configured, do that first using the Week 4 slides as reference before attempting the activities here, since nothing in this section works without it.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 5 — SEO: WHAT THE AUDIT TEMPLATE REQUIRES
 ════════════════════════════════════════════ -->
@@ -892,83 +927,86 @@ html, body {
         <div class="seo-card">
           <div class="seo-label">On-page SEO</div>
           <div class="seo-title">Content and page-level signals</div>
-          <div class="seo-items">Keywords &nbsp;&middot;&nbsp; Title tags &nbsp;&middot;&nbsp; Meta descriptions &nbsp;&middot;&nbsp; Headers (H1&ndash;H3) &nbsp;&middot;&nbsp; URL structure &nbsp;&middot;&nbsp; Internal linking &nbsp;&middot;&nbsp; Image optimisation</div>
+          <div class="seo-items">Keyword research &nbsp;&middot;&nbsp; Title tags &nbsp;&middot;&nbsp; Meta descriptions &nbsp;&middot;&nbsp; Headers (H1&ndash;H3) &nbsp;&middot;&nbsp; URL structure &nbsp;&middot;&nbsp; Internal linking &nbsp;&middot;&nbsp; Image optimisation (alt text)</div>
         </div>
         <div class="seo-card">
           <div class="seo-label">Technical SEO</div>
           <div class="seo-title">Site health and performance</div>
-          <div class="seo-items">Mobile responsiveness &nbsp;&middot;&nbsp; Page speed</div>
+          <div class="seo-items">Mobile responsiveness &nbsp;&middot;&nbsp; Page speed &nbsp;&middot;&nbsp; Crawlability (sitemap, robots.txt, broken links, redirects) &nbsp;&middot;&nbsp; Duplicate content and canonicalisation &nbsp;&middot;&nbsp; Structured data (schema markup)</div>
         </div>
         <div class="seo-card">
           <div class="seo-label">Off-page SEO</div>
           <div class="seo-title">Authority and reputation</div>
-          <div class="seo-items">Backlinks (quality and quantity) &nbsp;&middot;&nbsp; Domain authority &nbsp;&middot;&nbsp; Online reputation</div>
+          <div class="seo-items">Backlinks: quality and quantity (Backlink Analytics) &nbsp;&middot;&nbsp; Toxic links (Backlink Audit) &nbsp;&middot;&nbsp; Authority Score (Semrush 0&ndash;100) &nbsp;&middot;&nbsp; Online reputation and reviews</div>
         </div>
         <div class="seo-card competitor">
           <div class="seo-label">Competitor analysis</div>
-          <div class="seo-title">Two competitors</div>
-          <div class="seo-items">On-page and off-page strategies for each &nbsp;&middot;&nbsp; Keyword comparison across all three domains</div>
+          <div class="seo-title">Rockshop and MusicWorks</div>
+          <div class="seo-items">On-page and off-page strategies for each &nbsp;&middot;&nbsp; Keyword Gap across all three domains: shared, missing, and unique terms</div>
         </div>
       </div>
       <div class="callout" style="margin-top:14px;">
-        Have your audit template open alongside SEMrush throughout this section. Fill in findings as you go, not after.
+        Have your audit template open alongside Semrush throughout this section. Fill in findings as you go, not after.
       </div>
     </div>
   </div>
-  <div class="speaker-notes">Walk students through the four areas in the template before they open SEMrush. The key framing: these four areas are not equally weighted in terms of SEMrush tool coverage. On-page and technical SEO are heavily supported by the Site Audit and On Page SEO Checker. Off-page is covered by Backlink Analytics and Domain Overview. Competitor analysis draws on Keyword Gap and Organic Research. Remind students: the template is asking for analysis, not a data dump. Listing that Hnry has X backlinks is not analysis. Explaining what that backlink profile reveals about authority relative to competitors is analysis.</div>
+  <div class="speaker-notes">The SEO section of the audit template has four parts, and it is worth understanding what each is actually asking for before opening Semrush. On-page SEO covers everything within Music Planet's own pages: are the keywords realistic for what people search when buying instruments or gear, do title tags and meta descriptions target those keywords, are headers used sensibly, are URLs clean, is internal linking sensible, and are images given alt text. Technical SEO is broader than it might sound: beyond mobile responsiveness and page speed, it now also covers crawlability (can Google's crawler find and index the site via the sitemap and robots.txt, and are there broken links or redirect chains), duplicate content and canonicalisation (are near-duplicate pages accidentally competing with each other), and structured data (is schema markup present and correct, which affects whether Music Planet's products can appear as rich results in search). Off-page SEO measures Music Planet's authority beyond its own site: backlink quality and quantity via Backlink Analytics, toxic or spammy links via Backlink Audit, an overall Authority Score (Semrush's own 0 to 100 metric, not the same thing as Domain Authority from Moz or Domain Rating from Ahrefs), and general online reputation. Competitor analysis compares all of this against Rockshop and MusicWorks specifically, using the Keyword Gap tool to see which keywords are shared across all three sites, which only competitors rank for, and which are unique to Music Planet. The through-line for the whole section: the template wants analysis and interpretation, not a list of numbers. Stating a metric is the first step; explaining what it means for Music Planet's ability to be found is the actual task.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 6 — SEO: VERIFYING SEMRUSH SETUP
 ════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s6">
   <div class="slide-inner">
     <div class="uoa-badge">SEO analysis</div>
-    <h2 class="slide-title">Verifying your SEMrush setup</h2>
+    <h2 class="slide-title">Verifying your Semrush setup</h2>
     <div class="slide-body">
-      <div style="font-size:clamp(13px,1.35vw,15px);color:var(--navy);margin-bottom:12px;">Confirm each of these seven sections is configured for hnry.co.nz before moving on.</div>
+      <div style="font-size:clamp(13px,1.35vw,15px);color:var(--navy);margin-bottom:12px;">Confirm each of these eight areas is configured for musicplanet.co.nz before moving on.</div>
       <ul class="check-list">
         <li>
           <div class="check-icon"></div>
-          <div class="check-main"><strong>Site Audit</strong> &mdash; reveals technical SEO issues, URL structure problems, internal linking gaps, and image optimisation findings</div>
+          <div class="check-main"><strong>Site Audit</strong>: technical SEO issues, including crawlability (sitemap, robots.txt, broken links, redirects), duplicate content and canonicalisation, structured data, URL structure, internal linking, and image optimisation</div>
           <div class="check-tag">Technical + On-page</div>
         </li>
         <li>
           <div class="check-icon"></div>
-          <div class="check-main"><strong>Organic Research</strong> &mdash; shows the keywords Hnry currently ranks for and estimates organic traffic performance</div>
+          <div class="check-main"><strong>Organic Research</strong>: the keywords Music Planet currently ranks for, and an estimate of organic traffic performance</div>
           <div class="check-tag">On-page keywords</div>
         </li>
         <li>
           <div class="check-icon"></div>
-          <div class="check-main"><strong>On Page SEO Checker</strong> &mdash; surfaces recommendations for title tags, meta descriptions, headers, and content relevance on specific pages</div>
+          <div class="check-main"><strong>On Page SEO Checker</strong>: recommendations for title tags, meta descriptions, headers, and content relevance on specific pages</div>
           <div class="check-tag">On-page</div>
         </li>
         <li>
           <div class="check-icon"></div>
-          <div class="check-main"><strong>Backlink Analytics</strong> &mdash; shows backlink volume, referring domain quality, and the overall link profile</div>
+          <div class="check-main"><strong>Backlink Analytics</strong>: backlink volume, referring domain quality, and the overall link profile</div>
           <div class="check-tag">Off-page</div>
         </li>
         <li>
           <div class="check-icon"></div>
-          <div class="check-main"><strong>Domain Overview</strong> &mdash; provides the domain authority score and a high-level summary of organic visibility</div>
+          <div class="check-main"><strong>Backlink Audit</strong>: toxic or spammy links and an overall toxicity signal for the profile</div>
           <div class="check-tag">Off-page</div>
         </li>
         <li>
           <div class="check-icon"></div>
-          <div class="check-main"><strong>Keyword Gap</strong> &mdash; compares Hnry's keyword rankings against two chosen competitors to identify missing and weak terms</div>
+          <div class="check-main"><strong>Domain Overview</strong>: the Authority Score and a high-level summary of organic visibility</div>
+          <div class="check-tag">Off-page</div>
+        </li>
+        <li>
+          <div class="check-icon"></div>
+          <div class="check-main"><strong>Keyword Gap</strong>: compares Music Planet against Rockshop and MusicWorks to identify shared, missing, and unique keywords</div>
           <div class="check-tag">Competitor</div>
         </li>
         <li>
           <div class="check-icon"></div>
-          <div class="check-main"><strong>Position Tracking</strong> &mdash; tracks Hnry's keyword ranking performance over time, including competitor movement</div>
+          <div class="check-main"><strong>Position Tracking</strong>: tracks keyword ranking performance over time, including competitor movement</div>
           <div class="check-tag">Competitor</div>
         </li>
       </ul>
     </div>
   </div>
-  <div class="speaker-notes">Give students 3&ndash;4 minutes to verify their setup. If any section is missing or hasn't run, direct them to the Week 4 slides. The most common issues: Site Audit hasn't finished running (takes 5&ndash;30 minutes), On Page SEO Checker has no pages configured, or Position Tracking was never saved. If the Site Audit is still running, students can continue and return to it. The On Page SEO Checker needs at least the Hnry homepage configured with a target keyword before it generates useful output. Ask: "Does everyone have at least five of these seven sections showing data?" before advancing. Students who are missing critical sections will have a gap in their SEO analysis that they'll need to note explicitly in their audit report.</div>
+  <div class="speaker-notes">Before running any analysis, confirm that eight areas of Semrush are actually populated with Music Planet data, because a half-configured tool will quietly produce a weaker audit without any obvious error message. Site Audit surfaces the technical SEO picture: crawlability issues, duplicate content, structured data problems, and general page health; it can take five to thirty minutes to finish running, so start it early if it has not already completed. Organic Research shows which keywords Music Planet already ranks for and roughly how much organic traffic that generates. On Page SEO Checker needs at least the homepage configured with a target keyword before it will produce recommendations on title tags, meta descriptions, and content relevance. Backlink Analytics and Backlink Audit are two different tools covering the same general area from two different angles: Analytics describes the profile, how many links, from where, how strong; Audit flags which of those links look toxic or spammy. Domain Overview is where you find the Authority Score itself. Keyword Gap and Position Tracking are both configured against the two named competitors, Rockshop and MusicWorks, and should already be set up from Week 4; Keyword Gap compares keyword sets across all three domains, Position Tracking follows ranking movement over time. If any of these eight areas is empty or still processing, that is a real gap in your audit, and should either be resolved before the analysis activities or noted explicitly as a limitation in your final report, not silently skipped.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 7 — SEO: ACTIVITY — IDENTIFY REPORTS
 ════════════════════════════════════════════ -->
@@ -980,23 +1018,22 @@ html, body {
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
         <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
           <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(13px,1.3vw,15px);">Your task</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">Use your preferred LLM to determine which specific SEMrush reports to download for each of the four SEO areas in the audit template: on-page SEO, technical SEO, off-page SEO, and competitor analysis.</div>
+          <div style="color:#451A03;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">Use your preferred LLM to determine which specific Semrush reports to download for each of the four SEO areas in the audit template: on-page SEO, technical SEO, off-page SEO, and competitor analysis.</div>
         </div>
         <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
           <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(13px,1.3vw,15px);">Then do this</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">Download the identified reports from SEMrush. Note which reports the LLM recommended and whether its guidance matched what you already knew from the Week 4 setup.</div>
+          <div style="color:#451A03;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">Download the identified reports from Semrush. Note which reports the LLM recommended and whether its guidance matched what you already knew from the Week 4 setup.</div>
         </div>
       </div>
       <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Prompt guidance:</div>
-        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">Craft your own prompt. Include context about what the audit template requires for each SEO area and ask the LLM to recommend specific SEMrush reports or exports that would supply that data. Be specific about the tool (SEMrush) and the site (hnry.co.nz).</div>
+        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Prompt guidance</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">Craft your own prompt. Include context about what the audit template requires for each SEO area, including the expanded technical checks (crawlability, canonicalisation, structured data) and the off-page Authority Score and Backlink Audit. Ask the LLM to recommend specific Semrush reports or exports that would supply that data. Be specific about the tool (Semrush) and the site (musicplanet.co.nz).</div>
       </div>
       <div class="debrief">Share your prompt with the group. What framing produced the most specific and useful recommendations? What would you refine?</div>
     </div>
   </div>
-  <div class="speaker-notes">Give students 5&ndash;6 minutes. The learning goal here is twofold: (1) practising prompt construction for a specific analytical task, and (2) building awareness of which SEMrush exports are actually useful versus which ones generate noise. Good prompts will specify the four audit template areas explicitly and ask for named SEMrush report types. Weak prompts will ask vaguely about "SEO reports" and get generic answers. In the debrief, listen for whether students noticed the LLM over-recommending paid SEMrush features (Enterprise reports) that may not be available on their plan. This is a good example of where critical evaluation of AI output matters: the LLM doesn't know their account tier. Reports most useful for the audit: Site Audit (Technical), Organic Research export (On-page keywords), On Page SEO Checker suggestions (On-page), Backlink Analytics referring domains export (Off-page), Domain Overview screenshot or export, Keyword Gap export filtered to Missing/Weak terms (Competitor).</div>
+  <div class="speaker-notes">This activity has two goals at once: practising prompt-writing for a specific analytical task, and learning to tell the difference between a Semrush report that is genuinely useful for the audit and one that just adds noise. The task is to ask your LLM which specific Semrush reports or exports would supply the evidence for each of the four SEO areas from the earlier slide: on-page, technical, off-page, and competitor. A strong prompt names the audit areas explicitly, rather than asking generically about "SEO reports", states the tool (Semrush) and the site (musicplanet.co.nz), and asks for named report types rather than a general description. One thing to watch for in the LLM's answer: it may recommend Semrush features that sit behind a higher-tier subscription, for example certain Enterprise or Trends reports, that are not available on the plan set up for this course, because the LLM has no way of knowing your account tier. If that happens, that is itself a useful moment of critical evaluation, the AI's recommendation was plausible but not actually usable, and noticing that is exactly the kind of discernment the course is asking you to build. For reference, the reports that genuinely serve this audit are: the Site Audit issues export for technical (including crawlability and structured data); the Organic Research positions export for on-page keywords; the On Page SEO Checker suggestions for on-page content; the Backlink Analytics referring-domains export and the Backlink Audit toxicity export for off-page; the Domain Overview screen showing the Authority Score; and the Keyword Gap export filtered to shared, missing, and unique terms against Rockshop and MusicWorks for the competitor section.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 8 — SEO: ACTIVITY — ANALYSE REPORTS
 ════════════════════════════════════════════ -->
@@ -1006,35 +1043,34 @@ html, body {
     <h2 class="slide-title">Analysing the reports with an LLM</h2>
     <div class="slide-body">
       <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 18px;margin-bottom:16px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Your task:</div>
-        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">With your SEMrush reports downloaded, build a prompt that instructs your LLM to analyse the data against the four SEO areas in the audit template. Upload or paste the relevant data, run the analysis, and review the output.</div>
+        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Your task</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">With your Semrush reports downloaded, build a prompt that instructs your LLM to analyse the data against the four SEO areas in the audit template. Upload or paste the relevant data, run the analysis, and review the output.</div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
         <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
           <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.2vw,14px);">What to include in your prompt</div>
           <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">
-            <li>Context: what Hnry does and who it serves</li>
+            <li>Context: what Music Planet does and who it serves</li>
             <li>The four SEO areas from the audit template</li>
-            <li>The reports you are uploading</li>
+            <li>The competitors: Rockshop and MusicWorks</li>
             <li>Instruction: analyse and identify key findings for each area</li>
           </ul>
         </div>
         <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
           <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.2vw,14px);">Critical review checklist</div>
           <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">
-            <li>Are the findings specific to Hnry or generic?</li>
+            <li>Are the findings specific to Music Planet or generic?</li>
             <li>Does the LLM misread any data values?</li>
+            <li>Has it confused Authority Score with another tool's metric?</li>
             <li>What has it missed that you can see in the data?</li>
-            <li>What interpretation requires your own judgement?</li>
           </ul>
         </div>
       </div>
-      <div class="debrief">Where did the AI interpretation hold up? Where did it need to be challenged or corrected? Note these moments &mdash; they are relevant to your audit methodology discussion.</div>
+      <div class="debrief">Where did the AI interpretation hold up? Where did it need to be challenged or corrected? Note these moments; they are relevant to your audit methodology discussion.</div>
     </div>
   </div>
-  <div class="speaker-notes">Give students 7&ndash;8 minutes. The most common failure mode: students upload the data and accept the AI output without reading it critically. Circulate and look for students who are just copying the output directly into their audit template. Prompt them: "What does this finding actually mean for Hnry's visibility? Is that a significant problem or a minor one?" The critical review checklist on the slide is meant to prompt active interrogation of the output, not a passive read. The methodology note at the bottom is deliberate: Assignment 2 requires students to reflect on their use of AI tools, so pausing to notice where the AI was wrong or incomplete is directly assessable content. Common AI errors to anticipate: misinterpreting percentage changes, conflating Domain Rating (Ahrefs) with Authority Score (SEMrush), and over-stating the severity of technical issues that are minor for a small site.</div>
+  <div class="speaker-notes">With the reports downloaded, the task shifts from information-gathering to interpretation: upload the relevant exports to your LLM, prompt it to analyse them against the four SEO areas, and read the output with real scepticism rather than accepting it at face value. A prompt that gets a useful result includes context on what Music Planet is and who it serves, names the four SEO areas explicitly, names the two competitors (Rockshop and MusicWorks), and instructs the model to identify key findings for each area rather than just describing the numbers. The critical-review step matters more than the prompt itself. Read every finding and ask: is this genuinely specific to Music Planet, or could it have been written about almost any retailer? Has the model misread a data value, for example treating a percentage change as an absolute number? Has it confused Music Planet's Authority Score, a Semrush-specific 0 to 100 metric, with a different platform's metric, since Domain Rating (Ahrefs) and Domain Authority (Moz) are calculated differently and are not directly comparable? What has it missed that you, looking at the raw export, can see plainly? If a competitor comparison is involved, check that the model has not attributed one site's figures to another, since this is a surprisingly common failure mode once three domains are in the same prompt. Every moment where you catch and correct the AI is directly relevant to the methodology reflection required elsewhere in Assignment 2, so it is worth noting these moments as you go rather than trying to recall them later.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 9 — SECTION 2 DIVIDER
 ════════════════════════════════════════════ -->
@@ -1043,12 +1079,11 @@ html, body {
     <div class="section-label">Section 2 &mdash; 15 minutes</div>
     <h2 class="slide-title">Website overview</h2>
     <div class="slide-body" style="max-width:640px;">
-      Evaluating hnry.co.nz across nine audit criteria, combining AI-assisted analysis with mandatory manual review.
+      Evaluating musicplanet.co.nz across nine audit criteria, combining AI-assisted analysis with mandatory manual review.
     </div>
   </div>
-  <div class="speaker-notes">Transition into Section 2. This section is shorter (15 minutes) but has a mandatory manual component that cannot be skipped. The key framing: no automated tool, including Manus, will identify ethical considerations. Students need to visit the live site themselves. Before the activity, check that students know what the MetaPrompt is and have used it before. If this is new to some students, take a minute to explain: the MetaPrompt is a tool that generates a well-structured CRAFT-based prompt for a specific task, which is then run in Manus.</div>
+  <div class="speaker-notes">Section 2 evaluates musicplanet.co.nz against the nine criteria in the audit template, using a two-part approach: an AI-assisted pass using Manus, an AI agent that can browse the live site, followed by a mandatory manual review of the parts no automated tool can judge reliably. The reason the manual step cannot be skipped is straightforward: things like whether a cookie banner is genuinely transparent, whether the Privacy Policy and Terms of Service are easy to find and written in plain language, and whether accessibility support is a genuine effort or a checkbox, all require a human visitor exercising judgement, not a tool pattern-matching against a checklist. Before the activity, make sure you understand what the MetaPrompt is: a tool that turns a plain description of a task into a well-structured, CRAFT-based prompt, which you then run in Manus.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 10 — WEBSITE: AUDIT TEMPLATE REQUIREMENTS
 ════════════════════════════════════════════ -->
@@ -1068,7 +1103,7 @@ html, body {
         </div>
         <div style="background:white;border-radius:8px;padding:12px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-top:3px solid var(--blue);">
           <div style="font-size:11px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">03</div>
-          <div style="font-weight:700;font-size:clamp(12px,1.2vw,14px);color:var(--navy);">Accessibility (WCAG)</div>
+          <div style="font-weight:700;font-size:clamp(12px,1.2vw,14px);color:var(--navy);">Accessibility (WCAG 2.2 AA)</div>
         </div>
         <div style="background:white;border-radius:8px;padding:12px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-top:3px solid var(--blue);">
           <div style="font-size:11px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">04</div>
@@ -1092,17 +1127,16 @@ html, body {
         </div>
         <div style="background:white;border-radius:8px;padding:12px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-top:3px solid #DC2626;">
           <div style="font-size:11px;font-weight:700;color:#DC2626;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">09 &mdash; Manual only</div>
-          <div style="font-weight:700;font-size:clamp(12px,1.2vw,14px);color:var(--navy);">Ethical considerations</div>
+          <div style="font-weight:700;font-size:clamp(12px,1.2vw,14px);color:var(--navy);">Ethical and legal considerations</div>
         </div>
       </div>
       <div class="warn-callout">
-        <strong>Criterion 9 cannot be assessed by any automated tool.</strong> Cookie transparency, data collection disclosure, and accessibility equity require you to visit the live site and evaluate it manually. This criterion is on the next slide.
+        <strong>Criterion 9 cannot be assessed by any automated tool.</strong> Neither can several other human-judgement checks: trust and credibility signals, and value-proposition clarity. Cookie transparency, data collection disclosure, Privacy Policy and Terms of Service, and accessibility equity all require you to visit the live site. The manual review is on the next slide.
       </div>
     </div>
   </div>
-  <div class="speaker-notes">Walk through the nine criteria briefly. Most students will be familiar with these from the audit template, but it is worth naming them explicitly before the Manus activity so students know what they are checking against. The key point about criterion 9: Manus will not identify whether Hnry's cookie consent banner is meaningful, whether data collection is disclosed in a way that is easy to understand, or whether the site's accessibility provision is equitable in practice. These require a human visitor with ethical awareness. The red highlight on criterion 9 is intentional and worth drawing attention to. Ask: "Has anyone visited hnry.co.nz and looked at the cookie banner recently?" This primes them for the manual review slide.</div>
+  <div class="speaker-notes">Walk through the nine criteria as a group before running any tool, since several overlap in what you are actually looking at on the page. UI/UX evaluation, navigation, design and layout, CTAs, interactivity, search functionality, and social media integration are largely observable and can be assessed reasonably well by an AI agent browsing the site. Accessibility is assessed against WCAG 2.2 Level AA, which is the current W3C standard as of mid-2026; WCAG 3.0 exists only as a working draft and should not be used as a benchmark, and it is worth checking this is still accurate closer to when you actually run this assessment, since standards bodies do update these designations. Design and Layout also asks whether the site looks current and well-maintained: no outdated copyright dates, broken content, or stale sections. Criterion 9, ethical and legal considerations, is marked manual-only because no automated tool reliably judges whether cookie consent is meaningful, whether a Privacy Policy and Terms of Service are both present and easy to find, or whether data collection through sign-ups and quizzes is disclosed honestly; these need a human reading the actual page. Two further checks, trust and credibility signals (HTTPS, testimonials, an accessible About Us page, clear contact details) and value proposition clarity (can a first-time visitor tell what Music Planet offers within the first few seconds on the homepage), are also best judged by a human visitor rather than an AI agent, and are covered on the manual review slide alongside criterion 9, even though they are not numbered separately in the nine-criteria grid. The red highlight on criterion 9 is intentional.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 11 — WEBSITE: ACTIVITY — METAPROMPT WITH MANUS
 ════════════════════════════════════════════ -->
@@ -1115,13 +1149,13 @@ html, body {
         <li data-n="1">
           <div>
             <strong>Generate your prompt using the MetaPrompt</strong><br>
-            <span style="font-size:clamp(12px,1.2vw,14px);">Use the MetaPrompt to generate a CRAFT-based prompt designed to run a complete website audit of hnry.co.nz against the nine criteria in your audit template. Be explicit in your MetaPrompt input: name all nine criteria and specify that the output should address each one.</span>
+            <span style="font-size:clamp(12px,1.2vw,14px);">Use the MetaPrompt to generate a CRAFT-based prompt designed to run a complete website audit of musicplanet.co.nz against the nine criteria in your audit template. Be explicit in your MetaPrompt input: name all nine criteria and specify that the output should address each one.</span>
           </div>
         </li>
         <li data-n="2">
           <div>
             <strong>Run the generated prompt in Manus</strong><br>
-            <span style="font-size:clamp(12px,1.2vw,14px);">Open Manus at manus.im/app. Paste your generated prompt and run it. Manus will browse hnry.co.nz directly and produce its analysis.</span>
+            <span style="font-size:clamp(12px,1.2vw,14px);">Open Manus at manus.im/app. Paste your generated prompt and run it. Manus will browse musicplanet.co.nz directly and produce its analysis.</span>
           </div>
         </li>
         <li data-n="3">
@@ -1134,42 +1168,52 @@ html, body {
       <div class="debrief">What did Manus do well? What did it miss or get wrong? Where did you need to apply your own judgement to make the output useful?</div>
     </div>
   </div>
-  <div class="speaker-notes">Give students 8&ndash;10 minutes for this activity. The MetaPrompt step is important: students who skip it and write a weak prompt directly into Manus will get a weaker output. The CRAFT structure helps the generated prompt be specific about what Manus should look for on the site. Common issues: (1) Manus sometimes has trouble with JavaScript-heavy pages and may miss interactive elements — students should note this. (2) Manus will not evaluate cookie consent meaningfully — it may describe that a cookie banner exists but won't evaluate its transparency or compliance quality. (3) Manus may produce surface-level UI observations ("the homepage has a clear CTA") without the depth needed for the audit. Push students to ask: "What evidence does Manus provide for this claim?" If there is no evidence cited, the claim needs to be verified manually. The debrief is a critical evaluation exercise. Circulate and listen for students who are taking the Manus output at face value without interrogating it.</div>
+  <div class="speaker-notes">This activity produces the AI-assisted portion of your website audit. First, use the MetaPrompt tool to generate a CRAFT-structured prompt: when you provide input to the MetaPrompt, be explicit and name all nine criteria individually rather than saying something general like "audit the website", since a generic instruction produces a generic, shallow output. Second, open Manus at manus.im/app, paste the generated prompt, and let it browse musicplanet.co.nz directly; Manus is an AI agent that can visit live pages rather than working from a static description. Third, and most importantly, go through the nine criteria in your audit template and check Manus's output against each one specifically, noting where it gave you real, specific evidence you can use and where it gave you something vague or generic that needs to be checked or supplemented. Three known limitations are worth watching for. Manus can struggle with JavaScript-heavy pages, such as interactive filters or a shopping cart flow, and may simply miss those elements. It will not meaningfully evaluate cookie consent, the Privacy Policy, or Terms of Service, beyond perhaps noting that a cookie banner exists, because judging their quality is a manual task by design. And it can produce surface-level observations, such as "the homepage has a clear call to action", without the depth an audit actually needs. The test to apply to every claim Manus makes: what specific evidence supports this? If there is none, verify it yourself before it goes in the report.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 12 — WEBSITE: MANUAL REVIEW
 ════════════════════════════════════════════ -->
 <div class="slide slide-content" id="s12">
   <div class="slide-inner">
     <div class="uoa-badge">Website overview</div>
-    <h2 class="slide-title">Manual review</h2>
+    <h2 class="slide-title">Manual review: what Manus cannot judge</h2>
     <div class="slide-body">
-      <div class="callout" style="font-size:clamp(14px,1.5vw,17px);font-weight:700;">
-        Visit hnry.co.nz directly and evaluate criterion 9: ethical considerations.
+      <div class="callout" style="font-size:clamp(14px,1.5vw,16px);font-weight:700;margin-top:0;">
+        Visit musicplanet.co.nz directly and evaluate the checks that need human judgement.
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:0;">
-        <div style="background:white;border-radius:10px;padding:18px 16px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid #DC2626;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;margin-bottom:8px;">Cookie transparency</div>
-          <div style="font-size:clamp(12px,1.2vw,14px);color:#333;line-height:1.6;">Is the cookie consent banner clear about what is being collected and why? Is it easy to decline non-essential cookies? Does the site honour that choice?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:0;">
+        <div style="background:white;border-radius:10px;padding:14px 15px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid #DC2626;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;margin-bottom:7px;">Ethical &mdash; cookies &amp; data</div>
+          <div style="font-size:clamp(11px,1.15vw,13px);color:#333;line-height:1.55;">Is the cookie banner clear about what is collected and why, and easy to decline? Is data collection through sign-ups or quizzes disclosed?</div>
         </div>
-        <div style="background:white;border-radius:10px;padding:18px 16px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid #DC2626;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;margin-bottom:8px;">Data collection disclosure</div>
-          <div style="font-size:clamp(12px,1.2vw,14px);color:#333;line-height:1.6;">Is the privacy policy findable and written in plain language? Are the purposes for data collection clearly stated? Is consent meaningful or coercive?</div>
+        <div style="background:white;border-radius:10px;padding:14px 15px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid #DC2626;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;margin-bottom:7px;">Legal &mdash; policy documents</div>
+          <div style="font-size:clamp(11px,1.15vw,13px);color:#333;line-height:1.55;">Are both a Privacy Policy and Terms of Service present, findable, and in plain language? Is consent meaningful rather than coercive?</div>
         </div>
-        <div style="background:white;border-radius:10px;padding:18px 16px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid #DC2626;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;margin-bottom:8px;">Accessibility equity</div>
-          <div style="font-size:clamp(12px,1.2vw,14px);color:#333;line-height:1.6;">Beyond WCAG compliance: does the site make a genuine effort to serve users with access needs? Are there meaningful accommodations, or is accessibility a checkbox?</div>
+        <div style="background:white;border-radius:10px;padding:14px 15px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid #DC2626;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;margin-bottom:7px;">Accessibility equity</div>
+          <div style="font-size:clamp(11px,1.15vw,13px);color:#333;line-height:1.55;">Beyond WCAG 2.2 AA compliance: does the site make a genuine effort to serve users with access needs, or is accessibility a checkbox?</div>
+        </div>
+        <div style="background:white;border-radius:10px;padding:14px 15px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:7px;">Trust &amp; credibility signals</div>
+          <div style="font-size:clamp(11px,1.15vw,13px);color:#333;line-height:1.55;">HTTPS in place? Are testimonials or reviews, an accessible About Us page, and clear contact details present and convincing?</div>
+        </div>
+        <div style="background:white;border-radius:10px;padding:14px 15px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:7px;">Value proposition clarity</div>
+          <div style="font-size:clamp(11px,1.15vw,13px);color:#333;line-height:1.55;">Within the first few seconds on the homepage, can a first-time visitor tell what Music Planet offers and why it matters?</div>
+        </div>
+        <div style="background:#F0F7FF;border-radius:10px;padding:14px 15px;border:1px dashed var(--muted);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;">Note on scope</div>
+          <div style="font-size:clamp(11px,1.15vw,13px);color:#333;line-height:1.55;">The audit focuses on the online store. If you notice meaningful differences between the online experience and individual showroom or location pages, record them as observations.</div>
         </div>
       </div>
-      <div class="callout" style="margin-top:14px;">
-        <strong>Note on scope:</strong> The audit focuses on the NZ site (hnry.co.nz). If you notice meaningful structural differences between the NZ, AU, and UK sites while browsing, these are worth recording as observations even if they are not required by the template.
+      <div class="warn-callout" style="margin-top:14px;">
+        Make a judgement, not just an observation. "Music Planet has a cookie banner" is not an evaluation. Is the practice good, adequate, or poor, and why?
       </div>
     </div>
   </div>
-  <div class="speaker-notes">Give students 4&ndash;5 minutes to visit the live site and evaluate these three areas. The ethical considerations criterion is often the weakest in student audits because it is the hardest to assess rigorously. Common weak responses: "Hnry has a cookie banner" (that is not an evaluation) or "the privacy policy is available" (same problem). Push students to make a judgement: is the practice good, adequate, or poor? And why? The difference between WCAG compliance (which automated tools like Lighthouse can check) and accessibility equity (which is a broader, more human question) is worth making explicit. A site can pass WCAG AA and still fail users with access needs if the accessible version is degraded or incomplete. Bridge to the next section: "Now that we have the on-site picture, let's look at the behavioural data — what actually happens when users arrive."</div>
+  <div class="speaker-notes">This slide covers the checks that genuinely need a human visiting the live site: three areas under the ethical and legal criterion, plus two further areas grouped here, trust and credibility signals and value proposition clarity, because they also depend on human judgement rather than pattern-matching. For cookies and data: is the consent banner clear about what is being collected and why, is it genuinely easy to decline non-essential cookies, and does the site actually honour that choice, or does tracking continue regardless? For policy documents: are both a Privacy Policy and a Terms of Service present, easy to find, not buried three clicks deep in a footer, and written in plain language rather than dense legal text? For accessibility equity: beyond ticking WCAG 2.2 AA compliance boxes, does the site make a genuine effort to serve users with access needs, or does an accessible version feel degraded and incomplete compared to the main experience? For trust and credibility signals: is the connection secure (HTTPS), are there visible testimonials or reviews, is there an accessible About Us page, and is contact information easy to find? For value proposition clarity: within the first few seconds on the homepage, could a first-time visitor who has never heard of Music Planet explain what it sells and why they should buy from it rather than a competitor? The single most important instruction on this slide: make a judgement, not just an observation. Noting that a cookie banner exists is not analysis. Deciding whether the practice is good, adequate, or poor, and explaining why, is. Bridge to the next section once this is done: now that you have the on-site picture, the next question is what actually happens when users arrive.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
      SLIDE 13 — SECTION 3 DIVIDER
 ════════════════════════════════════════════ -->
@@ -1178,299 +1222,380 @@ html, body {
     <div class="section-label">Section 3 &mdash; 20 minutes</div>
     <h2 class="slide-title">Traffic analytics audit</h2>
     <div class="slide-body" style="max-width:640px;">
-      Four GA4 reports, one analysis prompt, and a goal-metrics-benchmarks table to draft.
+      Three business goals, a goal-to-KPI-to-benchmark table you complete yourself, a separate site-health check, and strategic insights, all read against what Music Planet is trying to achieve.
     </div>
   </div>
-  <div class="speaker-notes">Transition into Section 3. Before advancing, confirm that all students have downloaded their four GA4 CSV exports. If anyone hasn't, they should download them now while you introduce the reports on the next slide. The four CSVs are: Traffic acquisition (session primary channel group), Pages and screens (page path), Events (event name), and Conversions (event name). Students who have not yet been granted GA4 access to the Hnry property should flag this now so it can be resolved before the analysis activity.</div>
+  <div class="speaker-notes">Section 3 restructures the traffic analytics audit around Music Planet's actual business goals rather than working through a fixed list of GA4 reports. The three goals, taken from Music Planet's marketing brief, are: increase brand awareness, increase engagement, and drive online sales. For each goal, you select the GA4 KPI or KPIs that would genuinely move if that goal were being achieved, and identify a benchmark to judge performance against. This is genuinely your task, the deck gives you the process and the goals, not the KPI answers. Separately, you identify two or three general site-health KPIs that reflect overall site condition independent of any single goal, again your choice to make and justify. This structure matters because it forces every metric you report to answer a real question: does this number tell us something about whether Music Planet is achieving what it is actually trying to achieve, rather than just being a number that happened to be easy to pull from GA4. If you were not given the GA4 exports for this exercise, that needs to be resolved before you can complete the activities in this section; note that students work from provided exports rather than live GA4 access, since you do not have login credentials for Music Planet's actual account.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
-     SLIDE 14 — TRAFFIC: THE FOUR GA4 REPORTS
+     SLIDE 14 — TRAFFIC: ACTIVITY — BUILD THE KPI PROMPT
 ════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s14">
+<div class="slide slide-exercise" id="s14">
   <div class="slide-inner">
-    <div class="uoa-badge">Traffic analytics</div>
-    <h2 class="slide-title">The four GA4 reports</h2>
+    <div class="exercise-badge">Activity &mdash; Traffic analytics</div>
+    <h2 class="slide-title">Build the prompt that identifies the right GA4 KPIs</h2>
     <div class="slide-body">
-      <div class="four-col">
-        <div class="report-card" style="border-top-color:var(--navy);">
-          <div class="r-num">01</div>
-          <div class="r-title">Traffic acquisition</div>
-          <div class="r-dim">Session primary channel group</div>
-          <div class="r-body">Where visitors are coming from: organic search, direct, paid social, paid search, referral, email, and other channels. This is the channel-level picture of how Hnry is being found.</div>
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:13px 18px;margin-bottom:12px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:7px;font-size:clamp(13px,1.35vw,15px);">Your task</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.55;">Create a prompt that asks your LLM to identify the GA4 KPIs needed for Music Planet's three goals, plus the most important site-health KPIs. Use the client intelligence brief for context.</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Your prompt should ask for</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li>Relevant GA4 KPI(s) for <strong>increase brand awareness</strong></li>
+            <li>Relevant GA4 KPI(s) for <strong>increase engagement</strong></li>
+            <li>Relevant GA4 KPI(s) for <strong>drive online sales</strong></li>
+            <li>The <strong>most important site-health KPIs</strong> that sit outside any single goal</li>
+          </ul>
         </div>
-        <div class="report-card" style="border-top-color:var(--blue);">
-          <div class="r-num">02</div>
-          <div class="r-title">Pages and screens</div>
-          <div class="r-dim">Page path and screen class</div>
-          <div class="r-body">What content users are consuming: which pages receive the most traffic, how long users spend on them, and where engagement is high or low. Reveals what Hnry's audience actually looks at.</div>
-        </div>
-        <div class="report-card" style="border-top-color:var(--cyan);">
-          <div class="r-num">03</div>
-          <div class="r-title">Events</div>
-          <div class="r-dim">Event name</div>
-          <div class="r-body">What users are doing on the site: clicks, form interactions, video plays, scroll depth, and other tracked behaviours. This is the behavioural layer underneath the page view data.</div>
-        </div>
-        <div class="report-card" style="border-top-color:var(--purple);">
-          <div class="r-num">04</div>
-          <div class="r-title">Conversions</div>
-          <div class="r-dim">Event name</div>
-          <div class="r-body">Which conversion events are being tracked and at what volume: sign-ups, free trial starts, contact form submissions, and any other actions Hnry has designated as conversion goals.</div>
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Make the LLM justify</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li>Why each KPI fits the goal or site-health question</li>
+            <li>Which GA4 report/export should contain the metric</li>
+            <li>What benchmark or comparison could be used</li>
+            <li>What the metric can and cannot prove on its own</li>
+          </ul>
         </div>
       </div>
-      <div class="callout" style="margin-top:14px;">
-        These four reports are your source data for the audit. The analysis prompt in the next activity will work across all four.
+
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:12px 16px;margin-bottom:12px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Expected output</div>
+        <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">A completed KPI framework: goal, recommended GA4 KPI(s), source report/export, benchmark approach, and justification. Do not ask the LLM for numbers yet; this slide is about deciding what evidence you need.</div>
       </div>
+
+      <div class="debrief">Share your prompt with the group. Where did you give enough context? Where did the model need tighter instructions?</div>
     </div>
   </div>
-  <div class="speaker-notes">Walk through the four reports briefly. Key things to flag: (1) Traffic acquisition is the most strategically revealing for an audit because it shows the channel mix. A site over-indexed on direct traffic may have brand awareness but weak SEO; a site with high paid search spend relative to organic suggests an SEO gap. (2) Pages and screens often surprises students — the pages getting the most traffic are not always the homepage. Blog content or feature pages sometimes outperform the homepage for organic traffic. (3) Events require careful reading: a high event count for "scroll" means users are reading, but a high event count for an exit link means they're leaving for a competitor. (4) Conversions is the most important report for connecting analytics to business goals. If the conversion event count is low or zero, that is a significant finding. Ask students: "Before we look at the data — what conversion events do you expect Hnry to be tracking, given what you know about their business?"</div>
+  <div class="speaker-notes"><p>For students working through this deck independently, this is the point where you decide what evidence you need before looking for numbers. Do not start by asking the LLM to analyse the GA4 exports. Start by asking it to help you design the KPI framework. The client intelligence brief is the context source for this prompt, so use the brief to describe the client goals, audience, commercial priorities, and any constraints. Do not waste space telling the model basic facts students already know unless those facts are relevant to choosing a metric.</p><p>A strong prompt should separate the three company goals from the site-health question. For brand awareness, ask which GA4 measures would show whether more people are discovering or reaching the site. For engagement, ask which measures would show whether visitors are interacting meaningfully once they arrive. For online sales, ask which measures would show whether visits are turning into commercial outcomes. For site health, ask which GA4 measures reveal whether the site is functioning well behaviourally, independent of any single goal. This might include things like engagement quality, landing-page behaviour, or journey friction, depending on what appears in the exports.</p><p>The important learning outcome is justification. The LLM should not just list metrics. It should explain why each KPI fits the goal, which GA4 export or report is likely to contain it, what benchmark or comparison could be used, and what the metric cannot prove on its own. For example, a metric might suggest awareness is increasing, but not prove that the right audience is being reached; or it might suggest engagement is strong, but not explain why users are behaving that way. Students should ask for those limitations explicitly.</p><p>Expected output from this slide: a KPI framework table with columns such as goal or question, recommended GA4 KPI or KPIs, likely source report or export, benchmark or comparison approach, and justification. No GA4 values are required yet. If a student already has numbers in their answer at this stage, they have moved too quickly. The next slide is where the framework gets applied to the exports.</p></div>
 </div>
-
 <!-- ════════════════════════════════════════════
-     SLIDE 15 — TRAFFIC: ACTIVITY — DEVELOP THE PROMPT
+     SLIDE 15 — TRAFFIC: ACTIVITY — RUN AND VERIFY THE GA4 ANALYSIS
 ════════════════════════════════════════════ -->
 <div class="slide slide-exercise" id="s15">
   <div class="slide-inner">
     <div class="exercise-badge">Activity &mdash; Traffic analytics</div>
-    <h2 class="slide-title">Developing the analysis prompt</h2>
+    <h2 class="slide-title">Use the KPI framework to analyse the GA4 exports</h2>
     <div class="slide-body">
-      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 18px;margin-bottom:16px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Before you run the analysis, build your prompt:</div>
-        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">Develop a prompt that instructs your preferred LLM to analyse the four GA4 reports in the context of Hnry's current goals and objectives. The prompt should direct the LLM to extract strategic insights relevant to those goals, as well as any other patterns or findings the data surfaces that are useful for the audit.</div>
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:13px 18px;margin-bottom:12px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:7px;font-size:clamp(13px,1.35vw,15px);">Your task</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.55;">Using the KPI framework from Slide 14, run a second prompt that analyses the provided GA4 exports and produces evidence for the Traffic Analytics section of your audit.</div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
         <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">What your prompt needs</div>
-          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">
-            <li>Context: Hnry's business model and stated goals</li>
-            <li>Which four reports you are uploading and what each measures</li>
-            <li>Instruction to link findings back to goals, not just describe the data</li>
-            <li>Request for a goal-metrics-benchmarks summary table</li>
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Prompt the LLM to analyse</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li>The selected KPI values from the relevant GA4 exports</li>
+            <li>The goal table: awareness, engagement, and online sales</li>
+            <li>The site-health table: the most important behavioural health KPIs</li>
+            <li>The two or three most strategically significant findings</li>
           </ul>
         </div>
         <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Framing decisions to consider</div>
-          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">
-            <li>What role are you assigning the LLM?</li>
-            <li>Are you asking for findings across all four reports or one at a time?</li>
-            <li>What format do you want the output in?</li>
-            <li>How specific are you being about Hnry's goals?</li>
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Then verify manually</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li>Check every KPI value against the original export</li>
+            <li>Check whether each benchmark is sourced or merely suggested</li>
+            <li>Make sure GA4 <strong>Key Events</strong> terminology is used correctly</li>
+            <li>Cut findings that are generic, unsupported, or not tied to a goal</li>
           </ul>
         </div>
       </div>
-      <div class="debrief">Draft your prompt, then share it with the group before running it. Discuss the framing decisions you made and what you are expecting to get back.</div>
+
+      <div class="warn-callout" style="margin:0 0 12px;font-size:clamp(12px,1.2vw,14px);padding:10px 15px;">
+        Do not take the LLM's numbers on trust. A strong audit verifies the metric, names the source export, and explains why the finding matters.
+      </div>
+
+      <div class="debrief">What did the model help you see? What did it overstate, miss, or misread? Note those moments for your methodology reflection.</div>
     </div>
   </div>
-  <div class="speaker-notes">Give students 5 minutes to draft their prompt before the group share. This pre-run sharing step is important: it surfaces prompt design decisions before students see outputs, which prevents them from working backwards from a result. Good prompts will: (1) specify Hnry's goals explicitly (e.g., acquiring new sole trader clients, reducing financial admin friction, growing in the NZ market); (2) name each of the four reports and describe what they measure; (3) ask for strategic framing, not just data description; (4) request the goal-metrics-benchmarks table in a specified format. Weak prompts will say "analyse these CSV files and tell me about the traffic" without any Hnry context. The goal-metrics-benchmarks table is a required audit template output: goal (what Hnry is trying to achieve), metric (the GA4 measure that tracks it), benchmark (industry average or previous period comparison).</div>
+  <div class="speaker-notes"><p>This slide is the application step. Students should use the KPI framework they created on Slide 14 and then ask the LLM to apply it to the provided GA4 exports. If they are using the same chat as Slide 14, the model should already have the client context and KPI logic, which reduces repetition and helps the analysis stay coherent. If they start a new chat, they need to paste in the client context, the KPI framework, and the uploaded/exported reports again.</p><p>A useful prompt here should ask the model to extract the relevant values, complete the goal-led KPI table, complete the site-health table, and identify the two or three findings that matter most strategically. The prompt should also tell the model to name the source export for every value it uses. This is important because students need an audit trail: they should be able to point to the file and report that supports every claim in the written audit.</p><p>Manual verification is compulsory. Students should open the original GA4 export and check every number the model reports. Common AI errors include reading totals from the wrong row, mixing users and sessions, treating a percentage-point change as a percentage change, misreading Key Events as conversions without using the current GA4 terminology, or citing a benchmark that the model has invented. If the model suggests a benchmark, students should ask whether it is a cited industry benchmark, a prior-period comparison, or simply a suggested comparison point. Unsupported benchmarks should not be presented as authoritative.</p><p>Expected output from this slide: two verified tables and a short interpretation. Table one links each of the three goals to KPI values and a benchmark or comparison. Table two captures the most important site-health KPIs. The interpretation should not repeat every number. It should explain what the pattern means for Music Planet and which finding is most important for the audit. Students who missed the workshop should finish this slide with evidence they can paste into their audit draft, plus notes about any data limitations.</p></div>
 </div>
-
 <!-- ════════════════════════════════════════════
-     SLIDE 16 — TRAFFIC: ACTIVITY — RUN THE ANALYSIS
+     SLIDE 16 — SECTION 4 DIVIDER
 ════════════════════════════════════════════ -->
-<div class="slide slide-exercise" id="s16">
-  <div class="slide-inner">
-    <div class="exercise-badge">Activity &mdash; Traffic analytics</div>
-    <h2 class="slide-title">Running the analysis and reviewing the output</h2>
-    <div class="slide-body">
-      <ul class="rule-list" style="color:#451A03;">
-        <li data-n="1">
-          <div>
-            <strong>Upload the CSVs and run your prompt</strong><br>
-            <span style="font-size:clamp(12px,1.2vw,14px);">Upload the four GA4 exports to your LLM and run your analysis prompt. Use a model with file upload capability (ChatGPT, Claude, or Gemini with file support).</span>
-          </div>
-        </li>
-        <li data-n="2">
-          <div>
-            <strong>Review the output critically</strong><br>
-            <span style="font-size:clamp(12px,1.2vw,14px);">Where does the AI interpretation hold up? Where is it superficial, incorrect, or missing context that you can supply? Mark these gaps directly in your audit template notes.</span>
-          </div>
-        </li>
-        <li data-n="3">
-          <div>
-            <strong>Draft the goal-metrics-benchmarks table</strong><br>
-            <span style="font-size:clamp(12px,1.2vw,14px);">Using the LLM output as a starting point, draft the required table. Verify each metric and benchmark value against the actual CSV data. Do not take the LLM's numbers on trust.</span>
-          </div>
-        </li>
-        <li data-n="4">
-          <div>
-            <strong>Identify key insights</strong><br>
-            <span style="font-size:clamp(12px,1.2vw,14px);">What are the two or three most strategically significant findings from this data? These should drive your analytics audit section, not a list of every metric the LLM mentioned.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="speaker-notes">Give students 7&ndash;8 minutes. Step 3 is the most important and the most commonly skipped: students trust the LLM's numbers without checking them against the source CSV. This is a critical analysis failure. If the LLM states that organic search accounts for 42% of traffic, that number should be verifiable in the traffic acquisition CSV. The goal-metrics-benchmarks table needs real numbers, not AI-generated estimates. For benchmarks: students may not have industry benchmarks available during the session. That is fine — they can use prior period comparisons (if available in the data) or note that a benchmark is needed. The two-or-three key insights instruction is deliberately restrictive: it forces students to prioritise rather than list everything, which is what the audit report structure requires. Common weak outputs: a list of every channel in the traffic report without any analysis of what the channel mix means for Hnry's strategy.</div>
-</div>
-
-<!-- ════════════════════════════════════════════
-     SLIDE 17 — SECTION 4 DIVIDER
-════════════════════════════════════════════ -->
-<div class="slide slide-section" id="s17">
+<div class="slide slide-section" id="s16">
   <div class="slide-inner">
     <div class="section-label">Section 4 &mdash; 20 minutes</div>
     <h2 class="slide-title">Paid advertising</h2>
-    <div class="slide-body" style="max-width:640px;">
-      Analysing Hnry's Meta ad activity using the Meta Ads Library and connecting findings back to the traffic acquisition data.
+    <div class="slide-body" style="max-width:660px;">
+      A three-step assessment: identify paid activity in the GA4 channel report, assess Paid Search, then assess Paid Social using both GA4 and the Meta Ad Library.
     </div>
   </div>
-  <div class="speaker-notes">Transition into Section 4. This section uses the Meta Ads Library, which is a free, publicly accessible tool that requires no login. Before starting, confirm that students know where to find Hnry New Zealand in the library. The correct search is "Hnry" with the country filter set to New Zealand. There may be multiple "Hnry" results; students should look for the verified advertiser page associated with the hnry.co.nz domain. Note: the Ads Library shows active ads. If Hnry has no active Meta ads at the time of this tutorial, students should note this as a finding in itself and look at the library's "All ads" filter to see historical activity.</div>
+  <div class="speaker-notes">Section 4 has a different shape from previous years: it is now a structured three-step process rather than a single Meta Ad Library review. Step 1 works out what paid activity actually exists, using the GA4 channel report, including a channel called Cross-network that is easy to miss because the word "Paid" does not appear in its name. Step 2 assesses Paid Search, which is assessed entirely from GA4 because Google, unlike Meta, does not offer a public ad-transparency tool. Step 3 assesses Paid Social using both GA4, for actual traffic and outcomes, and the Meta Ad Library, for the creative strategy behind those numbers, because the two sources answer genuinely different questions and neither one alone gives the full picture. The Meta Ad Library itself is free and needs no login; search "Music Planet" with the country filter set to New Zealand, and confirm you have found the advertiser tied to musicplanet.co.nz, since more than one result may appear under a similar name. If Music Planet has no currently active ads when you check, that absence is itself a finding worth recording, and the All ads filter will show whether there has been historical activity even if nothing is running right now.</div>
 </div>
-
 <!-- ════════════════════════════════════════════
-     SLIDE 18 — PAID: THE META ADS LIBRARY
+     SLIDE 17 — PAID: ACTIVITY — IDENTIFY PAID ACTIVITY
 ════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s18">
+<div class="slide slide-exercise" id="s17">
   <div class="slide-inner">
-    <div class="uoa-badge">Paid advertising</div>
-    <h2 class="slide-title">The Meta Ads Library</h2>
+    <div class="exercise-badge">Activity &mdash; Paid advertising</div>
+    <h2 class="slide-title">Step 1: Identify paid activity</h2>
     <div class="slide-body">
-      <div class="two-col" style="margin-top:0;gap:20px;">
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);">
-            <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">What it is</div>
-            <div style="font-size:clamp(13px,1.3vw,15px);color:#333;line-height:1.6;">The Meta Ads Library is a public database of all active and recently active ads running on Facebook, Instagram, and the Meta network. It is the primary tool for auditing a brand's paid social activity without requiring ad account access.</div>
-          </div>
-          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);">
-            <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Why it is useful for this audit</div>
-            <div style="font-size:clamp(13px,1.3vw,15px);color:#333;line-height:1.6;">It shows what Hnry is currently spending creative effort on, what messages and formats they are testing, and how their paid strategy connects (or doesn't connect) to what the traffic data shows arriving from paid channels.</div>
-          </div>
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:13px 18px;margin-bottom:12px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:7px;font-size:clamp(13px,1.35vw,15px);">Your task</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.55;">In the same LLM chat you used for Traffic Analytics, create a prompt that asks the model to establish what paid advertising evidence exists in the provided GA4 reports before any channel analysis begins.</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Your prompt should ask the LLM to</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li>Check which GA4 reports are available and record the actual date range shown</li>
+            <li>Find the channel-level report: Traffic Acquisition, Session Channel Group, or similar</li>
+            <li>Identify paid rows: Paid Search, Paid Social, Paid Other, Paid Video, and Cross-network</li>
+            <li>Extract Sessions, Engagement Rate, Key Events, and Total Revenue if present</li>
+          </ul>
         </div>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--cyan);">
-            <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">How to find Hnry NZ</div>
-            <div style="font-size:clamp(13px,1.3vw,15px);color:#333;line-height:1.6;">Go to the Meta Ads Library (facebook.com/ads/library). Set the country to New Zealand and the ad category to All ads. Search "Hnry". Identify the advertiser page associated with hnry.co.nz and confirm you are viewing the correct entity.</div>
-          </div>
-          <div class="callout" style="margin:0;font-size:clamp(12px,1.25vw,14px);">
-            <strong>If no active ads appear:</strong> check the "All ads" date filter. An absence of current activity is itself an audit finding. Note it.
-          </div>
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Expected output</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li><strong>Evidence source:</strong> report name, file name, and date range</li>
+            <li><strong>Paid activity table:</strong> each paid or Cross-network row with available metrics</li>
+            <li><strong>Cross-network note:</strong> whether it appears meaningful enough to discuss</li>
+            <li><strong>Limitation statement:</strong> what cannot be recovered from the files provided</li>
+          </ul>
         </div>
       </div>
+
+      <div class="warn-callout" style="margin:0 0 12px;font-size:clamp(12px,1.2vw,14px);padding:10px 15px;">
+        <strong>Pro tip:</strong> Do not start a fresh chat unless you have to. The same chat should already contain the GA4 files, your goal/KPI work, and the client context from the intelligence brief.
+      </div>
+
+      <div class="debrief">Before moving on, check the evidence map against the original reports. Did the model miss Cross-network, assume a fixed 12-month period, or invent paid activity that the files do not show?</div>
     </div>
   </div>
-  <div class="speaker-notes">This slide is primarily instructional. Walk students through finding Hnry in the library live if possible — project your screen and search together. Things to watch for: (1) Multiple "Hnry" results may appear. The correct one will show the hnry.co.nz URL and will have the verified badge. (2) The library shows the number of active ads and, for some regions, estimated spend ranges. (3) Students can filter by ad format (images, videos, etc.) to make the analysis in the next activity more structured. One observation worth making before the analysis: the Meta Ads Library is a transparency tool mandated by Meta to comply with advertising regulations in various jurisdictions. It is not designed for competitive research, but it functions very well as one. This is an example of a regulatory requirement creating a useful research resource.</div>
+  <div class="speaker-notes"><p>This activity is the start of the paid advertising section and it should be treated as evidence mapping, not interpretation. Students first need to establish what paid advertising evidence exists in the provided files. The GA4 reports vary by client and can be CSV or PDF, so students should not assume they have the same file names, formats, or date ranges as another group. The first output is a map of the available evidence: which report or reports they have, the actual date range shown, which report contains channel-level traffic, and which paid rows are visible.</p><p>The pro tip on the slide matters: students should keep using the same LLM chat they used for Traffic Analytics if possible. That chat should already contain the client intelligence brief, the GA4 exports, and the earlier goal/KPI discussion. This gives the model the context needed to interpret paid activity in relation to brand awareness, engagement, and online sales. If the reports are already uploaded in that chat, students can ask the model to inspect the existing files rather than uploading them again.</p><p>The key report to locate is the channel-level traffic report. It may be labelled Traffic Acquisition, Session Channel Group, or something similar. Students should ask the LLM to identify whether the report breaks traffic into channel rows such as Paid Search, Paid Social, Paid Other, Paid Video, and Cross-network. They should record Sessions, Engagement Rate, and Key Events for paid rows, and Total Revenue if the column is present. They should also record whether Average Engagement Time appears, because it becomes useful in the Paid Search and Paid Social steps.</p><p>Cross-network needs special attention. It does not contain the word paid, but it commonly represents Google Ads traffic from campaign types such as Performance Max, Demand Gen, or older Smart Shopping activity that runs across multiple networks. Students should treat it as part of the paid advertising assessment if it shows meaningful sessions or revenue. At the same time, they should include the caveat that static exports usually do not allow them to drill into campaign type or secondary dimensions, so they cannot fully decompose Cross-network without live GA4 access.</p><p>Expected output from this slide: a short paid activity evidence map. It should identify the source file, date range, channel-level report, paid rows found, whether Cross-network is present, and whether revenue is present. If the provided files do not include a channel-level breakdown, students should state that limitation directly. If no paid categories show meaningful activity, that is still a finding; they should say so and consider whether it looks like an organic-only strategy, a tracking limitation, or a missed paid-media opportunity.</p></div>
 </div>
-
 <!-- ════════════════════════════════════════════
-     SLIDE 19 — PAID: FOUR THINGS TO ANALYSE
+     SLIDE 18 — PAID: ACTIVITY — PAID SEARCH ANALYSIS
 ════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s19">
+<div class="slide slide-exercise" id="s18">
   <div class="slide-inner">
-    <div class="uoa-badge">Paid advertising</div>
-    <h2 class="slide-title">Four things to analyse</h2>
+    <div class="exercise-badge">Activity &mdash; Paid advertising</div>
+    <h2 class="slide-title">Step 2: Assess Paid Search</h2>
     <div class="slide-body">
-      <div style="margin-bottom:12px;font-size:clamp(13px,1.35vw,15px);color:var(--navy);">Use these four areas as the analytical frame for the activity on the next slide.</div>
-      <div class="framework-grid">
-        <div class="fw-card">
-          <div class="fw-num">01 &mdash; Formats</div>
-          <div class="fw-title">What ad formats is Hnry using?</div>
-          <div class="fw-body">Single image, video, carousel, story, collection. Note which formats appear most frequently and whether the format mix suggests testing, a settled strategy, or limited creative investment.</div>
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:13px 18px;margin-bottom:12px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:7px;font-size:clamp(13px,1.35vw,15px);">Your task</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.55;">Using the evidence map from Step 1, build and run a prompt that assesses Paid Search from the provided GA4 reports. Google has no public ad-transparency tool equivalent to Meta, so the files are the evidence.</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Ask the LLM to analyse</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li>Sessions, Engagement Rate, and Average Engagement Time for Paid Search</li>
+            <li>Key Events, Key Event Rate, and Total Revenue if present</li>
+            <li>How Paid Search supports awareness, engagement, and online sales goals</li>
+            <li>Whether Cross-network should be discussed alongside Paid Search as Google Ads activity</li>
+          </ul>
         </div>
-        <div class="fw-card" style="border-left-color:var(--cyan);">
-          <div class="fw-num">02 &mdash; Message angles</div>
-          <div class="fw-title">What is the copy leading with?</div>
-          <div class="fw-body">The problems, benefits, or emotions the ad copy opens with. Is Hnry leading with pain (tax stress), aspiration (financial freedom), social proof (customer stories), or product features? What angle appears most consistently?</div>
-        </div>
-        <div class="fw-card" style="border-left-color:var(--navy);">
-          <div class="fw-num">03 &mdash; Offer types</div>
-          <div class="fw-title">What is being promoted?</div>
-          <div class="fw-body">Free trial, feature announcement, social proof, seasonal promotion, content download, or brand awareness. Note whether offers are conversion-focused (direct response) or awareness-focused, and how the mix has shifted over time.</div>
-        </div>
-        <div class="fw-card" style="border-left-color:var(--purple);">
-          <div class="fw-num">04 &mdash; Creative patterns</div>
-          <div class="fw-title">What recurring elements appear?</div>
-          <div class="fw-body">Visual styles, colour palettes, photography versus illustration, logo placement, text overlays. Recurring elements across multiple ads suggest a tested creative system; wide variation may suggest ongoing testing or inconsistent brand application.</div>
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Expected output</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li><strong>Paid Search mini-table:</strong> KPI, value, source report, and interpretation</li>
+            <li><strong>Cross-network context:</strong> include it if the row is present and meaningful</li>
+            <li><strong>Cost/ROAS statement:</strong> only if a spend or Advertising report was provided</li>
+            <li><strong>Key finding:</strong> what this implies for the paid advertising audit</li>
+          </ul>
         </div>
       </div>
+
+      <div class="warn-callout" style="margin:0 0 12px;font-size:clamp(12px,1.2vw,14px);padding:10px 15px;">
+        <strong>Do not guess cost or ROAS.</strong> Revenue is money coming in. ROAS needs spend data. If no Google Ads or Advertising report is provided, state that cost and ROAS are not available.
+      </div>
+
+      <div class="debrief">After running the prompt, verify every number against the original report. What is supported by evidence, what is uncertain, and what must be stated as a limitation?</div>
     </div>
   </div>
-  <div class="speaker-notes">This framework slide sets up the activity. Spend 2 minutes walking through the four areas before students start. The framing is deliberately analytical rather than descriptive: the goal is not to list what Hnry's ads look like but to interpret what their ad strategy reveals. For example: if all ads lead with pain messaging, that tells you something about Hnry's hypothesis about what motivates their audience. If all ads feature a free trial offer, that tells you Hnry believes trial conversion is their primary paid objective. These interpretations connect directly to the strategic layer of the audit. Note: students who have used this framework in other contexts (e.g., competitive advertising analysis in other papers) will recognise the structure. For students who haven't, the next slide gives them a guided prompt approach.</div>
+  <div class="speaker-notes"><p>This activity is Step 2 of the audit template: Paid Search. Students should now move from the general paid activity evidence map to a specific assessment of Paid Search and Google Ads-related activity. The source is still the provided GA4 reports, plus any separate Google Ads, Advertising, cost, or spend report if one was supplied. Google does not provide a public ad transparency tool equivalent to the Meta Ad Library for standard search ads, so students should not go looking for a public Google Ads library to solve this section.</p><p>The prompt should ask the LLM to use the evidence map from Slide 17 and identify the Paid Search row, plus any Cross-network row that appears meaningful. For Paid Search, students should extract Sessions, Engagement Rate, Average Engagement Time, Key Events, Key Event Rate if available, and Total Revenue if present. Cross-network should be discussed alongside Paid Search as part of the wider Google Ads picture when it has meaningful traffic or revenue, but students must be clear that it cannot be split into Search, Shopping, Display, YouTube, or other networks from a static export alone.</p><p>Cost and ROAS are the main risk area. Students may only discuss cost, CPC, CPA, or ROAS if a separate file provides spend data. GA4 revenue is not cost. Revenue tells them money coming in; ROAS requires spend as the denominator. If no spend file exists, the correct conclusion is not 'ROAS is low' or 'ROAS cannot be calculated from revenue alone'; it is that cost and ROAS data were not available in the provided files. That limitation should be stated in the audit rather than hidden.</p><p>Expected output from this slide: a Paid Search mini-table and a short interpretation. The table should include the source report, date range, Paid Search KPI values, relevant Cross-network values if present, and a note on whether cost/ROAS data exists. The interpretation should connect the evidence back to the client goals from Traffic Analytics. For example, Paid Search may support online sales if it produces Key Events or revenue, while Cross-network may suggest broader Google Ads activity supporting both discovery and conversion. The student should finish with a judgement, not just a copied table.</p></div>
 </div>
-
 <!-- ════════════════════════════════════════════
-     SLIDE 20 — PAID: ACTIVITY — LLM ANALYSIS
+     SLIDE 19 — PAID: ACTIVITY — PAID SOCIAL GA4 EVIDENCE
+════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s19">
+  <div class="slide-inner">
+    <div class="exercise-badge">Activity &mdash; Paid advertising</div>
+    <h2 class="slide-title">Step 3A: What did Paid Social deliver?</h2>
+    <div class="slide-body">
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:13px 18px;margin-bottom:12px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:7px;font-size:clamp(13px,1.35vw,15px);">Your task</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.55;">Stay in the same LLM chat and use the GA4 reports already in context to isolate the <strong>Paid Social</strong> evidence. This slide is about what Paid Social delivered; the next slide is about what the ads are doing creatively.</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Prompt the LLM to extract</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li>The Paid Social row, source report/file, and actual date range</li>
+            <li>Sessions, Engagement Rate, Average Engagement Time, Key Events, and Total Revenue if present</li>
+            <li>What those numbers suggest about awareness, engagement, and online sales</li>
+            <li>Whether Paid Social activity looks meaningful, weak, absent, or difficult to assess from the files</li>
+          </ul>
+        </div>
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Also make it identify limits</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li>GA4 does not show the ad creative, message angle, or visual strategy</li>
+            <li>GA4 may not provide cost, CPC, ROI, or ROAS unless spend data is supplied</li>
+            <li>Attribution may understate or misclassify some paid social activity</li>
+            <li>Any unsupported claims must be flagged as limitations, not guessed around</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:12px 16px;margin-bottom:12px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Expected output</div>
+        <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">A short <strong>Paid Social GA4 evidence table</strong> plus one interpretation of what Paid Social appears to be contributing to Music Planet's goals. End by listing what GA4 cannot explain, because those gaps are what you investigate manually in Meta Ad Library on the next slide.</div>
+      </div>
+
+      <div class="debrief">Before moving on, verify the numbers yourself. Then open Meta Ad Library and use the next slide as your creative-audit framework.</div>
+    </div>
+  </div>
+  <div class="speaker-notes"><p>This slide begins Step 3A: Paid Social performance evidence from GA4. It deliberately comes before the Meta Ad Library so students first understand what Paid Social delivered before judging the creative. They should continue in the same LLM chat where the GA4 reports and earlier paid activity evidence map are already present. This avoids treating paid social as a fresh, disconnected task; it is part of the same traffic and paid-media story.</p><p>The prompt should ask the model to locate the Paid Social row in the channel-level report, identify the source report and date range, and extract the available performance measures. At minimum, students should look for Sessions, Engagement Rate, Average Engagement Time, Key Events, and Total Revenue if present. If Key Event Rate is present, it can also be useful. Students should ask the model to interpret the evidence against the earlier goals: does Paid Social appear to be contributing to awareness, engagement, online sales, or none of these in a meaningful way?</p><p>Students also need to state what GA4 cannot tell them. GA4 does not show the actual ad creative, copy, offer, format, or message angle. It also usually does not show cost, CPC, ROI, or ROAS unless spend data was separately supplied. A strong answer separates performance evidence from creative evidence: GA4 says what happened on the site after paid social traffic arrived; the Meta Ad Library helps explain what messages or creative may have generated that traffic.</p><p>Expected output from this slide: a Paid Social GA4 evidence table and a short performance interpretation. The table should identify the source report, date range, KPI values, and any limitations. The interpretation should be cautious: if Paid Social has traffic but few Key Events, that suggests a potential gap between attention and outcomes; if traffic is low despite active ads, that may suggest limited scale, weak attribution, or a narrow campaign; if there are no paid social rows, that absence is itself a reportable finding. The next slide then asks students to investigate the creative side manually.</p></div>
+</div>
+<!-- ════════════════════════════════════════════
+     SLIDE 20 — PAID: ACTIVITY — META AD LIBRARY CREATIVE AUDIT
 ════════════════════════════════════════════ -->
 <div class="slide slide-exercise" id="s20">
   <div class="slide-inner">
     <div class="exercise-badge">Activity &mdash; Paid advertising</div>
-    <h2 class="slide-title">Using an LLM to analyse Hnry's ads</h2>
+    <h2 class="slide-title">Step 3B: Audit the Meta Ad Library creative</h2>
     <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(13px,1.3vw,15px);">Step 1: get the URL</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">Copy the Hnry New Zealand Meta Ads Library URL directly from your browser — the URL that shows Hnry's advertiser page with their active ads displayed.</div>
+      <div style="margin-bottom:10px;font-size:clamp(13px,1.35vw,15px);color:#451A03;background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:12px 16px;line-height:1.55;">
+        Manually review Music Planet in Meta Ad Library. Use the four lenses below to turn observations into interpretation, then compare the creative strategy with the GA4 Paid Social performance from Slide 19.
+      </div>
+      <div class="framework-grid" style="gap:12px;margin-top:0;">
+        <div class="fw-card" style="padding:15px 16px;border-left-color:var(--blue);">
+          <div class="fw-num">01 &mdash; Formats and platforms</div>
+          <div class="fw-title">What formats, and where?</div>
+          <div class="fw-body">Single image, video, carousel, story, collection; Facebook, Instagram, Messenger or other placements. Interpret whether the mix suggests testing, a settled strategy, or limited creative investment.</div>
         </div>
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(13px,1.3vw,15px);">Step 2: build your prompt</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.25vw,14px);line-height:1.6;">Paste the URL into your preferred LLM with web browsing enabled. Craft a prompt using the four analytical areas (formats, message angles, offer types, creative patterns) as the frame for the analysis.</div>
+        <div class="fw-card" style="padding:15px 16px;border-left-color:var(--cyan);">
+          <div class="fw-num">02 &mdash; Message angles</div>
+          <div class="fw-title">What is the copy leading with?</div>
+          <div class="fw-body">Buying confidence, aspiration, expert staff, social proof, product features, price, urgency, or another angle. Identify which angle recurs and what it suggests about the audience hypothesis.</div>
+        </div>
+        <div class="fw-card" style="padding:15px 16px;border-left-color:var(--navy);">
+          <div class="fw-num">03 &mdash; Offer types</div>
+          <div class="fw-title">What is being promoted?</div>
+          <div class="fw-body">Sale, clearance, finance, new arrivals, seasonal gifting, lessons, brand awareness, or product category pushes. Judge whether the mix is conversion-led or awareness-led.</div>
+        </div>
+        <div class="fw-card" style="padding:15px 16px;border-left-color:var(--purple);">
+          <div class="fw-num">04 &mdash; Creative patterns</div>
+          <div class="fw-title">What recurring elements appear?</div>
+          <div class="fw-body">Product photography, lifestyle imagery, text overlays, colours, logo use, staff/customer presence, or repeated layouts. Interpret whether the brand system feels consistent or fragmented.</div>
         </div>
       </div>
-      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 18px;margin-bottom:14px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">What your prompt should request:</div>
-        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">Ask the LLM to visit the URL, review the visible ads, and provide an analysis structured around the four areas from the previous slide. Include context about who Hnry is and what audience they are targeting. Ask for a summary judgement on the overall paid social strategy, not just a description of individual ads.</div>
+      <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:12px;margin-top:12px;">
+        <div class="callout" style="margin:0;font-size:clamp(12px,1.2vw,13px);padding:10px 14px;">
+          <strong>Output:</strong> For each lens, record the evidence you observed and one interpretation of what it suggests about the paid social strategy.
+        </div>
+        <div class="warn-callout" style="margin:0;font-size:clamp(12px,1.2vw,13px);padding:10px 14px;">
+          Treat ad longevity, creative variants, and multi-platform presence as <strong>indirect signals</strong>, not hard performance figures.
+        </div>
       </div>
-      <div class="debrief">Review the output. Where is the analysis specific and evidenced? Where is it vague or inferred without direct evidence from the ads? Use your own viewing of the library to challenge or confirm the LLM's findings before drafting your audit section.</div>
     </div>
   </div>
-  <div class="speaker-notes">Give students 7&ndash;8 minutes. LLM web browsing quality varies significantly between models. Claude and ChatGPT with browsing enabled will generally access the Ads Library URL, but the library is JavaScript-rendered and some models struggle to extract structured ad data from it. If students find the LLM cannot access the URL meaningfully, an alternative approach is to screenshot a set of ads from the library and upload them as images with a prompt asking for visual and copy analysis across the four dimensions. The debrief question is the most important instruction on this slide: every finding the LLM makes should be verifiable by the student looking at the same ads. This is not a trust exercise; it is an analytical one. Students who draft their paid advertising audit section based entirely on LLM output without cross-checking it against the actual ads will produce a weaker piece of analysis. Common issue: LLMs often describe the most prominent/featured ads and miss smaller or older ads in the library. Ask students: "Did the LLM look at all the ads or just the most visible ones?"</div>
+  <div class="speaker-notes"><p>This slide is Step 3B: the manual Meta Ad Library creative audit. Students should not rely on the LLM to browse the Ad Library for them as the primary evidence source. They should manually visit facebook.com/ads/library, set the country to New Zealand, choose All ads, search for Music Planet, and confirm that the advertiser profile is tied to musicplanet.co.nz. If more than one similar advertiser appears, students should use the website link, page identity, and ad content to confirm they are looking at the correct one.</p><p>The four lenses on the slide are the observation structure. For formats and platforms, students should note whether ads use image, video, carousel, story/reel-style placements, or other formats, and whether they run across Facebook, Instagram, Messenger, or multiple placements. For message angles, they should record what the ad leads with: price, product features, buying confidence, aspiration, expert staff, lessons, gifting, brand credibility, or another angle. For offer types, they should identify whether the ads are sale-led, product-led, seasonal, finance/layby focused, lessons or service-led, or brand-awareness oriented. For creative patterns, they should look for visual consistency, product photography versus lifestyle imagery, logo use, text overlays, colour palette, and repeated templates.</p><p>The output should be a four-lens observation table. For each lens, students need two parts: evidence observed and interpretation. Evidence is what they can point to in the Library. Interpretation is what they think it suggests about paid social strategy. For example, repeated sale-led product ads might suggest a direct-response strategy. A varied set of product and lifestyle creative might suggest testing. Long-running ads and multiple creative variants can be treated as indirect signals that Meta is being actively managed or that the creative is performing well enough to remain live, but students must not describe these as proof of ROI.</p><p>Expected output from this slide: the completed four-lens table and a one-paragraph creative-strategy judgement. The final sentence should connect back to Slide 19: does the creative strategy help explain the Paid Social GA4 performance? If GA4 shows low Key Events but the Library shows mainly awareness or product-discovery creative, that may be coherent. If GA4 shows low outcomes but the Library is dominated by conversion-heavy sale ads, that mismatch becomes a stronger finding.</p></div>
 </div>
-
 <!-- ════════════════════════════════════════════
-     SLIDE 21 — PAID: CONNECTING TO TRAFFIC DATA
+     SLIDE 21 — PAID: ACTIVITY — STRESS-TEST PAID SOCIAL INTERPRETATION
 ════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s21">
+<div class="slide slide-exercise" id="s21">
   <div class="slide-inner">
-    <div class="uoa-badge">Paid advertising</div>
-    <h2 class="slide-title">Connecting to your traffic data</h2>
+    <div class="exercise-badge">Activity &mdash; Paid advertising</div>
+    <h2 class="slide-title">Stress-test your Paid Social judgement</h2>
     <div class="slide-body">
-      <div class="callout" style="font-size:clamp(14px,1.5vw,16px);margin-bottom:20px;">
-        Cross-reference what you found in the Meta Ads Library against the <strong>paid social</strong> and <strong>paid search</strong> rows in your GA4 traffic acquisition CSV.
+      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:13px 18px;margin-bottom:12px;">
+        <div style="font-weight:700;color:#78350F;margin-bottom:7px;font-size:clamp(13px,1.35vw,15px);">Now use the LLM as a reviewer, not the analyst</div>
+        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.55;">Paste your Paid Social GA4 table and your four-lens Meta Ad Library observations into the same chat. Ask the LLM to challenge your interpretation before you write the audit section.</div>
       </div>
-      <div class="two-col" style="gap:20px;">
-        <div style="background:white;border-radius:10px;padding:20px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">Questions to ask</div>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
-            <li style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.5;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">&#8250;</span>Does the paid social channel in GA4 show meaningful traffic? Does that match the level of ad activity you saw in the library?</li>
-            <li style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.5;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">&#8250;</span>Is paid search present in the traffic data? If Hnry is not running Google Ads, that absence is worth noting as a strategic choice.</li>
-            <li style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.5;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">&#8250;</span>Do the paid channels in GA4 convert at a different rate than organic channels? What does that tell you about the quality of paid traffic?</li>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Ask it to check for</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li>Claims not supported by either GA4 or the ads you personally viewed</li>
+            <li>Contradictions between the creative strategy and GA4 outcomes</li>
+            <li>Places where you are treating indirect signals as hard performance data</li>
+            <li>Missing caveats about cost, ROAS, attribution, or unavailable reports</li>
           </ul>
         </div>
-        <div style="background:white;border-radius:10px;padding:20px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);">
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(12px,1.25vw,14px);">Expected output</div>
+          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.6;">
+            <li><strong>Supported findings:</strong> what the evidence clearly allows you to say</li>
+            <li><strong>Weak or risky claims:</strong> what needs rewording or evidence</li>
+            <li><strong>Missing caveats:</strong> what limitations must be stated</li>
+            <li><strong>Draft synthesis:</strong> one short paragraph linking creative strategy to GA4 results</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="debrief">Use the LLM response to sharpen your judgement, not to replace it. Only keep claims you can trace back to a GA4 value or a specific ad you viewed.</div>
+    </div>
+  </div>
+  <div class="speaker-notes"><p>This slide uses the LLM as a reviewer, not as the original analyst. Students should already have two pieces of evidence: the Paid Social GA4 table from Slide 19 and the four-lens Meta Ad Library observation table from Slide 20. They should paste both into the same chat and ask the model to stress-test the interpretation. The model's job is to look for weak reasoning, unsupported claims, contradictions, missing caveats, and places where the evidence does not support the conclusion.</p><p>A good stress-test prompt should ask the LLM to do five things. First, identify any claim that is not directly supported by either a GA4 value or a specific ad observation. Second, identify any overclaim, such as treating ad longevity as proof of campaign profitability. Third, identify contradictions, such as saying paid social is conversion-focused when the ads are mostly awareness-led or when GA4 shows no Key Events. Fourth, identify missing caveats, especially around lack of cost, CPC, ROI, or ROAS data. Fifth, draft a tighter synthesis paragraph that clearly separates evidence, interpretation, and limitation.</p><p>Students should not accept the LLM's revised paragraph automatically. They should use it as a quality-control step. If the LLM adds a claim that was not in the evidence, cut it. If it softens a claim appropriately, keep the caveat. If it suggests a better structure, use that structure but check every statement. The central rule is evidence traceability: every sentence in the final paid social write-up should be traceable either to a GA4 metric, a specific observation from the Ad Library, or a clearly stated limitation.</p><p>Expected output from this slide: a revised paid social synthesis paragraph and a short list of claims that were cut, softened, or strengthened after the stress test. This is especially useful for students who missed the workshop because it gives them a practical self-check before putting the section into the final audit.</p></div>
+</div>
+<!-- ════════════════════════════════════════════
+     SLIDE 22 — PAID: CONNECTING TO TRAFFIC DATA
+════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s22">
+  <div class="slide-inner">
+    <div class="uoa-badge">Paid advertising</div>
+    <h2 class="slide-title">Connecting paid back to the traffic picture</h2>
+    <div class="slide-body">
+      <div class="callout" style="font-size:clamp(14px,1.5vw,16px);margin-bottom:18px;margin-top:0;">
+        Cross-reference the Meta Ad Library findings against the <strong>Paid Social</strong>, <strong>Paid Search</strong>, and <strong>Cross-network</strong> rows in your GA4 channel report.
+      </div>
+      <div class="two-col" style="gap:20px;">
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">Questions to ask</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+            <li style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.5;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">&#8250;</span>Does Paid Social in GA4 show meaningful traffic, and does that match the level of ad activity you saw in the Library?</li>
+            <li style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.5;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">&#8250;</span>Is Paid Search or Cross-network present? If Music Planet appears to run little or no Google Ads, that is worth noting as a strategic choice.</li>
+            <li style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.5;display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">&#8250;</span>Do paid channels convert at a different rate than organic? What does that say about the quality of paid traffic?</li>
+          </ul>
+        </div>
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);">
           <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">If paid search is absent</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.6;">An absence of paid search in the traffic acquisition data is a strategic finding in its own right. It may mean Hnry is relying entirely on organic search, that their Google Ads activity is not tagged correctly for GA4, or that paid search spend is zero. Each explanation has different strategic implications worth noting in your audit.</div>
+          <div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.6;">An absence of Paid Search in the channel report is a strategic finding in its own right. It may mean Music Planet relies on organic search, that Google Ads is not tagged correctly for GA4, or that paid search spend is zero. Check Cross-network before concluding there is no Google Ads activity at all. Each explanation has different implications worth noting.</div>
         </div>
       </div>
     </div>
   </div>
-  <div class="speaker-notes">This is a synthesis slide, not an activity slide. Give students 3&ndash;4 minutes to cross-reference their two data sources: the Meta Ads Library findings and the GA4 traffic acquisition CSV. The key analytical move is connecting the creative strategy visible in the ads library to the actual traffic and conversion outcomes visible in GA4. For example: if Hnry is running a lot of free trial ads on Meta but the paid social channel shows very low conversion events in GA4, there is a gap between the offer being promoted and the outcome being achieved. That gap is a finding. The paid search absence point is specifically mentioned in the brief because it is a common situation: many NZ SaaS brands run Meta ads but not Google Ads, relying on organic search to capture intent-based traffic. If that is the case for Hnry, it is worth analysing whether that is a deliberate strategy or a gap.</div>
+  <div class="speaker-notes"><p>This slide is where students bring Paid Search, Paid Social, Cross-network, and the broader Traffic Analytics section together. It is not a new data-gathering task. It is a synthesis task: compare what the paid channels appear to be doing with the client's earlier goals and with the behaviour seen in the GA4 reports. Students should have three pieces of evidence in front of them: the Step 1 paid activity evidence map, the Paid Search mini-table, and the Paid Social GA4 plus Ad Library synthesis.</p><p>Start with consistency across sources. Does Paid Social performance in GA4 align with the level and type of Meta ad activity observed in the Ad Library? Does Paid Search appear meaningful, absent, or overshadowed by Cross-network? If Cross-network is present, does it change the story about Google Ads activity? If paid channels show traffic but low Key Events, students should ask whether paid media is generating awareness without enough conversion. If paid channels show strong outcomes but limited visible creative activity, they should consider whether the activity is concentrated in Google Ads or whether the provided data and public tools are showing different parts of the story.</p><p>Students should also think carefully about absences. If Paid Search is missing, that might be a deliberate strategy, a tracking problem, a limitation of the provided exports, or genuinely no spend. If Paid Social is missing in GA4 but active ads appear in the Library, that could indicate timing differences, tagging issues, low scale, or campaigns optimised away from website traffic. These alternatives matter because the audit should not jump from absence in one report to a definitive claim without checking what other evidence suggests.</p><p>Expected output from this slide: two or three cross-channel insights, each written as evidence plus interpretation. A strong insight names the evidence source, explains what it means, and links back to a business goal. For example: 'Paid Social shows active creative but limited Key Events, suggesting paid social may be supporting awareness more than online sales during the reporting period.' That is much stronger than listing Paid Social sessions and moving on.</p></div>
 </div>
-
 <!-- ════════════════════════════════════════════
-     SLIDE 22 — CLOSE
+     SLIDE 23 — CLOSE
 ════════════════════════════════════════════ -->
-<div class="slide slide-dark" id="s22">
+<div class="slide slide-dark" id="s23">
   <div class="slide-inner">
     <div class="uoa-badge">MKTG 304 &middot; Week 5</div>
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;">Close &mdash; 5 minutes</div>
     <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,38px);">Bringing it all together</h2>
     <ul class="connect-list">
-      <li><span class="c-dot"></span><span><strong style="color:var(--cyan);">SEO</strong> reveals how Hnry is found in search: what it ranks for, how strong its authority is, and where competitors are outperforming it.</span></li>
-      <li><span class="c-dot"></span><span><strong style="color:var(--cyan);">Website overview</strong> evaluates where users land: whether the experience, design, and ethics meet the standard the audience expects.</span></li>
-      <li><span class="c-dot"></span><span><strong style="color:var(--cyan);">Traffic analytics</strong> shows what actually happens when users arrive: which channels deliver, which pages engage, and whether conversion goals are being met.</span></li>
-      <li><span class="c-dot"></span><span><strong style="color:var(--cyan);">Paid advertising</strong> shows the investment layered on top: what Hnry is actively paying to promote and whether it connects to the organic and conversion picture.</span></li>
+      <li><span class="c-dot"></span><span><strong style="color:var(--cyan);">SEO</strong> reveals how Music Planet is found in search: what it ranks for, how strong its authority is, and where Rockshop and MusicWorks are outperforming it.</span></li>
+      <li><span class="c-dot"></span><span><strong style="color:var(--cyan);">Website overview</strong> evaluates where users land: whether the experience, design, trust signals, and ethics meet the standard the audience expects.</span></li>
+      <li><span class="c-dot"></span><span><strong style="color:var(--cyan);">Traffic analytics</strong> shows what happens when users arrive: which channels deliver, which pages engage, and whether the three goals are being met.</span></li>
+      <li><span class="c-dot"></span><span><strong style="color:var(--cyan);">Paid advertising</strong> shows the investment on top: what Music Planet pays to promote across search, social, and Cross-network, and whether it connects to the organic and outcome picture.</span></li>
     </ul>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;">
       <div style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.35);border-radius:8px;padding:14px 18px;">
         <div style="font-size:11px;font-weight:700;color:var(--amber);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">Section 5: social media</div>
-        <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">Not covered today. Complete the social media audit independently using Rival IQ. This section follows the same structure: identify the data, use AI to assist the analysis, apply your own critical judgement.</div>
+        <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">Not covered today. Complete the organic social audit independently using Rival IQ, comparing Music Planet against Rockshop and MusicWorks, with GA4 Organic Social data where provided. Paid social stays in Section 4.</div>
       </div>
       <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,202,239,0.25);border-radius:8px;padding:14px 18px;">
         <div style="font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">Before next tutorial</div>
-        <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">Aim to have a working draft of all five audit sections complete. Check the course outline for the Assignment 2 due date. Bring any unresolved analytical questions to the next tutorial.</div>
+        <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">Aim to have a working draft of all five audit sections. Check the course outline for the Assignment 2 due date, which falls during the mid-semester break. Bring any unresolved analytical questions to the next tutorial.</div>
       </div>
     </div>
   </div>
-  <div class="speaker-notes">Close the session by connecting the four sections explicitly. The key message: the four sections are not four separate tasks to tick off — they are four layers of the same story. A strong audit will draw connections between them. For example: "SEMrush shows Hnry ranks well for branded terms but weakly for non-branded acquisition terms. The traffic data confirms that direct and organic branded traffic dominate. The paid ads show Hnry investing in Meta to reach cold audiences, which the traffic data suggests is generating some paid social sessions but low conversion. Together, these findings point to a specific strategic challenge: Hnry has strong retention of known users but weak acquisition of new audiences through non-paid, non-branded channels." That synthesis is the audit. Re: social media audit — students often underestimate how long Section 5 takes. Rival IQ needs to have been configured in advance. If students haven't set it up yet, they should do so this week. Close by confirming the Assignment 2 due date from the course outline and asking: "What is one thing you still need to do before your audit is ready to write up?" Take a few responses to surface common gaps.</div>
+  <div class="speaker-notes"><p>This final slide should help students who missed the workshop understand what they should have produced by the end of the deck. The goal is not simply to have completed four disconnected activities. They should now have working evidence and draft interpretations for SEO, Website overview, Traffic analytics, and Paid advertising, plus a clear plan for completing Social media independently. The audit should read as one connected argument about Music Planet's digital marketing, not as separate tool outputs stitched together.</p><p>A useful way to self-check the whole audit is to ask three questions. First, what is the main story the evidence tells about Music Planet's digital presence? Second, which sections support that story, and do any sections contradict it? Third, what evidence is still missing or limited? For example, SEO might show a visibility issue for non-branded terms, Traffic Analytics might show reliance on existing visitors, and Paid Advertising might show whether paid channels are compensating for that acquisition gap. Those connections are the audit's strategic value.</p><p>Students should also make sure their use of AI is visible as a method, not hidden as an answer generator. They should note where they used an LLM to identify reports, select KPIs, interpret exports, or stress-test a conclusion; and they should note where they manually verified or corrected the model. These moments are useful for the methodology reflection because they show judgement. The strongest audits use AI to accelerate the work while still making the student responsible for evidence selection, verification, and final interpretation.</p><p>Expected output by the end: a draft of the four workshop-covered sections, notes for the fifth Social media section, a list of remaining evidence gaps, and at least one synthesis paragraph that connects multiple sections. Students should confirm the Assignment 2 due date from the course outline and work backwards from that date rather than assuming there will be time during the break.</p></div>
 </div>
 
 </div><!-- /deck -->
@@ -1485,50 +1610,52 @@ html, body {
     <div class="nav-group">Opening</div>
     <div class="nav-item active" onclick="goTo(1);closeSidebar()"><span class="n-num">01</span><span class="n-title">Title</span></div>
     <div class="nav-item" onclick="goTo(2);closeSidebar()"><span class="n-num">02</span><span class="n-title">What we're doing today</span></div>
-    <div class="nav-item" onclick="goTo(3);closeSidebar()"><span class="n-num">03</span><span class="n-title">Your toolkit for today</span></div>
+    <div class="nav-item" onclick="goTo(3);closeSidebar()"><span class="n-num">03</span><span class="n-title">Your toolkit</span></div>
 
-    <div class="nav-group">Section 1 &mdash; SEO analysis</div>
+    <div class="nav-group">SEO analysis</div>
     <div class="nav-item" onclick="goTo(4);closeSidebar()"><span class="n-num">04</span><span class="n-title">SEO analysis</span><span class="n-tag section">Section</span></div>
-    <div class="nav-item" onclick="goTo(5);closeSidebar()"><span class="n-num">05</span><span class="n-title">What the audit template requires</span></div>
-    <div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">Verifying your SEMrush setup</span></div>
-    <div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">Which reports to download</span><span class="n-tag exercise">Activity</span></div>
-    <div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">Analysing the reports</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(5);closeSidebar()"><span class="n-num">05</span><span class="n-title">Audit template requirements</span></div>
+    <div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">Semrush setup</span></div>
+    <div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">Identify SEO reports</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">Analyse SEO reports</span><span class="n-tag exercise">Activity</span></div>
 
-    <div class="nav-group">Section 2 &mdash; Website overview</div>
+    <div class="nav-group">Website overview</div>
     <div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">Website overview</span><span class="n-tag section">Section</span></div>
-    <div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">What the audit template requires</span></div>
+    <div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Website requirements</span></div>
     <div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">MetaPrompt with Manus</span><span class="n-tag exercise">Activity</span></div>
     <div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">Manual review</span></div>
 
-    <div class="nav-group">Section 3 &mdash; Traffic analytics</div>
-    <div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Traffic analytics audit</span><span class="n-tag section">Section</span></div>
-    <div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">The four GA4 reports</span></div>
-    <div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">Developing the analysis prompt</span><span class="n-tag exercise">Activity</span></div>
-    <div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">Running the analysis</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-group">Traffic analytics</div>
+    <div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Traffic analytics</span><span class="n-tag section">Section</span></div>
+    <div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">Build KPI prompt</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">Run GA4 analysis</span><span class="n-tag exercise">Activity</span></div>
 
-    <div class="nav-group">Section 4 &mdash; Paid advertising</div>
-    <div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">Paid advertising</span><span class="n-tag section">Section</span></div>
-    <div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">The Meta Ads Library</span></div>
-    <div class="nav-item" onclick="goTo(19);closeSidebar()"><span class="n-num">19</span><span class="n-title">Four things to analyse</span></div>
-    <div class="nav-item" onclick="goTo(20);closeSidebar()"><span class="n-num">20</span><span class="n-title">Analysing Hnry's ads</span><span class="n-tag exercise">Activity</span></div>
-    <div class="nav-item" onclick="goTo(21);closeSidebar()"><span class="n-num">21</span><span class="n-title">Connecting to traffic data</span></div>
+    <div class="nav-group">Paid advertising</div>
+    <div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">Paid advertising</span><span class="n-tag section">Section</span></div>
+    <div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">Identify paid activity</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">Paid Search analysis</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(19);closeSidebar()"><span class="n-num">19</span><span class="n-title">Paid Social GA4 evidence</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(20);closeSidebar()"><span class="n-num">20</span><span class="n-title">Meta creative audit</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(21);closeSidebar()"><span class="n-num">21</span><span class="n-title">Stress-test Paid Social</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(22);closeSidebar()"><span class="n-num">22</span><span class="n-title">Connecting to traffic data</span></div>
 
     <div class="nav-group">Close</div>
-    <div class="nav-item" onclick="goTo(22);closeSidebar()"><span class="n-num">22</span><span class="n-title">Bringing it all together</span></div>
-  </div>
+    <div class="nav-item" onclick="goTo(23);closeSidebar()"><span class="n-num">23</span><span class="n-title">Bringing it all together</span></div>
+  </div></div>
 </nav>
 <div id="sidebar-overlay" onclick="closeSidebar()"></div>
 
-<!-- ── NAV BAR ── -->
+<!-- ── BOTTOM BAR ── -->
 <div id="nav-bar">
   <div style="display:flex;align-items:center;gap:12px;">
     <button class="nav-btn" id="btn-menu" onclick="toggleSidebar()" title="Slide navigator (N)" style="padding:8px 14px;font-size:16px;line-height:1;">&#9776;</button>
     <button class="nav-btn" id="btn-prev" onclick="navigate(-1)">&#8592; Prev</button>
   </div>
-  <span id="slide-counter">1 / 22</span>
+  <span id="slide-counter">1 / 23</span>
   <div style="display:flex;align-items:center;gap:12px;">
     <span id="notes-hint" style="font-size:11px;">S = notes &nbsp;&middot;&nbsp; R = refs &nbsp;&middot;&nbsp; N = nav</span>
     <button class="nav-btn" id="btn-refs" onclick="toggleRefs()" title="References (R)" style="padding:8px 14px;">&#128218; Refs</button>
+    <button class="nav-btn" id="btn-notes" onclick="toggleNotes()" title="Speaker notes (S)" style="padding:8px 14px;">🗒 Notes</button>
     <button class="nav-btn" id="btn-next" onclick="navigate(1)">Next &#8594;</button>
   </div>
 </div>
@@ -1551,43 +1678,65 @@ const SOURCES = {
   1:  [],
   2:  [],
   3:  [],
-  4:  [],
-  5:  [],
-  6:  [],
+  4:  [
+    { label: 'Digital Audit Components, MKTG 304 — SEO Analysis', url: '' },
+  ],
+  5:  [
+    { label: 'Digital Audit Components, MKTG 304 — SEO Analysis', url: '' },
+    { label: 'Semrush — Authority Score (proprietary 0–100 metric)', url: '' },
+  ],
+  6:  [
+    { label: 'Semrush — Site Audit, Backlink Analytics, Backlink Audit, Keyword Gap', url: '' },
+  ],
   7:  [],
-  8:  [],
+  8:  [
+    { label: 'Note: Authority Score (Semrush) differs from Domain Rating (Ahrefs) and Domain Authority (Moz)', url: '' },
+  ],
   9:  [],
   10: [
-    { label: 'W3C — Web Content Accessibility Guidelines (WCAG) 2.1', url: 'https://www.w3.org/TR/WCAG21/' },
+    { label: 'W3C — Web Content Accessibility Guidelines (WCAG) 2.2', url: 'https://www.w3.org/TR/WCAG22/' },
+    { label: 'Digital Audit Components, MKTG 304 — Website Overview', url: '' },
   ],
   11: [
     { label: 'Manus — AI agent platform', url: 'https://manus.im/app' },
   ],
   12: [
-    { label: 'W3C — Web Content Accessibility Guidelines (WCAG) 2.1', url: 'https://www.w3.org/TR/WCAG21/' },
+    { label: 'W3C — Web Content Accessibility Guidelines (WCAG) 2.2', url: 'https://www.w3.org/TR/WCAG22/' },
     { label: 'Privacy Act 2020 (New Zealand)', url: 'https://www.legislation.govt.nz/act/public/2020/0031/latest/LMS23223.html' },
   ],
   13: [],
   14: [
     { label: 'Google — GA4 Traffic Acquisition Report', url: 'https://support.google.com/analytics/answer/9322688' },
-    { label: 'Google — GA4 Events Report', url: 'https://support.google.com/analytics/answer/9322688' },
+    { label: 'Digital Audit Components, MKTG 304 — Traffic Analytics Audit', url: '' },
   ],
-  15: [],
+  15: [
+    { label: 'Google — GA4 Traffic Acquisition Report', url: 'https://support.google.com/analytics/answer/9322688' },
+  ],
   16: [],
-  17: [],
+  17: [
+    { label: 'Google — GA4 default channel group (incl. Cross-network)', url: '' },
+    { label: 'Digital Audit Components, MKTG 304 — Paid Advertising', url: '' },
+  ],
   18: [
-    { label: 'Meta Ads Library', url: 'https://www.facebook.com/ads/library' },
+    { label: 'Digital Audit Components, MKTG 304 — Paid Advertising, Step 2', url: '' },
   ],
-  19: [],
+  19: [
+    { label: 'Digital Audit Components, MKTG 304 — Paid Advertising, Step 3', url: '' },
+  ],
   20: [
-    { label: 'Meta Ads Library', url: 'https://www.facebook.com/ads/library' },
+    { label: 'Meta Ad Library', url: 'https://www.facebook.com/ads/library' },
   ],
-  21: [],
-  22: [],
+  21: [
+    { label: 'Meta Ad Library', url: 'https://www.facebook.com/ads/library' },
+  ],
+  22: [
+    { label: 'Meta Ad Library', url: 'https://www.facebook.com/ads/library' },
+  ],
+  23: [],
 };
 
 // ── STATE ──
-const TOTAL = 22;
+const TOTAL = 23;
 let current    = 1;
 let notesOpen  = false;
 let sidebarOpen = false;
