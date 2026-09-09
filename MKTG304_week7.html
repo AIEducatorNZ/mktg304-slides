@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKTG 304 — Google Advertising</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MKTG 304 - Google Advertising</title>
 <style>
-/* ===== UoA COLOUR PALETTE =====
-   dk2  / Dark Navy   : #0E2841
-   acc1 / Deep Indigo : #0C0C48
-   acc2 / Bright Blue : #1F2BD3
-   acc3 / Cyan        : #00CAEF
-   acc4 / Muted Purple: #8585A3
-   acc5 / Soft Purple : #8F95E9
-   lt2  / Light Gray  : #E8E8E8
-================================================================ */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:      #0E2841;
-  --indigo:    #0C0C48;
-  --blue:      #1F2BD3;
-  --cyan:      #00CAEF;
-  --purple:    #8F95E9;
-  --gray:      #E8E8E8;
-  --muted:     #8585A3;
-  --white:     #FFFFFF;
-  --amber:     #F59E0B;
-  --amber-bg:  #FFFBEB;
+  --navy:   #0E2841;
+  --indigo: #0C0C48;
+  --blue:   #1F2BD3;
+  --cyan:   #00CAEF;
+  --purple: #8F95E9;
+  --gray:   #E8E8E8;
+  --muted:  #8585A3;
+  --white:  #FFFFFF;
+  --amber:  #F59E0B;
+  --amber-bg: #FFFBEB;
 }
 
 html, body {
@@ -64,13 +54,12 @@ html, body {
   transform: translateX(-60px);
 }
 
-/* CONTENT slide */
 .slide-content { background: #F5F7FA; }
 .slide-content .slide-inner {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 40px 64px 72px;
+  padding: 48px 64px 24px;
 }
 .slide-content .slide-title {
   font-size: clamp(22px, 2.4vw, 30px);
@@ -88,8 +77,9 @@ html, body {
   line-height: 1.65;
 }
 
-/* DARK slide */
-.slide-dark { background: linear-gradient(135deg, var(--indigo) 0%, var(--navy) 100%); }
+.slide-dark {
+  background: linear-gradient(135deg, var(--indigo) 0%, var(--navy) 100%);
+}
 .slide-dark .slide-inner {
   flex: 1;
   display: flex;
@@ -116,8 +106,9 @@ html, body {
   line-height: 1.7;
 }
 
-/* SECTION divider */
-.slide-section { background: linear-gradient(135deg, var(--indigo) 0%, #0a1628 100%); }
+.slide-section {
+  background: linear-gradient(135deg, var(--indigo) 0%, #0a1628 100%);
+}
 .slide-section .slide-inner {
   flex: 1;
   display: flex;
@@ -154,14 +145,12 @@ html, body {
   line-height: 1.7;
 }
 
-/* EXERCISE slide */
 .slide-exercise { background: var(--amber-bg); }
 .slide-exercise .slide-inner {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 40px 64px 72px;
-  overflow-y: auto;
+  padding: 40px 64px 24px;
 }
 .slide-exercise .exercise-badge {
   display: inline-block;
@@ -188,14 +177,33 @@ html, body {
   font-size: clamp(14px, 1.5vw, 17px);
   line-height: 1.7;
 }
-.slide-exercise .debrief {
-  margin-top: 16px;
-  font-size: clamp(13px, 1.3vw, 15px);
-  color: #92400E;
-  font-weight: 600;
+
+.slide-break { background: #1a1a2e; }
+.slide-break .slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 48px;
+}
+.slide-break .break-title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+.slide-break .break-prompt {
+  max-width: 600px;
+  font-size: clamp(15px, 1.6vw, 19px);
+  color: var(--cyan);
+  line-height: 1.6;
+  border: 2px solid rgba(0,202,239,0.3);
+  border-radius: 12px;
+  padding: 24px 32px;
 }
 
-/* SHARED COMPONENTS */
 .stat-card {
   background: white;
   border-radius: 10px;
@@ -215,6 +223,9 @@ html, body {
   margin-top: 6px;
   line-height: 1.45;
 }
+.stat-card.dark { background: var(--indigo); border-top-color: var(--cyan); }
+.stat-card.dark .number { color: var(--cyan); }
+.stat-card.dark .label { color: rgba(255,255,255,0.75); }
 
 .three-col {
   display: grid;
@@ -227,6 +238,12 @@ html, body {
   border-radius: 10px;
   padding: 20px 18px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+.col-card .col-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 8px;
 }
 .col-card .col-title {
   font-size: clamp(13px, 1.3vw, 15px);
@@ -247,6 +264,36 @@ html, body {
   margin-top: 8px;
   flex: 1;
 }
+.panel {
+  background: white;
+  border-radius: 10px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+.panel .panel-title {
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+.panel .panel-body {
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: #333;
+  line-height: 1.65;
+}
+
+.key-quote {
+  background: linear-gradient(135deg, var(--indigo), var(--navy));
+  color: white;
+  border-radius: 10px;
+  padding: 20px 24px;
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-style: italic;
+  line-height: 1.6;
+  margin: 16px 0;
+  border-left: 5px solid var(--cyan);
+}
 
 .callout {
   background: rgba(0,202,239,0.08);
@@ -259,15 +306,26 @@ html, body {
   margin: 14px 0;
 }
 
-.warn-callout {
-  background: rgba(245,158,11,0.08);
-  border: 1.5px solid var(--amber);
-  border-radius: 8px;
-  padding: 14px 20px;
-  font-size: clamp(13px, 1.35vw, 15px);
+.tension-box {
+  background: #FEF3C7;
+  border: 2px solid var(--amber);
+  border-radius: 10px;
+  padding: 16px 22px;
   color: #78350F;
+  font-size: clamp(13px, 1.4vw, 16px);
   line-height: 1.6;
   margin: 14px 0;
+}
+
+.illustrative-flag {
+  background: #FDF2F8;
+  border-left: 4px solid #DB2777;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 16px;
+  color: #831843;
+  font-size: clamp(12px, 1.25vw, 14px);
+  line-height: 1.55;
+  margin: 12px 0;
 }
 
 .rule-list {
@@ -301,141 +359,58 @@ html, body {
   margin-top: 2px;
 }
 
-.check-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 8px;
-}
-.check-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: clamp(12px, 1.25vw, 14px);
-  line-height: 1.5;
-  color: #1a1a2e;
-  background: white;
-  border-radius: 8px;
-  padding: 10px 14px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.06);
-}
-.check-icon {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--cyan);
-  border-radius: 3px;
-  margin-top: 1px;
-}
-.check-main { flex: 1; }
-.check-main strong { color: var(--navy); }
-.check-tag {
-  flex-shrink: 0;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: rgba(31,43,211,0.1);
-  color: var(--blue);
-  padding: 2px 8px;
-  border-radius: 10px;
-  align-self: flex-start;
-  margin-top: 2px;
-  white-space: nowrap;
-}
-
-.four-col {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.framework-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 12px;
-}
-.fw-card {
-  background: white;
-  border-radius: 10px;
-  padding: 20px 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-  border-left: 5px solid var(--blue);
-}
-.fw-card .fw-num {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 6px;
-}
-.fw-card .fw-title {
-  font-size: clamp(14px, 1.4vw, 16px);
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.fw-card .fw-body {
-  font-size: clamp(12px, 1.2vw, 13px);
-  color: #555;
-  line-height: 1.55;
-}
-
-.connect-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin: 20px 0;
-}
-.connect-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  font-size: clamp(13px, 1.4vw, 16px);
-  color: rgba(255,255,255,0.85);
-  line-height: 1.55;
-}
-.connect-list li .c-dot {
-  flex-shrink: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--cyan);
-  margin-top: 5px;
-}
-
-.tier-table {
+.data-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  font-size: clamp(12px, 1.25vw, 14px);
+  margin-top: 14px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  font-size: clamp(12px, 1.3vw, 15px);
 }
-.tier-table th {
+.data-table th {
   background: var(--navy);
-  color: var(--cyan);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 10px 14px;
+  color: white;
   text-align: left;
+  padding: 12px 16px;
+  font-weight: 700;
+  font-size: clamp(12px, 1.25vw, 14px);
+  line-height: 1.35;
 }
-.tier-table td {
-  padding: 10px 14px;
-  border-bottom: 1px solid #e0e0e0;
-  color: #333;
+.data-table td {
+  padding: 11px 16px;
+  border-top: 1px solid var(--gray);
+  color: #1a1a2e;
   line-height: 1.5;
   vertical-align: top;
 }
-.tier-table tr:nth-child(even) td { background: #f0f4f8; }
-.tier-table tr:last-child td { border-bottom: none; }
+.data-table tr:nth-child(even) td { background: #F8FAFC; }
+.data-table td:first-child, .data-table th:first-child { font-weight: 700; color: var(--navy); }
+.data-table th:first-child { color: white; }
 
-/* LEFT SIDEBAR */
+.craft-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+.craft-card { border-radius: 10px; padding: 18px 14px; text-align: center; }
+
+.code-block {
+  background: #1e2030;
+  color: #c9d1d9;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: clamp(11px, 1.1vw, 13px);
+  line-height: 1.6;
+  overflow: auto;
+  max-height: 50vh;
+}
+.code-block .tag { color: var(--cyan); }
+.code-block .text { color: #e6edf3; }
+
 #sidebar {
   position: fixed;
   top: 0; left: 0; bottom: 52px;
@@ -479,7 +454,6 @@ html, body {
   scrollbar-color: rgba(0,202,239,0.3) transparent;
 }
 #slide-list::-webkit-scrollbar { width: 4px; }
-#slide-list::-webkit-scrollbar-track { background: transparent; }
 #slide-list::-webkit-scrollbar-thumb { background: rgba(0,202,239,0.3); border-radius: 2px; }
 
 .nav-item {
@@ -490,13 +464,9 @@ html, body {
   cursor: pointer;
   border-left: 3px solid transparent;
   transition: background .15s, border-color .15s;
-  text-decoration: none;
 }
 .nav-item:hover { background: rgba(0,202,239,0.08); }
-.nav-item.active {
-  background: rgba(0,202,239,0.13);
-  border-left-color: var(--cyan);
-}
+.nav-item.active { background: rgba(0,202,239,0.13); border-left-color: var(--cyan); }
 .nav-item .n-num {
   flex-shrink: 0;
   font-size: 10px;
@@ -507,11 +477,7 @@ html, body {
   font-family: Consolas, monospace;
 }
 .nav-item.active .n-num { color: var(--cyan); }
-.nav-item .n-title {
-  font-size: 12px;
-  color: rgba(255,255,255,0.65);
-  line-height: 1.4;
-}
+.nav-item .n-title { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.4; }
 .nav-item.active .n-title { color: white; font-weight: 600; }
 .nav-item .n-tag {
   flex-shrink: 0;
@@ -523,8 +489,10 @@ html, body {
   border-radius: 3px;
   margin-top: 1px;
 }
-.n-tag.section  { background: rgba(0,202,239,0.15); color: var(--cyan); }
-.n-tag.exercise { background: rgba(245,158,11,0.2);  color: #F59E0B; }
+.n-tag.section { background: rgba(0,202,239,0.15); color: var(--cyan); }
+.n-tag.exercise { background: rgba(245,158,11,0.2); color: #F59E0B; }
+.n-tag.activity { background: rgba(143,149,233,0.2); color: #8F95E9; }
+.n-tag.break { background: rgba(143,133,163,0.2); color: var(--muted); }
 
 .nav-group {
   padding: 10px 16px 4px;
@@ -544,7 +512,6 @@ html, body {
 }
 #sidebar.open ~ #sidebar-overlay { display: block; }
 
-/* BOTTOM BAR */
 #nav-bar {
   position: fixed;
   bottom: 0; left: 0; right: 0;
@@ -569,20 +536,14 @@ html, body {
   cursor: pointer;
   transition: background .2s, border-color .2s;
 }
-.nav-btn:hover  { background: rgba(0,202,239,0.28); border-color: var(--cyan); }
+.nav-btn:hover { background: rgba(0,202,239,0.28); border-color: var(--cyan); }
 .nav-btn:disabled { opacity: .3; cursor: default; }
-#slide-counter {
-  color: rgba(255,255,255,0.7);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
+#slide-counter { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+#notes-hint { color: rgba(255,255,255,0.4); font-size: 12px; }
 
-/* SPEAKER NOTES PANEL */
 #notes-panel {
   position: fixed;
-  bottom: 52px;
-  left: 0; right: 0;
+  bottom: 52px; left: 0; right: 0;
   background: rgba(10,10,30,0.97);
   border-top: 2px solid var(--cyan);
   padding: 20px 36px 24px;
@@ -596,17 +557,10 @@ html, body {
   transition: transform .3s ease;
 }
 #notes-panel.visible { transform: translateY(0); }
-#notes-panel h4 {
-  color: var(--cyan);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
+#notes-panel h4 { color: var(--cyan); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
 
 .speaker-notes { display: none; }
 
-/* REFERENCES PANEL */
 #refs-panel {
   position: fixed;
   bottom: 52px; left: 0; right: 0;
@@ -621,751 +575,785 @@ html, body {
   backdrop-filter: blur(8px);
 }
 #refs-panel.visible { transform: translateY(0); }
-#refs-panel h4 {
-  color: #80E3F7;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
+#refs-panel h4 { color: #80E3F7; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
 #refs-panel ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
-#refs-panel ul li {
-  font-size: 13px;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.5;
-  display: flex; align-items: flex-start; gap: 8px;
-}
-#refs-panel ul li::before { content:'›'; color:var(--blue); font-weight:700; flex-shrink:0; margin-top:1px; }
-#refs-panel a { color: #80E3F7; text-decoration:none; border-bottom:1px solid rgba(128,227,247,0.3); transition:color .15s,border-color .15s; }
+#refs-panel ul li { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; display: flex; align-items: flex-start; gap: 8px; }
+#refs-panel ul li::before { content:'\203A'; color:var(--blue); font-weight:700; flex-shrink:0; margin-top:1px; }
+#refs-panel a { color: #80E3F7; text-decoration:none; border-bottom:1px solid rgba(128,227,247,0.3); }
 #refs-panel a:hover { color:white; border-bottom-color:white; }
 #refs-panel .no-refs { color:rgba(255,255,255,0.35); font-style:italic; font-size:13px; }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .four-col  { grid-template-columns: repeat(2, 1fr); }
-  .framework-grid { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .three-col, .craft-grid { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr; }
 }
-@media (max-width: 800px) {
-  .three-col, .two-col { grid-template-columns: 1fr; }
-  .four-col  { grid-template-columns: 1fr; }
+@media (max-width: 720px) {
+  #nav-bar { padding: 0 10px; gap: 8px; }
+  .nav-btn { padding: 7px 10px; font-size: 12px; }
+  #notes-hint { display: none; }
+  #btn-refs, #btn-notes { padding: 7px 9px !important; font-size: 0; }
+  #btn-refs::after { content: '\1F4DA'; font-size: 15px; }
+  #btn-notes::after { content: '\1F5D2'; font-size: 15px; }
+  .slide-content .slide-inner, .slide-exercise .slide-inner { padding-left: 28px; padding-right: 28px; }
+  .slide-dark .slide-inner, .slide-section .slide-inner { padding-left: 36px; padding-right: 36px; }
+  .data-table { font-size: 11px; }
+  .data-table th, .data-table td { padding: 8px 10px; }
 }
-
-.uoa-badge {
-  position: absolute;
-  top: 18px; right: 24px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-}
-.slide-content .uoa-badge { color: rgba(14,40,65,0.3); }
 </style>
 </head>
 <body>
-
 <div id="deck">
 
-<!-- ════════════════════════════════════════════
-     SLIDE 1 — TITLE
-════════════════════════════════════════════ -->
-<div class="slide slide-dark active" id="s1" data-screen-label="01 Title">
-  <div class="slide-inner" style="justify-content:center;gap:0;">
-    <div class="uoa-badge">MKTG 304 &middot; University of Auckland</div>
-    <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;">MKTG 304 | University of Auckland</div>
-    <h1 class="slide-title" style="font-size:clamp(28px,3.8vw,52px);max-width:820px;">Google Advertising</h1>
-    <div class="slide-subtitle" style="margin-top:20px;">Week 7 &nbsp;&middot;&nbsp; Tutorial &nbsp;&middot;&nbsp; 90 minutes</div>
-    <div style="margin-top:36px;font-size:clamp(11px,1.1vw,13px);color:rgba(255,255,255,0.32);padding:10px 22px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;display:inline-block;">&#8592; &#8594; navigate &nbsp;&middot;&nbsp; S = speaker notes &nbsp;&middot;&nbsp; R = references &nbsp;&middot;&nbsp; N = slide list</div>
-  </div>
-  <div class="speaker-notes">Welcome to Week 7. Today's tutorial covers Google Advertising, with hands-on exercises across the Google Display Network and Search PPC. Students will work through real campaign scenarios for Hnry across three markets — UK, Australia, and New Zealand — including targeting, bidding, budget planning, and ad mockups.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 1 - TITLE
+════════════════════════════════════════════════ -->
+<div class="slide slide-dark active" id="s1">
+<div class="slide-inner" style="justify-content:center;gap:0;">
+<div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;">MKTG 304 | University of Auckland</div>
+<h1 class="slide-title" style="font-size:clamp(28px,3.8vw,52px);max-width:820px;">Google Advertising</h1>
+<div class="slide-subtitle" style="margin-top:20px;">Week 7 &nbsp;·&nbsp; Tutorial &nbsp;·&nbsp; 90 minutes</div>
+<div style="margin-top:48px;display:flex;gap:20px;flex-wrap:wrap;">
+<div style="padding:14px 22px;border:1.5px solid rgba(0,202,239,0.35);border-radius:8px;color:rgba(255,255,255,0.7);font-size:14px;">Part 1: Google Display Network</div>
+<div style="padding:14px 22px;border:1.5px solid rgba(0,202,239,0.35);border-radius:8px;color:rgba(255,255,255,0.7);font-size:14px;">Part 2: Google Search</div>
+</div>
+</div>
+<div class="speaker-notes">Welcome to Week 7. Today's tutorial covers Google Advertising, with hands-on exercises across the Google Display Network and Search PPC. Every scenario is built around Music Planet, our client for the semester, and its three customer segments: gigging musicians and producers, aspiring learners, and parents buying a first instrument for their child. The session runs in two halves. Part 1 is the Display Network: reach, targeting, bidding, and campaign design for visual advertising. Part 2 is Google Search: PPC, SEO, bidding strategies, and Responsive Search Ads. Throughout, tie the concepts back to the Music Planet brief and to Assignment 3. The client is explicitly ROI-focused, so keep pushing students to justify every recommendation against a measurable outcome.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 3 — A3 REVIEW
-════════════════════════════════════════════ -->
-<div class="slide slide-dark" id="s2" data-screen-label="02 A3 Review">
-  <div class="slide-inner">
-    <div class="uoa-badge">MKTG 304 &middot; Week 7</div>
-    <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;">Assignment 3</div>
-    <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,36px);margin-bottom:14px;">A3 review</h2>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;">
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,202,239,0.25);border-radius:8px;padding:12px 14px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;">Groups</div>
-        <div style="font-size:clamp(12px,1.3vw,15px);color:rgba(255,255,255,0.85);line-height:1.5;">Teams of 5 — self-select on Canvas</div>
-      </div>
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,202,239,0.25);border-radius:8px;padding:12px 14px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;">Campaign</div>
-        <div style="font-size:clamp(12px,1.3vw,15px);color:rgba(255,255,255,0.85);line-height:1.5;">30-day digital marketing campaign for Hnry</div>
-      </div>
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,202,239,0.25);border-radius:8px;padding:12px 14px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;">Production budget</div>
-        <div style="font-size:clamp(12px,1.3vw,15px);color:rgba(255,255,255,0.85);line-height:1.5;">$10,000 NZD</div>
-      </div>
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(0,202,239,0.25);border-radius:8px;padding:12px 14px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;">Ad spend</div>
-        <div style="font-size:clamp(12px,1.3vw,15px);color:rgba(255,255,255,0.85);line-height:1.5;">$30,000 NZD across chosen channels</div>
-      </div>
-    </div>
-    <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.45);margin-bottom:12px;">Full brief available on Canvas.</div>
-    <div style="background:rgba(0,202,239,0.08);border:1.5px solid rgba(0,202,239,0.35);border-radius:8px;padding:14px 20px;font-size:clamp(12px,1.25vw,14px);color:rgba(255,255,255,0.85);line-height:1.6;">Hnry&rsquo;s Objective #1 excludes search channels, but Display, Demand Gen, and YouTube are valid. Understanding Google Ads is essential context for your proposal.</div>
-  </div>
-  <div class="speaker-notes">Quick reminder on Assignment 3. Groups of five, self-select through Canvas. You are designing a 30-day digital marketing campaign for Hnry with a $10k production budget and $30k in ad spend across your chosen channels. Full brief is on Canvas. Today's session gives you hands-on experience with Google Ads concepts you will need for the proposal. One important detail: Hnry's Objective #1 brief excludes search channels specifically, but other Google Ads products like Display, Demand Gen, and YouTube are absolutely valid for your proposals.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 2 - CLASS PARTICIPATION (ENGAGEMENT ASSIGNMENT)
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s2">
+<div class="slide-inner">
+<h2 class="slide-title">Assignment 1: Class Participation (updated)</h2>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
+<div style="background:white;border-radius:8px;padding:8px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);font-size:clamp(11px,1.2vw,13px);color:var(--navy);"><strong>Weeks 2 to 10</strong></div>
+<div style="background:white;border-radius:8px;padding:8px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);font-size:clamp(11px,1.2vw,13px);color:var(--navy);"><strong>25 points</strong></div>
+<div style="background:white;border-radius:8px;padding:8px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);font-size:clamp(11px,1.2vw,13px);color:var(--navy);">Graded against <strong>your own stream</strong></div>
+<div style="background:white;border-radius:8px;padding:8px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);font-size:clamp(11px,1.2vw,13px);color:var(--navy);">No fixed threshold</div>
+</div>
+<div class="two-col" style="flex:1;gap:22px;margin-top:0;">
+<div>
+<div class="panel-title" style="color:var(--navy);margin-bottom:6px;">Earn chips for the quality of your contributions</div>
+<table class="data-table" style="margin-top:6px;">
+<thead>
+<tr><th style="width:20%;">Chip</th><th style="width:22%;">Points</th><th>Roughly reflects</th></tr>
+</thead>
+<tbody>
+<tr><td>$5</td><td>5</td><td>A solid, relevant contribution</td></tr>
+<tr><td>$10</td><td>10</td><td>A thoughtful, well-developed point</td></tr>
+<tr><td>$25</td><td>25</td><td>A strong question that shifts the discussion</td></tr>
+<tr><td>$50</td><td>50</td><td>A particularly insightful contribution</td></tr>
+</tbody>
+</table>
+<div style="margin-top:10px;font-size:clamp(11px,1.15vw,13px);color:var(--muted);line-height:1.5;">Hand chips in at the end of each session. Totals run on a live leaderboard for your stream. Higher-value chips open up as discussion deepens later in the semester.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="panel-title" style="color:var(--blue);margin-bottom:0;">How your mark works</div>
+<div class="callout" style="margin:0;font-size:clamp(12px,1.25vw,14px);">
+Your total is compared to a benchmark: the <strong>average of the top 15 students in your own stream</strong>, not the single highest scorer. Your points convert to a mark out of 25 in proportion. <em>Example: top-15 average 160, you finish on 80, so 12.5 out of 25.</em>
+</div>
+<div style="display:flex;gap:10px;">
+<div style="flex:1;background:#EFF6FF;border-radius:8px;padding:10px 12px;border-top:3px solid var(--navy);">
+<div style="font-weight:700;color:var(--navy);font-size:clamp(12px,1.2vw,14px);">Floor</div>
+<div style="font-size:clamp(11px,1.1vw,12.5px);color:#1E3A5F;line-height:1.45;">One chip or more guarantees at least 7.5 / 25.</div>
+</div>
+<div style="flex:1;background:#E6F4EA;border-radius:8px;padding:10px 12px;border-top:3px solid #16A34A;">
+<div style="font-weight:700;color:#14532D;font-size:clamp(12px,1.2vw,14px);">Cap</div>
+<div style="font-size:clamp(11px,1.1vw,12.5px);color:#14532D;line-height:1.45;">No mark goes above 25, even past the benchmark.</div>
+</div>
+<div style="flex:1;background:#FDECEA;border-radius:8px;padding:10px 12px;border-top:3px solid #DC2626;">
+<div style="font-weight:700;color:#7F1D1D;font-size:clamp(12px,1.2vw,14px);">Zero</div>
+<div style="font-size:clamp(11px,1.1vw,12.5px);color:#7F1D1D;line-height:1.45;">Only if you earn no chips all semester.</div>
+</div>
+</div>
+<div style="background:#FFF7ED;border-left:4px solid var(--amber);border-radius:0 8px 8px 0;padding:10px 14px;font-size:clamp(11px,1.15vw,13px);color:#78350F;line-height:1.5;">
+You must be present to earn chips. If you have a legitimate reason for absence, contact the course coordinator as soon as you can.
+</div>
+</div>
+</div>
+</div>
+<div class="speaker-notes">This is the updated class participation assessment, part of the Assignment 1 Professional Development grade and worth 25 points. Walk through it quickly but clearly, because the change to how it is graded matters to students.
+
+The mechanics: participation is assessed across tutorials in Weeks 2 to 10. Each week I award chips for the quality of contributions, both sharp questions and strong answers, in four denominations. A $5 chip is a solid, relevant contribution; $10 a thoughtful, well-developed point; $25 a strong question that shifts the discussion; $50 a particularly insightful contribution. Students hand chips in at the end of each session and totals go on a running leaderboard for their stream. Higher-value chips become more available in the second half of the semester as discussions deepen, so sustained engagement is rewarded.
+
+The grading is the key update. A student's cumulative total is compared to a benchmark, and the benchmark is now the average total of the top 15 students in their own stream, Monday or Tuesday, rather than the single highest scorer. Points convert to a mark out of 25 in proportion: if the top-15 average is 160 and a student finishes on 80, that is 12.5 out of 25. Three rules bound the outcome. The floor: earning at least one chip guarantees a minimum of 7.5 out of 25, which is 30 percent. The cap: no mark exceeds 25, even if a total sits above the benchmark. The zero: a zero applies only to a student who earns no chips at all across the whole semester. The reason for moving to a top-15 average is fairness, since one standout no longer sets the bar for everyone. Reassure students there is no fixed threshold to chase; every chip counts and consistent engagement is what pays off. Finally, attendance: chips can only be earned in person, and anyone with a legitimate reason for missing a tutorial should contact me as soon as possible.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 4 — LEARNING OUTCOMES
-════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s3" data-screen-label="03 Learning Outcomes">
-  <div class="slide-inner">
-    <div class="uoa-badge">MKTG 304 &middot; Week 7</div>
-    <h2 class="slide-title">By the end of this session you should be able to:</h2>
-    <div class="slide-body">
-      <ul class="rule-list">
-        <li data-n="1"><div><strong>Distinguish</strong> between Search PPC, GDN, and AI-driven campaign types — and explain when each is appropriate</div></li>
-        <li data-n="2"><div><strong>Select</strong> targeting, bidding, and budget settings for a real client scenario across different markets and objectives</div></li>
-        <li data-n="3"><div><strong>Analyse</strong> campaign outcomes using impressions, clicks, conversions, and ROAS — including the SaaS twist on CLV</div></li>
-        <li data-n="4"><div><strong>Create</strong> ad mockups aligned to Hnry's objectives — for both GDN display and Responsive Search Ads</div></li>
-      </ul>
-    </div>
-  </div>
-  <div class="speaker-notes">Four outcomes for today. First, understanding the difference between the main Google Ads campaign types. Second, actually making those targeting and bidding decisions for Hnry rather than in the abstract. Third, working through the maths on campaign performance. And fourth, building mockups that reflect real campaign objectives and audiences.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 3 - A3 REVIEW
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s3">
+<div class="slide-inner">
+<h2 class="slide-title">Assignment 3: Campaign Proposal</h2>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+<div style="background:white;border-radius:8px;padding:9px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.06);font-size:clamp(12px,1.25vw,14px);color:var(--navy);"><strong>Teams of five</strong> &middot; self-select on Canvas</div>
+<div style="background:white;border-radius:8px;padding:9px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.06);font-size:clamp(12px,1.25vw,14px);color:var(--navy);"><strong>30-day</strong> campaign</div>
+<div style="background:white;border-radius:8px;padding:9px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.06);font-size:clamp(12px,1.25vw,14px);color:var(--navy);"><strong>$10,000 NZD</strong> total &middot; you set the split</div>
+</div>
+<div class="two-col" style="flex:0;gap:22px;margin-top:0;">
+<div class="panel" style="border-top:4px solid var(--navy);">
+<div class="panel-title" style="color:var(--navy);">Three goals &middot; choose your focus</div>
+<ul class="rule-list" style="gap:10px;margin-top:4px;">
+<li data-n="1" style="font-size:clamp(13px,1.4vw,16px);">Increase brand awareness</li>
+<li data-n="2" style="font-size:clamp(13px,1.4vw,16px);">Increase engagement</li>
+<li data-n="3" style="font-size:clamp(13px,1.4vw,16px);">Drive online sales</li>
+</ul>
+<div style="margin-top:12px;font-size:clamp(11px,1.15vw,13px);color:var(--muted);line-height:1.5;">Music Planet's stated priority order. You decide which to build the campaign around.</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--cyan);">
+<div class="panel-title" style="color:var(--blue);">Three personas &middot; choose who you serve</div>
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:6px;font-size:clamp(13px,1.4vw,16px);color:#1a1a2e;line-height:1.4;">
+<div style="border-left:3px solid var(--navy);padding-left:12px;">Gigging musicians &amp; producers</div>
+<div style="border-left:3px solid var(--blue);padding-left:12px;">Aspiring learners</div>
+<div style="border-left:3px solid var(--cyan);padding-left:12px;">Supporting parents</div>
+</div>
+<div style="margin-top:12px;font-size:clamp(11px,1.15vw,13px);color:var(--muted);line-height:1.5;">One persona, or a considered combination. Each one changes the whole campaign.</div>
+</div>
+</div>
+<div class="tension-box" style="margin-top:20px;">
+<strong>This is the real tension:</strong> which goal, which objectives, which persona or personas. Every combination opens a genuinely different campaign, and there is no single right answer. That open field is the opportunity, and defending your choices is the assignment.
+</div>
+<div style="margin-top:8px;color:var(--muted);font-size:clamp(12px,1.25vw,14px);">Full brief available on Canvas.</div>
+</div>
+<div class="speaker-notes">Quick reminder on Assignment 3. Groups of five, self-select through Canvas. You are designing a 30-day digital marketing campaign for Music Planet with a single total budget of $10,000 NZD. Unlike a fixed production-plus-media split, your team decides the allocation, and that allocation is itself a strategic choice you will need to defend.
+
+The real tension to draw out is not a contradiction in the brief, it is the openness of it. Music Planet has handed us three goals (brand awareness, engagement, online sales) and three personas (gigging musicians and producers, aspiring learners, supporting parents), and teams get to choose. Any one goal is a legitimate starting point. Any one persona, or a considered combination, is legitimate too. That is the point I want them to feel: the field is wide open, and the number of viable campaigns is enormous. A campaign built to drive online sales among gigging producers looks nothing like one built to raise awareness among parents; different channels, different creative, different measures of success.
+
+So the assignment is not "find the answer they want." It is: make a choice, and defend it. Which goal, which objectives that ladder up to it, which persona or personas, and why that combination is the best use of $10,000 over 30 days. Weak proposals try to serve all three goals and all three personas at once and end up generic, which is exactly the failure the client warned about. Strong proposals commit to a focus and justify the trade-off. The ROI reality from the brief (they have found unfocused awareness spending wasteful) is a constraint they weigh when choosing, not the headline tension itself. Flag that today's exercises let them rehearse the mechanics behind whichever path they pick.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 5 — SECTION DIVIDER: GDN
-════════════════════════════════════════════ -->
-<div class="slide slide-section" id="s4" data-screen-label="04 GDN Section">
-  <div class="slide-inner">
-    <div class="section-label">Section 1 &mdash; Google Display Network</div>
-    <h2 class="slide-title">Google Display Network</h2>
-    <div class="slide-body" style="max-width:640px;">
-      Reach, targeting, bidding, and campaign design for visual advertising across the web.
-    </div>
-  </div>
-  <div class="speaker-notes">We will start with the Display Network, then move to Search PPC in the second half. The GDN is often underestimated as a channel — students tend to think of it as banner ads. The reality is it is a sophisticated, AI-powered system for reaching audiences across millions of placements. Let's start with the fundamentals.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 4 - LEARNING OUTCOMES
+════════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s4">
+<div class="slide-inner" style="justify-content:center;gap:24px;">
+<h2 class="slide-title" style="margin-bottom:0;">Learning Outcomes</h2>
+<div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);">By the end of this session you should be able to</div>
+<div style="display:flex;flex-direction:column;gap:18px;max-width:820px;">
+<div style="display:flex;gap:18px;align-items:flex-start;">
+<div style="flex-shrink:0;width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:15px;">1</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(14px,1.55vw,18px);line-height:1.5;"><strong style="color:var(--cyan);">Distinguish</strong> between Search PPC, the GDN, and AI-driven campaign types, and explain when each is appropriate</div>
+</div>
+<div style="display:flex;gap:18px;align-items:flex-start;">
+<div style="flex-shrink:0;width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:15px;">2</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(14px,1.55vw,18px);line-height:1.5;"><strong style="color:var(--cyan);">Select</strong> targeting, bidding, and budget settings for Music Planet's segments and goals</div>
+</div>
+<div style="display:flex;gap:18px;align-items:flex-start;">
+<div style="flex-shrink:0;width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:15px;">3</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(14px,1.55vw,18px);line-height:1.5;"><strong style="color:var(--cyan);">Analyse</strong> campaign outcomes using impressions, clicks, conversions, and ROAS, including the retail twist of margin and repeat-purchase value</div>
+</div>
+<div style="display:flex;gap:18px;align-items:flex-start;">
+<div style="flex-shrink:0;width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:15px;">4</div>
+<div style="color:rgba(255,255,255,0.9);font-size:clamp(14px,1.55vw,18px);line-height:1.5;"><strong style="color:var(--cyan);">Create</strong> ad mockups aligned to Music Planet's segments, for both GDN display and Responsive Search Ads</div>
+</div>
+</div>
+</div>
+<div class="speaker-notes">Four outcomes for today. First, understanding the difference between the main Google Ads campaign types and when each fits. Second, actually making targeting and bidding decisions for Music Planet's real segments rather than in the abstract. Third, working through the maths on campaign performance, and importantly the retail-specific layers that a simple ROAS number hides: gross margin and the value of a customer who comes back for consumables. Fourth, building mockups that reflect real segments and brand voice. Outcome three is where the reworking from a subscription business to a retailer really bites, so we spend proper time on it in Practice 2b.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 6 — WHAT IS THE GDN?
-════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s5" data-screen-label="05 What is the GDN">
-  <div class="slide-inner">
-    <div class="uoa-badge">Google Display Network</div>
-    <h2 class="slide-title">The Google Display Network</h2>
-    <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:16px;">
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">What it is</div>
-          <ul class="check-list">
-            <li><div class="check-icon"></div><div class="check-main">Millions of websites, apps, and video platforms</div></li>
-            <li><div class="check-icon"></div><div class="check-main">Reaches <strong>90%+ of internet users</strong> globally</div></li>
-            <li><div class="check-icon"></div><div class="check-main">Ads appear while users browse — <strong>not</strong> while they search</div></li>
-            <li><div class="check-icon"></div><div class="check-main">Formats: image, responsive display, video, rich media</div></li>
-          </ul>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">Demand Gen — the extended reach</div>
-          <div style="background:white;border-radius:10px;padding:16px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--blue);">
-            <div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.6;">Demand Gen campaigns extend display-style ads across <strong>YouTube, Discover, and Gmail</strong>. Part of Google's "Power Pack" of AI-driven campaign types alongside Performance Max and AI Max.</div>
-          </div>
-        </div>
-      </div>
-      <div class="callout">
-        <strong>Key distinction from Search:</strong> Display is passive — your ad appears while someone reads an article or uses an app, not because they searched for your product. This makes it powerful for <strong>brand awareness</strong> and <strong>remarketing</strong>.
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">The GDN is Google's network for placing visual ads across the web. The key distinction from search is that display is passive — your ad appears while someone reads an article or uses an app, not because they searched for your product. This makes it powerful for brand awareness and remarketing. The formats are visual: banner images, responsive ads that adapt to different placements, video, and interactive rich media. One development worth knowing is Demand Gen, which is Google's newer campaign type that pushes display-style creative across YouTube, Discover feeds, and Gmail. It sits alongside Performance Max and AI Max in what Google calls the "Power Pack." Think of Demand Gen as GDN's reach extended into Google's owned surfaces.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 5 - SECTION 1: GDN
+════════════════════════════════════════════════ -->
+<div class="slide slide-section" id="s5">
+<div class="slide-inner">
+<div class="section-label">Section 1 &middot; Google Display Network</div>
+<h2 class="slide-title">Google Display Network</h2>
+<div class="slide-body" style="max-width:720px;">
+Reach, targeting, bidding, and campaign design for visual advertising across the web.
+</div>
+</div>
+<div class="speaker-notes">We start with the Display Network, then move to Search PPC in the second half. The GDN is often underestimated as a channel: students tend to think of it as banner ads. The reality is a sophisticated, AI-powered system for reaching audiences across millions of placements. For Music Planet this is the channel most relevant to their awareness goal, which is exactly why the awareness tension surfaces here first. Start with the fundamentals.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 7 — GDN BIDDING: CPC VS CPM
-════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s6" data-screen-label="06 CPC vs CPM">
-  <div class="slide-inner">
-    <div class="uoa-badge">Google Display Network</div>
-    <h2 class="slide-title">GDN bidding: CPC vs CPM</h2>
-    <div class="slide-body">
-      <table class="tier-table" style="margin-bottom:16px;">
-        <thead>
-          <tr>
-            <th></th>
-            <th>CPC — Cost Per Click</th>
-            <th>CPM — Cost Per Mille</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>You pay for</strong></td>
-            <td>Each click</td>
-            <td>Every 1,000 impressions</td>
-          </tr>
-          <tr>
-            <td><strong>Best for</strong></td>
-            <td>Conversions and traffic</td>
-            <td>Brand awareness and reach</td>
-          </tr>
-          <tr>
-            <td><strong>Control</strong></td>
-            <td>Performance-focused</td>
-            <td>Visibility-focused</td>
-          </tr>
-          <tr>
-            <td><strong>Hnry scenario</strong></td>
-            <td>Australia: drive sign-ups in a market with existing awareness</td>
-            <td>UK: build recognition where brand awareness is near zero</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="callout">
-        <strong>Match your bidding strategy to your campaign objective.</strong> The choice flows directly from what you are trying to achieve — not from what is cheapest.
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">Two main bidding options on the GDN. CPC means you only pay when someone clicks — ideal when you want measurable actions like sign-ups or purchases. CPM means you pay per thousand impressions regardless of clicks — ideal when the goal is getting your brand in front of as many relevant people as possible. The choice flows directly from your objective. If Hnry wants awareness in the UK where nobody knows them, CPM makes sense. If they want sign-ups in Australia where they already have traction, CPC is the better fit. We will work through both scenarios in the exercises.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 6 - WHAT IS THE GDN
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s6">
+<div class="slide-inner">
+<h2 class="slide-title">The Google Display Network</h2>
+<div class="two-col" style="flex:1;">
+<div class="panel" style="border-top:4px solid var(--navy);">
+<div class="panel-title" style="color:var(--navy);">What it is</div>
+<div class="panel-body">
+<ul style="margin:0;padding-left:18px;line-height:1.9;">
+<li>Millions of websites, apps, and video platforms</li>
+<li>Reaches <strong>90%+ of internet users</strong> globally</li>
+<li>Ads appear while people browse, <strong>not</strong> while they search</li>
+<li>Formats: image, responsive display, video, rich media</li>
+</ul>
+</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--cyan);">
+<div class="panel-title" style="color:var(--blue);">Demand Gen: the extended reach</div>
+<div class="panel-body">
+Demand Gen campaigns extend display-style ads across <strong>YouTube, Discover, and Gmail</strong>. Part of Google's "Power Pack" of AI-driven campaign types alongside Performance Max and AI Max.
+</div>
+</div>
+</div>
+<div class="callout" style="margin-top:16px;">
+<strong>Key distinction from Search:</strong> Display is passive. Your ad appears while someone reads an article or uses an app, not because they searched for your product. That makes it powerful for <strong>brand awareness</strong> and <strong>remarketing</strong>, which is precisely the ground Music Planet's awareness goal lives on.
+</div>
+</div>
+<div class="speaker-notes">The GDN is Google's network for placing visual ads across the web. The key distinction from search is that display is passive: your ad appears while someone reads an article or uses an app, not because they searched for your product. This makes it powerful for brand awareness and remarketing. The formats are visual: banner images, responsive ads that adapt to different placements, video, and interactive rich media. One development worth knowing is Demand Gen, Google's newer campaign type that pushes display-style creative across YouTube, Discover feeds, and Gmail. It sits alongside Performance Max and AI Max in what Google calls the Power Pack. Think of Demand Gen as the GDN's reach extended into Google's owned surfaces. For Music Planet, the passive nature of display is a double-edged sword: it is the natural home for awareness, but it is also exactly the kind of top-of-funnel activity the client says has burned budget before, so hold that thought for Practice 1.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 8 — GDN TARGETING OPTIONS
-════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s7" data-screen-label="07 GDN Targeting">
-  <div class="slide-inner">
-    <div class="uoa-badge">Google Display Network</div>
-    <h2 class="slide-title">GDN targeting options</h2>
-    <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">Audience targeting</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--cyan);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Demographics</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Age, gender, income, parental status</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--blue);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Affinity</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Long-term interests and passions</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--navy);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">In-market</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Actively researching or ready to buy</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--purple);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Custom segments</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Keywords, URLs, apps you define</div>
-            </div>
-
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">Contextual targeting</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--cyan);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Topics</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Pages about specific subjects</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--blue);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Keywords</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Pages containing specific terms</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--navy);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Placements</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Specific websites you choose</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">Advanced</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--blue);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Optimised targeting</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Google AI expands reach using your conversion signals. Replaced Similar Audiences (removed 2023).</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--muted);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Exclusions</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Prevent irrelevant placements</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--navy);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Combined targeting</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Layer methods for precision</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">Targeting on the GDN falls into two broad categories: audience-based and contextual. Audience targeting is about who you want to reach. Demographics are straightforward. Affinity audiences capture long-term interests — someone who is passionate about small business, for example. In-market audiences are people actively researching a purchase or solution right now. Custom segments let you define your own audience using keywords people have searched, URLs they have visited, or apps they use. And remarketing lets you re-engage people who have already been to your site. Contextual targeting is about where you want your ad to appear — on pages about certain topics, containing certain keywords, or on specific websites you choose. Under advanced options, optimised targeting is important to understand. This is Google's AI-driven expansion tool. You give it your conversion data and first-party audiences as signals, and it finds additional users likely to convert, even outside your manually selected segments. This replaced Similar Audiences, which Google removed entirely in 2023. The shift reflects Google's broader move toward AI-driven targeting powered by first-party data rather than third-party cookie-based lookalikes.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 7 - GDN BIDDING CPC VS CPM
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s7">
+<div class="slide-inner">
+<h2 class="slide-title">GDN bidding: CPC vs CPM</h2>
+<table class="data-table">
+<thead>
+<tr><th style="width:22%;"></th><th>CPC: Cost Per Click</th><th>CPM: Cost Per Mille</th></tr>
+</thead>
+<tbody>
+<tr><td>You pay for</td><td>Each click</td><td>Every 1,000 impressions</td></tr>
+<tr><td>Best for</td><td>Conversions and traffic</td><td>Brand awareness and reach</td></tr>
+<tr><td>Control</td><td>Performance-focused</td><td>Visibility-focused</td></tr>
+<tr><td>Music Planet scenario</td><td>Drive online sales from high-intent shoppers already researching gear</td><td>Build recognition among younger players and bedroom producers who default to global sites</td></tr>
+</tbody>
+</table>
+<div class="callout" style="margin-top:16px;">
+<strong>Match your bidding strategy to your campaign goal.</strong> The choice flows from what you are trying to achieve, not from what is cheapest. For Music Planet the CPM path serves goal number one (awareness), but given their ROI focus, only propose it if you can tie that reach to a measurable next step.
+</div>
+<div style="margin-top:14px;font-size:clamp(11px,1.15vw,13px);color:var(--muted);line-height:1.5;">
+CPC and CPM are two of several bidding options. The principle, matching how you pay to your goal, is what matters here. <a href="https://support.google.com/google-ads/answer/2454058" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(31,43,211,0.35);">See Google's full list of Display bidding strategies</a>.
+</div>
+</div>
+<div class="speaker-notes">Two main bidding options on the GDN. CPC means you only pay when someone clicks, which is ideal when you want measurable actions like online sales. CPM means you pay per thousand impressions regardless of clicks, ideal when the goal is getting your brand in front of as many relevant people as possible. The choice flows from your goal. For Music Planet, CPM maps to the awareness goal: reaching younger players and bedroom producers who currently default to global sites and do not know Music Planet has showrooms here. CPC maps to the online-sales goal: capturing people already researching a purchase. The teaching hook is the client's ROI stance. A pure CPM impressions campaign is exactly what they said wasted money, so if a team proposes CPM they must pair it with remarketing audiences and view-through measurement so the reach is not a dead end. We work that through next.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 9 — PRACTICE #1: GDN AWARENESS UK
-════════════════════════════════════════════ -->
-<div class="slide slide-exercise" id="s8" data-screen-label="08 Practice 1 GDN UK">
-  <div class="slide-inner">
-    <div class="exercise-badge">Practice #1 &mdash; GDN brand awareness</div>
-    <h2 class="slide-title">GDN brand awareness for Hnry UK</h2>
-    <div class="slide-body">
-      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 18px;margin-bottom:16px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(13px,1.35vw,15px);">Scenario</div>
-        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">Hnry has launched in the UK: <strong>1% brand awareness</strong>, 4 million self-employed workers. Test budget: <strong>£500 GBP (~$1,000 NZD)</strong>. Goal: build recognition among creative freelancers and independent contractors.</div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(12px,1.25vw,14px);">Your questions</div>
-          <ol style="padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.75;">
-            <li>Which targeting options best reach UK sole traders for an <em>awareness</em> goal?</li>
-            <li>What bidding strategy — and why?</li>
-            <li>Estimate impressions for the budget (research a realistic UK CPM)</li>
-            <li>What KPIs measure awareness success when conversions are not the goal?</li>
-          </ol>
-        </div>
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(12px,1.25vw,14px);">Hint</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">Research typical CPM ranges for financial services display advertising in the UK market to estimate impressions from the budget.</div>
-        </div>
-      </div>
-      <div class="debrief" style="margin-top:14px;">Cold-start awareness scenario. Hnry has virtually no brand recognition in the UK — targeting and bidding logic is fundamentally different from a market with existing traction.</div>
-    </div>
-  </div>
-  <div class="speaker-notes">This is a cold-start awareness scenario. Hnry has virtually no brand recognition in the UK, so the challenge is fundamentally different from selling to people who already know you. Walk students through the targeting thinking: affinity audiences around freelancing, self-employment, and small business ownership would capture long-term interest. In-market audiences for accounting software or tax services would reach people actively looking. Custom segments built from keywords like "freelancer tax UK" or "sole trader accountant" and URLs of competitor sites like FreeAgent or Crunch would be highly relevant. For bidding, CPM makes sense here because the goal is visibility, not clicks. Have them research average CPMs for UK financial services display — typically £3 to £7. At £5 CPM, £500 buys roughly 100,000 impressions. Success metrics for awareness include impressions, reach, frequency, and view-through conversions rather than direct click-based conversions.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 8 - GDN TARGETING OPTIONS
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s8">
+<div class="slide-inner">
+<h2 class="slide-title">GDN targeting options</h2>
+<div class="two-col" style="flex:1;gap:22px;align-items:stretch;">
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="panel" style="border-top:4px solid var(--navy);padding:14px 18px;">
+<div class="panel-title" style="color:var(--navy);margin-bottom:8px;">Audience targeting (who)</div>
+<div class="panel-body" style="font-size:clamp(12px,1.25vw,14px);line-height:1.55;">
+<strong>Demographics:</strong> age, gender, income, parental status<br/>
+<strong>Affinity:</strong> long-term interests and passions<br/>
+<strong>In-market:</strong> actively researching or ready to buy<br/>
+<strong>Custom segments:</strong> keywords, URLs, apps you define<br/>
+<strong>Remarketing:</strong> re-engage past site visitors
+</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--blue);padding:14px 18px;">
+<div class="panel-title" style="color:var(--blue);margin-bottom:8px;">Contextual targeting (where)</div>
+<div class="panel-body" style="font-size:clamp(12px,1.25vw,14px);line-height:1.55;">
+<strong>Topics:</strong> pages about specific subjects<br/>
+<strong>Keywords:</strong> pages containing specific terms<br/>
+<strong>Placements:</strong> specific websites you choose
+</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--cyan);padding:14px 18px;">
+<div class="panel-title" style="color:var(--blue);margin-bottom:8px;">Advanced</div>
+<div class="panel-body" style="font-size:clamp(12px,1.25vw,14px);line-height:1.55;">
+<strong>Optimised targeting:</strong> Google AI expands reach using your conversion signals. Replaced Similar Audiences, removed in 2023.<br/>
+<strong>Exclusions:</strong> prevent irrelevant placements.<br/>
+<strong>Combined targeting:</strong> layer methods for precision.
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;justify-content:center;background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.07);padding:16px;">
+<img src="./images/gdn-targeting.png" alt="A musician at the centre connected to a laptop, phone, tablet, desktop, video player and social feed, showing one person reached across many placements on the Google Display Network." style="width:100%;height:100%;object-fit:contain;border-radius:6px;"/>
+</div>
+</div>
+<div class="callout" style="margin-top:16px;font-size:clamp(12px,1.25vw,14px);">
+For Music Planet, custom segments built from searches like "beginner guitar NZ" or from the URLs of gear-review sites and forums are a strong way to reach genuine intent, well before anyone types the brand name.
+</div>
+</div>
+<div class="speaker-notes">Targeting on the GDN falls into two broad categories: audience-based and contextual. Audience targeting is about who you want to reach. Demographics are straightforward. Affinity audiences capture long-term interests, for example people passionate about music production. In-market audiences are people actively researching a purchase right now. Custom segments let you define your own audience using keywords people have searched, URLs they have visited, or apps they use. Remarketing re-engages people who have already been to the site, which for Music Planet is the bridge that makes awareness accountable. Contextual targeting is about where your ad appears: pages about certain topics, containing certain keywords, or specific sites you choose. Under advanced options, optimised targeting is Google's AI-driven expansion tool: you feed it your conversion data and first-party audiences as signals, and it finds additional users likely to convert. This replaced Similar Audiences, which Google removed in 2023, and reflects the broader shift to AI-driven targeting powered by first-party data rather than third-party cookies. A note on brand safety from the Music Planet brief: using competitor URLs as a custom-segment signal is a legitimate targeting technique, but the creative itself must not name or knock competitors. Keep that line clear for the mockup exercises.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 10 — PRACTICE #2a: GDN CONVERSIONS AU
-════════════════════════════════════════════ -->
-<div class="slide slide-exercise" id="s9" data-screen-label="09 Practice 2a Australia">
-  <div class="slide-inner">
-    <div class="exercise-badge">Practice #2a &mdash; GDN conversion campaign</div>
-    <h2 class="slide-title">GDN conversion campaign for Hnry Australia</h2>
-    <div class="slide-body">
-      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 18px;margin-bottom:16px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(13px,1.35vw,15px);">Scenario</div>
-        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;">Hnry Australia: <strong>23% brand awareness</strong>, 1.5m self-employed Australians. Test budget: <strong>$1,000 AUD</strong>. Goal: drive sign-ups.</div>
-      </div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 9 - PRACTICE 1: THE AWARENESS TENSION
+════════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s9">
+<div class="slide-inner">
+<div class="exercise-badge">Practice #1 &middot; GDN</div>
+<h2 class="slide-title">The awareness tension</h2>
+<div class="slide-body">
+<div style="background:white;border-radius:10px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.07);margin-bottom:16px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;margin-bottom:8px;">Scenario</div>
+<div style="font-size:clamp(13px,1.4vw,16px);color:#451A03;line-height:1.6;">
+Music Planet's number one goal is <strong>brand awareness</strong> among younger players and bedroom producers who currently default to global sites. But the brief says past awareness campaigns underperformed on ROI, so the client now runs conversion-first. Here is the catch: brand awareness is genuinely hard to measure, which makes its ROI hard to prove. Illustrative test allocation: <strong>$1,000</strong> of the $10,000.
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:18px;">
+<div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:10px;padding:16px 20px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;margin-bottom:10px;">Your questions</div>
+<ol style="margin:0;padding-left:20px;color:#78350F;font-size:clamp(12.5px,1.3vw,15px);line-height:1.6;">
+<li>When they say awareness "hasn't worked," is that an awareness problem or a <strong>measurement</strong> problem? How would you tell?</li>
+<li>Do they even have the tracking to link awareness to a sale? If not, what goes in place first?</li>
+<li>If last-click ROI cannot capture awareness, <strong>what would you measure instead</strong>?</li>
+<li>How would you convince an ROI-first client that awareness now drives sales <strong>later</strong>, and what evidence would you bring?</li>
+</ol>
+</div>
+<div style="background:linear-gradient(135deg,var(--indigo),var(--navy));border-radius:10px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;">The crux</div>
+<div style="font-size:clamp(13px,1.35vw,15px);color:rgba(255,255,255,0.9);line-height:1.65;">
+"It didn't work" and "we never measured it properly" look identical on a conversion report. Separate those two first. Then make the harder case: that awareness today becomes revenue later, to a client who counts only last-click sales.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="speaker-notes">This exercise is deliberately uncomfortable, and the discomfort is the point. Push students onto the measurement problem, because that is where most of them will not have thought hard.
 
-      <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(12px,1.25vw,14px);">Work through this:</div>
-        <ol style="padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.75;">
-          <li>Which targeting options best support a conversion goal?</li>
-          <li>What bidding strategy?</li>
-          <li>How many clicks does the budget yield?</li>
-          <li>How many sign-ups can Hnry expect?</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">Now we shift from awareness to conversions. Australia is a more mature market for Hnry — people have heard of them, product-market fit is proven, and the goal is to get sign-ups. Targeting shifts accordingly: remarketing to previous website visitors is high priority, in-market audiences for accounting and tax software, and custom segments built around competitor URLs and relevant search terms. Bidding should be CPC or Target CPA since the goal is measurable actions. The maths: $1,000 divided by $0.75 CPC gives approximately 1,333 clicks. At a 2.8% conversion rate, that is roughly 37 sign-ups. Have students work through this themselves before revealing the answer.</div>
+Start with the trap in the client's own words. When Music Planet says awareness "hasn't worked," that claim is doing a lot of quiet work. It could mean the activity genuinely failed to move anything. Or it could mean they ran it, judged it on a last-click conversion report, saw few immediate sales, and concluded it failed, when in truth they never measured awareness at all. Those two situations look identical on a standard conversions dashboard and call for opposite responses. Get students to sit with that ambiguity before they propose a campaign.
+
+Then the capability question: do they even have the instrumentation? Linking awareness to a sale needs more than a conversion pixel. It needs some mix of brand-lift measurement, branded-search and direct-traffic baselines, remarketing audiences so exposed users can be followed, view-through and assisted-conversion tracking, and ideally a geo or matched-market holdout comparing exposed against unexposed. If none of that exists, the first honest recommendation is not a campaign, it is putting measurement in place.
+
+What to measure instead of last-click sales: branded search volume lift, direct and organic traffic lift, growth of remarketing and customer-match lists, engaged-visit rate, view-through and assisted conversions, and repeat or downstream purchase from exposed cohorts. Impressions and raw reach alone are the vanity trap to avoid.
+
+The hardest question is the awareness-to-sales link, and this is where you can bring in theory if the group is ready. The core argument is that at any given moment only a small share of the category is ready to buy, so reaching the much larger not-yet-in-market group builds the memory that pays off when they do enter. This is the mental-availability idea from the Ehrenberg-Bass tradition, and the long-versus-short evidence from Binet and Field that brand building compounds over longer horizons than short-term activation. I would keep those names off the slide, but they are useful scaffolding when a student asks "says who?". If anyone cites specific figures, tell them to verify against the primary source.
+
+There is no single right answer. Reward students who separate the measurement problem from the awareness problem, who are honest about whether the tools even exist yet, and who can make a credible, evidenced case for delayed payback rather than just asserting that awareness matters.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 11 — PRACTICE #2b: ROAS
-════════════════════════════════════════════ -->
-<div class="slide slide-exercise" id="s10" data-screen-label="10 Practice 2b ROAS">
-  <div class="slide-inner">
-    <div class="exercise-badge">Practice #2b &mdash; Calculating ROAS</div>
-    <h2 class="slide-title">ROAS for a subscription product</h2>
-    <div class="slide-body">
-      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:12px 18px;margin-bottom:14px;">
-        <div style="font-size:clamp(15px,1.6vw,18px);font-weight:700;color:#78350F;font-family:Consolas,monospace;">ROAS = Revenue from advertising ÷ Cost of advertising</div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(12px,1.25vw,14px);">The SaaS twist</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.7;">
-            Hnry earns <strong>recurring revenue</strong>. Average customer generates approx. <strong>$1,200 AUD/year</strong> and stays <strong>~2.5 years</strong>.
-            <div style="margin-top:10px;padding:10px;background:rgba(245,158,11,0.15);border-radius:6px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Customer Lifetime Value (CLV) = $3,000 AUD</div>
-          </div>
-        </div>
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(12px,1.25vw,14px);">Your calculations (using Practice #2a results)</div>
-          <ol style="padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.75;">
-            <li>Calculate <strong>first-year ROAS</strong></li>
-            <li>Calculate <strong>CLV-based ROAS</strong></li>
-            <li>Does the campaign meet the <strong>4:1 benchmark</strong> on either measure?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="debrief">The 4:1 benchmark is designed for e-commerce with one-time purchases. For SaaS, the relevant question is whether CPA is below a fraction of CLV — not whether ROAS clears 4:1 on year one alone.</div>
-    </div>
-  </div>
-  <div class="speaker-notes">This is where it gets interesting. A one-off product like a phone has a simple ROAS calculation — revenue from the sale divided by ad cost. But Hnry is a subscription business. Each customer pays roughly $1,200 per year and stays for about 2.5 years on average, giving a CLV of $3,000. Working through the maths from Practice #2a: 37 sign-ups multiplied by $1,200 first-year revenue equals $44,400, divided by the $1,000 spend gives a first-year ROAS of roughly 44:1. Using CLV it is even higher: 37 multiplied by $3,000 equals $111,000, so 111:1. These are illustrative numbers, but the point is powerful — subscription businesses can afford much higher CPAs than single-purchase businesses because each customer generates revenue over years. The 4:1 benchmark that people cite as a minimum is really designed for e-commerce with one-time purchases. For SaaS, the more relevant question is whether the CPA is below a fraction of the CLV. This is an important strategic insight for their A3 proposals.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 10 - PRACTICE 2a: GDN CONVERSION
+════════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s10">
+<div class="slide-inner">
+<div class="exercise-badge">Practice #2a &middot; GDN</div>
+<h2 class="slide-title">GDN conversion campaign for Music Planet</h2>
+<div class="slide-body">
+<div style="background:white;border-radius:10px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.07);margin-bottom:14px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;margin-bottom:8px;">Scenario</div>
+<div style="font-size:clamp(13px,1.4vw,16px);color:#451A03;line-height:1.6;">
+Now shift from awareness to conversions. Target segment: <strong>gigging musicians and producers</strong> researching an upgrade. Goal: drive online sales. Illustrative test budget: <strong>$1,000</strong>.
+</div>
+</div>
+<div class="illustrative-flag">
+<strong>These are illustrative teaching figures, not actual Music Planet data.</strong> Use them to practise the method. Illustrative GDN CPC: $0.50. Illustrative conversion rate: 2%. Illustrative average order value: $180.
+</div>
+<div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:10px;padding:16px 20px;margin-top:6px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;margin-bottom:10px;">Work through this</div>
+<ol style="margin:0;padding-left:20px;color:#78350F;font-size:clamp(13px,1.35vw,15px);line-height:1.8;">
+<li>Which targeting options best support a conversion goal?</li>
+<li>What bidding strategy?</li>
+<li>How many clicks does the budget yield?</li>
+<li>How many sales can Music Planet expect?</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="speaker-notes">Now we shift from awareness to conversions, targeting gigging musicians and producers who are researching an upgrade and closest to a purchase. Targeting shifts accordingly: remarketing to previous website visitors is high priority, in-market audiences for musical instruments and pro audio, and custom segments built around relevant search terms and gear-review URLs. Bidding should be CPC or a conversion-based strategy such as Target CPA, since the goal is measurable actions.
+
+The maths, using the illustrative figures on the slide: $1,000 divided by a $0.50 CPC gives 2,000 clicks. At a 2% conversion rate, that is 40 sales. At an average order value of $180, that is $7,200 in revenue. Have students calculate this themselves before revealing it, and keep stressing these are teaching numbers, not Music Planet's actual performance. We carry the 40 sales and $7,200 straight into Practice 2b, where the retail economics get interesting.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 12 — GDN MOCKUP EXERCISE
-════════════════════════════════════════════ -->
-<div class="slide slide-exercise" id="s11" data-screen-label="11 GDN Mockup">
-  <div class="slide-inner">
-    <div class="exercise-badge">Mockup exercise &mdash; GDN display ad</div>
-    <h2 class="slide-title">Create a GDN display ad for Hnry</h2>
-    <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;">
-        <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Stream A — Hnry core (UK)</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;margin-bottom:8px;"><strong>Audience:</strong> Creative freelancers and contractors</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;"><strong>Message:</strong> Tax calculated and paid as you earn</div>
-        </div>
-        <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Stream B — Mileage by Hnry (NZ/AU)</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;margin-bottom:8px;"><strong>Audience:</strong> Tradies — builders, plumbers, electricians</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;"><strong>Message:</strong> Track mileage automatically, claim what you're owed</div>
-        </div>
-      </div>
-      <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;margin-bottom:12px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(12px,1.25vw,14px);">Mockup tools</div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
-          <div style="background:rgba(245,158,11,0.1);border-radius:6px;padding:8px 10px;text-align:center;"><div style="font-size:clamp(11px,1.1vw,12px);font-weight:700;color:#78350F;">admocker.com/gdn</div></div>
-          <div style="background:rgba(245,158,11,0.1);border-radius:6px;padding:8px 10px;text-align:center;"><div style="font-size:clamp(11px,1.1vw,12px);font-weight:700;color:#78350F;">admockups.com/google-ad-mockup</div></div>
-          <div style="background:rgba(245,158,11,0.1);border-radius:6px;padding:8px 10px;text-align:center;"><div style="font-size:clamp(11px,1.1vw,12px);font-weight:700;color:#78350F;">mediamodifier.com/ads/google</div></div>
-        </div>
-      </div>
-      <div class="debrief">Think: what image stops the scroll? What is the one benefit that earns the click? What CTA is most appropriate — "Start free trial", "See how it works", "Calculate your savings"?</div>
-    </div>
-  </div>
-  <div class="speaker-notes">Now you are going to build an actual display ad for Hnry. Choose one of the two streams. Stream A is the core Hnry service targeting creative freelancers in the UK — these are early adopters, digitally savvy, and the messaging should emphasise trust, simplicity, and automation. Stream B is Mileage by Hnry targeting tradies in New Zealand or Australia — these are late adopters who are less likely to seek out new tech, so the messaging needs to be concrete and benefit-led. Think about what image would stop someone scrolling. What is the one benefit that earns the click? What call to action is most appropriate — "Start free trial", "See how it works", "Calculate your savings"? Use one of the three mockup tools listed.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 11 - PRACTICE 2b: ROAS FOR A RETAILER
+════════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s11">
+<div class="slide-inner">
+<div class="exercise-badge">Practice #2b &middot; GDN</div>
+<h2 class="slide-title">ROAS for a retailer</h2>
+<div class="slide-body">
+<div style="background:white;border-radius:10px;padding:14px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.07);margin-bottom:12px;font-size:clamp(14px,1.5vw,17px);color:var(--navy);font-weight:700;text-align:center;">
+ROAS = Revenue from advertising &divide; Cost of advertising
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px;">
+<div style="background:#EFF6FF;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:12px 16px;">
+<div style="font-weight:700;color:var(--navy);font-size:clamp(13px,1.35vw,15px);margin-bottom:4px;">The retail twist, part 1: margin</div>
+<div style="font-size:clamp(12px,1.25vw,14px);color:#1E3A5F;line-height:1.55;">A $180 order is not $180 of profit. At a blended gross margin around 35%, that order is roughly $63 of gross profit.</div>
+</div>
+<div style="background:#F0FDF4;border-left:4px solid #16A34A;border-radius:0 8px 8px 0;padding:12px 16px;">
+<div style="font-weight:700;color:#14532D;font-size:clamp(13px,1.35vw,15px);margin-bottom:4px;">The retail twist, part 2: repeat purchase</div>
+<div style="font-size:clamp(12px,1.25vw,14px);color:#14532D;line-height:1.55;">Consumables (strings, sticks, cables) bring players back. One customer is worth more than one order.</div>
+</div>
+</div>
+<div class="illustrative-flag">
+<strong>Illustrative figures, not actual Music Planet data.</strong> Average order value: $180. Blended gross margin: 35%. An engaged customer makes about 5 purchases over roughly 2 years, so retail CLV is about $900 in revenue, or about $315 in gross profit.
+</div>
+<div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:10px;padding:14px 20px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;margin-bottom:8px;">Your calculations (using Practice #2a results)</div>
+<ol style="margin:0;padding-left:20px;color:#78350F;font-size:clamp(13px,1.35vw,15px);line-height:1.7;">
+<li>Calculate <strong>first-purchase revenue ROAS</strong></li>
+<li>Adjust for margin: calculate <strong>gross-profit ROAS</strong></li>
+<li>Calculate <strong>CLV-based ROAS</strong></li>
+<li>Does the campaign clear the <strong>4:1 benchmark</strong>, and on which measure?</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="speaker-notes">This is where the reworking from a subscription business to a retailer really lands, and it is the most important analytical point of the day. A one-off ROAS number can flatter or mislead a retailer in two ways.
+
+Working the maths from Practice 2a (40 sales, $7,200 revenue, $1,000 spend, all illustrative): first-purchase revenue ROAS is $7,200 divided by $1,000, which is 7.2:1. That looks great. But revenue is not profit. Apply the illustrative 35% gross margin and the gross profit is about $2,520, so the gross-profit ROAS is roughly 2.5:1. That is the number a finance-minded client cares about, and it is well below what the headline revenue figure implied. Now the other direction: a musician does not buy once. With an illustrative CLV of about $900 in revenue per acquired customer, 40 customers are worth about $36,000 over their relationship, so CLV-based revenue ROAS is about 36:1; on gross profit (about $315 per customer, so about $12,600) it is closer to 12.6:1.
+
+The teaching point: the 4:1 rule of thumb is a revenue heuristic built for one-off e-commerce. For a retailer like Music Planet you should not read it literally off first-purchase revenue. Margin drags the true return down; repeat purchase pulls the justified acquisition spend up. The right question is whether your cost to acquire a customer sits comfortably below their gross-profit CLV. Reward students who reach that framing rather than just reciting 4:1. Reiterate the numbers are illustrative throughout.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 13 — SECTION DIVIDER: PPC VS SEO
-════════════════════════════════════════════ -->
-<div class="slide slide-section" id="s12" data-screen-label="12 Search PPC Section">
-  <div class="slide-inner">
-    <div class="section-label">Section 2 &mdash; Google Search</div>
-    <h2 class="slide-title">Google Search PPC vs SEO</h2>
-    <div style="margin-top:24px;overflow:hidden;border-radius:10px;">
-      <table style="width:100%;border-collapse:collapse;font-size:clamp(12px,1.25vw,14px);">
-        <thead>
-          <tr>
-            <th style="background:rgba(0,202,239,0.15);color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 16px;text-align:left;border-bottom:1px solid rgba(0,202,239,0.2);"></th>
-            <th style="background:rgba(0,202,239,0.15);color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 16px;text-align:left;border-bottom:1px solid rgba(0,202,239,0.2);">PPC</th>
-            <th style="background:rgba(0,202,239,0.15);color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 16px;text-align:left;border-bottom:1px solid rgba(0,202,239,0.2);">SEO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Speed</td>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">Hours / days</td>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">Months / years</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,0.03);">Cost model</td>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.03);">Pay per click</td>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.03);">Investment in content</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Control</td>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">High — targeting, budget, copy</td>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);">Limited — algorithm-dependent</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,0.03);">Visibility</td>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.03);">Guaranteed (bid-dependent); now in AI Overviews</td>
-            <td style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.03);">Organic; AI Overviews may reduce CTR</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 16px;color:rgba(255,255,255,0.5);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Best for</td>
-            <td style="padding:10px 16px;color:rgba(255,255,255,0.85);">Immediate traffic, testing</td>
-            <td style="padding:10px 16px;color:rgba(255,255,255,0.85);">Long-term authority</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div style="margin-top:20px;font-size:clamp(13px,1.35vw,15px);color:var(--cyan);font-weight:700;">Use both. PPC for now, SEO for later.</div>
-  </div>
-  <div class="speaker-notes">Quick comparison before we move into Search PPC exercises. The fundamental trade-off is speed versus sustainability. PPC gives you immediate visibility but costs per click. SEO takes months to build but delivers sustainable organic traffic. Most effective strategies use both — PPC for immediate results and testing, SEO for compounding long-term value. Two developments to note. First, Google now shows ads within AI Overviews — those AI-generated summaries at the top of search results. This is a new surface for PPC. Second, AI Overviews can reduce organic click-through rates for some informational queries, which changes the SEO calculus. Worth keeping both in mind as you think about channel strategy. For your A3 proposals, Hnry's Objective #1 brief excludes search channels, so you would not propose Google Search PPC or SEO. But Display, Demand Gen, YouTube, and other non-search Google Ads products are all fair game. Understanding how search works is still essential context for any digital marketer.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 12 - GDN DISPLAY AD MOCKUP
+════════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s12">
+<div class="slide-inner">
+<div class="exercise-badge">Activity &middot; GDN display ad</div>
+<h2 class="slide-title">Create a GDN display ad for Music Planet</h2>
+<div class="slide-body">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:14px;">
+<div style="background:white;border-radius:10px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-top:4px solid var(--navy);">
+<div style="font-weight:700;color:var(--navy);font-size:clamp(14px,1.45vw,16px);margin-bottom:6px;">Stream A: gigging musicians &amp; producers</div>
+<div style="font-size:clamp(12px,1.3vw,14px);color:#334155;line-height:1.6;">
+<strong>Voice:</strong> peer-to-peer, technical, no sales fluff.<br/>
+<strong>Message idea:</strong> gear that keeps up when the gig is on the line, backed by people who actually play.
+</div>
+</div>
+<div style="background:white;border-radius:10px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-top:4px solid var(--cyan);">
+<div style="font-weight:700;color:var(--blue);font-size:clamp(14px,1.45vw,16px);margin-bottom:6px;">Stream B: parents buying a first instrument</div>
+<div style="font-size:clamp(12px,1.3vw,14px);color:#334155;line-height:1.6;">
+<strong>Voice:</strong> reassuring, jargon-free, value and durability.<br/>
+<strong>Message idea:</strong> the right first instrument, inspected and set up, ready to play out of the box.
+</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1.3fr 1fr;gap:18px;">
+<div style="background:#FFF7ED;border:1.5px solid var(--amber);border-radius:10px;padding:14px 18px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;margin-bottom:8px;">Brand rules from the brief</div>
+<ul style="margin:0;padding-left:18px;color:#78350F;font-size:clamp(12px,1.3vw,14px);line-height:1.7;">
+<li>The logo must appear on all creative</li>
+<li>Grounded and local, never stiff or corporate</li>
+<li>Do not name or knock competitors</li>
+<li>Urgency like a mate flagging a deal, not a boardroom quota</li>
+</ul>
+</div>
+<div style="background:white;border-left:4px solid var(--purple);border-radius:0 10px 10px 0;padding:14px 18px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:8px;">Think</div>
+<div style="font-size:clamp(12px,1.3vw,14px);color:#334155;line-height:1.6;">
+What image stops the scroll? What is the one benefit that earns the click? Which CTA fits: "Shop online", "See it in-store", "Get honest advice"?
+</div>
+</div>
+</div>
+<div style="margin-top:12px;font-size:clamp(12px,1.25vw,14px);color:#78350F;">
+<strong>Mockup tools:</strong> admocker.com/gdn &nbsp;&middot;&nbsp; admockups.com/google-ad-mockup &nbsp;&middot;&nbsp; mediamodifier.com/ads/google
+</div>
+</div>
+</div>
+<div class="speaker-notes">Students build an actual display ad for Music Planet. Choose one of the two streams, both drawn straight from the brief's audience segments. Stream A is gigging musicians and producers: these are experienced players, so the messaging is peer-to-peer and technically credible, emphasising reliability and expert backup rather than beginner reassurance. Stream B is parents buying a first instrument: these buyers can feel intimidated, so the messaging strips out jargon and leads on value, durability, and the peace of mind that the gear is inspected and set up ready to play.
+
+Hold them to the brief's brand rules. The logo is a mandatory inclusion. The tone must stay grounded and local, never corporate; the brief explicitly rejects fluff like "synergising your sonic solutions." Urgency is allowed and even encouraged, but it should read like a mate letting you know about a deal before it ends, not a quarterly sales push. And per the client's sensitivities, creative must not name or disparage Rockshop or MusicWorks; differentiate by elevating Music Planet's own hands-on value. Prompt them on the craft: what image stops the scroll, the single benefit that earns the click, and the most fitting call to action for that segment. Use any of the three mockup tools listed.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 14 — SEARCH PPC BIDDING STRATEGIES
-════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s13" data-screen-label="13 Search PPC Bidding">
-  <div class="slide-inner">
-    <div class="uoa-badge">Google Search PPC</div>
-    <h2 class="slide-title">Search PPC bidding strategies</h2>
-    <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">Manual</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--muted);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Manual CPC</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">You set keyword bids — maximum control</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid #DC2626;opacity:0.7;">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:#DC2626;">Enhanced CPC <span style="font-size:10px;background:#FEE2E2;padding:2px 6px;border-radius:3px;margin-left:4px;">Deprecating</span></div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Auto-adjusts bids for conversions — being phased out</div>
-            </div>
-          </div>
-
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-top:14px;margin-bottom:10px;">Automated</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--cyan);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Maximise Clicks</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Most clicks within budget — simple starting point</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--blue);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Target CPA</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Acquire conversions at your target cost per acquisition</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--blue);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Target ROAS</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Optimise for return on ad spend</div>
-            </div>
-            <div style="background:white;border-radius:8px;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,0.07);border-left:4px solid var(--navy);">
-              <div style="font-weight:700;font-size:clamp(12px,1.2vw,13px);color:var(--navy);">Maximise Conversions</div>
-              <div style="font-size:clamp(11px,1.1vw,12px);color:#555;margin-top:3px;">Most conversions within budget</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;">The direction of travel: AI Max</div>
-          <div style="background:linear-gradient(135deg,var(--indigo),var(--navy));border-radius:10px;padding:20px;color:white;height:calc(100% - 28px);">
-            <div style="font-size:clamp(16px,1.8vw,22px);font-weight:700;color:var(--cyan);margin-bottom:12px;">AI Max</div>
-            <div style="font-size:clamp(12px,1.25vw,14px);color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px;">Launched 2025. Broader keyword matching, dynamic URLs, automated creative assembly from your headline and description assets.</div>
-            <div style="background:rgba(0,202,239,0.1);border:1px solid rgba(0,202,239,0.3);border-radius:8px;padding:12px 14px;">
-              <div style="font-size:clamp(12px,1.25vw,14px);color:rgba(255,255,255,0.85);line-height:1.6;"><strong style="color:var(--cyan);">The trend:</strong> Advertisers provide strategic signals. AI handles execution. The quality of your inputs matters more than ever.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">Bidding on Search PPC ranges from fully manual to fully automated. Manual CPC gives you complete control — you decide what each keyword is worth. Enhanced CPC was the bridge between manual and automated, adjusting your bids to chase conversions, but Google is deprecating it in favour of fully automated options. On the automated side, Maximise Clicks is the simplest — spend the budget getting the most clicks possible. Target CPA and Target ROAS are smarter because they optimise toward business outcomes, not just traffic. Maximise Conversions is similar but without a specific cost target. The bigger picture here is AI Max, which launched in 2025. It represents Google's vision for the future of search advertising — less reliance on manual keyword lists, broader matching powered by AI, and automated creative assembly from your headline and description assets. The trend is clear: advertisers provide the strategic inputs and the AI handles execution. That does not make the human role less important — it makes the quality of your inputs more important. Bad conversion tracking, weak creative assets, and unclear business objectives get amplified by AI just as much as good ones do.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 13 - SECTION 2: GOOGLE SEARCH
+════════════════════════════════════════════════ -->
+<div class="slide slide-section" id="s13">
+<div class="slide-inner">
+<div class="section-label">Section 2 &middot; Google Search</div>
+<h2 class="slide-title">Google Search</h2>
+<div class="slide-body" style="max-width:720px;">
+Search PPC, SEO, bidding strategies, and Responsive Search Ads. The channel where Music Planet already competes head-to-head against nationwide chains.
+</div>
+</div>
+<div class="speaker-notes">Now we move to Google Search. Unlike a business that avoids search, Music Planet already runs Google Ads and actively manages SEO, and they compete directly against nationwide chains and global sites in the results page. So search is fully in play for Assignment 3, no channel is off the table. The mental model shift from Part 1 is intent: on search, people tell you what they want by typing it, which changes both targeting and how you think about awareness versus conversion.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 15 — PRACTICE #3: SEARCH PPC NZ
-════════════════════════════════════════════ -->
-<div class="slide slide-exercise" id="s14" data-screen-label="14 Practice 3 Search PPC NZ">
-  <div class="slide-inner">
-    <div class="exercise-badge">Practice #3 &mdash; Search PPC for Hnry NZ</div>
-    <h2 class="slide-title">Search PPC for Hnry NZ</h2>
-    <div class="slide-body">
-      <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:12px 18px;margin-bottom:14px;">
-        <div style="color:#451A03;font-size:clamp(13px,1.35vw,15px);line-height:1.6;"><strong>57% brand awareness</strong> &middot; 400,000 self-employed New Zealanders &middot; Test budget: <strong>$1,000 NZD</strong> &middot; Average CPC (NZ fintech): <strong>$1.40</strong> &middot; Conversion rate: <strong>3.2%</strong> &middot; Avg. revenue: <strong>$1,000 NZD/year</strong></div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(12px,1.25vw,14px);">Keyword strategy</div>
-          <ol style="padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.75;">
-            <li>Give three keyword examples across different search intents:<br>
-              <span style="color:#92400E;font-size:11px;">Informational &middot; Commercial &middot; Transactional</span>
-            </li>
-            <li>Should Hnry bid on competitor terms?<br><span style="color:#92400E;font-size:11px;">What are the risks and benefits?</span></li>
-          </ol>
-        </div>
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(12px,1.25vw,14px);">Budget planning</div>
-          <ol start="3" style="padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.75;">
-            <li>Clicks: $1,000 ÷ $1.40 = ?</li>
-            <li>Sign-ups: clicks × 3.2% = ?</li>
-            <li>First-year ROAS: (sign-ups × $1,000) ÷ $1,000 = ?</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">This exercise brings together keyword strategy and budget maths. For keywords, push students beyond generic terms. Informational intent might be "how to pay tax as a freelancer NZ" — someone researching, not ready to buy. Commercial intent: "best tax software for sole traders NZ" — comparing options. Transactional: "Hnry sign up" or "automatic tax payment freelancer" — ready to act. On competitor bidding, it is a genuine strategic question. Bidding on "Xero sole trader" or "FreeAgent NZ" can capture people comparing options, but it is expensive (competitors bid up the price) and the landing page needs to address the comparison directly or quality score suffers. For the maths: $1,000 divided by $1.40 CPC gives about 714 clicks. At 3.2% conversion, that is roughly 23 sign-ups. Revenue: 23 multiplied by $1,000 equals $23,000, giving a first-year ROAS of 23:1. Strong, but remind students these are illustrative figures.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 14 - SEARCH PPC VS SEO
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s14">
+<div class="slide-inner">
+<h2 class="slide-title">Google Search: PPC vs SEO</h2>
+<table class="data-table">
+<thead>
+<tr><th style="width:16%;"></th><th>PPC</th><th>SEO</th></tr>
+</thead>
+<tbody>
+<tr><td>Speed</td><td>Hours to days</td><td>Months to years</td></tr>
+<tr><td>Cost model</td><td>Pay per click</td><td>Investment in content</td></tr>
+<tr><td>Control</td><td>High: targeting, budget, copy</td><td>Limited: algorithm-dependent</td></tr>
+<tr><td>Visibility</td><td>Guaranteed (bid-dependent); now in AI Overviews</td><td>Organic; AI Overviews may reduce click-through</td></tr>
+<tr><td>Best for</td><td>Immediate traffic, testing</td><td>Long-term authority</td></tr>
+</tbody>
+</table>
+<div class="callout" style="margin-top:16px;">
+<strong>Use both.</strong> PPC for now, SEO for later. Music Planet already does: the brief lists active Google Ads and actively managed SEO. For a 30-day campaign, PPC does the heavy lifting, while SEO is the compounding asset that keeps working after the budget stops.
+</div>
+</div>
+<div class="speaker-notes">Quick comparison before the Search PPC exercises. The fundamental trade-off is speed versus sustainability. PPC gives immediate visibility but costs per click. SEO takes months to build but delivers sustainable organic traffic. Most effective strategies use both, and Music Planet already does: their brief lists Google Ads and actively managed SEO as current activity. Two developments to note. First, Google now shows ads within AI Overviews, the AI-generated summaries at the top of results, which is a new surface for PPC. Second, AI Overviews can reduce organic click-through for some informational queries, which changes the SEO calculus. For a 30-day campaign the practical point is that PPC is what can move inside the window; SEO is a longer investment you would recommend as a parallel track, not something that pays off within the month. Note explicitly for A3: because search is a live channel for Music Planet, Search PPC and SEO are both fair game in proposals, unlike a client who excludes search.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 16 — RSA MOCKUP EXERCISE
-════════════════════════════════════════════ -->
-<div class="slide slide-exercise" id="s15" data-screen-label="15 RSA Mockup">
-  <div class="slide-inner">
-    <div class="exercise-badge">Mockup exercise &mdash; Responsive Search Ad</div>
-    <h2 class="slide-title">Create a Responsive Search Ad for Hnry</h2>
-    <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;">
-        <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">How RSAs work</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;">Up to <strong>15 headlines</strong> (30 chars each) + <strong>4 descriptions</strong> (90 chars each). Google's AI assembles the best combination per query. You provide the pool — Google tests and optimises.</div>
-        </div>
-        <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 16px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Your mockup</div>
-          <ul style="list-style:disc;padding-left:16px;color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.7;">
-            <li>At least <strong>5 headlines</strong></li>
-            <li>At least <strong>2 descriptions</strong></li>
-            <li>Sitelinks, call asset, structured snippets</li>
-          </ul>
-          <div style="margin-top:8px;font-weight:700;color:#78350F;font-size:clamp(12px,1.2vw,13px);">Tool: karooya.com/responsive-search-ad-preview-tool</div>
-        </div>
-      </div>
-      <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:12px 16px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(12px,1.25vw,14px);">Key decisions</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;"><strong>Which headlines would you pin?</strong><br>Pin your brand name to position 1. Pin your core value prop to position 2. Let Google rotate the rest.</div>
-          <div style="color:#451A03;font-size:clamp(12px,1.2vw,13px);line-height:1.65;"><strong>Which would you let Google rotate?</strong><br>Feature variations, social proof, seasonal or audience-specific CTAs.</div>
-        </div>
-      </div>
-      <div class="debrief" style="margin-top:12px;">RSAs replaced Expanded Text Ads in 2022. The shift from fixed copy to AI-assembled combinations is the same philosophical move as AI Max — you provide assets, AI optimises delivery.</div>
-    </div>
-  </div>
-  <div class="speaker-notes">This is the current default ad format for Google Search. Unlike the old Expanded Text Ads, which showed exactly what you wrote, RSAs give Google a pool of headlines and descriptions to mix and match. You provide up to 15 headlines and 4 descriptions, and the AI tests combinations to find what works best for each search query. The tool at Karooya lets you preview what different combinations look like. For the Hnry mockup, strong headlines might include the brand name, the core value proposition ("Tax paid as you earn"), a trust signal ("NZ's #1 for sole traders"), a feature ("Automatic tax calculations"), and a CTA ("Start your free trial"). Pinning means locking a headline to a specific position — pin your brand name to headline 1 so it always appears, but let Google rotate the others. Descriptions should expand on benefits: mention that Hnry also files your returns, handles ACC, and provides an accountant. Ad assets (formerly called extensions) add sitelinks to pages like pricing, how it works, and reviews. These increase your ad's real estate on the results page and improve click-through rates.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 15 - SEARCH PPC BIDDING STRATEGIES
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s15">
+<div class="slide-inner">
+<h2 class="slide-title">Search PPC bidding strategies</h2>
+<div class="two-col" style="flex:0;gap:20px;margin-bottom:16px;">
+<div class="panel" style="border-top:4px solid var(--navy);">
+<div class="panel-title" style="color:var(--navy);">Manual</div>
+<div class="panel-body" style="font-size:clamp(12px,1.3vw,14px);line-height:1.6;">
+<strong>Manual CPC:</strong> you set keyword bids, maximum control.<br/><br/>
+<strong>Enhanced CPC (deprecating):</strong> auto-adjusts bids for conversions, being phased out.
+</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--cyan);">
+<div class="panel-title" style="color:var(--blue);">Automated</div>
+<div class="panel-body" style="font-size:clamp(12px,1.3vw,14px);line-height:1.6;">
+<strong>Maximise Clicks:</strong> most clicks within budget, a simple start.<br/>
+<strong>Target CPA:</strong> conversions at your target cost.<br/>
+<strong>Target ROAS:</strong> optimise for return on ad spend.<br/>
+<strong>Maximise Conversions:</strong> most conversions within budget.
+</div>
+</div>
+</div>
+<div style="background:linear-gradient(135deg,var(--indigo),var(--navy));border-radius:10px;padding:16px 22px;color:white;">
+<div style="font-size:clamp(13px,1.35vw,15px);font-weight:700;color:var(--cyan);margin-bottom:6px;">The direction of travel: AI Max</div>
+<div style="font-size:clamp(12px,1.3vw,15px);line-height:1.6;color:rgba(255,255,255,0.88);">
+Launched 2025. Broader keyword matching, dynamic URLs, automated creative assembly from your headline and description assets. <strong style="color:white;">The trend:</strong> advertisers provide strategic signals; AI handles execution. The quality of your inputs matters more than ever.
+</div>
+</div>
+</div>
+<div class="speaker-notes">Bidding on Search PPC ranges from fully manual to fully automated. Manual CPC gives complete control: you decide what each keyword is worth. Enhanced CPC was the bridge between manual and automated, adjusting bids to chase conversions, but Google is deprecating it in favour of fully automated options. On the automated side, Maximise Clicks is the simplest: spend the budget getting the most clicks. Target CPA and Target ROAS are smarter because they optimise toward business outcomes, not just traffic; for an ROI-focused client like Music Planet, Target CPA or Target ROAS align naturally with how they think. Maximise Conversions is similar but without a specific cost target. The bigger picture is AI Max, which launched in 2025 and represents Google's vision for search advertising: less reliance on manual keyword lists, broader AI-powered matching, and automated creative assembly from your assets. The trend is clear: advertisers provide the strategic inputs and the AI handles execution. That does not make the human role less important; it makes input quality more important. Weak conversion tracking, thin creative, and unclear objectives get amplified by AI just as much as good ones do.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 17 — GOOGLE ADS LANDSCAPE 2026
-════════════════════════════════════════════ -->
-<div class="slide slide-content" id="s16" data-screen-label="16 Google Ads 2026">
-  <div class="slide-inner">
-    <div class="uoa-badge">Google Ads in 2026</div>
-    <h2 class="slide-title">Google Ads in 2026: What's changing</h2>
-    <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--blue);">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">AI is the engine</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.6;"><strong>Power Pack</strong> — AI Max + Performance Max + Demand Gen. These three campaign types work together to drive campaign delivery. Advertisers provide signals; AI handles execution.</div>
-        </div>
-        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--cyan);">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Ads in AI Overviews</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.6;">Paid results now appear inside AI-generated search summaries at the top of results. A fundamentally new surface for PPC — changing where and how ads are seen.</div>
-        </div>
-        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid #DC2626;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#DC2626;margin-bottom:8px;">Legacy formats retiring</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.6;">ETAs gone (2022). Call-only ads: new campaigns blocked Feb 2026, serving ends 2026–27. Direction: flexible, asset-based formats that AI assembles.</div>
-        </div>
-        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--navy);">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">First-party data is critical</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#333;line-height:1.6;">Similar Audiences removed (2023). Third-party cookies phasing out. Targeting now relies on your own customer data and conversion signals as inputs to Google's AI.</div>
-        </div>
-      </div>
-      <div class="callout">
-        Hnry&rsquo;s Objective #1 excludes search, but Display, Demand Gen, and YouTube are all valid for your A3 proposals.
-      </div>
-    </div>
-  </div>
-  <div class="speaker-notes">Four things shaping Google Ads right now. First, AI is no longer an add-on — it is the core of how campaigns run. Google's Power Pack gives you three AI-driven campaign types that work together: Demand Gen for awareness, AI Max for search intent, Performance Max for full-funnel scale. Second, ads now appear inside AI Overviews. When Google generates an AI summary at the top of results, your ads can show within it. This is a fundamentally new surface. Third, Google is systematically retiring legacy ad formats. Expanded Text Ads went in 2022. Call-only ads cannot be created from February 2026 and will stop serving by 2027. The direction is toward flexible, asset-based formats that AI assembles. Fourth, first-party data matters more than ever. With Similar Audiences gone and third-party cookies being phased out, your own customer data and conversion signals are what power Google's automated targeting. For A3 proposals: Hnry's Objective #1 excludes search channels, so Google Search PPC is off the table — but Display, Demand Gen, and YouTube are all valid and encouraged. Think about what signals and assets you would provide to Google's AI for those campaign types.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 16 - PRACTICE 3: SEARCH PPC
+════════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s16">
+<div class="slide-inner">
+<div class="exercise-badge">Practice #3 &middot; Search PPC</div>
+<h2 class="slide-title">Search PPC for Music Planet</h2>
+<div class="slide-body">
+<div class="illustrative-flag" style="margin-top:0;">
+<strong>Illustrative figures, not actual Music Planet data.</strong> Test budget: $1,000. Average CPC: $1.00. Conversion rate: 3%. Average order value: $180.
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+<div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:10px;padding:14px 18px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;margin-bottom:8px;">Keyword strategy</div>
+<div style="font-size:clamp(12px,1.3vw,15px);color:#78350F;line-height:1.6;">
+<strong>1.</strong> Give three keyword examples across different search intents: informational, commercial, transactional.<br/><br/>
+<strong>2.</strong> Should Music Planet bid on competitor terms? What are the risks and benefits?
+</div>
+</div>
+<div style="background:white;border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:14px 18px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Budget planning</div>
+<div style="font-size:clamp(12px,1.3vw,15px);color:#334155;line-height:1.7;">
+<strong>3.</strong> Clicks: $1,000 &divide; $1.00 = ?<br/>
+<strong>4.</strong> Sales: clicks &times; 3% = ?<br/>
+<strong>5.</strong> First-purchase revenue ROAS: (sales &times; $180) &divide; $1,000 = ?
+</div>
+</div>
+</div>
+<div class="callout" style="margin-top:14px;">
+Carry the lesson from Practice 2b: a strong first-purchase ROAS still needs the margin and repeat-purchase check before you call it a win.
+</div>
+</div>
+</div>
+<div class="speaker-notes">This exercise brings together keyword strategy and budget maths, and reconnects to the retail economics from 2b.
+
+For keywords, push students beyond generic terms and make them name the intent. Informational might be "how to choose a first guitar for a child," someone researching, not ready to buy. Commercial: "best music store NZ" or "digital piano for beginners," comparing options. Transactional: "buy electric guitar online NZ" or "guitar strings NZ," ready to act. On competitor bidding, it is a genuine strategic question. Bidding on branded terms like the names of the nationwide chains can capture people comparing options, but it is expensive because you are buying a term you do not rank on organically, quality score can suffer, and the landing experience has to earn the click. Crucially, tie this back to the brief's sensitivities: Music Planet asked us to avoid aggressive named-competitor comparisons, so even if you bid on a competitor term, the ad and landing page must sell Music Planet's own value, not attack the competitor. There are also trademark rules about using competitor names in ad text, so keep the copy about Music Planet.
+
+For the maths, all illustrative: $1,000 divided by a $1.00 CPC gives 1,000 clicks. At 3% conversion, 30 sales. Revenue: 30 times $180 is $5,400, so first-purchase revenue ROAS is 5.4:1. Strong on the surface, but remind them to run the same margin and CLV check from 2b before declaring victory. Reiterate the numbers are teaching figures, not Music Planet's real data.</div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     SLIDE 18 — QUESTIONS
-════════════════════════════════════════════ -->
-<div class="slide slide-dark" id="s17" data-screen-label="17 Questions">
-  <div class="slide-inner" style="justify-content:center;align-items:center;text-align:center;">
-    <div class="uoa-badge">MKTG 304 &middot; Week 7</div>
-    <div style="font-size:clamp(80px,10vw,130px);font-weight:700;color:var(--cyan);line-height:1;margin-bottom:24px;">?</div>
-    <h2 class="slide-title" style="font-size:clamp(26px,3vw,42px);border:none;padding:0;text-align:center;">Questions</h2>
-    <div style="margin-top:24px;font-size:clamp(12px,1.3vw,15px);color:rgba(255,255,255,0.4);">MKTG 304 &nbsp;&middot;&nbsp; Week 7 Tutorial &nbsp;&middot;&nbsp; Google Advertising</div>
-  </div>
-  <div class="speaker-notes">Open floor for questions. If time permits, revisit the ROAS exercise or invite students to share their GDN and RSA mockups with the group.</div>
+<!-- ════════════════════════════════════════════════
+     SLIDE 17 - RSA MOCKUP EXERCISE
+════════════════════════════════════════════════ -->
+<div class="slide slide-exercise" id="s17">
+<div class="slide-inner">
+<div class="exercise-badge">Activity &middot; Responsive Search Ad</div>
+<h2 class="slide-title">Create a Responsive Search Ad for Music Planet</h2>
+<div class="slide-body">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:14px;">
+<div style="background:white;border-radius:10px;padding:15px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-top:4px solid var(--navy);">
+<div style="font-weight:700;color:var(--navy);font-size:clamp(13px,1.4vw,15px);margin-bottom:6px;">How RSAs work</div>
+<div style="font-size:clamp(12px,1.3vw,14px);color:#334155;line-height:1.6;">
+Up to <strong>15 headlines</strong> (30 chars each) plus <strong>4 descriptions</strong> (90 chars each). Google's AI assembles the best combination per query. You provide the pool; Google tests and optimises.
+</div>
+</div>
+<div style="background:white;border-radius:10px;padding:15px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-top:4px solid var(--cyan);">
+<div style="font-weight:700;color:var(--blue);font-size:clamp(13px,1.4vw,15px);margin-bottom:6px;">Your mockup</div>
+<div style="font-size:clamp(12px,1.3vw,14px);color:#334155;line-height:1.7;">
+At least <strong>5 headlines</strong><br/>
+At least <strong>2 descriptions</strong><br/>
+Sitelinks, call asset, structured snippets
+</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+<div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:10px;padding:14px 18px;">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#92400E;margin-bottom:8px;">Key decisions</div>
+<div style="font-size:clamp(12px,1.3vw,14px);color:#78350F;line-height:1.6;">
+<strong>Which headlines would you pin?</strong> Brand name to position 1, core value proposition to position 2, let Google rotate the rest.<br/><br/>
+<strong>Which would you let Google rotate?</strong> Feature variations, trust signals, seasonal or segment-specific CTAs.
+</div>
+</div>
+<div style="background:white;border-left:4px solid var(--purple);border-radius:0 10px 10px 0;padding:14px 18px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<div style="font-size:clamp(12px,1.2vw,14px);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:8px;">Brand voice from the brief</div>
+<div style="font-size:clamp(12px,1.3vw,14px);color:#334155;line-height:1.6;">
+A knowledgeable, laid-back mate giving honest advice over the counter. Clear and welcoming, no jargon, no gear-snobbery.
+</div>
+</div>
+</div>
+<div style="margin-top:12px;font-size:clamp(12px,1.25vw,14px);color:#78350F;">
+<strong>Tool:</strong> karooya.com/responsive-search-ad-preview-tool
+</div>
+</div>
+</div>
+<div class="speaker-notes">This is the current default ad format for Google Search. Unlike the old Expanded Text Ads, which showed exactly what you wrote, RSAs give Google a pool of headlines and descriptions to mix and match: up to 15 headlines and 4 descriptions, and the AI tests combinations for each query. The Karooya tool lets students preview what combinations look like.
+
+For the Music Planet mockup, guide the headlines toward the brand voice in the brief: the brand name ("Music Planet"), the core value proposition ("By Musicians, For Musicians"), a trust signal ("NZ Family-Owned Since 1980"), a service point of difference ("Every Instrument Set Up & Inspected"), a convenience line ("Shop Online, Ships NZ-Wide"), and a warm CTA ("Talk to a Real Musician"). Descriptions should expand on the pre-sale inspection and setup, the local expert support, and the mix of showrooms and online. Keep it grounded and jargon-free; the brief is explicit that gear-snobbery and corporate stiffness are off-brand. Pinning means locking a headline to a position: pin the brand name to headline 1 so it always appears, and pin the value proposition to position 2, then let Google rotate the rest. Ad assets, formerly called extensions, add sitelinks to pages like guitars, pianos, and store locations, which increases the ad's real estate and improves click-through.</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 18 - GOOGLE ADS IN 2026
+════════════════════════════════════════════════ -->
+<div class="slide slide-content" id="s18">
+<div class="slide-inner">
+<h2 class="slide-title">Google Ads in 2026: what is changing</h2>
+<div class="two-col" style="grid-template-columns:1fr 1fr;gap:18px;flex:1;">
+<div class="panel" style="border-top:4px solid var(--navy);">
+<div class="panel-title" style="color:var(--navy);">AI is the engine</div>
+<div class="panel-body" style="font-size:clamp(12px,1.3vw,14px);line-height:1.6;"><strong>Power Pack:</strong> AI Max, Performance Max, and Demand Gen work together to drive campaign delivery. Advertisers provide signals; AI handles execution.</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--blue);">
+<div class="panel-title" style="color:var(--blue);">Ads in AI Overviews</div>
+<div class="panel-body" style="font-size:clamp(12px,1.3vw,14px);line-height:1.6;">Paid results now appear inside AI-generated search summaries at the top of results. A fundamentally new surface for PPC, changing where and how ads are seen.</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--cyan);">
+<div class="panel-title" style="color:var(--blue);">Legacy formats retiring</div>
+<div class="panel-body" style="font-size:clamp(12px,1.3vw,14px);line-height:1.6;">Expanded Text Ads gone (2022). Call-only ads: new campaigns blocked Feb 2026, serving ends 2026 to 2027. The direction is flexible, asset-based formats that AI assembles.</div>
+</div>
+<div class="panel" style="border-top:4px solid var(--purple);">
+<div class="panel-title" style="color:var(--purple);">First-party data is critical</div>
+<div class="panel-body" style="font-size:clamp(12px,1.3vw,14px);line-height:1.6;">Similar Audiences removed (2023). Third-party cookies are phasing out. Targeting now relies on your own customer data and conversion signals as inputs to Google's AI.</div>
+</div>
+</div>
+<div class="callout" style="margin-top:16px;">
+<strong>For your A3 proposals:</strong> search is fully in play for Music Planet, and so is display. The strategic question in 2026 is less "which keywords" and more "what signals and assets will you feed Google's AI," and how you keep an awareness-first goal accountable to an ROI-first client.
+</div>
+</div>
+<div class="speaker-notes">Four things shaping Google Ads right now. First, AI is no longer an add-on; it is the core of how campaigns run. Google's Power Pack gives three AI-driven campaign types that work together: Demand Gen for awareness, AI Max for search intent, Performance Max for full-funnel scale. Second, ads now appear inside AI Overviews: when Google generates an AI summary at the top of results, ads can show within it, a fundamentally new surface. Third, Google is systematically retiring legacy ad formats. Expanded Text Ads went in 2022; call-only ads cannot be created from February 2026 and stop serving by 2027. The direction is toward flexible, asset-based formats the AI assembles. Fourth, first-party data matters more than ever: with Similar Audiences gone and third-party cookies phasing out, your own customer data and conversion signals power Google's automated targeting.
+
+A note on these dates and product claims: several of them, especially the February 2026 call-only change, sit at or beyond my reliable knowledge, so treat them as last semester's stated facts and worth a quick check against Google's current documentation before class. For A3, the takeaway is that both search and display are open channels for Music Planet, and the modern job is feeding good signals and assets to the AI while holding the awareness-versus-ROI tension we opened with.</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SLIDE 19 - QUESTIONS
+════════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s19">
+<div class="slide-inner" style="justify-content:center;align-items:center;text-align:center;gap:24px;">
+<div style="font-size:clamp(60px,7vw,96px);font-weight:700;color:var(--cyan);line-height:1;">?</div>
+<h1 class="slide-title" style="font-size:clamp(30px,4vw,54px);margin-bottom:0;">Questions</h1>
+<div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+<div style="padding:12px 20px;border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.65);font-size:13px;">Full brief on Canvas</div>
+<div style="padding:12px 20px;border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.65);font-size:13px;">Tie every recommendation to a measurable outcome</div>
+<div style="padding:12px 20px;border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.65);font-size:13px;">Honour the brand voice</div>
+</div>
+</div>
+<div class="speaker-notes">Open floor for questions. If time permits, revisit the ROAS exercise or invite students to share their GDN and RSA mockups with the group. Three reminders to close on: the full Music Planet brief is on Canvas and is the source of truth for A3; because the client is ROI-driven, every recommendation in the proposal needs to connect to a measurable outcome, including any awareness activity; and the creative must stay true to Music Planet's grounded, local, jargon-free voice. Send them back to the opening tension: a great proposal serves the awareness goal in a way a conversion-focused client will actually approve.</div>
 </div>
 
 </div><!-- /deck -->
 
-<!-- LEFT SIDEBAR -->
 <nav id="sidebar">
-  <div id="sidebar-header">
-    <div class="course-label">MKTG 304 &middot; University of Auckland</div>
-    <div class="course-title">Google Advertising</div>
-  </div>
-  <div id="slide-list">
-    <div class="nav-group">Opening</div>
-    <div class="nav-item active" onclick="goTo(1);closeSidebar()"><span class="n-num">01</span><span class="n-title">Title</span></div>
-    
-    <div class="nav-item" onclick="goTo(3);closeSidebar()"><span class="n-num">03</span><span class="n-title">A3 review</span></div>
-    <div class="nav-item" onclick="goTo(4);closeSidebar()"><span class="n-num">04</span><span class="n-title">Learning outcomes</span></div>
-
-    <div class="nav-group">Section 1 &mdash; Google Display Network</div>
-    <div class="nav-item" onclick="goTo(5);closeSidebar()"><span class="n-num">05</span><span class="n-title">Google Display Network</span><span class="n-tag section">Section</span></div>
-    <div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">What is the GDN?</span></div>
-    <div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">GDN bidding: CPC vs CPM</span></div>
-    <div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">GDN targeting options</span></div>
-    <div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">Practice #1 — GDN awareness UK</span><span class="n-tag exercise">Practice</span></div>
-    <div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Practice #2a — GDN conversions AU</span><span class="n-tag exercise">Practice</span></div>
-    <div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">Practice #2b — ROAS</span><span class="n-tag exercise">Practice</span></div>
-    <div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">GDN display ad mockup</span><span class="n-tag exercise">Activity</span></div>
-
-    <div class="nav-group">Section 2 &mdash; Google Search</div>
-    <div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Search PPC vs SEO</span><span class="n-tag section">Section</span></div>
-    <div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">Search PPC bidding strategies</span></div>
-    <div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">Practice #3 — Search PPC NZ</span><span class="n-tag exercise">Practice</span></div>
-    <div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">RSA mockup exercise</span><span class="n-tag exercise">Activity</span></div>
-
-    <div class="nav-group">Close</div>
-    <div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">Google Ads in 2026</span></div>
-    <div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">Questions</span></div>
-  </div>
+<div id="sidebar-header">
+<div class="course-label">MKTG 304 · University of Auckland</div>
+<div class="course-title">Google Advertising</div>
+</div>
+<div id="slide-list">
+<div class="nav-group">Opening</div>
+<div class="nav-item active" onclick="goTo(1);closeSidebar()"><span class="n-num">01</span><span class="n-title">Title</span></div>
+<div class="nav-item" onclick="goTo(2);closeSidebar()"><span class="n-num">02</span><span class="n-title">Class participation</span></div>
+<div class="nav-item" onclick="goTo(3);closeSidebar()"><span class="n-num">03</span><span class="n-title">A3 review</span></div>
+<div class="nav-item" onclick="goTo(4);closeSidebar()"><span class="n-num">04</span><span class="n-title">Learning outcomes</span></div>
+<div class="nav-group">Section 1 — Google Display Network</div>
+<div class="nav-item" onclick="goTo(5);closeSidebar()"><span class="n-num">05</span><span class="n-title">Google Display Network</span><span class="n-tag section">Section</span></div>
+<div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">What is the GDN?</span></div>
+<div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">GDN bidding: CPC vs CPM</span></div>
+<div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">GDN targeting options</span></div>
+<div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">Practice #1 — Awareness tension</span><span class="n-tag exercise">Practice</span></div>
+<div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Practice #2a — GDN conversions</span><span class="n-tag exercise">Practice</span></div>
+<div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">Practice #2b — ROAS for retail</span><span class="n-tag exercise">Practice</span></div>
+<div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">GDN display ad mockup</span><span class="n-tag activity">Activity</span></div>
+<div class="nav-group">Section 2 — Google Search</div>
+<div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Google Search</span><span class="n-tag section">Section</span></div>
+<div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">Search PPC vs SEO</span></div>
+<div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">Search PPC bidding strategies</span></div>
+<div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">Practice #3 — Search PPC</span><span class="n-tag exercise">Practice</span></div>
+<div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">RSA mockup exercise</span><span class="n-tag activity">Activity</span></div>
+<div class="nav-group">Close</div>
+<div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">Google Ads in 2026</span></div>
+<div class="nav-item" onclick="goTo(19);closeSidebar()"><span class="n-num">19</span><span class="n-title">Questions</span></div>
+</div>
 </nav>
 <div id="sidebar-overlay" onclick="closeSidebar()"></div>
 
-<!-- NAV BAR -->
+<!-- ── NAV BAR ── -->
 <div id="nav-bar">
-  <div style="display:flex;align-items:center;gap:12px;">
-    <button class="nav-btn" id="btn-menu" onclick="toggleSidebar()" title="Slide navigator (N)" style="padding:8px 14px;font-size:16px;line-height:1;">&#9776;</button>
-    <button class="nav-btn" id="btn-prev" onclick="navigate(-1)">&#8592; Prev</button>
-  </div>
-  <span id="slide-counter">1 / 17</span>
-  <div style="display:flex;align-items:center;gap:12px;">
-    <span id="notes-hint" style="font-size:11px;color:rgba(255,255,255,0.4);">S = notes &nbsp;&middot;&nbsp; R = refs &nbsp;&middot;&nbsp; N = nav</span>
-    <button class="nav-btn" id="btn-refs" onclick="toggleRefs()" title="References (R)" style="padding:8px 14px;">&#128218; Refs</button>
-    <button class="nav-btn" id="btn-next" onclick="navigate(1)">Next &#8594;</button>
-  </div>
+<div style="display:flex;align-items:center;gap:12px;">
+<button class="nav-btn" id="btn-menu" onclick="toggleSidebar()" style="padding:8px 14px;font-size:16px;line-height:1;" title="Slide navigator (N)">&#9776;</button>
+<button class="nav-btn" disabled id="btn-prev" onclick="navigate(-1)">&larr; Prev</button>
+</div>
+<span id="slide-counter">1 / 19</span>
+<div style="display:flex;align-items:center;gap:12px;">
+<span id="notes-hint" style="font-size:11px;">S = notes &nbsp;·&nbsp; R = refs &nbsp;·&nbsp; N = nav</span>
+<button class="nav-btn" id="btn-refs" onclick="toggleRefs()" style="padding:8px 14px;" title="References (R)">&#128218; Refs</button>
+<button class="nav-btn" id="btn-notes" onclick="toggleNotes()" style="padding:8px 14px;" title="Speaker notes (S)">&#128466; Notes</button>
+<button class="nav-btn" id="btn-next" onclick="navigate(1)">Next &rarr;</button>
+</div>
 </div>
 
-<!-- REFERENCES PANEL -->
+<!-- ── REFERENCES PANEL ── -->
 <div id="refs-panel">
-  <h4>References &amp; Sources</h4>
-  <ul id="refs-content"></ul>
+<h4>References &amp; Sources</h4>
+<ul id="refs-content"></ul>
 </div>
 
-<!-- SPEAKER NOTES PANEL -->
+<!-- ── SPEAKER NOTES PANEL ── -->
 <div id="notes-panel">
-  <h4>Speaker Notes</h4>
-  <div id="notes-content"></div>
+<h4>Speaker Notes</h4>
+<div id="notes-content"></div>
 </div>
 
 <script>
 const SOURCES = {
-  1:  [],
-  2:  [],
-  2:  [],
-  2:  [],
-  2:  [],
-  2:  [
-    { label: 'Google — About the Google Display Network', url: 'https://support.google.com/google-ads/answer/2454003' },
-    { label: 'Google — About Demand Gen campaigns', url: 'https://support.google.com/google-ads/answer/13695777' },
+  1: [],
+  2: [{ label: 'MKTG 304 Assignment 1 — Class Participation instructions (course materials)', url: '' }],
+  3: [
+    { label: 'Music Planet Digital Marketing Brief (client-supplied)', url: '' }
   ],
-  2:  [
-    { label: 'Google — About Display Network bidding', url: 'https://support.google.com/google-ads/answer/2472725' },
+  4: [],
+  5: [],
+  6: [{ label: 'Google Ads Help — About the Display Network', url: 'https://support.google.com/google-ads' }],
+  7: [{ label: 'Google Ads Help — Choose a bid for your Display Network campaign', url: 'https://support.google.com/google-ads/answer/2454058' }],
+  8: [{ label: 'Google Ads Help — Targeting on the Display Network', url: 'https://support.google.com/google-ads' }],
+  9: [{ label: 'Music Planet Digital Marketing Brief — Marketing goals; what has not worked', url: '' }],
+  10: [{ label: 'Illustrative teaching figures — not actual Music Planet data', url: '' }],
+  11: [{ label: 'Illustrative teaching figures — not actual Music Planet data', url: '' }],
+  12: [{ label: 'Music Planet Digital Marketing Brief — Audience segments; brand and messaging', url: '' }],
+  13: [],
+  14: [{ label: 'Google Ads Help — Search campaigns; AI Overviews', url: 'https://support.google.com/google-ads' }],
+  15: [
+    { label: 'Google Ads Help — Smart Bidding strategies', url: 'https://support.google.com/google-ads' },
+    { label: 'Google — AI in Ads announcements (verify current details)', url: 'https://blog.google' }
   ],
-  2:  [
-    { label: 'Google — About targeting for Display campaigns', url: 'https://support.google.com/google-ads/answer/2497941' },
-    { label: 'Google — Optimised targeting', url: 'https://support.google.com/google-ads/answer/10537509' },
-  ],
-  2:  [],
-  10: [],
-  11: [],
-  12: [
-    { label: 'Ad Mocker — GDN mockup tool', url: 'https://admocker.com/gdn' },
-    { label: 'Media Modifier — Google Ads mockup', url: 'https://mediamodifier.com/ads/google' },
-  ],
-  13: [
-    { label: 'Google — Ads in AI Overviews', url: 'https://blog.google/products/ads-commerce/ai-overviews-ads/' },
-  ],
-  14: [
-    { label: 'Google — About Smart Bidding', url: 'https://support.google.com/google-ads/answer/7065882' },
-    { label: 'Google — AI Max for Search campaigns', url: 'https://support.google.com/google-ads/answer/15698257' },
-  ],
-  15: [],
   16: [
-    { label: 'Karooya — Responsive Search Ad Preview Tool', url: 'https://www.karooya.com/responsive-search-ad-preview-tool' },
-    { label: 'Google — About Responsive Search Ads', url: 'https://support.google.com/google-ads/answer/7684791' },
+    { label: 'Illustrative teaching figures — not actual Music Planet data', url: '' },
+    { label: 'Music Planet Digital Marketing Brief — Competitive landscape; sensitivities', url: '' }
   ],
-  17: [
-    { label: 'Google — Performance Max campaigns', url: 'https://support.google.com/google-ads/answer/10724817' },
-    { label: 'Google — Call ads deprecation notice', url: 'https://support.google.com/google-ads/answer/15749494' },
+  17: [{ label: 'Google Ads Help — About Responsive Search Ads', url: 'https://support.google.com/google-ads' }],
+  18: [
+    { label: 'Google — AI in Ads and format changes (dates worth verifying)', url: 'https://blog.google' },
+    { label: 'Google Ads Help — Similar Audiences sunset (2023)', url: 'https://support.google.com/google-ads' }
   ],
-  18: [],
+  19: []
 };
 
-const TOTAL = 17;
-let current     = 1;
-let notesOpen   = false;
-let sidebarOpen = false;
-let refsOpen    = false;
+const TOTAL = 19;
+let current = 1, notesOpen = false, sidebarOpen = false, refsOpen = false;
 
-function getSlide(n)  { return document.getElementById('s' + n); }
-function getCounter() { return document.getElementById('slide-counter'); }
+function getSlide(n) { return document.getElementById('s' + n); }
 function getNotes(n) {
   const s = getSlide(n);
   if (!s) return '';
@@ -1376,91 +1364,54 @@ function getNotes(n) {
 function navigate(dir) {
   const next = current + dir;
   if (next < 1 || next > TOTAL) return;
-
-  const cur = getSlide(current);
-  const nxt = getSlide(next);
-
+  const cur = getSlide(current), nxt = getSlide(next);
   nxt.style.transition = 'none';
-  nxt.style.transform  = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
-  nxt.style.opacity    = '0';
-
+  nxt.style.transform = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
+  nxt.style.opacity = '0';
   cur.classList.remove('active');
   cur.style.transition = 'opacity .32s ease, transform .32s ease';
-  cur.style.transform  = dir > 0 ? 'translateX(-60px)' : 'translateX(60px)';
-  cur.style.opacity    = '0';
-
+  cur.style.transform = dir > 0 ? 'translateX(-60px)' : 'translateX(60px)';
+  cur.style.opacity = '0';
   current = next;
-
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       nxt.style.transition = 'opacity .32s ease, transform .32s ease';
-      nxt.style.transform  = 'translateX(0)';
-      nxt.style.opacity    = '1';
+      nxt.style.transform = 'translateX(0)';
+      nxt.style.opacity = '1';
       nxt.classList.add('active');
       updateUI();
     });
   });
-
   setTimeout(() => {
-    cur.style.transition = '';
-    cur.style.transform  = '';
-    cur.style.opacity    = '';
-    nxt.style.transition = '';
-    nxt.style.transform  = '';
-    nxt.style.opacity    = '';
+    cur.style.transition = cur.style.transform = cur.style.opacity = '';
+    nxt.style.transition = nxt.style.transform = nxt.style.opacity = '';
   }, 400);
 }
 
 function goTo(n) {
   if (n === current || n < 1 || n > TOTAL) return;
-  const cur = getSlide(current);
-  const nxt = getSlide(n);
-  cur.classList.remove('active');
+  getSlide(current).classList.remove('active');
   current = n;
-  nxt.classList.add('active');
+  getSlide(n).classList.add('active');
   updateUI();
 }
 
 function updateUI() {
-  getCounter().textContent = current + ' / ' + TOTAL;
+  document.getElementById('slide-counter').textContent = current + ' / ' + TOTAL;
   document.getElementById('btn-prev').disabled = current === 1;
   document.getElementById('btn-next').disabled = current === TOTAL;
-  if (notesOpen) {
-    document.getElementById('notes-content').textContent = getNotes(current);
-  }
-  if (refsOpen) {
-    renderRefs(current);
-  }
-  const items = document.querySelectorAll('.nav-item');
-  items.forEach((el, i) => {
-    el.classList.toggle('active', i === current - 1);
-  });
-  const activeItem = document.querySelector('.nav-item.active');
-  if (activeItem) {
-    const list = document.getElementById('slide-list');
-    const itemTop = activeItem.offsetTop;
-    const itemBottom = itemTop + activeItem.offsetHeight;
-    const listTop = list.scrollTop;
-    const listBottom = listTop + list.offsetHeight;
-    if (itemTop < listTop || itemBottom > listBottom) {
-      list.scrollTop = itemTop - list.offsetHeight / 2;
-    }
-  }
+  if (notesOpen) document.getElementById('notes-content').textContent = getNotes(current);
+  if (refsOpen) renderRefs(current);
+  document.querySelectorAll('.nav-item').forEach((el, i) => el.classList.toggle('active', i === current - 1));
+  const a = document.querySelector('.nav-item.active');
+  if (a) a.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
 function renderRefs(n) {
   const list = document.getElementById('refs-content');
   const sources = SOURCES[n] || [];
-  if (sources.length === 0) {
-    list.innerHTML = '<li class="no-refs" style="list-style:none;">No specific sources for this slide.</li>';
-    return;
-  }
-  list.innerHTML = sources.map(s => {
-    const link = s.url
-      ? `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`
-      : `<span style="color:rgba(255,255,255,0.65);">${s.label}</span>`;
-    return `<li>${link}</li>`;
-  }).join('');
+  if (!sources.length) { list.innerHTML = '<li class="no-refs" style="list-style:none;">No specific sources for this slide.</li>'; return; }
+  list.innerHTML = sources.map(s => `<li>${s.url ? `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>` : `<span style="color:rgba(255,255,255,0.65);">${s.label}</span>`}</li>`).join('');
 }
 
 function toggleRefs() {
@@ -1485,21 +1436,25 @@ function closeSidebar() {
 function toggleNotes() {
   notesOpen = !notesOpen;
   if (notesOpen && refsOpen) { refsOpen = false; document.getElementById('refs-panel').classList.remove('visible'); }
-  const panel = document.getElementById('notes-panel');
-  panel.classList.toggle('visible', notesOpen);
-  if (notesOpen) {
-    document.getElementById('notes-content').textContent = getNotes(current);
-  }
+  document.getElementById('notes-panel').classList.toggle('visible', notesOpen);
+  if (notesOpen) document.getElementById('notes-content').textContent = getNotes(current);
 }
 
 document.addEventListener('keydown', e => {
-  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); navigate(1); }
-  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    { e.preventDefault(); navigate(-1); }
-  if (e.key === 's' || e.key === 'S') toggleNotes();
-  if (e.key === 'r' || e.key === 'R') toggleRefs();
-  if (e.key === 'n' || e.key === 'N') toggleSidebar();
+  switch(e.key) {
+    case 'ArrowRight': case 'ArrowDown': case 'PageDown': e.preventDefault(); navigate(1); break;
+    case 'ArrowLeft': case 'ArrowUp': case 'PageUp': e.preventDefault(); navigate(-1); break;
+    case 's': case 'S': toggleNotes(); break;
+    case 'n': case 'N': toggleSidebar(); break;
+    case 'r': case 'R': toggleRefs(); break;
+    case 'Home': e.preventDefault(); goTo(1); break;
+    case 'End': e.preventDefault(); goTo(TOTAL); break;
+  }
 });
+
+let touchStartX = 0;
+document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', e => { if (Math.abs(e.changedTouches[0].clientX - touchStartX) > 50) navigate(e.changedTouches[0].clientX < touchStartX ? 1 : -1); }, {passive:true});
 
 updateUI();
 </script>
