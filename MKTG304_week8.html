@@ -3,18 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKTG 304 — From Audit to Action</title>
+<title>MKTG 304 · From Audit to Action</title>
 <style>
-/* ===== UoA COLOUR PALETTE =====
-   dk2  / Dark Navy   : #0E2841
-   acc1 / Deep Indigo : #0C0C48
-   acc2 / Bright Blue : #1F2BD3
-   acc3 / Cyan        : #00CAEF
-   acc4 / Muted Purple: #8585A3
-   acc5 / Soft Purple : #8F95E9
-   lt2  / Light Gray  : #E8E8E8
-================================================================ */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -46,12 +36,12 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
 
 /* CONTENT */
 .slide-content { background: #F5F7FA; }
-.slide-content .slide-inner { flex: 1; display: flex; flex-direction: column; padding: 40px 64px 72px; }
+.slide-content .slide-inner { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 64px 72px; }
 .slide-content .slide-title {
   font-size: clamp(22px,2.4vw,30px); font-weight: 700; color: var(--navy);
   border-left: 5px solid var(--cyan); padding-left: 16px; margin-bottom: 28px; line-height: 1.25;
 }
-.slide-content .slide-body { flex: 1; color: #1a1a2e; font-size: clamp(14px,1.5vw,17px); line-height: 1.65; }
+.slide-content .slide-body { color: #1a1a2e; font-size: clamp(14px,1.5vw,17px); line-height: 1.65; }
 
 /* DARK */
 .slide-dark { background: linear-gradient(135deg, var(--indigo) 0%, var(--navy) 100%); }
@@ -70,7 +60,7 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
 
 /* EXERCISE */
 .slide-exercise { background: var(--amber-bg); }
-.slide-exercise .slide-inner { flex: 1; display: flex; flex-direction: column; padding: 40px 64px 72px; }
+.slide-exercise .slide-inner { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 64px 72px; }
 .slide-exercise .exercise-badge {
   display: inline-block; background: var(--amber); color: var(--white);
   font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
@@ -103,31 +93,17 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
   font-size: 13px; font-weight: 700; margin-top: 2px;
 }
 
-.check-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
-.check-list li {
-  display: flex; align-items: flex-start; gap: 12px; font-size: clamp(12px,1.25vw,14px);
-  line-height: 1.5; color: #1a1a2e; background: white; border-radius: 8px;
-  padding: 10px 14px; box-shadow: 0 1px 5px rgba(0,0,0,0.06);
-}
-.check-icon { flex-shrink: 0; width: 18px; height: 18px; border: 2px solid var(--cyan); border-radius: 3px; margin-top: 1px; }
-.check-main { flex: 1; }
-.check-main strong { color: var(--navy); }
-
 .three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 12px; }
 .col-card { background: white; border-radius: 10px; padding: 20px 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
 .col-card .col-title { font-size: clamp(13px,1.3vw,15px); font-weight: 700; color: var(--navy); margin-bottom: 8px; }
 .col-card .col-body { font-size: clamp(12px,1.2vw,13px); color: #555; line-height: 1.5; }
 
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; flex: 1; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
 
 .fw-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-left: 5px solid var(--blue); }
 .fw-card .fw-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
 .fw-card .fw-title { font-size: clamp(14px,1.4vw,16px); font-weight: 700; color: var(--navy); margin-bottom: 8px; }
 .fw-card .fw-body { font-size: clamp(12px,1.2vw,13px); color: #555; line-height: 1.55; }
-
-.connect-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-.connect-list li { display: flex; align-items: flex-start; gap: 14px; font-size: clamp(13px,1.4vw,16px); color: rgba(255,255,255,0.85); line-height: 1.55; }
-.connect-list li .c-dot { flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); margin-top: 5px; }
 
 /* Generic data table */
 .data-table { width: 100%; border-collapse: collapse; font-size: clamp(11px,1.15vw,13px); }
@@ -139,25 +115,24 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
 /* Hierarchy flow */
 .hier-flow { display: flex; flex-direction: column; gap: 0; margin-top: 4px; }
 .hier-card {
-  background: white; border-radius: 10px; padding: 16px 22px;
+  background: white; border-radius: 10px; padding: 14px 22px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.07); display: flex; align-items: flex-start; gap: 18px;
 }
 .hier-badge {
-  flex-shrink: 0; width: 80px; text-align: center; padding: 6px 0;
+  flex-shrink: 0; width: 92px; text-align: center; padding: 6px 0;
   border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
 }
 .hier-badge.goal    { background: var(--navy);  color: var(--cyan); }
 .hier-badge.obj     { background: var(--blue);  color: white; }
 .hier-badge.tactic  { background: var(--cyan);  color: var(--navy); }
+.hier-badge.kpi     { background: var(--purple);color: white; }
 .hier-content .hier-title { font-size: clamp(14px,1.4vw,16px); font-weight: 700; color: var(--navy); margin-bottom: 4px; }
 .hier-content .hier-def   { font-size: clamp(12px,1.2vw,13px); color: #555; line-height: 1.5; }
-.hier-arrow { text-align: center; font-size: 20px; color: var(--cyan); line-height: 1; padding: 4px 0; }
+.hier-arrow { text-align: center; font-size: 18px; color: var(--cyan); line-height: 1; padding: 3px 0; }
 
 /* Course map */
 .stage-row { display: flex; align-items: center; gap: 0; margin: 28px 0 20px; }
-.stage-box {
-  flex: 1; border-radius: 10px; padding: 22px 20px; text-align: center;
-}
+.stage-box { flex: 1; border-radius: 10px; padding: 22px 20px; text-align: center; }
 .stage-box .s-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
 .stage-box .s-title { font-size: clamp(16px,1.8vw,22px); font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
 .stage-box .s-sub   { font-size: clamp(11px,1.1vw,13px); line-height: 1.45; }
@@ -174,13 +149,6 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
 .stage-box.upcoming .s-title { color: rgba(255,255,255,0.6); }
 .stage-box.upcoming .s-sub   { color: rgba(255,255,255,0.35); }
 .stage-arrow { flex-shrink: 0; font-size: 24px; color: var(--cyan); padding: 0 16px; }
-
-/* Placeholder highlight */
-.placeholder {
-  display: inline-block; background: rgba(245,158,11,0.18); border: 1.5px dashed var(--amber);
-  border-radius: 4px; padding: 2px 8px; color: #78350F; font-family: Consolas, monospace;
-  font-size: 0.9em; font-style: normal;
-}
 
 /* ── SIDEBAR ── */
 #sidebar {
@@ -247,7 +215,7 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
 #refs-panel h4 { color: #80E3F7; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
 #refs-panel ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 #refs-panel ul li { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; display: flex; align-items: flex-start; gap: 8px; }
-#refs-panel ul li::before { content: '›'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+#refs-panel ul li::before { content: '\203A'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 #refs-panel a { color: #80E3F7; text-decoration: none; border-bottom: 1px solid rgba(128,227,247,0.3); }
 #refs-panel a:hover { color: white; }
 #refs-panel .no-refs { color: rgba(255,255,255,0.35); font-style: italic; font-size: 13px; }
@@ -269,12 +237,12 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
   <div class="slide-inner" style="justify-content:center;gap:0;">
     <div class="uoa-badge">MKTG 304 &middot; University of Auckland</div>
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;">MKTG 304 | University of Auckland</div>
-    <h1 class="slide-title" style="font-size:clamp(28px,3.8vw,52px);max-width:860px;">From audit to action: building Hnry's campaign strategy</h1>
+    <h1 class="slide-title" style="font-size:clamp(28px,3.8vw,52px);max-width:860px;">From audit to action: building Music Planet's campaign strategy</h1>
     <div class="slide-subtitle" style="margin-top:20px;">Week 8 &nbsp;&middot;&nbsp; Tutorial &nbsp;&middot;&nbsp; 90 minutes</div>
-    <div style="margin-top:28px;font-size:clamp(13px,1.4vw,16px);color:rgba(255,255,255,0.6);max-width:680px;line-height:1.6;">Your audit told you what's happening. Today is about what to do next.</div>
+    <div style="margin-top:28px;font-size:clamp(13px,1.4vw,16px);color:rgba(255,255,255,0.6);max-width:680px;line-height:1.6;">Your audit told you what is happening. Today is about deciding what to do next.</div>
     <div style="margin-top:32px;font-size:clamp(11px,1.1vw,13px);color:rgba(255,255,255,0.32);padding:10px 22px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;display:inline-block;">&#8592; &#8594; navigate &nbsp;&middot;&nbsp; S = speaker notes &nbsp;&middot;&nbsp; R = references &nbsp;&middot;&nbsp; N = slide list</div>
   </div>
-  <div class="speaker-notes">Welcome to Week 8. Students have now submitted or are finalising Assignment 2. This session makes the pivot explicit: the audit was diagnostic; today is prescriptive. The session has four sections — strategic framework, KPIs and measurement, connecting to the audit, and campaign structure — and three exercises that generate directly usable content for Assignment 3. Confirm at the start: has everyone seen the Assignment 3 brief? The session is designed to produce tangible output for that brief, so students who haven't read it will be working blind. Take two minutes at the start to frame this as a working session, not a lecture.</div>
+  <div class="speaker-notes">Welcome to Week 8. Assignment 2, the digital audit of Music Planet, is submitted, and the class is now working on Assignment 3, the campaign proposal. This session makes the pivot explicit: the audit was diagnostic, today is prescriptive. The session runs in four sections, framework, from objectives to tactics, KPIs and measurement, then connecting the audit and campaign structure, with three exercises that produce content students can use directly in Assignment 3. The design is different from a normal lecture: rather than handing students a finished set of objectives and tactics, we give them the three goals and have them generate everything beneath, using an LLM and their own audit. Confirm at the start that everyone has read the Assignment 3 brief. Frame this as a working session, not a lecture.</div>
 </div>
 
 <!-- ═══ S2 — COURSE MAP ═══ -->
@@ -282,18 +250,18 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
   <div class="slide-inner">
     <div class="uoa-badge">MKTG 304 &middot; Week 8</div>
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;">Where we are in the course</div>
-    <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,36px);">Three stages. You're moving from stage one to stage two.</h2>
+    <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,36px);">Three stages. You are moving from stage one to stage two.</h2>
     <div class="stage-row">
       <div class="stage-box done">
         <div class="s-label">&#10003; Complete</div>
         <div class="s-title">Audit</div>
-        <div class="s-sub">Assignment 2<br>Digital audit of Hnry</div>
+        <div class="s-sub">Assignment 2<br>Digital audit of Music Planet</div>
       </div>
       <div class="stage-arrow">&#8594;</div>
       <div class="stage-box current">
         <div class="s-label">&#9654; This session</div>
         <div class="s-title">Strategy</div>
-        <div class="s-sub">Week 8 tutorial<br>Goals, tactics, KPIs</div>
+        <div class="s-sub">Week 8 tutorial<br>Goals, objectives, tactics, KPIs</div>
       </div>
       <div class="stage-arrow">&#8594;</div>
       <div class="stage-box upcoming">
@@ -303,10 +271,10 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
       </div>
     </div>
     <div style="background:rgba(0,202,239,0.1);border:1px solid rgba(0,202,239,0.35);border-radius:8px;padding:16px 22px;margin-top:4px;font-size:clamp(13px,1.35vw,15px);color:rgba(255,255,255,0.85);line-height:1.65;">
-      Everything produced in today's exercises feeds directly into <strong style="color:var(--cyan);">Assignment 3</strong>. Work carefully — this is not practice, it is your first draft.
+      Everything produced in today's exercises feeds directly into <strong style="color:var(--cyan);">Assignment 3</strong>. Work carefully. This is not practice, it is your first draft.
     </div>
   </div>
-  <div class="speaker-notes">Spend 3–4 minutes on this slide. The three-stage framing matters because students sometimes treat the audit and the proposal as separate, unrelated tasks. They are not. The proposal is an argument built on the evidence the audit produced. A proposal that ignores the audit findings has no analytical foundation. Today's session is explicitly structured to bridge the two. Ask: "Who has already opened the Assignment 3 brief?" If fewer than half the group has, take a moment to tell them what the brief asks for at the highest level before moving on.</div>
+  <div class="speaker-notes">Spend 3 to 4 minutes here. Students sometimes treat the audit and the proposal as separate, unrelated tasks. They are not. The proposal is an argument built on the evidence the audit produced. A proposal that ignores the audit findings has no analytical foundation. Today's session is explicitly structured to bridge the two, and the audit becomes the context that makes the AI-assisted work in this session produce something specific to Music Planet rather than generic. Ask who has opened the Assignment 3 brief. If fewer than half have, summarise what the brief asks for at a high level before moving on.</div>
 </div>
 
 <!-- ═══ S3 — AGENDA ═══ -->
@@ -315,34 +283,34 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
     <div class="uoa-badge">Week 8</div>
     <h2 class="slide-title">Today's agenda</h2>
     <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;">
-        <div style="background:white;border-radius:10px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);display:flex;flex-direction:column;gap:8px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);display:flex;flex-direction:column;gap:8px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);">Section 1</div>
           <div style="font-size:clamp(15px,1.6vw,18px);font-weight:700;color:var(--navy);">The strategic framework</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Goal → Objective → Tactic hierarchy &middot; KPIs vs KSFs &middot; Hnry's goals and objectives &middot; Worked example</div>
-          <div style="margin-top:auto;padding-top:8px;font-size:11px;font-weight:700;color:var(--amber);letter-spacing:1px;text-transform:uppercase;">Exercise 1 — AI-assisted tactic generation</div>
+          <div style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.5;">Goal &rarr; objective &rarr; tactic &rarr; KPI hierarchy &middot; KPIs vs KSFs &middot; Music Planet's three goals</div>
+          <div style="margin-top:auto;padding-top:8px;font-size:11px;font-weight:700;color:var(--amber);letter-spacing:1px;text-transform:uppercase;">Exercise 1 &middot; Generating objectives</div>
         </div>
-        <div style="background:white;border-radius:10px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);display:flex;flex-direction:column;gap:8px;">
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);display:flex;flex-direction:column;gap:8px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);">Section 2</div>
-          <div style="font-size:clamp(15px,1.6vw,18px);font-weight:700;color:var(--navy);">KPIs and measurement</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Six KPI categories &middot; Prioritisation for Hnry &middot; Benchmarks and predictions</div>
-          <div style="margin-top:auto;padding-top:8px;font-size:11px;font-weight:700;color:var(--amber);letter-spacing:1px;text-transform:uppercase;">Exercise 2 — Tactic-to-KPI mapping</div>
+          <div style="font-size:clamp(15px,1.6vw,18px);font-weight:700;color:var(--navy);">From objectives to tactics</div>
+          <div style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.5;">Generating tactics &middot; Hunting for overlap &middot; More bang for your budget</div>
+          <div style="margin-top:auto;padding-top:8px;font-size:11px;font-weight:700;color:var(--amber);letter-spacing:1px;text-transform:uppercase;">Exercise 2 &middot; Tactics and overlap</div>
         </div>
-        <div style="background:white;border-radius:10px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--cyan);display:flex;flex-direction:column;gap:8px;">
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--cyan);display:flex;flex-direction:column;gap:8px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Section 3</div>
-          <div style="font-size:clamp(15px,1.6vw,18px);font-weight:700;color:var(--navy);">Connecting your audit</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Audit findings → strategic implications &middot; Worked example &middot; Which sections drive which outputs</div>
-          <div style="margin-top:auto;padding-top:8px;font-size:11px;font-weight:700;color:var(--amber);letter-spacing:1px;text-transform:uppercase;">Exercise 3 — Audit-to-strategy mapping</div>
+          <div style="font-size:clamp(15px,1.6vw,18px);font-weight:700;color:var(--navy);">KPIs and measurement</div>
+          <div style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.5;">Six KPI categories &middot; Which matter most for Music Planet &middot; Benchmarks and predictions</div>
+          <div style="margin-top:auto;padding-top:8px;font-size:11px;font-weight:700;color:var(--amber);letter-spacing:1px;text-transform:uppercase;">Exercise 3 &middot; KPI and KSF mapping</div>
         </div>
-        <div style="background:white;border-radius:10px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--purple);display:flex;flex-direction:column;gap:8px;">
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--purple);display:flex;flex-direction:column;gap:8px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--purple);">Section 4</div>
-          <div style="font-size:clamp(15px,1.6vw,18px);font-weight:700;color:var(--navy);">Campaign structure for Assignment 3</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.55;">Full campaign architecture &middot; Budget framing &middot; Before next week checklist</div>
+          <div style="font-size:clamp(15px,1.6vw,18px);font-weight:700;color:var(--navy);">Connecting your audit and structure</div>
+          <div style="font-size:clamp(12px,1.25vw,14px);color:#555;line-height:1.5;">Audit findings &rarr; strategy &middot; Search: find the gap &middot; Full campaign architecture and budget</div>
         </div>
       </div>
     </div>
   </div>
-  <div class="speaker-notes">Use this slide to orient students before diving in. The four sections are sequential and build on each other — you cannot sensibly do Section 3 (connecting the audit) without the vocabulary from Section 1. The three exercises are the most important outputs of the session: each one produces content students can use directly in Assignment 3. Encourage students to have their Assignment 2 audit open in another tab or window from the start — they will need it in Section 3.</div>
+  <div class="speaker-notes">Use this to orient students before diving in. The four sections are a cascade and build on each other. You generate objectives from the goals, tactics from the objectives, then KPIs and KSFs for the tactics, and finally you connect it back to the audit and wrap it in a campaign structure and budget. The three exercises are the most important outputs of the session: each produces content students can lift straight into Assignment 3. Tell students now to have their Assignment 2 audit open in another tab from the start. They will need it in Exercise 1, and it is the single thing that stops the AI-assisted work being generic.</div>
 </div>
 
 <!-- ═══ S4 — THE HIERARCHY ═══ -->
@@ -355,336 +323,398 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
         <div class="hier-card">
           <div class="hier-badge goal">Goal</div>
           <div class="hier-content">
-            <div class="hier-title">The broad business ambition</div>
-            <div class="hier-def">A high-level statement of what the organisation is trying to achieve. Not time-bound; not directly measurable. Provides direction.</div>
+            <div class="hier-title">The broad business ambition (given to you)</div>
+            <div class="hier-def">A high-level statement of what the organisation is trying to achieve. Not time-bound, not directly measurable. Music Planet gives you three.</div>
           </div>
         </div>
         <div class="hier-arrow">&#8595;</div>
         <div class="hier-card">
           <div class="hier-badge obj">Objective</div>
           <div class="hier-content">
-            <div class="hier-title">A SMART, measurable outcome</div>
-            <div class="hier-def">Specific, Measurable, Achievable, Relevant, Time-bound. One objective contributes to one goal. The objective is the commitment; it is what gets measured.</div>
+            <div class="hier-title">A SMART, measurable outcome (you generate these)</div>
+            <div class="hier-def">Specific, Measurable, Achievable, Relevant, Time-bound. Each objective serves a goal, and a strong one can serve more than one. This is what gets measured.</div>
           </div>
         </div>
         <div class="hier-arrow">&#8595;</div>
         <div class="hier-card">
           <div class="hier-badge tactic">Tactic</div>
           <div class="hier-content">
-            <div class="hier-title">The specific digital marketing activity</div>
-            <div class="hier-def">The action taken to achieve the objective. Must be channel-specific, actionable, and measurable. Multiple tactics can support one objective.</div>
+            <div class="hier-title">The specific digital marketing activity (you generate these)</div>
+            <div class="hier-def">The action taken to achieve the objective. Channel-specific, actionable, measurable. One tactic can support more than one objective.</div>
+          </div>
+        </div>
+        <div class="hier-arrow">&#8595;</div>
+        <div class="hier-card">
+          <div class="hier-badge kpi">KPI &middot; KSF</div>
+          <div class="hier-content">
+            <div class="hier-title">How you measure it, and what must be true (you generate these)</div>
+            <div class="hier-def">KPIs measure whether the tactic is working. KSFs are the preconditions that must be in place for it to work at all.</div>
           </div>
         </div>
       </div>
-      <div style="background:white;border-radius:10px;padding:14px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--amber);margin-top:14px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px;">Hnry worked example</div>
-        <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px;font-size:clamp(12px,1.2vw,13px);color:#333;line-height:1.5;">
-          <div style="font-weight:700;color:var(--navy);">Goal</div><div>Grow Hnry's customer base and product adoption across target markets</div>
-          <div style="font-weight:700;color:var(--navy);">Objective</div><div>Acquire new UK Hnry customers</div>
-          <div style="font-weight:700;color:var(--navy);">Example tactic</div><div>Create a direct response video ad campaign targeting UK sole traders across paid social channels</div>
-        </div>
-      </div>
+      <div class="callout" style="margin-top:14px;">Music Planet hands you the three goals. <strong>Everything below the top line, you build today.</strong> That is the work of Assignment 3, and the reason this session is generative rather than a lecture.</div>
     </div>
   </div>
-  <div class="speaker-notes">The hierarchy is the structural foundation for the entire session and for Assignment 3. Students frequently conflate objectives and tactics — "increase our social media presence" is not an objective, it is a vague tactic-shaped goal. An objective must be SMART: you must be able to answer "did we achieve it?" with data at the end of the campaign period. Walk through the distinction carefully before moving on. The Hnry example at the bottom uses placeholders that the instructor should complete with the course-defined wording before the session. Do not leave the placeholders blank in a live session.</div>
+  <div class="speaker-notes">The hierarchy is the structural foundation for the session and for Assignment 3. The important shift this year: students are not handed objectives and tactics. They are given three goals and generate the rest. Emphasise two properties that pay off later. First, an objective must be SMART, so you can answer did we achieve it with data at the end of the campaign. Students frequently offer vague tactic-shaped goals like increase our social presence, which is neither an objective nor measurable. Second, the hierarchy is not strictly one-to-one: a well-chosen objective can serve more than one goal, and a well-chosen tactic can serve more than one objective. That overlap is where budget efficiency comes from, and it is the analytical prize in Section 2. Do not rush this slide, the whole cascade depends on the vocabulary being clear.</div>
 </div>
 
 <!-- ═══ S5 — KPIs vs KSFs ═══ -->
 <div class="slide slide-content" id="s5">
   <div class="slide-inner">
     <div class="uoa-badge">Strategic framework</div>
-    <h2 class="slide-title">KPIs vs KSFs — they are not the same</h2>
+    <h2 class="slide-title">KPIs vs KSFs. They are not the same</h2>
     <div class="slide-body">
       <div class="two-col" style="margin-top:0;">
-        <div style="background:white;border-radius:10px;padding:22px 22px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);display:flex;flex-direction:column;gap:10px;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);">KPI — Key Performance Indicator</div>
+        <div style="background:white;border-radius:10px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);display:flex;flex-direction:column;gap:10px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);">KPI &middot; Key Performance Indicator</div>
           <div style="font-size:clamp(14px,1.4vw,16px);font-weight:700;color:var(--navy);">A metric that measures progress toward an objective</div>
           <div style="font-size:clamp(13px,1.3vw,15px);color:#444;line-height:1.6;">Answers: <strong>"How are we performing?"</strong></div>
           <div style="border-top:1px solid #e8e8e8;padding-top:10px;">
-            <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Examples</div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Music Planet examples</div>
             <ul style="list-style:disc;padding-left:18px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.7;">
-              <li>Organic traffic up 20% month-on-month</li>
-              <li>Sign-up conversion rate 3.5%</li>
-              <li>Cost per lead under $25</li>
-              <li>Email open rate 28%</li>
+              <li>Online store sessions up 20% month on month</li>
+              <li>Add-to-cart to checkout conversion rate 3.5%</li>
+              <li>Cost per online sale under $40</li>
+              <li>Branded search volume for "Music Planet" up 15%</li>
             </ul>
           </div>
         </div>
-        <div style="background:white;border-radius:10px;padding:22px 22px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);display:flex;flex-direction:column;gap:10px;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);">KSF — Key Success Factor</div>
-          <div style="font-size:clamp(14px,1.4vw,16px);font-weight:700;color:var(--navy);">A condition that must be in place for tactics to succeed</div>
+        <div style="background:white;border-radius:10px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);display:flex;flex-direction:column;gap:10px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);">KSF &middot; Key Success Factor</div>
+          <div style="font-size:clamp(14px,1.4vw,16px);font-weight:700;color:var(--navy);">A condition that must be in place for a tactic to succeed</div>
           <div style="font-size:clamp(13px,1.3vw,15px);color:#444;line-height:1.6;">Answers: <strong>"What has to be true for this to work?"</strong></div>
           <div style="border-top:1px solid #e8e8e8;padding-top:10px;">
-            <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Examples</div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Music Planet examples</div>
             <ul style="list-style:disc;padding-left:18px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.7;">
-              <li>Landing page load speed under 2 seconds</li>
-              <li>Consistent publishing cadence — at least two posts per week</li>
-              <li>Ad creative reviewed and approved before campaign launch</li>
-              <li>GA4 conversion tracking correctly configured</li>
+              <li>Product pages load in under 2 seconds on mobile</li>
+              <li>Consistent posting cadence, at least two posts per week</li>
+              <li>Ad creative honours the brand voice, grounded not corporate</li>
+              <li>GA4 ecommerce and conversion tracking correctly configured</li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="callout" style="margin-top:14px;">Both appear in <strong>Assignment 3</strong>, and they are not interchangeable. A KPI is measured after the fact; a KSF is a precondition that must be in place before the tactic can work.</div>
+      <div class="callout" style="margin-top:14px;">Both appear in <strong>Assignment 3</strong>, and they are not interchangeable. A KPI is measured after the fact. A KSF is a precondition that must be in place before the tactic can work.</div>
     </div>
   </div>
-  <div class="speaker-notes">This distinction trips up many students in Assignment 3. A common error: listing "good content quality" as a KPI, when it is actually a KSF. You cannot measure "good content quality" as a performance indicator — it is a condition you either meet or don't before you launch. Walk through one example of each explicitly: "organic traffic up 20% month-on-month" is a KPI because you can check it with data after the fact. "Consistent publishing cadence of at least two posts per week" is a KSF because if you don't have that in place, your social media tactic cannot work, regardless of how good your content is. Ask students: "Can you spot an example of a KSF being incorrectly listed as a KPI in your Assignment 2 audit?"</div>
+  <div class="speaker-notes">This distinction trips up many students. A common error: listing good content quality as a KPI when it is actually a KSF. You cannot measure good content quality as a performance indicator, it is a condition you either meet or do not before launch. Walk through one of each. Online store sessions up 20% month on month is a KPI because you can check it with data afterwards. A consistent posting cadence of at least two posts per week is a KSF, because if it is not in place the social tactic cannot work regardless of how good the content is. Note the Music Planet flavour: honouring the brand voice, grounded and not corporate, is a genuine KSF for their creative, straight from the brief. Ask students to spot a KSF they may have mislabelled as a KPI in their own audit.</div>
 </div>
 
-<!-- ═══ S6 — HNRY'S GOALS AND OBJECTIVES ═══ -->
+<!-- ═══ S6 — MUSIC PLANET'S THREE GOALS ═══ -->
 <div class="slide slide-dark" id="s6">
   <div class="slide-inner">
     <div class="uoa-badge">MKTG 304 &middot; Week 8</div>
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;">The anchor for this session</div>
-    <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,36px);">Hnry's goals and objectives for Assignment 3</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;">
-      <!-- Left column: three goal cards -->
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,202,239,0.3);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:8px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);">Goal 1</div>
-          <div style="font-size:clamp(15px,1.55vw,18px);font-weight:700;color:white;">Generate qualified leads</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,202,239,0.3);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:8px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);">Goal 2</div>
-          <div style="font-size:clamp(15px,1.55vw,18px);font-weight:700;color:white;">Increase brand awareness</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,202,239,0.3);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:8px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);">Goal 3</div>
-          <div style="font-size:clamp(15px,1.55vw,18px);font-weight:700;color:white;">Increase engagement</div>
-        </div>
+    <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,36px);">Music Planet gives you three goals. You build the rest.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px;">
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,202,239,0.3);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);">Goal 1</div>
+        <div style="font-size:clamp(15px,1.6vw,19px);font-weight:700;color:white;">Increase brand awareness</div>
       </div>
-      <!-- Right column: two objective cards -->
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,202,239,0.3);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:8px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);">Objective 1</div>
-          <div style="font-size:clamp(13px,1.35vw,15px);color:rgba(255,255,255,0.9);line-height:1.6;">Increase the Mileage by Hnry app customer base</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,202,239,0.3);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:8px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);">Objective 2</div>
-          <div style="font-size:clamp(13px,1.35vw,15px);color:rgba(255,255,255,0.9);line-height:1.6;">Increase Hnry users in the UK</div>
-        </div>
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,202,239,0.3);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);">Goal 2</div>
+        <div style="font-size:clamp(15px,1.6vw,19px);font-weight:700;color:white;">Increase engagement</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(0,202,239,0.3);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);">Goal 3</div>
+        <div style="font-size:clamp(15px,1.6vw,19px);font-weight:700;color:white;">Drive online sales</div>
       </div>
     </div>
+    <div style="background:rgba(0,202,239,0.1);border:1px solid rgba(0,202,239,0.35);border-radius:8px;padding:16px 22px;margin-top:20px;font-size:clamp(13px,1.35vw,15px);color:rgba(255,255,255,0.85);line-height:1.65;">
+      There are no fixed objectives handed to you. Over the next three exercises you will generate a menu of <strong style="color:var(--cyan);">objectives</strong> for each goal, then <strong style="color:var(--cyan);">tactics</strong> for each objective, then the <strong style="color:var(--cyan);">KPIs and KSFs</strong> that measure them. Your job is to choose the strongest combinations, not to accept the first thing the model produces.
+    </div>
   </div>
-  <div class="speaker-notes">This slide should be completed by the instructor before the session. The placeholders are intentional — insert the course-defined goals and objectives. These are fixed for all students and provide the shared anchor that makes the in-class exercises comparable and the debrief coherent. Once the wording is on screen, spend 2–3 minutes unpacking each objective: is it SMART? What is the time horizon? What does success look like in measurable terms? Students will choose one of these two objectives for Exercise 1.</div>
+  <div class="speaker-notes">These three goals are fixed and shared by the whole cohort, which is what makes the exercises comparable and the debrief coherent. Do not add objectives here. The deliberate design choice this year is that students generate the objectives, tactics, and measures themselves. Spend two or three minutes making sure the three goals are understood, then set expectations for the cascade to come: objectives, then tactics, then KPIs and KSFs, each generated with AI assistance and their own audit as context, and each requiring a selection decision. The phrase to plant now is more bang for your budget, the idea that the best objectives and tactics pull double duty across goals. That becomes the analytical payoff in Section 2.</div>
 </div>
 
 <!-- ═══ S7 — WORKED EXAMPLE ═══ -->
 <div class="slide slide-content" id="s7">
   <div class="slide-inner">
     <div class="uoa-badge">Strategic framework</div>
-    <h2 class="slide-title">Worked example — objective end to end <span style="font-size:12px;font-weight:400;color:var(--muted);letter-spacing:1px;text-transform:uppercase;padding-left:8px;">Example only</span></h2>
+    <h2 class="slide-title">Worked example: one goal, end to end <span style="font-size:12px;font-weight:400;color:var(--muted);letter-spacing:1px;text-transform:uppercase;padding-left:8px;">Example only &middot; you generate your own</span></h2>
     <div class="slide-body">
-      <div style="font-size:clamp(12px,1.2vw,14px);color:var(--muted);margin-bottom:12px;">Objective: increase sign-up traffic from organic search by 30% within the campaign period</div>
-      <table class="data-table" style="margin-bottom:14px;">
+      <div style="font-size:clamp(12px,1.2vw,14px);color:var(--muted);margin-bottom:12px;">Goal: drive online sales &nbsp;&middot;&nbsp; one illustrative objective taken all the way down the hierarchy</div>
+      <table class="data-table">
         <thead>
-          <tr>
-            <th>Element</th>
-            <th>Content</th>
-          </tr>
+          <tr><th style="width:22%;">Element</th><th>Content</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td style="font-weight:700;white-space:nowrap;">Tactic</td>
-            <td>Develop and optimise landing pages targeting high-intent transactional keywords identified in the SEMrush keyword gap analysis</td>
+            <td style="font-weight:700;white-space:nowrap;color:var(--navy);">Objective</td>
+            <td>Grow online sales of entry-level instruments to first-time buyers by a set percentage within the 30-day campaign</td>
           </tr>
           <tr>
-            <td style="font-weight:700;white-space:nowrap;">KPI 1</td>
-            <td>Ranking position for five target keywords — tracked weekly via position tracking tool</td>
+            <td style="font-weight:700;white-space:nowrap;color:var(--navy);">Tactic</td>
+            <td>Paid social direct-response campaign targeting supporting parents, driving to a "first instrument" starter-kit landing page with a clear call to action</td>
           </tr>
           <tr>
-            <td style="font-weight:700;white-space:nowrap;">KPI 2</td>
-            <td>Organic traffic to the sign-up page — measured as sessions from organic channel in GA4</td>
+            <td style="font-weight:700;white-space:nowrap;color:var(--navy);">KPI 1</td>
+            <td>Landing-page conversion rate, measured as completed checkouts from that page in GA4</td>
           </tr>
           <tr>
-            <td style="font-weight:700;white-space:nowrap;">KSF</td>
-            <td>Consistent content publishing cadence — minimum two SEO-optimised pages per fortnight throughout the campaign</td>
+            <td style="font-weight:700;white-space:nowrap;color:var(--navy);">KPI 2</td>
+            <td>Cost per online sale from the paid social campaign, measured in Meta Ads Manager against GA4 purchases</td>
           </tr>
           <tr>
-            <td style="font-weight:700;white-space:nowrap;">Measurement tool</td>
-            <td>GA4 (traffic and conversions) &middot; SEMrush Position Tracking (keyword rankings)</td>
+            <td style="font-weight:700;white-space:nowrap;color:var(--navy);">KSF</td>
+            <td>The starter-kit landing page exists, loads in under 2 seconds on mobile, and reflects the brand voice, reassuring and jargon-free for parents</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;white-space:nowrap;color:var(--navy);">Measurement tools</td>
+            <td>GA4 (traffic and ecommerce conversions) &middot; Meta Ads Manager (spend, CPM, cost per result)</td>
           </tr>
         </tbody>
       </table>
-      <div class="callout">
-        Notice how each KPI is directly measurable with a named tool, and the KSF is a precondition — not a metric. This is the structure your Assignment 3 tactics table needs.
-      </div>
+      <div class="callout">Notice each KPI names both what is measured and the tool that measures it, and the KSF is a precondition, not a metric. This is the structure your Assignment 3 tactics table needs.</div>
     </div>
   </div>
-  <div class="speaker-notes">Walk through this example carefully before students do Exercise 1. The most important teaching point is the specificity: each KPI names both what is being measured and the tool that measures it. Students who write "track performance" as a measurement approach will not score well. The KSF is correctly framed as a precondition — it is something that must be in place for the tactic to have a chance of working, not something you measure after the fact. Ask students: "If the KSF is not met — if publishing drops below the minimum cadence — what happens to the KPIs?" The answer is obvious once the relationship is clear.</div>
+  <div class="speaker-notes">Walk through this before Exercise 1 so students see the shape of a complete chain. The most important teaching point is specificity: each KPI names both what is measured and the tool that measures it. A student who writes track performance as a measurement approach will not score well. The KSF is correctly framed as a precondition, something that must be true for the tactic to have a chance of working, not something you measure after the fact. Ask: if the KSF is not met, if the landing page is slow or off-brand, what happens to the KPIs? The answer is obvious once the relationship is clear. Stress that this is one illustrative path for one goal, and students will generate their own across all three goals in the exercises.</div>
 </div>
 
 <!-- ═══ S8 — EXERCISE 1 ═══ -->
 <div class="slide slide-exercise" id="s8">
   <div class="slide-inner">
-    <div class="exercise-badge">Exercise 1 &mdash; 15 minutes</div>
-    <h2 class="slide-title">AI-assisted tactic generation</h2>
+    <div class="exercise-badge">Exercise 1 &middot; 15 minutes</div>
+    <h2 class="slide-title">AI-assisted objective generation</h2>
     <div class="slide-body">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;">
         <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.3vw,15px);">Your task — three steps</div>
+          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.3vw,15px);">Your task, three steps</div>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
-            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">1.</span>Choose <strong>one</strong> of Hnry's two objectives.</li>
-            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">2.</span>Construct a CRAFT prompt and use your preferred LLM to generate 3–5 digital marketing tactics that could achieve that objective.</li>
-            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">3.</span>For each tactic the LLM suggests: <strong>accept as is, modify, or reject</strong>. Write one sentence explaining your decision.</li>
+            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">1.</span><strong>Before you prompt:</strong> decide what context the model needs to generate objectives that are specific to Music Planet, not generic. What would you give it?</li>
+            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">2.</span>Build a CRAFT prompt and generate a menu of possible <strong>objectives</strong> for each of the three goals.</li>
+            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">3.</span>For each goal, <strong>accept, modify, or reject</strong> the model's objectives and select the two or three strongest. One sentence per decision.</li>
           </ul>
         </div>
         <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
           <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.3vw,15px);">Output</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.6;">A list of 3–5 tactics with a brief justification for each decision you made about the LLM's suggestion. This list is the starting point for your Assignment 3 tactics section.</div>
+          <div style="font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.6;">A short menu of candidate objectives under each of the three goals, with your selections marked and a one-line reason for each accept, modify, or reject. This is the top of your Assignment 3 cascade.</div>
           <div style="margin-top:12px;font-weight:700;color:#78350F;margin-bottom:6px;font-size:clamp(13px,1.3vw,15px);">Debrief question</div>
-          <div style="font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.6;">Which tactics did you modify or reject, and why? What did the LLM miss about Hnry's context?</div>
+          <div style="font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.6;">What context made the difference between a generic objective and a Music Planet one? What did the model get wrong?</div>
         </div>
       </div>
       <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:12px 18px;">
-        <div style="font-weight:700;color:#78350F;margin-bottom:4px;font-size:clamp(12px,1.25vw,14px);">CRAFT reminder — your prompt must include:</div>
+        <div style="font-weight:700;color:#78350F;margin-bottom:4px;font-size:clamp(12px,1.25vw,14px);">CRAFT reminder, your prompt should include:</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">C — Context: who Hnry is, who it serves</span>
-          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">R — Role: the analytical perspective</span>
-          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">A — Action: generate digital marketing tactics</span>
-          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">F — Format: numbered list with rationale</span>
-          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">T — Target audience</span>
+          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">C &middot; Context: who Music Planet is, plus the context you identified in step 1</span>
+          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">R &middot; Role</span>
+          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">A &middot; Action: generate SMART objectives per goal</span>
+          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">F &middot; Format</span>
+          <span style="background:rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-size:clamp(11px,1.1vw,13px);color:#78350F;font-weight:600;">T &middot; Target audience</span>
         </div>
       </div>
-      <div class="debrief" style="margin-top:12px;">&#9888; Do not use the LLM's output uncritically. Your grade depends on your judgement, not the model's.</div>
+      <div class="debrief" style="margin-top:12px;">&#9888; Step 1 is the real test. Generic context produces generic objectives. Work out what the model needs before you ask it anything.</div>
     </div>
   </div>
-  <div class="speaker-notes">Give students 10–12 minutes for the generation and decision step, then 3–4 minutes for debrief. The most important instruction is the accept/modify/reject step — this is what turns a passive AI output into an active analytical decision. Students who copy the LLM's tactics without interrogating them are not doing the exercise. Good LLM prompts for this task will include specific context about Hnry (NZ fintech, sole traders, SaaS sign-up model) and name the specific objective. Weak prompts will say "suggest digital marketing tactics for a fintech company" — the output will be too generic to be useful. In the debrief, listen for students who modified tactics to make them Hnry-specific: that is the analytical move you want to surface and reinforce. Common LLM errors to anticipate: suggesting tactics that are too expensive or complex for the campaign budget, recommending channels where Hnry's audience is not present, or proposing tactics that belong in a long-term strategy rather than a campaign.</div>
+  <div class="speaker-notes">This is the pivot exercise, and step 1 is the point of it. Do not tell students what context to use. Let them work out that a model handed only "Music Planet is a music retailer" will return generic objectives, and that the fix is to feed it their own Assignment 2 material, the updated SWOT, the recommendations, or the fuller audit. Steer, do not answer: if a group is producing bland objectives, ask what does the model actually know about Music Planet's situation, and where would it learn that. Let them arrive at their audit themselves. Reward the groups that reach generic in, generic out and feed their audit, that is the whole lesson. Give roughly 10 to 12 minutes for the work and 3 to 4 for the debrief. Good objectives will be SMART and tied to a specific persona or channel. Weak ones will read like restated goals. Keep the menu framing: the aim is several candidate objectives per goal, then a reasoned selection, not one right answer.</div>
 </div>
 
-<!-- ═══ S9 — SIX KPI CATEGORIES ═══ -->
+<!-- ═══ S9 — FROM OBJECTIVES TO TACTICS + OVERLAP ═══ -->
 <div class="slide slide-content" id="s9">
+  <div class="slide-inner">
+    <div class="uoa-badge">From objectives to tactics</div>
+    <h2 class="slide-title">More bang for your budget: hunt for overlap</h2>
+    <div class="slide-body">
+      <div class="two-col" style="margin-top:0;align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--blue);">
+            <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">The next step down</div>
+            <div style="font-size:clamp(13px,1.3vw,15px);color:#333;line-height:1.6;">With your selected objectives, generate <strong>tactics</strong> for each. Same discipline as before: accept, modify, or reject, and keep only what fits Music Planet's budget, channels, and audience.</div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--navy);">
+            <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">The efficiency move</div>
+            <div style="font-size:clamp(13px,1.3vw,15px);color:#333;line-height:1.6;">A $10,000 budget over 30 days is tight. The strongest proposals find <strong>tactics that serve more than one objective</strong>, and <strong>objectives that serve more than one goal</strong>. One well-chosen activity can earn its place twice.</div>
+          </div>
+        </div>
+        <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--cyan);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Illustrative overlap</div>
+          <div style="font-size:clamp(11px,1.15vw,13px);color:var(--muted);margin-bottom:10px;">One tactic can ladder up through more than one objective to more than one goal.</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:clamp(11px,1.15vw,13px);color:#333;line-height:1.4;">
+            <div style="background:#EFF6FF;border-radius:6px;padding:9px 12px;"><strong style="color:var(--navy);">Tactic:</strong> a short-form video series featuring in-store staff demoing gear</div>
+            <div style="text-align:center;color:var(--cyan);">&#8595;&nbsp;&nbsp;serves&nbsp;&nbsp;&#8595;</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div style="background:#F0FDF4;border-radius:6px;padding:8px 10px;"><strong style="color:#14532D;">Engagement</strong> objective (social reach and interaction)</div>
+              <div style="background:#FFF7ED;border-radius:6px;padding:8px 10px;"><strong style="color:#78350F;">Awareness</strong> objective (reaching new players)</div>
+            </div>
+            <div style="text-align:center;color:var(--cyan);">&#8595;&nbsp;&nbsp;which lift&nbsp;&nbsp;&#8595;</div>
+            <div style="background:rgba(14,40,65,0.06);border-radius:6px;padding:8px 10px;text-align:center;"><strong style="color:var(--navy);">Two goals at once, from one production cost</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:14px;">Overlap is not a coincidence to notice after the fact. It is something to <strong>design for</strong>. When you build your tactic menu, deliberately look for activities that pull double duty.</div>
+    </div>
+  </div>
+  <div class="speaker-notes">This slide introduces the analytical prize of the session, so give it real time. The cascade so far is mechanical: goals to objectives to tactics. The insight that separates a strong proposal from a checklist is efficiency through overlap. With only $10,000 over 30 days, a tactic that serves two objectives, or an objective that ladders into two goals, effectively doubles the return on that spend. The illustrative example, a staff-demo video series that serves both engagement and awareness from a single production cost, shows the shape without handing students the answer. Push them to design for overlap rather than notice it afterwards. In the exercise that follows, the mapping of overlaps is the part to grade hardest: a student who can trace one tactic up through two objectives to two goals, and justify it, has understood the point.</div>
+</div>
+
+<!-- ═══ S10 — EXERCISE 2 ═══ -->
+<div class="slide slide-exercise" id="s10">
+  <div class="slide-inner">
+    <div class="exercise-badge">Exercise 2 &middot; 15 minutes</div>
+    <h2 class="slide-title">Generating tactics and finding overlap</h2>
+    <div class="slide-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;">
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.3vw,15px);">Your task, three steps</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">1.</span>Use your LLM to generate 3 to 5 candidate <strong>tactics</strong> for each objective you selected in Exercise 1.</li>
+            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">2.</span>Accept, modify, or reject each. Reject anything that busts the $10k / 30-day budget, sits on a channel Music Planet's audience is not on, or is something they plainly already do.</li>
+            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">3.</span><strong>Map the overlaps.</strong> Mark any tactic that serves more than one objective, and any objective that serves more than one goal.</li>
+          </ul>
+        </div>
+        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
+          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.3vw,15px);">Output, an overlap map</div>
+          <table style="width:100%;border-collapse:collapse;font-size:clamp(11px,1.1vw,12px);">
+            <thead>
+              <tr>
+                <th style="background:#92400E;color:white;padding:6px 8px;text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Tactic</th>
+                <th style="background:#92400E;color:white;padding:6px 8px;text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Objective(s) served</th>
+                <th style="background:#92400E;color:white;padding:6px 8px;text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Goal(s) reached</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">Tactic 1</td><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">&hellip;</td><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">&hellip;</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">Tactic 2</td><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">&hellip;</td><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">&hellip;</td></tr>
+              <tr><td style="padding:6px 8px;color:#451A03;font-style:italic;">Tactic 3</td><td style="padding:6px 8px;color:#451A03;font-style:italic;">&hellip;</td><td style="padding:6px 8px;color:#451A03;font-style:italic;">&hellip;</td></tr>
+            </tbody>
+          </table>
+          <div style="margin-top:10px;font-weight:700;color:#78350F;margin-bottom:4px;font-size:clamp(12px,1.25vw,14px);">Debrief question</div>
+          <div style="font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;">Which single tactic gave you the most cross-coverage, and why?</div>
+        </div>
+      </div>
+      <div class="debrief">Keep this overlap map. The tactics that serve the most objectives and goals are your strongest budget candidates for Assignment 3.</div>
+    </div>
+  </div>
+  <div class="speaker-notes">Give roughly 10 to 12 minutes. Two things to police as you circulate. First, the accept, modify, reject discipline: a tactic that busts the $10,000 over 30 days budget, or sits on a channel Music Planet's audience is not on, should be rejected with a reason, not quietly kept. Also flag the do-not-propose-what-they-already-do point, which sets up Section 4: Music Planet already runs Google Ads and SEO, so proposing start doing search advertising as if from scratch is naive. Second, and most important, the overlap map. The debrief question, which single tactic gave the most cross-coverage, surfaces the analytical move you want. Ask one or two groups to trace a tactic up through its objectives to its goals aloud, the room can usually judge whether the overlap is real or forced. A forced overlap, claiming a tactic serves a goal it barely touches, is as weak as no overlap at all.</div>
+</div>
+
+<!-- ═══ S11 — SIX KPI CATEGORIES ═══ -->
+<div class="slide slide-content" id="s11">
   <div class="slide-inner">
     <div class="uoa-badge">KPIs and measurement</div>
     <h2 class="slide-title">The six KPI categories</h2>
     <div class="slide-body">
-      <div style="font-size:clamp(13px,1.3vw,15px);color:var(--muted);margin-bottom:14px;">A framework overview — KPI lists sit under each category, not on this slide.</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;flex:1;">
+      <div style="font-size:clamp(13px,1.3vw,15px);color:var(--muted);margin-bottom:14px;">A framework overview. Specific KPI lists sit under each category, not on this slide.</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
         <div class="fw-card" style="border-left-color:var(--navy);">
           <div class="fw-num">01</div>
-          <div class="fw-title">Lead generation</div>
-          <div class="fw-body">Measuring the volume and quality of new prospects entering the acquisition funnel — sign-ups, trial starts, form completions.</div>
+          <div class="fw-title">Sales &amp; conversion</div>
+          <div class="fw-body">Measuring transactions and their efficiency, completed checkouts, add-to-cart rate, conversion rate, average order value.</div>
         </div>
         <div class="fw-card" style="border-left-color:var(--blue);">
           <div class="fw-num">02</div>
           <div class="fw-title">Brand awareness</div>
-          <div class="fw-body">Measuring how widely and clearly the brand is known — reach, impressions, share of voice, branded search volume.</div>
+          <div class="fw-body">Measuring how widely and clearly the brand is known, reach, impressions, share of voice, branded search volume.</div>
         </div>
         <div class="fw-card" style="border-left-color:var(--cyan);">
           <div class="fw-num">03</div>
           <div class="fw-title">Website and traffic</div>
-          <div class="fw-body">Measuring the volume, source, and quality of website visits — sessions, channel mix, bounce rate, time on site.</div>
+          <div class="fw-body">Measuring the volume, source, and quality of website visits, sessions, channel mix, bounce rate, time on site.</div>
         </div>
         <div class="fw-card" style="border-left-color:var(--muted);">
           <div class="fw-num">04</div>
           <div class="fw-title">SEO</div>
-          <div class="fw-body">Measuring organic search visibility and performance — keyword rankings, organic traffic, backlink profile, domain authority.</div>
+          <div class="fw-body">Measuring organic search visibility, keyword rankings, organic traffic, backlink profile, domain authority.</div>
         </div>
         <div class="fw-card" style="border-left-color:var(--amber);">
           <div class="fw-num">05</div>
           <div class="fw-title">Paid advertising</div>
-          <div class="fw-body">Measuring the efficiency and return of paid media — CPC, CTR, conversion rate, ROAS, cost per acquisition.</div>
+          <div class="fw-body">Measuring the efficiency and return of paid media, CPC, CTR, conversion rate, ROAS, cost per acquisition.</div>
         </div>
         <div class="fw-card" style="border-left-color:var(--purple);">
           <div class="fw-num">06</div>
           <div class="fw-title">Social media</div>
-          <div class="fw-body">Measuring presence, engagement, and community — follower growth, engagement rate, reach, share, and brand mentions.</div>
+          <div class="fw-body">Measuring presence, engagement, and community, follower growth, engagement rate, reach, shares, brand mentions.</div>
         </div>
       </div>
     </div>
   </div>
-  <div class="speaker-notes">This is a framework overview slide — it should take no more than 3–4 minutes. The purpose is to give students the six-category vocabulary before the next slide asks them to prioritise. Don't list specific KPIs within each category here; the point is to establish the categories as a navigation structure. Ask students as you move through: "Which of these six categories do you think matters most for Hnry's campaign, given what you found in your audit?" Hold the answer for the next slide.</div>
+  <div class="speaker-notes">A framework overview slide, no more than 3 to 4 minutes. The purpose is to give students the six-category vocabulary before the next slide asks them to prioritise. Note the first category is framed as sales and conversion, which fits a retailer like Music Planet better than lead generation would, since the goal is online sales rather than qualified leads. Do not list specific KPIs within each category here, the point is to establish the categories as a navigation structure. As you move through, ask which categories students think matter most for Music Planet given their audit, and hold the answer for the next slide.</div>
 </div>
 
-<!-- ═══ S10 — WHICH CATEGORIES MATTER MOST ═══ -->
-<div class="slide slide-content" id="s10">
+<!-- ═══ S12 — WHICH CATEGORIES MATTER MOST ═══ -->
+<div class="slide slide-content" id="s12">
   <div class="slide-inner">
     <div class="uoa-badge">KPIs and measurement</div>
-    <h2 class="slide-title">Which categories matter most for Hnry?</h2>
+    <h2 class="slide-title">Which categories matter most for Music Planet?</h2>
     <div class="slide-body">
-      <div class="callout" style="margin-bottom:18px;">Not all six categories deserve equal attention in a short-term campaign. Prioritisation is an analytical decision — your audit should inform it.</div>
+      <div class="callout" style="margin-bottom:18px;">Not all six categories deserve equal attention in a 30-day campaign. Prioritisation is an analytical decision, and your audit should inform it.</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
         <div style="background:white;border-radius:10px;padding:18px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;">Likely primary</div>
           <div style="font-weight:700;font-size:clamp(13px,1.35vw,15px);color:var(--navy);margin-bottom:6px;">Brand awareness &amp; paid advertising</div>
-          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.55;">Hnry has an awareness gap, particularly in newer markets. Short-term campaigns can move awareness metrics within the campaign window. Paid media is directly controllable and produces measurable results quickly.</div>
+          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.5;">Music Planet wants to reach younger players and producers who default to global sites. Paid media is directly controllable and produces measurable results inside a 30-day window.</div>
         </div>
         <div style="background:white;border-radius:10px;padding:18px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--cyan);">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Likely secondary</div>
-          <div style="font-weight:700;font-size:clamp(13px,1.35vw,15px);color:var(--navy);margin-bottom:6px;">Website and traffic &amp; lead generation</div>
-          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.55;">Traffic and conversion metrics confirm whether awareness activity is producing downstream results. Without these, you cannot tell if your campaign is driving business impact — only that people saw it.</div>
+          <div style="font-weight:700;font-size:clamp(13px,1.35vw,15px);color:var(--navy);margin-bottom:6px;">Website and traffic &amp; sales and conversion</div>
+          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.5;">These confirm whether awareness activity is producing downstream sales. Without them you can tell people saw the campaign, but not whether it moved the business.</div>
         </div>
         <div style="background:white;border-radius:10px;padding:18px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--muted);">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Depends on the objective</div>
           <div style="font-weight:700;font-size:clamp(13px,1.35vw,15px);color:var(--navy);margin-bottom:6px;">Social media</div>
-          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.55;">Relevant if the campaign uses social as a primary channel. Secondary if the campaign is primarily paid search or content. What your audit found about Hnry's social presence should shape your decision.</div>
+          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.5;">Primary if the engagement goal drives your campaign and social is a lead channel. Secondary otherwise. What your audit found about Music Planet's social presence should decide it.</div>
         </div>
       </div>
       <div class="warn-callout" style="margin-top:14px;">
-        <strong>SEO metrics are not campaign KPIs.</strong> Meaningful ranking improvements take three to six months. Do not include SEO as a primary KPI in a short-term campaign — see Slide 15 for detail on where SEO findings belong.
+        <strong>SEO metrics are not campaign KPIs.</strong> Meaningful ranking improvements take three to six months, well beyond a 30-day campaign. Do not set SEO rankings as a primary KPI. Slide 17 covers where SEO findings belong.
       </div>
     </div>
   </div>
-  <div class="speaker-notes">This slide is designed to provoke critical thinking, not to hand students the answer. The framing ("likely primary", "likely secondary", "depends on the objective") signals that these are analytical judgements, not rules. The key teaching point is that SEO is explicitly excluded from campaign KPIs — this is addressed in more detail in Slide 15, but it is worth flagging early so students don't build their KPI frameworks around SEO metrics. The warn callout is important: it is a common error in Assignment 3. Ask students: "Based on your own audit, which one of these categories do you think Hnry is currently underperforming in, relative to competitors?" This primes them for the audit-to-strategy exercises later.</div>
+  <div class="speaker-notes">This slide provokes critical thinking, it does not hand students the answer. The framing, likely primary, likely secondary, depends on the objective, signals that these are analytical judgements shaped by their own audit, not rules. The key point is that SEO is explicitly excluded from campaign KPIs because rankings move on a three-to-six-month horizon, not a 30-day one. This is a common Assignment 3 error, and the warn callout flags it early so students do not build KPI frameworks around ranking improvements. Ask which single category students think Music Planet is currently underperforming in relative to Rockshop and MusicWorks, based on their audit, this primes the audit-to-strategy work in Section 4.</div>
 </div>
 
-<!-- ═══ S11 — BENCHMARKS ═══ -->
-<div class="slide slide-content" id="s11">
+<!-- ═══ S13 — BENCHMARKS ═══ -->
+<div class="slide slide-content" id="s13">
   <div class="slide-inner">
     <div class="uoa-badge">KPIs and measurement</div>
-    <h2 class="slide-title">Benchmarks — why they matter for Assignment 3</h2>
+    <h2 class="slide-title">Benchmarks: why they matter for Assignment 3</h2>
     <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1;">
+      <div class="two-col" style="margin-top:0;">
         <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="background:white;border-radius:10px;padding:20px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--blue);">
+          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--blue);">
             <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">What a benchmark is</div>
-            <div style="font-size:clamp(13px,1.3vw,15px);color:#333;line-height:1.65;">An industry-standard or channel-standard reference point that tells you what "good" performance looks like for your tactic and channel. Benchmarks give your predictions credibility.</div>
+            <div style="font-size:clamp(13px,1.3vw,15px);color:#333;line-height:1.6;">An industry or channel reference point that tells you what good performance looks like for your tactic and channel. Benchmarks give your predictions credibility.</div>
           </div>
-          <div style="background:white;border-radius:10px;padding:20px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--navy);">
+          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--navy);">
             <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">The principle</div>
             <div style="font-size:clamp(14px,1.4vw,16px);font-weight:700;color:var(--navy);line-height:1.4;">A prediction without a benchmark is a guess.</div>
-            <div style="font-size:clamp(12px,1.2vw,14px);color:#555;margin-top:8px;line-height:1.55;">If you predict a 4% conversion rate, you need to be able to explain why 4% is a reasonable expectation. Without a benchmark, your prediction has no analytical foundation.</div>
+            <div style="font-size:clamp(12px,1.2vw,14px);color:#555;margin-top:8px;line-height:1.55;">If you predict a 3.5% conversion rate, you need to explain why 3.5% is reasonable. Without a benchmark, the number has no analytical foundation.</div>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="background:white;border-radius:10px;padding:20px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--cyan);">
+          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--cyan);">
             <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">How to find benchmarks</div>
-            <div style="font-size:clamp(13px,1.3vw,15px);color:#333;line-height:1.65;">Search for industry-specific benchmarks for your chosen tactics and channels. These are widely published by major advertising platforms, email marketing providers, and marketing research firms. Be specific: a SaaS conversion rate benchmark is more useful than a generic website benchmark.</div>
+            <div style="font-size:clamp(13px,1.3vw,15px);color:#333;line-height:1.6;">Search for benchmarks specific to your tactics and channels. Major ad platforms, email providers, and marketing research firms publish these. Be specific: a retail or ecommerce conversion-rate benchmark beats a generic website average, and a music or specialty-retail figure beats a generic ecommerce one.</div>
           </div>
           <div class="callout" style="margin:0;">
-            <strong>In Assignment 3:</strong> Every predicted KPI needs a benchmark source. State the benchmark, its source, and why it applies to Hnry's context. Benchmark sources should be cited in your reference list.
+            <strong>In Assignment 3:</strong> every predicted KPI needs a benchmark source. State the benchmark, its source, and why it applies to Music Planet. Benchmark sources belong in your reference list.
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="speaker-notes">Benchmarks are required in Assignment 3 but students frequently omit them or use them vaguely ("industry average"). The teaching point here is specificity: a SaaS free-trial sign-up conversion rate benchmark for a B2C product targeting sole traders in the NZ market is a very different number from a general e-commerce conversion rate. Students should be looking for benchmarks that are as specific to Hnry's context as possible, and being transparent when they are forced to use a less specific proxy. Where to find benchmarks: major advertising platforms publish quarterly or annual benchmark reports for paid search and paid social. Email marketing platforms publish email benchmark reports. Marketing research firms publish sector-specific reports. Students should search for these directly rather than relying on a single tool or slide-presented list.</div>
+  <div class="speaker-notes">Benchmarks are required in Assignment 3 but students frequently omit them or use them vaguely, industry average with no source. The teaching point is specificity: a conversion-rate benchmark for a specialty music retailer selling to NZ consumers is a different number from a generic ecommerce average, which is different again from a B2B SaaS figure. Students should hunt for benchmarks as close to Music Planet's context as they can find, and be transparent when they are forced to use a broader proxy. Where to find them: major ad platforms publish quarterly or annual benchmark reports for paid search and paid social, email platforms publish email benchmarks, and research firms publish sector reports. Students should search for these directly rather than relying on a single tool or a number from a slide.</div>
 </div>
 
-<!-- ═══ S12 — EXERCISE 2 ═══ -->
-<div class="slide slide-exercise" id="s12">
+<!-- ═══ S14 — EXERCISE 3 ═══ -->
+<div class="slide slide-exercise" id="s14">
   <div class="slide-inner">
-    <div class="exercise-badge">Exercise 2 &mdash; 15 minutes</div>
-    <h2 class="slide-title">Tactic-to-KPI mapping</h2>
+    <div class="exercise-badge">Exercise 3 &middot; 15 minutes</div>
+    <h2 class="slide-title">Mapping tactics to KPIs and KSFs</h2>
     <div class="slide-body">
       <div style="background:#FEF3C7;border:2px solid var(--amber);border-radius:8px;padding:14px 18px;margin-bottom:14px;">
         <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.35vw,15px);">Your task</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
-          <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">1.</span>Take the tactics you produced in Exercise 1. Select three if you have more.</li>
-          <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">2.</span>For each tactic, identify: <strong>two KPIs</strong>, <strong>one KSF</strong>, and how you would measure the KPIs.</li>
-          <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">3.</span>Use your preferred LLM to help if needed — but interrogate every line before accepting it.</li>
+          <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">1.</span>Take three tactics from your Exercise 2 overlap map, prioritising the ones with the most cross-coverage.</li>
+          <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">2.</span>For each tactic, identify <strong>two KPIs</strong>, <strong>one KSF</strong>, and how you would measure the KPIs (named tool).</li>
+          <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">3.</span>Use your LLM to help, but interrogate every line. A KPI must be measurable with a named tool. A KSF must be a precondition, not a metric.</li>
         </ul>
       </div>
-      <div style="font-size:clamp(12px,1.2vw,14px);color:#78350F;font-weight:700;margin-bottom:8px;">Output — complete this table:</div>
-      <table class="data-table" style="margin-bottom:14px;">
+      <div style="font-size:clamp(12px,1.2vw,14px);color:#78350F;font-weight:700;margin-bottom:8px;">Output, complete this table:</div>
+      <table class="data-table" style="margin-bottom:12px;">
         <thead>
-          <tr>
-            <th>Tactic</th>
-            <th>KPI 1</th>
-            <th>KPI 2</th>
-            <th>KSF</th>
-            <th>Measurement approach</th>
-          </tr>
+          <tr><th>Tactic</th><th>KPI 1</th><th>KPI 2</th><th>KSF</th><th>Measurement approach</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -696,320 +726,266 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
           </tr>
           <tr>
             <td style="color:var(--muted);font-style:italic;">Your tactic 2</td>
-            <td style="color:var(--muted);font-style:italic;">&hellip;</td>
-            <td style="color:var(--muted);font-style:italic;">&hellip;</td>
-            <td style="color:var(--muted);font-style:italic;">&hellip;</td>
-            <td style="color:var(--muted);font-style:italic;">&hellip;</td>
+            <td style="color:var(--muted);font-style:italic;">&hellip;</td><td style="color:var(--muted);font-style:italic;">&hellip;</td><td style="color:var(--muted);font-style:italic;">&hellip;</td><td style="color:var(--muted);font-style:italic;">&hellip;</td>
           </tr>
           <tr>
             <td style="color:var(--muted);font-style:italic;">Your tactic 3</td>
-            <td style="color:var(--muted);font-style:italic;">&hellip;</td>
-            <td style="color:var(--muted);font-style:italic;">&hellip;</td>
-            <td style="color:var(--muted);font-style:italic;">&hellip;</td>
-            <td style="color:var(--muted);font-style:italic;">&hellip;</td>
+            <td style="color:var(--muted);font-style:italic;">&hellip;</td><td style="color:var(--muted);font-style:italic;">&hellip;</td><td style="color:var(--muted);font-style:italic;">&hellip;</td><td style="color:var(--muted);font-style:italic;">&hellip;</td>
           </tr>
         </tbody>
       </table>
-      <div class="debrief">This table can be used directly in your Assignment 3 draft. Check: are your KPIs measurable with a named tool? Are your KSFs preconditions — not metrics?</div>
+      <div class="debrief">This table drops straight into your Assignment 3 draft. Check: are your KPIs measurable with a named tool? Are your KSFs preconditions, not metrics?</div>
     </div>
   </div>
-  <div class="speaker-notes">Give students 10–12 minutes. The most important check when reviewing student work: are the KSFs genuinely preconditions, or have students listed outcomes as KSFs? Remind them: a KSF is something that must be true before you launch the tactic. A KPI is something you measure after. Walk around and spot-check this distinction specifically. In the debrief, ask one or two students to read their KSFs aloud — the group can usually identify whether they are preconditions or outcomes within a few seconds. The table format here matches the structure expected in Assignment 3, so students should keep it and use it directly. If any students have not completed Exercise 1, they can either use the worked example from Slide 7 as their starting point or choose one of the example tactics from that slide.</div>
+  <div class="speaker-notes">Give students 10 to 12 minutes. This completes the cascade: goals, objectives, tactics, and now KPIs and KSFs. The most important check as you review: are the KSFs genuinely preconditions, or have students listed outcomes as KSFs. Remind them a KSF is something that must be true before you launch, a KPI is something you measure after. Walk around and spot-check this specifically. In the debrief, ask a couple of students to read their KSFs aloud, the group can usually tell within seconds whether they are preconditions or outcomes. The table format matches the structure expected in Assignment 3, so students should keep it and use it directly. Anyone who did not finish earlier exercises can start from the worked example on Slide 7.</div>
 </div>
 
-<!-- ═══ S13 — BRIDGE FROM AUDIT TO STRATEGY ═══ -->
-<div class="slide slide-content" id="s13">
+<!-- ═══ S15 — BRIDGE FROM AUDIT TO STRATEGY ═══ -->
+<div class="slide slide-content" id="s15">
   <div class="slide-inner">
     <div class="uoa-badge">Connecting your audit</div>
     <h2 class="slide-title">The bridge from audit to strategy</h2>
     <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1;">
+      <div class="two-col" style="margin-top:0;">
         <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="background:white;border-radius:10px;padding:20px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--cyan);">
+          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--cyan);">
             <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">The audit identified</div>
-            <div style="font-size:clamp(13px,1.35vw,15px);color:#333;line-height:1.65;font-weight:600;">What is and isn't working in Hnry's digital presence — measured, evidenced, and benchmarked.</div>
+            <div style="font-size:clamp(13px,1.35vw,15px);color:#333;line-height:1.6;font-weight:600;">What is and is not working in Music Planet's digital presence, measured, evidenced, and benchmarked.</div>
           </div>
-          <div style="background:white;border-radius:10px;padding:20px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--blue);">
+          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:5px solid var(--blue);">
             <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">The strategy is</div>
-            <div style="font-size:clamp(13px,1.35vw,15px);color:#333;line-height:1.65;font-weight:600;">The plan to address those findings — targeted, resourced, and measurable within the campaign period.</div>
+            <div style="font-size:clamp(13px,1.35vw,15px);color:#333;line-height:1.6;font-weight:600;">The plan to address those findings, targeted, resourced, and measurable within the 30-day campaign.</div>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:14px;">
-          <div class="callout" style="margin:0;flex:1;display:flex;flex-direction:column;justify-content:center;">
-            <strong>They must reference each other directly.</strong><br><br>
-            A proposal that ignores the audit is a missed opportunity — and a marking gap. The strongest proposals show a direct line from an audit finding to a strategic decision.
+          <div class="callout" style="margin:0;">
+            <strong>They must reference each other directly.</strong> A proposal that ignores the audit is a missed opportunity and a marking gap. The strongest proposals draw a straight line from an audit finding to a strategic decision.
           </div>
-          <div style="background:white;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);">
+          <div style="background:white;border-radius:10px;padding:16px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);">
             <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">The question to ask yourself</div>
-            <div style="font-size:clamp(14px,1.4vw,16px);color:var(--navy);font-weight:700;line-height:1.45;">Which two or three findings from your audit are most strategically significant — and what do they imply you should prioritise?</div>
+            <div style="font-size:clamp(13px,1.35vw,15px);color:var(--navy);font-weight:700;line-height:1.45;">Which two or three findings from your audit are most strategically significant, and what do they imply you should prioritise?</div>
           </div>
         </div>
       </div>
+      <div class="warn-callout" style="margin-top:14px;">
+        <strong>Do not propose into an information vacuum.</strong> Music Planet already runs Google Ads and manages SEO. You cannot responsibly recommend "start bidding on high-intent keywords" as if it is greenfield, because you do not know what they already run. State what you would need to verify first, then propose conditionally. Slide 16 shows how.
+      </div>
     </div>
   </div>
-  <div class="speaker-notes">This slide is conceptual and should take about 3 minutes. The key message is simple but important: the audit and the proposal are not two separate assignments — they are the diagnostic and the prescription for the same patient. The marking rubric for Assignment 3 will expect students to explicitly reference their audit findings when justifying strategic choices. Ask students: "Think of two findings from your own audit. What do each of those findings imply about what Hnry should do differently?" Hold their answers for the worked example on the next slide.</div>
+  <div class="speaker-notes">This slide is conceptual, about 3 minutes, but the warn callout is the important addition this year. The core message is unchanged: the audit and the proposal are the diagnosis and the prescription for the same patient, and the Assignment 3 rubric expects students to reference their audit findings when justifying strategic choices. The new emphasis is intellectual honesty about search. Music Planet already runs Google Ads and SEO, and neither the students nor we know the granularity, which exact terms they bid on, where paid and organic overlap or leave gaps. So the responsible move is not to propose a channel from scratch, it is to state what you would need to find out, from their Ads account, Search Console, or the audit, and then propose conditionally. Reward the student who says I would need to check X over the one who confidently proposes into a vacuum. This mirrors real agency practice: you audit the existing account before you recommend spend.</div>
 </div>
 
-<!-- ═══ S14 — WORKED EXAMPLE: AUDIT → TACTIC ═══ -->
-<div class="slide slide-content" id="s14">
+<!-- ═══ S16 — WORKED EXAMPLE: AUDIT → TACTIC ═══ -->
+<div class="slide slide-content" id="s16">
   <div class="slide-inner">
     <div class="uoa-badge">Connecting your audit</div>
-    <h2 class="slide-title">Worked example: audit finding → tactic → KPI <span style="font-size:12px;font-weight:400;color:var(--muted);letter-spacing:1px;text-transform:uppercase;padding-left:8px;">Example only</span></h2>
+    <h2 class="slide-title">Worked example: audit finding &rarr; tactic &rarr; KPI <span style="font-size:12px;font-weight:400;color:var(--muted);letter-spacing:1px;text-transform:uppercase;padding-left:8px;">Example only</span></h2>
     <div class="slide-body">
-      <table class="data-table" style="margin-bottom:16px;">
+      <table class="data-table">
         <thead>
-          <tr>
-            <th>Step</th>
-            <th>Content</th>
-          </tr>
+          <tr><th style="width:20%;">Step</th><th>Content</th></tr>
         </thead>
         <tbody>
           <tr>
             <td style="font-weight:700;white-space:nowrap;color:var(--navy);">Audit finding</td>
-            <td>SEMrush keyword gap analysis showed that Hnry has limited visibility for transactional search terms (e.g. "sole trader tax NZ", "invoice tool for freelancers") that competitors rank for on page one.</td>
+            <td>Semrush showed Music Planet ranks on page one organically for "beginner guitar NZ" but does not appear in the paid results for that same high-intent term, while Rockshop and MusicWorks both run ads on it.</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;white-space:nowrap;color:var(--navy);">What you would verify first</td>
+            <td>Confirm in Music Planet's Google Ads account whether that term is genuinely unbid, or bid but losing impression share. You cannot see this from outside, so flag it as an assumption to check.</td>
           </tr>
           <tr>
             <td style="font-weight:700;white-space:nowrap;color:var(--navy);">Strategic implication</td>
-            <td>Hnry is missing high-intent acquisition traffic from users who are actively looking for a solution — not just brand-aware visitors. Addressing this gap should increase sign-up conversion quality.</td>
+            <td>If the term is unbid, competitors are capturing high-intent clicks above Music Planet's strong organic listing. A small paid presence could defend that ground for the campaign period.</td>
           </tr>
           <tr>
-            <td style="font-weight:700;white-space:nowrap;color:var(--navy);">Tactic</td>
-            <td>Develop and optimise three to five landing pages targeting the highest-priority transactional keywords from the keyword gap analysis, each with a clear CTA to the free trial sign-up.</td>
+            <td style="font-weight:700;white-space:nowrap;color:var(--navy);">Tactic (conditional)</td>
+            <td>If verified, run a tightly scoped Google Ads campaign on a shortlist of high-intent transactional terms where Music Planet has organic strength but no paid presence, pointing to the matching product pages.</td>
           </tr>
           <tr>
             <td style="font-weight:700;white-space:nowrap;color:var(--navy);">KPIs</td>
-            <td>Ranking position for five target keywords (SEMrush Position Tracking) &middot; Conversion rate on those pages (GA4 goal completions)</td>
+            <td>Impression share on the target terms (Google Ads) &middot; Conversion rate from those ads (GA4 ecommerce)</td>
           </tr>
           <tr>
             <td style="font-weight:700;white-space:nowrap;color:var(--navy);">KSF</td>
-            <td>Pages must be technically sound — load time under 2 seconds, mobile-optimised, no crawl errors surfaced in Site Audit</td>
+            <td>The destination product pages load in under 2 seconds on mobile and match the search intent of the term</td>
           </tr>
         </tbody>
       </table>
-      <div class="callout">
-        The finding → implication → tactic sequence is the analytical chain Assignment 3 is looking for. Each step must follow logically from the one before.
-      </div>
+      <div class="callout">The finding &rarr; verify &rarr; implication &rarr; conditional tactic sequence is the honest analytical chain Assignment 3 rewards. Notice the tactic is proposed <strong>if verified</strong>, not asserted blind.</div>
     </div>
   </div>
-  <div class="speaker-notes">This worked example models the full analytical chain students need to produce in Assignment 3. Walk through it step by step: the finding is specific and evidenced (from a named tool); the strategic implication is an interpretation, not a restatement of the data; the tactic is specific and actionable; the KPIs name both the metric and the measurement tool; the KSF is a genuine precondition. Ask students: "Can you identify a specific finding from your own audit that could follow this same chain?" If students can answer this question, they are ready for Exercise 3. Note: the example uses an SEO finding but maps it to a campaign tactic (landing page development), not an SEO metric. This is an important distinction — see Slide 15.</div>
+  <div class="speaker-notes">This example models the full chain and the intellectual honesty the search question demands. Walk through it step by step. The finding is specific and evidenced from a named tool. The verify step is the new discipline: because Music Planet already runs Google Ads, you cannot know from the outside whether a term is unbid or simply losing impression share, so you state the assumption you would check rather than pretending to knowledge you do not have. The implication interprets the data, the tactic is conditional on verification, and the KPIs name both metric and tool. This is also the SEO and PPC interweave in practice: the interesting proposal is not start doing SEO or start doing search ads, both of which Music Planet already does, it is the gap between strong organic and absent paid on the same high-intent term. Reward students who find and frame that kind of gap, and who propose conditionally.</div>
 </div>
 
-<!-- ═══ S15 — HOW EACH AUDIT SECTION FEEDS IN ═══ -->
-<div class="slide slide-content" id="s15">
+<!-- ═══ S17 — HOW EACH AUDIT SECTION FEEDS IN ═══ -->
+<div class="slide slide-content" id="s17">
   <div class="slide-inner">
     <div class="uoa-badge">Connecting your audit</div>
     <h2 class="slide-title">How each audit section feeds into your campaign</h2>
     <div class="slide-body">
-      <div style="font-size:clamp(12px,1.2vw,14px);color:var(--muted);margin-bottom:12px;">Some audit findings lead to campaign tactics. Others lead to strategic recommendations that sit outside the campaign itself.</div>
-      <table class="data-table" style="margin-bottom:0;">
+      <div style="font-size:clamp(12px,1.2vw,14px);color:var(--muted);margin-bottom:12px;">Some audit findings lead to campaign tactics. Others lead to strategic recommendations that sit outside the 30-day campaign.</div>
+      <table class="data-table">
         <thead>
-          <tr>
-            <th style="width:28%;">Audit section</th>
-            <th>What it informs in your proposal</th>
-          </tr>
+          <tr><th style="width:28%;">Audit section</th><th>What it informs in your proposal</th></tr>
         </thead>
         <tbody>
           <tr>
             <td style="font-weight:700;color:var(--navy);">Website audit</td>
-            <td><strong>Campaign tactics</strong> — conversion rate and UX improvements have fast, measurable impact within the campaign window. Landing page quality directly affects paid and organic conversion performance.</td>
+            <td><strong>Campaign tactics.</strong> Conversion rate and UX improvements have fast, measurable impact within the campaign window. Product-page and checkout quality directly affect paid and organic conversion.</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--navy);">Paid advertising audit</td>
-            <td><strong>Campaign tactics</strong> — channel selection, ad creative decisions, offer types, and budget allocation all flow directly from what the audit found about current paid performance and gaps.</td>
+            <td><strong>Campaign tactics.</strong> Channel selection, ad creative, offers, and budget allocation flow from what the audit found about current paid performance and gaps, including where competitors outbid Music Planet.</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--navy);">Social media audit</td>
-            <td><strong>Campaign tactics</strong> — content strategy, community activity, and organic social can all be executed and measured within the campaign window. Competitor gaps inform what Hnry should test.</td>
+            <td><strong>Campaign tactics.</strong> Content, community activity, and organic social can be executed and measured within the window. Competitor gaps against Rockshop and MusicWorks inform what Music Planet should test.</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--red);">SEO audit</td>
-            <td style="color:var(--red);font-weight:600;">Strategic recommendations — NOT campaign tactics. See callout below.</td>
+            <td style="color:var(--red);font-weight:600;">Mostly strategic recommendations, not campaign tactics, with one exception. See callout below.</td>
           </tr>
         </tbody>
       </table>
       <div class="seo-callout">
-        <strong>SEO findings belong in your strategic recommendations, not your campaign tactics.</strong> Meaningful ranking improvements take three to six months — your campaign budget should focus on activities that show measurable results within the campaign period. If your audit surfaced SEO issues, flag them as longer-term priorities in your proposal's strategic recommendations section.
+        <strong>SEO ranking work belongs in your strategic recommendations, not your campaign tactics.</strong> Meaningful ranking gains take three to six months, longer than a 30-day campaign. The one thing an SEO finding can do inside the campaign is reveal a paid gap: where Music Planet ranks organically but competitors run ads, a conditional paid tactic can defend that ground now, while genuine ranking improvement stays a longer-term recommendation.
       </div>
     </div>
   </div>
-  <div class="speaker-notes">This is one of the most practically important slides in the deck for Assignment 3. The SEO callout addresses the most common structural error students make: putting SEO as a primary campaign tactic with a KPI like "rank on page one for three keywords within six weeks." This is unrealistic and analytically unsound. SEO timelines are measured in months, not weeks. The correct treatment is to acknowledge SEO gaps from the audit, include them in strategic recommendations, and focus the campaign budget on tactics that produce measurable results within the campaign period. Walk through the table row by row. The worked example on Slide 14 showed how an SEO audit finding (keyword gap) can inform a campaign tactic (landing page development) without making ranking improvement itself the KPI. That distinction is the nuance to reinforce here.</div>
+  <div class="speaker-notes">One of the most practically important slides for Assignment 3. The SEO callout addresses the most common structural error: students proposing SEO as a primary campaign tactic with a KPI like rank on page one for three keywords in six weeks, which is unrealistic on a 30-day timeline. The correct treatment is to acknowledge SEO gaps from the audit, put ranking work in strategic recommendations, and focus campaign budget on tactics that produce measurable results inside the window. The nuance to reinforce, and the one that ties the whole search thread together: an SEO finding is still useful inside the campaign when it exposes a paid gap, as in the Slide 16 example, where strong organic and absent paid on the same term justifies a conditional paid tactic. That is the SEO and PPC interweave, ranking improvement is long-term, but the gap between organic and paid is actionable now, once verified.</div>
 </div>
 
-<!-- ═══ S16 — EXERCISE 3 ═══ -->
-<div class="slide slide-exercise" id="s16">
-  <div class="slide-inner">
-    <div class="exercise-badge">Exercise 3 &mdash; 10 minutes</div>
-    <h2 class="slide-title">Connecting your audit to your strategy</h2>
-    <div class="slide-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;">
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.3vw,15px);">Your task — three steps</div>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
-            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">1.</span>Open your Assignment 2 audit.</li>
-            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">2.</span>Identify <strong>two or three specific findings</strong> — not general themes, but specific data points or observations from the audit data.</li>
-            <li style="display:flex;gap:10px;font-size:clamp(12px,1.25vw,14px);color:#451A03;line-height:1.55;"><span style="flex-shrink:0;font-weight:700;">3.</span>For each finding, note: what the finding was, what it implies strategically, and which tactic in your emerging campaign it supports. If the finding relates to SEO, note it as a <strong>strategic recommendation</strong>, not a campaign tactic.</li>
-          </ul>
-        </div>
-        <div style="background:#FEF3C7;border:1.5px solid var(--amber);border-radius:8px;padding:14px 18px;">
-          <div style="font-weight:700;color:#78350F;margin-bottom:8px;font-size:clamp(13px,1.3vw,15px);">Output — integration map</div>
-          <table style="width:100%;border-collapse:collapse;font-size:clamp(11px,1.1vw,12px);">
-            <thead>
-              <tr>
-                <th style="background:#92400E;color:white;padding:6px 8px;text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Finding</th>
-                <th style="background:#92400E;color:white;padding:6px 8px;text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Implication</th>
-                <th style="background:#92400E;color:white;padding:6px 8px;text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;">Tactic / Rec</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">Finding 1</td><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">&hellip;</td><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">&hellip;</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">Finding 2</td><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">&hellip;</td><td style="padding:6px 8px;border-bottom:1px solid #F59E0B;color:#451A03;font-style:italic;">&hellip;</td></tr>
-              <tr><td style="padding:6px 8px;color:#451A03;font-style:italic;">Finding 3</td><td style="padding:6px 8px;color:#451A03;font-style:italic;">&hellip;</td><td style="padding:6px 8px;color:#451A03;font-style:italic;">&hellip;</td></tr>
-            </tbody>
-          </table>
-          <div style="font-size:clamp(11px,1.1vw,13px);color:#92400E;margin-top:8px;">This map can be used as justification evidence in your Assignment 3 proposal.</div>
-        </div>
-      </div>
-      <div class="debrief">Share one row from your integration map. Can the group trace the logic from finding to tactic? If not, the implication needs more work.</div>
-    </div>
-  </div>
-  <div class="speaker-notes">Give students 7–8 minutes. The most important instruction is "specific data points or observations" — not general themes. "Hnry has low SEO performance" is a theme. "SEMrush shows Hnry ranks outside the top 50 for 'sole trader tax NZ' while MYOB holds position three" is a specific finding. The specificity matters because vague findings produce vague strategies. Circulate and push students toward specificity if their findings are too general. The debrief is designed as a peer check: if other students cannot trace the logic from finding to tactic, the implication is under-developed. This is useful formative feedback before Assignment 3. Students who identify SEO findings should be explicitly directed to put them in the strategic recommendations column, not the tactic column — reinforcing the Slide 15 point.</div>
-</div>
-
-<!-- ═══ S17 — COMPLETE CAMPAIGN STRUCTURE ═══ -->
-<div class="slide slide-content" id="s17">
+<!-- ═══ S18 — COMPLETE CAMPAIGN STRUCTURE ═══ -->
+<div class="slide slide-content" id="s18">
   <div class="slide-inner">
     <div class="uoa-badge">Campaign structure</div>
     <h2 class="slide-title">What a complete campaign structure looks like</h2>
     <div class="slide-body">
-      <div style="font-size:clamp(13px,1.3vw,15px);color:var(--muted);margin-bottom:14px;">The full architecture you need for Assignment 3 — follow this map when writing your proposal.</div>
+      <div style="font-size:clamp(13px,1.3vw,15px);color:var(--muted);margin-bottom:14px;">The full architecture for Assignment 3. Follow this map when writing your proposal.</div>
       <div style="display:flex;flex-direction:column;gap:6px;">
         <div style="display:flex;align-items:center;gap:0;">
-          <div style="flex:1;background:var(--navy);color:var(--cyan);border-radius:8px 0 0 8px;padding:12px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Goal</div>
-          <div style="color:var(--cyan);font-size:20px;padding:0 10px;">&#8594;</div>
-          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:10px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.45;">Broad business ambition — the "why" of the campaign</div>
+          <div style="flex:1;background:var(--navy);color:var(--cyan);border-radius:8px 0 0 8px;padding:11px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Goals</div>
+          <div style="color:var(--cyan);font-size:18px;padding:0 10px;">&#8594;</div>
+          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:9px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.4;">The three Music Planet goals: brand awareness, engagement, online sales</div>
         </div>
         <div style="display:flex;align-items:center;gap:0;">
-          <div style="flex:1;background:var(--blue);color:white;border-radius:8px 0 0 8px;padding:12px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Objectives</div>
-          <div style="color:var(--cyan);font-size:20px;padding:0 10px;">&#8594;</div>
-          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:10px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.45;">Two SMART objectives, each contributing to one goal</div>
+          <div style="flex:1;background:var(--blue);color:white;border-radius:8px 0 0 8px;padding:11px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Objectives</div>
+          <div style="color:var(--cyan);font-size:18px;padding:0 10px;">&#8594;</div>
+          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:9px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.4;">SMART objectives you generated, each serving one or more goals</div>
         </div>
         <div style="display:flex;align-items:center;gap:0;">
-          <div style="flex:1;background:var(--cyan);color:var(--navy);border-radius:8px 0 0 8px;padding:12px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Tactics</div>
-          <div style="color:var(--cyan);font-size:20px;padding:0 10px;">&#8594;</div>
-          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:10px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.45;">3–5 specific digital marketing activities per objective, each channel-specific</div>
+          <div style="flex:1;background:var(--cyan);color:var(--navy);border-radius:8px 0 0 8px;padding:11px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Tactics</div>
+          <div style="color:var(--cyan);font-size:18px;padding:0 10px;">&#8594;</div>
+          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:9px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.4;">Channel-specific activities, prioritising those that serve more than one objective</div>
         </div>
         <div style="display:flex;align-items:center;gap:0;">
-          <div style="flex:1;background:var(--purple);color:white;border-radius:8px 0 0 8px;padding:12px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">KPIs &amp; KSFs</div>
-          <div style="color:var(--cyan);font-size:20px;padding:0 10px;">&#8594;</div>
-          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:10px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.45;">Two KPIs and one KSF per tactic, with measurement tool named for each KPI</div>
+          <div style="flex:1;background:var(--purple);color:white;border-radius:8px 0 0 8px;padding:11px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">KPIs &amp; KSFs</div>
+          <div style="color:var(--cyan);font-size:18px;padding:0 10px;">&#8594;</div>
+          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:9px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.4;">Two KPIs and one KSF per tactic, with a named measurement tool for each KPI</div>
         </div>
         <div style="display:flex;align-items:center;gap:0;">
-          <div style="flex:1;background:var(--muted);color:white;border-radius:8px 0 0 8px;padding:12px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Benchmarks</div>
-          <div style="color:var(--cyan);font-size:20px;padding:0 10px;">&#8594;</div>
-          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:10px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.45;">Industry benchmarks for primary KPIs — sourced and cited, used to justify predictions</div>
+          <div style="flex:1;background:var(--muted);color:white;border-radius:8px 0 0 8px;padding:11px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Benchmarks</div>
+          <div style="color:var(--cyan);font-size:18px;padding:0 10px;">&#8594;</div>
+          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:9px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.4;">Industry benchmarks for primary KPIs, sourced and cited, used to justify predictions</div>
         </div>
         <div style="display:flex;align-items:center;gap:0;">
-          <div style="flex:1;background:var(--amber);color:white;border-radius:8px 0 0 8px;padding:12px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Budget</div>
-          <div style="color:var(--cyan);font-size:20px;padding:0 10px;">&#8594;</div>
-          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:10px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.45;">Allocated by tactic, with rationale. Each tactic has a predicted return based on benchmarks</div>
+          <div style="flex:1;background:var(--amber);color:white;border-radius:8px 0 0 8px;padding:11px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Budget</div>
+          <div style="color:var(--cyan);font-size:18px;padding:0 10px;">&#8594;</div>
+          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:9px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.4;">$10,000 over 30 days, allocated by tactic with a rationale and a predicted return</div>
         </div>
         <div style="display:flex;align-items:center;gap:0;">
-          <div style="flex:1;background:var(--green);color:white;border-radius:8px 0 0 8px;padding:12px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Predicted outcome</div>
-          <div style="color:var(--cyan);font-size:20px;padding:0 10px;">&#8594;</div>
-          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:10px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.45;">What the campaign will achieve for each objective — evidenced by benchmarks, not guessed</div>
+          <div style="flex:1;background:var(--green);color:white;border-radius:8px 0 0 8px;padding:11px 18px;font-weight:700;font-size:clamp(13px,1.3vw,15px);">Predicted outcome</div>
+          <div style="color:var(--cyan);font-size:18px;padding:0 10px;">&#8594;</div>
+          <div style="flex:3;background:white;border:1px solid #e0e0e0;border-radius:0 8px 8px 0;padding:9px 16px;font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.4;">What the campaign will achieve for each goal, evidenced by benchmarks, not guessed</div>
         </div>
       </div>
     </div>
   </div>
-  <div class="speaker-notes">This is the structural map for Assignment 3. Give students time to read each row carefully — this is what they are building. The flow from Goal to Predicted outcome is a chain: every element must be traceable back to the goal. A budget allocation with no link to a tactic, or a predicted outcome with no benchmark to justify it, will lose marks. Ask students: "At which step in this chain do you feel least prepared right now?" The answers will tell you which parts of the session to spend more time on or revisit in the following week.</div>
+  <div class="speaker-notes">This is the structural map for Assignment 3, and it is the whole session on one slide. Give students time to read each row. The flow from goals to predicted outcome is a chain, every element traceable back up to a goal. A budget line with no link to a tactic, or a predicted outcome with no benchmark, loses marks. Note the two threads from today that live inside this map: tactics prioritising those that serve more than one objective, which is the overlap work from Section 2, and the $10,000 over 30 days budget line. Ask students where in this chain they feel least prepared right now, the answers tell you what to revisit next week.</div>
 </div>
 
-<!-- ═══ S18 — BUDGET FRAMING ═══ -->
-<div class="slide slide-content" id="s18">
+<!-- ═══ S19 — BUDGET FRAMING ═══ -->
+<div class="slide slide-content" id="s19">
   <div class="slide-inner">
     <div class="uoa-badge">Campaign structure</div>
-    <h2 class="slide-title">Budget framing</h2>
+    <h2 class="slide-title">Budget framing: $10,000 over 30 days</h2>
     <div class="slide-body">
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px;">
         <div style="background:white;border-radius:10px;padding:16px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--navy);">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px;">Principle 1</div>
           <div style="font-weight:700;font-size:clamp(13px,1.3vw,15px);color:var(--navy);margin-bottom:6px;">Budget follows objectives</div>
-          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.5;">Allocate based on what each objective requires, not arbitrary splits. A high-priority objective should receive a proportionally higher budget.</div>
+          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.5;">Allocate on what each objective needs, not arbitrary splits. A higher-priority objective earns a proportionally higher share of the $10,000.</div>
         </div>
         <div style="background:white;border-radius:10px;padding:16px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--blue);">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;">Principle 2</div>
           <div style="font-weight:700;font-size:clamp(13px,1.3vw,15px);color:var(--navy);margin-bottom:6px;">Every tactic needs a predicted return</div>
-          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.5;">Use benchmarks to estimate what your spend should produce. If you cannot estimate a return, you cannot justify the allocation.</div>
+          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.5;">Use benchmarks to estimate what the spend should produce. If you cannot estimate a return, you cannot justify the allocation.</div>
         </div>
         <div style="background:white;border-radius:10px;padding:16px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid var(--amber);">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:6px;">Principle 3</div>
-          <div style="font-weight:700;font-size:clamp(13px,1.3vw,15px);color:var(--navy);margin-bottom:6px;">Justify, don't guess</div>
-          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.5;">A budget with no rationale will lose marks. Every allocation should reference a benchmark, a cost estimate, or a comparable campaign outcome.</div>
+          <div style="font-weight:700;font-size:clamp(13px,1.3vw,15px);color:var(--navy);margin-bottom:6px;">Justify, do not guess</div>
+          <div style="font-size:clamp(12px,1.2vw,13px);color:#555;line-height:1.5;">A budget with no rationale loses marks. Every allocation should reference a benchmark, a cost estimate, or a comparable outcome. Overlapping tactics stretch the $10k further.</div>
         </div>
       </div>
-      <div style="font-size:clamp(12px,1.2vw,14px);color:var(--muted);margin-bottom:8px;font-weight:600;">Example budget table structure — use placeholder figures, replace with your own:</div>
+      <div style="font-size:clamp(12px,1.2vw,14px);color:var(--muted);margin-bottom:8px;font-weight:600;">Example budget table structure, replace placeholders with your own figures. Total must sum to $10,000:</div>
       <table class="data-table">
         <thead>
-          <tr>
-            <th>Tactic</th>
-            <th>Channel</th>
-            <th>Budget allocation</th>
-            <th>Predicted metric</th>
-            <th>Benchmark source</th>
-          </tr>
+          <tr><th>Tactic</th><th>Channel</th><th>Budget allocation</th><th>Predicted metric</th><th>Benchmark source</th></tr>
         </thead>
         <tbody>
           <tr>
             <td>Paid social awareness campaign</td>
             <td>Meta (Facebook &amp; Instagram)</td>
-            <td>$X per month</td>
+            <td>$X of $10,000</td>
             <td>X impressions at $X CPM</td>
             <td>[Industry benchmark report]</td>
           </tr>
           <tr>
-            <td>Search retargeting</td>
+            <td>High-intent search defence</td>
             <td>Google Ads</td>
-            <td>$X per month</td>
+            <td>$X of $10,000</td>
             <td>X clicks at $X CPC</td>
             <td>[Platform benchmark data]</td>
           </tr>
           <tr>
-            <td>Content and landing pages</td>
-            <td>Organic / owned</td>
+            <td>Staff-demo video &amp; landing pages</td>
+            <td>Organic social / owned</td>
             <td>$X (production cost)</td>
-            <td>X organic sessions within campaign window</td>
-            <td>[SEMrush / GA4 baseline]</td>
+            <td>X engaged sessions in the window</td>
+            <td>[Semrush / GA4 baseline]</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="speaker-notes">Budget framing is often the weakest section of student proposals. The three principles on this slide address the three most common errors: (1) arbitrary splits without justification, (2) allocations with no predicted return, and (3) guesses presented as analysis. The example table is intentionally incomplete — students should build their own version with specific figures from their tactic decisions. The benchmark source column is critical: it forces students to attribute their predicted metrics to a real reference point. Walk through the example table and ask students: "What would go in the benchmark source column for a Meta awareness campaign? Where would you find that data?" This prompts them to think about where they need to do research before finalising their proposal.</div>
+  <div class="speaker-notes">Budget framing is often the weakest section of student proposals. The three principles address the three most common errors: arbitrary splits, allocations with no predicted return, and guesses dressed as analysis. The example table is intentionally incomplete, students build their own with real figures, and the total must sum to the $10,000 over 30 days. The benchmark source column is critical, it forces students to attribute predicted metrics to a real reference point. Tie it back to Section 2: a tactic that serves two objectives is easier to justify per dollar, so the overlap work directly strengthens the budget argument. Walk through the example and ask what would go in the benchmark source column for a Meta awareness campaign, and where they would find that data, this prompts the research they need to do before finalising the proposal.</div>
 </div>
 
-<!-- ═══ S19 — BEFORE NEXT WEEK ═══ -->
-<div class="slide slide-dark" id="s19">
+<!-- ═══ S20 — BEFORE NEXT WEEK ═══ -->
+<div class="slide slide-dark" id="s20">
   <div class="slide-inner">
     <div class="uoa-badge">MKTG 304 &middot; Week 8</div>
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;">Before next week</div>
     <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,36px);">Your Assignment 3 preparation checklist</h2>
     <ul class="rule-list" style="margin-top:12px;">
-      <li data-n="1" style="color:rgba(255,255,255,0.9);"><div>Draft a campaign structure with <strong style="color:var(--cyan);">at least two tactics per objective</strong> — each one channel-specific and actionable.</div></li>
-      <li data-n="2" style="color:rgba(255,255,255,0.9);"><div>KPIs and KSFs identified for each tactic. Check: are your KSFs preconditions, or are they outcomes you have mislabelled?</div></li>
-      <li data-n="3" style="color:rgba(255,255,255,0.9);"><div>Measurement approach specified for each KPI — named tool, not just "track performance".</div></li>
-      <li data-n="4" style="color:rgba(255,255,255,0.9);"><div>At least <strong style="color:var(--cyan);">two audit findings</strong> mapped to tactics in your strategy. SEO findings should be in your strategic recommendations, not your campaign tactics.</div></li>
-      <li data-n="5" style="color:rgba(255,255,255,0.9);"><div>Industry benchmarks sourced for your primary KPIs — at least two citations ready for your reference list.</div></li>
+      <li data-n="1" style="color:rgba(255,255,255,0.9);"><div>A menu of <strong style="color:var(--cyan);">objectives</strong> under each of the three goals, with your selections and reasons.</div></li>
+      <li data-n="2" style="color:rgba(255,255,255,0.9);"><div><strong style="color:var(--cyan);">Tactics</strong> generated for your objectives, with an overlap map showing which serve more than one objective or goal.</div></li>
+      <li data-n="3" style="color:rgba(255,255,255,0.9);"><div>KPIs and KSFs for each tactic. Check: are your KSFs preconditions, or outcomes you have mislabelled? Is each KPI measurable with a named tool?</div></li>
+      <li data-n="4" style="color:rgba(255,255,255,0.9);"><div>At least <strong style="color:var(--cyan);">two audit findings</strong> mapped to tactics. SEO ranking work goes in strategic recommendations. Where a finding exposes a paid gap, propose the tactic conditionally.</div></li>
+      <li data-n="5" style="color:rgba(255,255,255,0.9);"><div>Industry <strong style="color:var(--cyan);">benchmarks</strong> sourced for your primary KPIs, at least two citations ready for your reference list, and a budget that sums to $10,000.</div></li>
     </ul>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;">
       <div style="background:rgba(0,202,239,0.1);border:1px solid rgba(0,202,239,0.3);border-radius:8px;padding:14px 18px;">
         <div style="font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">Office hours</div>
-        <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">Bring specific questions — not general ones. "How do I find benchmarks for Meta ads in the SaaS sector?" will get a useful answer. "How do I do Assignment 3?" will not.</div>
+        <div style="font-size:clamp(12px,1.2vw,14px);color:rgba(255,255,255,0.75);line-height:1.6;">Bring specific questions. "How do I find a Meta CPM benchmark for NZ retail?" gets a useful answer. "How do I do Assignment 3?" does not.</div>
       </div>
       <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:14px 18px;">
-        <div style="font-size:clamp(13px,1.35vw,15px);color:rgba(255,255,255,0.7);line-height:1.7;font-style:italic;">The audit gave you the evidence. You now have the framework to turn it into a strategy. The quality of Assignment 3 depends on how well those two things talk to each other.</div>
+        <div style="font-size:clamp(13px,1.35vw,15px);color:rgba(255,255,255,0.7);line-height:1.7;font-style:italic;">The audit gave you the evidence. Today you turned three goals into a full cascade. Assignment 3 is how well those two things talk to each other.</div>
       </div>
     </div>
   </div>
-  <div class="speaker-notes">Close the session by reviewing the checklist with students. Ask for a show of hands: how many have at least started on item 1? Item 4? This surfaces where the cohort is and what support they need before the Assignment 3 deadline. The office hours framing is deliberate: specific questions produce specific help. Students who arrive at office hours with vague anxiety about the assignment will benefit more if they have first attempted a draft and can point to the specific part they are stuck on. Close with the italicised framing in the right panel: the audit and the proposal are one continuous analytical project, not two separate tasks.</div>
+  <div class="speaker-notes">Close by reviewing the checklist. Ask for a show of hands: how many have started item 1, item 2, item 4. This surfaces where the cohort is and what support they need before the deadline. The office hours framing is deliberate, specific questions get specific help, and students who arrive with a draft and a precise sticking point get far more value than those with vague anxiety. Close on the italicised line: the audit and the proposal are one continuous analytical project, and today converted the three fixed goals into a full generative cascade of objectives, tactics, and measures. That cascade, connected back to their audit, is Assignment 3.</div>
 </div>
 
 </div><!-- /deck -->
@@ -1026,29 +1002,30 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
     <div class="nav-item" onclick="goTo(2);closeSidebar()"><span class="n-num">02</span><span class="n-title">Course map</span></div>
     <div class="nav-item" onclick="goTo(3);closeSidebar()"><span class="n-num">03</span><span class="n-title">Today's agenda</span></div>
 
-    <div class="nav-group">Section 1 — Strategic framework</div>
+    <div class="nav-group">Section 1 · Strategic framework</div>
     <div class="nav-item" onclick="goTo(4);closeSidebar()"><span class="n-num">04</span><span class="n-title">The strategic hierarchy</span></div>
     <div class="nav-item" onclick="goTo(5);closeSidebar()"><span class="n-num">05</span><span class="n-title">KPIs vs KSFs</span></div>
-    <div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">Hnry's goals and objectives</span></div>
+    <div class="nav-item" onclick="goTo(6);closeSidebar()"><span class="n-num">06</span><span class="n-title">Music Planet's three goals</span></div>
     <div class="nav-item" onclick="goTo(7);closeSidebar()"><span class="n-num">07</span><span class="n-title">Worked example</span></div>
-    <div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">Exercise 1 — Tactic generation</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(8);closeSidebar()"><span class="n-num">08</span><span class="n-title">Exercise 1 · Objectives</span><span class="n-tag exercise">Activity</span></div>
 
-    <div class="nav-group">Section 2 — KPIs and measurement</div>
-    <div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">The six KPI categories</span></div>
-    <div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Which categories matter most</span></div>
-    <div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">Benchmarks</span></div>
-    <div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">Exercise 2 — KPI mapping</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-group">Section 2 · Objectives to tactics</div>
+    <div class="nav-item" onclick="goTo(9);closeSidebar()"><span class="n-num">09</span><span class="n-title">Hunt for overlap</span></div>
+    <div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Exercise 2 · Tactics &amp; overlap</span><span class="n-tag exercise">Activity</span></div>
 
-    <div class="nav-group">Section 3 — Connecting your audit</div>
-    <div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Bridge from audit to strategy</span></div>
-    <div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">Worked example: audit → tactic</span></div>
-    <div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">How audit sections feed in</span></div>
-    <div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">Exercise 3 — Audit-to-strategy map</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-group">Section 3 · KPIs and measurement</div>
+    <div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">The six KPI categories</span></div>
+    <div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">Which categories matter most</span></div>
+    <div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Benchmarks</span></div>
+    <div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">Exercise 3 · KPI mapping</span><span class="n-tag exercise">Activity</span></div>
 
-    <div class="nav-group">Section 4 — Campaign structure</div>
-    <div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">Complete campaign structure</span></div>
-    <div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">Budget framing</span></div>
-    <div class="nav-item" onclick="goTo(19);closeSidebar()"><span class="n-num">19</span><span class="n-title">Before next week</span></div>
+    <div class="nav-group">Section 4 · Audit &amp; structure</div>
+    <div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">Bridge from audit to strategy</span></div>
+    <div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">Worked example: audit → tactic</span></div>
+    <div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">How audit sections feed in</span></div>
+    <div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">Complete campaign structure</span></div>
+    <div class="nav-item" onclick="goTo(19);closeSidebar()"><span class="n-num">19</span><span class="n-title">Budget framing</span></div>
+    <div class="nav-item" onclick="goTo(20);closeSidebar()"><span class="n-num">20</span><span class="n-title">Before next week</span></div>
   </div>
 </nav>
 <div id="sidebar-overlay" onclick="closeSidebar()"></div>
@@ -1059,10 +1036,11 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
     <button class="nav-btn" id="btn-menu" onclick="toggleSidebar()" title="Slide navigator (N)" style="padding:8px 14px;font-size:16px;line-height:1;">&#9776;</button>
     <button class="nav-btn" id="btn-prev" onclick="navigate(-1)">&#8592; Prev</button>
   </div>
-  <span id="slide-counter">1 / 19</span>
+  <span id="slide-counter">1 / 20</span>
   <div style="display:flex;align-items:center;gap:12px;">
     <span id="notes-hint" style="font-size:11px;">S = notes &nbsp;&middot;&nbsp; R = refs &nbsp;&middot;&nbsp; N = nav</span>
     <button class="nav-btn" id="btn-refs" onclick="toggleRefs()" title="References (R)" style="padding:8px 14px;">&#128218; Refs</button>
+    <button class="nav-btn" id="btn-notes" onclick="toggleNotes()" title="Speaker notes (S)" style="padding:8px 14px;">&#128466; Notes</button>
     <button class="nav-btn" id="btn-next" onclick="navigate(1)">Next &#8594;</button>
   </div>
 </div>
@@ -1072,11 +1050,11 @@ html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; background
 
 <script>
 const SOURCES = {
-  1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],
-  10:[],11:[],12:[],13:[],14:[],15:[],16:[],17:[],18:[],19:[]
+  1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[],
+  11:[],12:[],13:[],14:[],15:[],16:[],17:[],18:[],19:[],20:[]
 };
 
-const TOTAL = 19;
+const TOTAL = 20;
 let current = 1, notesOpen = false, sidebarOpen = false, refsOpen = false;
 
 function getSlide(n) { return document.getElementById('s'+n); }
