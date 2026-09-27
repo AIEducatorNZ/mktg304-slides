@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKTG 304 — Week 9 Meta Advertising</title>
+<title>MKTG 304 — Week 9 Meta Advertising | Music Planet</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -113,7 +113,7 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;">MKTG 304 | University of Auckland</div>
     <h1 class="slide-title" style="font-size:clamp(28px,3.8vw,52px);max-width:900px;">Week 9 tutorial: Meta advertising</h1>
     <div class="slide-subtitle">Campaign structure, targeting, bidding, creative and ROI logic</div>
-    <div style="margin-top:18px;font-size:clamp(13px,1.4vw,16px);color:rgba(255,255,255,0.72);max-width:760px;line-height:1.6;">Built from your HTML template and aligned to the content updates you agreed to carry forward for Meta advertising teaching.</div>
+    <div style="margin-top:18px;font-size:clamp(13px,1.4vw,16px);color:rgba(255,255,255,0.72);max-width:760px;line-height:1.6;">Using Music Planet as the client context for turning campaign strategy into defensible Meta advertising decisions.</div>
     <div style="margin-top:30px;font-size:clamp(11px,1.1vw,13px);color:rgba(255,255,255,0.32);padding:10px 22px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;display:inline-block;">← → navigate · S = speaker notes · R = references · N = slide list</div>
   </div>
   <div class="speaker-notes">Open by positioning this as the practical Meta advertising week. Students should leave with a clear understanding of how campaigns are structured, how objective choice changes optimization, and how to defend platform choices with commercial logic.</div>
@@ -143,7 +143,7 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
     <div class="slide-body">
       <ul class="rule-list">
         <li data-n="1"><div>Analyse Meta campaign structure by distinguishing between <strong>campaign</strong>, <strong>ad set</strong> and <strong>ad</strong>, and explain how each level supports the overall objective.</div></li>
-        <li data-n="2"><div>Evaluate audience targeting by comparing <strong>Core</strong>, <strong>Custom</strong> and <strong>Lookalike</strong> Audiences, and identify when each is most useful.</div></li>
+        <li data-n="2"><div>Evaluate audience targeting by distinguishing <strong>Advantage+ Audience</strong>, <strong>Custom Audiences</strong> and <strong>Lookalike/source signals</strong>, and identify when each is most useful.</div></li>
         <li data-n="3"><div>Apply budgeting and bidding logic using <strong>CPM</strong>, <strong>CPC</strong> and <strong>CPA</strong> frameworks in line with awareness, traffic and conversion goals.</div></li>
         <li data-n="4"><div>Design more effective ad creative by matching format choice to objective, buyer persona and placement context, using a <strong>clear CTA</strong>.</div></li>
       </ul>
@@ -160,14 +160,14 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
       <div class="hier-flow">
         <div class="hier-card"><div class="hier-badge goal">Campaign</div><div class="hier-content"><div class="hier-title">The goal level</div><div class="hier-def">Sets the campaign objective and tells Meta what success should look like. One campaign should have one clear job.</div></div></div>
         <div class="hier-arrow">↓</div>
-        <div class="hier-card"><div class="hier-badge obj">Ad set</div><div class="hier-content"><div class="hier-title">The delivery level</div><div class="hier-def">Controls audience, placements, budget, schedule and bidding choices. This is where you shape who sees the campaign and how spend is allocated.</div></div></div>
+        <div class="hier-card"><div class="hier-badge obj">Ad set</div><div class="hier-content"><div class="hier-title">The delivery level</div><div class="hier-def">Controls audience inputs, placements, budget, schedule and bidding choices. This is where you shape delivery, while remembering that some inputs now guide Meta rather than tightly constrain it.</div></div></div>
         <div class="hier-arrow">↓</div>
         <div class="hier-card"><div class="hier-badge asset">Ad</div><div class="hier-content"><div class="hier-title">The creative level</div><div class="hier-def">The actual message people see: visual, copy, headline, CTA and format. Multiple ads can sit in one ad set for testing.</div></div></div>
       </div>
-      <div class="callout">Useful shorthand: <strong>campaign = why</strong>, <strong>ad set = who/where/how much</strong>, <strong>ad = what people actually experience</strong>.</div>
+      <div class="callout">Useful shorthand: <strong>campaign = why</strong>, <strong>ad set = who/where/how much</strong>, <strong>ad = what people actually experience</strong>. In 2026, treat “who” as guided delivery, not perfect manual control.</div>
     </div>
   </div>
-  <div class="speaker-notes">Students often collapse ad set and ad together. Stress that the ad set is the delivery logic; the ad is the creative execution.</div>
+  <div class="speaker-notes">Students often collapse ad set and ad together. Stress that the ad set is the delivery logic; the ad is the creative execution. Also flag the current shift toward AI-assisted delivery: detailed interests are less reliable as hard filters than they used to be, so Music Planet recommendations should be built around good audience signals and creative fit, not old-school interest stacking.</div>
 </div>
 
 <div class="slide slide-content" id="s5">
@@ -195,8 +195,8 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
     <h2 class="slide-title">What the ad set controls</h2>
     <div class="slide-body">
       <div class="three-col">
-        <div class="col-card"><div class="col-title">Audience targeting</div><div class="col-body">Age, location, interests, behaviours and first-party audience inputs all sit at ad set level.</div></div>
-        <div class="col-card"><div class="col-title">Placements</div><div class="col-body">Meta can run ads across Facebook, Instagram, Messenger, WhatsApp and Meta Audience Network, often via Advantage+ placements.</div></div>
+        <div class="col-card"><div class="col-title">Audience targeting</div><div class="col-body">Audience controls, audience suggestions, first-party signals and retargeting inputs sit at ad set level, but not every input acts as a hard constraint.</div></div>
+        <div class="col-card"><div class="col-title">Placements</div><div class="col-body">Meta can run ads across Facebook, Instagram, Messenger and Audience Network, often via Advantage+ placements. WhatsApp is more commonly treated as a messaging destination or conversion path, not a standard placement surface.</div></div>
         <div class="col-card"><div class="col-title">Budget and bidding</div><div class="col-body">This is where you define spend, schedule and the bidding approach that best fits the campaign goal.</div></div>
       </div>
       <table class="data-table" style="margin-top:16px;">
@@ -215,17 +215,17 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
 <div class="slide slide-content" id="s7">
   <div class="slide-inner">
     <div class="uoa-badge">Targeting</div>
-    <h2 class="slide-title">Core, Custom and Lookalike Audiences</h2>
+    <h2 class="slide-title">Advantage+ Audience, Custom Audiences and Lookalike signals</h2>
     <div class="slide-body">
       <div class="three-col" style="margin-top:0;">
-        <div class="col-card"><div class="col-title">Core Audiences</div><div class="col-body">Built from Meta’s platform data such as age, location, interests, behaviours, language and device use. Best when you are testing reach with broad but relevant hypotheses.</div></div>
-        <div class="col-card"><div class="col-title">Custom Audiences</div><div class="col-body">Built from your own data such as website visitors, customer files, app users or prior engagement. Best for retargeting and warming up people who already know the brand.</div></div>
-        <div class="col-card"><div class="col-title">Lookalike Audiences</div><div class="col-body">Built from a source audience so Meta can find new people similar to your existing high-value users. Best for scaling once a strong source audience exists.</div></div>
+        <div class="col-card"><div class="col-title">Advantage+ Audience</div><div class="col-body">Meta's AI-assisted audience approach. Use clear location, minimum age and language controls, then provide Music Planet-relevant audience suggestions rather than relying on narrow interest stacks.</div></div>
+        <div class="col-card"><div class="col-title">Custom Audiences</div><div class="col-body">Built from first-party or owned signals such as website visitors, customer files, prior engagement or purchasers. Best for retargeting people who already know Music Planet.</div></div>
+        <div class="col-card"><div class="col-title">Lookalike Audiences</div><div class="col-body">Built from a high-quality source audience so Meta can find similar users. Treat these as useful scaling signals, especially when seeded from strong first-party data.</div></div>
       </div>
-      <div class="callout">Simple rule: <strong>Core for testing</strong>, <strong>Custom for retargeting</strong>, <strong>Lookalike for scaling</strong>.</div>
+      <div class="callout">2026 rule of thumb: <strong>Advantage+ for broad discovery</strong>, <strong>Custom for retargeting</strong>, and <strong>Lookalike/source signals for scaling</strong>. Do not build the plan around old-school narrow interest stacking.</div>
     </div>
   </div>
-  <div class="speaker-notes">Keep the logic commercial. Core is often the starting point, Custom is usually the warmest audience, and Lookalike is the bridge between known value and new reach.</div>
+  <div class="speaker-notes">Keep the logic commercial and current. Advantage+ Audience is the starting point for broad discovery, Custom Audiences are usually the warmest Music Planet audience, and Lookalike/source signals help scale when the source data is credible. Remind students that detailed interests increasingly behave as guidance rather than precise hard filters.</div>
 </div>
 
 <div class="slide slide-content" id="s8">
@@ -272,24 +272,24 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
     <div class="slide-body">
       <div class="card" style="background:#FEF3C7;border:1.5px solid var(--amber);box-shadow:none;">
         <div style="font-weight:700;margin-bottom:8px;">Scenario</div>
-        <div>Hnry wants to use Meta Ads for brand building in the UK and to increase users of its Mileage Tracker app in New Zealand. The brand wants to target <strong>two buyer personas</strong> and test the channel with a <strong>$5,000 budget</strong>.</div>
+        <div>Music Planet wants to use Meta Ads as part of its 30-day Assignment 3 campaign to support the three client goals: <strong>increase brand awareness</strong>, <strong>increase engagement</strong>, and <strong>drive online sales</strong>. Use your Assignment 2 audit and personas to choose two priority audiences and test the channel within the <strong>$10,000 campaign budget</strong>.</div>
       </div>
       <div class="two-col">
         <div class="card" style="box-shadow:none;">
           <div class="col-title">Campaign + ad set decisions</div>
           <ul style="padding-left:18px;line-height:1.7;color:#444;">
             <li>How many campaigns would you recommend?</li>
-            <li>Which objective should the campaign use?</li>
+            <li>Which objective or objectives should the campaign structure use?</li>
             <li>How many ad sets would you build, and why?</li>
-            <li>Which placements would you use?</li>
+            <li>Would you use Advantage+ placements or justify manual placements if available?</li>
             <li>How would you target each ad set?</li>
           </ul>
         </div>
         <div class="card" style="box-shadow:none;">
           <div class="col-title">Budget + bidding decisions</div>
           <ul style="padding-left:18px;line-height:1.7;color:#444;">
-            <li>How would you split the budget across ad sets?</li>
-            <li>Which bidding model is most defensible?</li>
+            <li>How would you allocate the budget across campaigns, ad sets or tactics?</li>
+            <li>Which performance goal or bidding logic is most defensible?</li>
             <li>How many ads would sit inside each ad set?</li>
             <li>Which formats are best suited to the brief?</li>
           </ul>
@@ -297,35 +297,35 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
       </div>
     </div>
   </div>
-  <div class="speaker-notes">Let students work in pairs. The expected logic is usually one awareness campaign, at least two ad sets to reflect personas, and multiple ads per ad set for creative comparison.</div>
+  <div class="speaker-notes">Let students work in pairs. Strong answers should connect campaign structure to Music Planet's three goals, the two chosen audiences, the 30-day window and the $10,000 budget. Do not reward generic 'run Meta ads' answers that ignore the audit context.</div>
 </div>
 
 <div class="slide slide-exercise" id="s11">
   <div class="slide-inner">
     <div class="exercise-badge">Practice 2</div>
-    <h2 class="slide-title">Estimate impressions for a UK awareness campaign</h2>
+    <h2 class="slide-title">Estimate impressions for a Music Planet awareness campaign</h2>
     <div class="slide-body">
       <div class="card" style="background:#FEF3C7;border:1.5px solid var(--amber);box-shadow:none;margin-bottom:14px;">
-        <div><strong>Assumptions:</strong> budget = <strong>$5,000</strong>, one campaign, <strong>awareness objective</strong>, and <strong>CPM</strong> is the chosen bidding logic because the goal is brand visibility.</div>
+        <div><strong>Assumptions:</strong> choose a Meta awareness allocation from the <strong>$10,000 total campaign budget</strong>, use one <strong>awareness objective</strong>, and use <strong>CPM</strong> logic because the goal is brand visibility.</div>
       </div>
       <ul class="rule-list" style="margin-top:0;">
-        <li data-n="1"><div>Research a current Meta CPM benchmark for a relevant category such as tech or consumer electronics.</div></li>
-        <li data-n="2"><div>Calculate predicted impressions using: <strong>Impressions = (Budget ÷ CPM) × 1,000</strong>.</div></li>
+        <li data-n="1"><div>Research a current Meta CPM benchmark for a relevant category such as retail, ecommerce, music, entertainment or consumer goods.</div></li>
+        <li data-n="2"><div>Calculate predicted impressions using: <strong>Impressions = (Allocated Meta budget ÷ CPM) × 1,000</strong>.</div></li>
         <li data-n="3"><div>Decide how success would be judged: impressions alone, reach quality, frequency, lift or downstream behaviour?</div></li>
       </ul>
       <div class="warn-callout"><strong>Benchmark rule:</strong> students should research current estimates before answering. CPM assumptions should be sourced, not invented.</div>
     </div>
   </div>
-  <div class="speaker-notes">This exercise is about estimation discipline. Students must not pull a CPM number from memory without explaining where it came from and why it is relevant.</div>
+  <div class="speaker-notes">This exercise is about estimation discipline. Students must not pull a CPM number from memory; they need to explain the source, why it is relevant to Music Planet, and how much of the $10,000 campaign budget they are allocating to awareness.</div>
 </div>
 
 <div class="slide slide-exercise" id="s12">
   <div class="slide-inner">
     <div class="exercise-badge">Practice 3</div>
-    <h2 class="slide-title">Compare CPC and CPA logic for a bottom-of-funnel campaign</h2>
+    <h2 class="slide-title">Compare CPC and CPA logic for Music Planet online sales</h2>
     <div class="slide-body">
       <div class="card" style="background:#FEF3C7;border:1.5px solid var(--amber);box-shadow:none;margin-bottom:14px;">
-        <div><strong>Scenario:</strong> Hnry asks for a 30-day Meta campaign focused on purchases and ROAS. Budget = <strong>$5,000</strong>. You must compare a <strong>CPC</strong> route with a <strong>CPA</strong> route.</div>
+        <div><strong>Scenario:</strong> Music Planet asks for a 30-day Meta campaign component focused on <strong>online sales</strong> and ROAS. Choose a defensible sales allocation from the <strong>$10,000 campaign budget</strong>. You must compare a <strong>CPC</strong> route with a <strong>CPA</strong> route.</div>
       </div>
       <div class="two-col" style="margin-top:0;">
         <div class="card" style="box-shadow:none;">
@@ -334,14 +334,14 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
             <li>Current CPC benchmark</li>
             <li>Current CTR benchmark</li>
             <li>Current CPA benchmark</li>
-            <li>Use NZ or the most relevant ecommerce benchmark you can justify</li>
+            <li>Use NZ, retail, ecommerce, music/entertainment, or the closest benchmark you can justify</li>
           </ul>
         </div>
         <div class="card" style="box-shadow:none;">
           <div class="col-title">Use these scenario assumptions</div>
           <ul style="padding-left:18px;line-height:1.7;color:#444;">
-            <li>Click-to-purchase conversion rate = <strong>4.5%</strong></li>
-            <li>Average order value = <strong>$1,300</strong></li>
+            <li>Click-to-purchase conversion rate = <strong>your justified assumption</strong></li>
+            <li>Average order value = <strong>your justified Music Planet basket-size assumption</strong></li>
             <li>ROAS = Revenue ÷ Ad Spend</li>
           </ul>
         </div>
@@ -349,13 +349,13 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
       <table class="data-table" style="margin-top:14px;">
         <thead><tr><th>Option</th><th>Calculation path</th></tr></thead>
         <tbody>
-          <tr><td>CPC strategy</td><td>Clicks = Budget ÷ CPC → Conversions = Clicks × 4.5% → Revenue = Conversions × average order value → ROAS = Revenue ÷ Budget</td></tr>
-          <tr><td>CPA strategy</td><td>Conversions = Budget ÷ CPA → Revenue = Conversions × average order value → ROAS = Revenue ÷ Budget</td></tr>
+          <tr><td>CPC strategy</td><td>Clicks = Allocated budget ÷ CPC → Conversions = Clicks × assumed conversion rate → Revenue = Conversions × assumed average order value → ROAS = Revenue ÷ allocated budget</td></tr>
+          <tr><td>CPA strategy</td><td>Conversions = Allocated budget ÷ CPA → Revenue = Conversions × assumed average order value → ROAS = Revenue ÷ allocated budget</td></tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="speaker-notes">The purpose here is to get students to show their commercial reasoning step by step. They should be able to explain why one route might be more appropriate given data maturity and campaign risk.</div>
+  <div class="speaker-notes">The purpose here is to get students to show their commercial reasoning step by step. They should be able to explain why one route might be more appropriate for Music Planet given data maturity, product mix, audience temperature and campaign risk.</div>
 </div>
 
 <div class="slide slide-content" id="s13">
@@ -380,7 +380,7 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;">Preparation for next week</div>
     <h2 class="slide-title" style="font-size:clamp(22px,2.8vw,36px);">Come next week with your strategy structure finished</h2>
     <ul class="rule-list" style="margin-top:12px;">
-      <li data-n="1" style="color:rgba(255,255,255,0.9);"><div>Your <strong style="color:var(--cyan);">final draft strategy structure</strong> should be in place: Goals, Objectives, Tactics with KPIs, Benchmarks for those KPIs where they exist, and KSFs. Your tactics should connect directly to the Hnry objectives and be specific enough to defend out loud.</div></li>
+      <li data-n="1" style="color:rgba(255,255,255,0.9);"><div>Your <strong style="color:var(--cyan);">final draft strategy structure</strong> should be in place: Goals, Objectives, Tactics with KPIs, Benchmarks for those KPIs where they exist, and KSFs. Your tactics should connect directly to Music Planet's three goals and your Assignment 2 audit findings, and be specific enough to defend out loud.</div></li>
       <li data-n="2" style="color:rgba(255,255,255,0.9);"><div>Teams that arrive with a <strong style="color:var(--cyan);">draft budget</strong> showing how spend is allocated across goals, tactics, and predicted outcomes will each receive a <strong style="color:var(--amber);">&#36;50 chip</strong>.</div></li>
       <li data-n="3" style="color:rgba(255,255,255,0.9);"><div>Be ready for <strong style="color:var(--cyan);">practice IOAs</strong> (interactive oral assessments), where you will talk through and defend your strategy verbally.</div></li>
       <li data-n="4" style="color:rgba(255,255,255,0.9);"><div>We will also practise using <strong style="color:var(--cyan);">LLMs to create mock-ups</strong>, so bring draft ideas that could become ads, landing pages, or other creative concepts.</div></li>
@@ -458,7 +458,9 @@ const SOURCES = {
   ],
   7:[
     {label:'How to Use Custom or Lookalike Audiences | Meta Business Help', url:'https://www.facebook.com/business/help/572787736078838/'},
-    {label:'About lookalike audiences | Meta Business Help', url:'https://www.facebook.com/business/help/164749007013531/'}
+    {label:'About lookalike audiences | Meta Business Help', url:'https://www.facebook.com/business/help/164749007013531/'},
+    {label:'Meta targeting changes and 2026 Advantage+ audience context | Pixel Movers', url:'https://pixelmovers.co/blog/meta-detailed-targeting-removed-what-works-2026'},
+    {label:'Marketing API detailed targeting exclusions change summary | Releasebot / Meta Graph API updates', url:'https://releasebot.io/updates/meta/graph-api'}
   ],
   8:[
     {label:'About Meta bid strategies | Meta Business Help', url:'https://www.facebook.com/business/help/1619591734742116/'},
