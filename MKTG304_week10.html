@@ -179,15 +179,15 @@ The core skill is unchanged. The Client Intelligence Brief they built in Week 2 
       <div class="callout" style="margin-top:18px;">Free accounts are enough for today: Claude or ChatGPT for Activity 1, and Lovable at <strong>lovable.dev</strong> for Activity 2. Have your Client Intelligence Brief from Week 2 open.</div>
     </div>
   </div>
-  <div class="speaker-notes">The outcomes now follow the shape of the session. Outcome 2 is the thread running through both builds: when the output is a tool rather than text, the Format instruction is the design, and anything left out gets filled with defaults. Slides 9, 12 and 13 all come back to it.
+  <div class="speaker-notes">The outcomes now follow the shape of the session. Outcome 2 is the thread running through both builds: when the output is a tool rather than text, the Format instruction is the design, and anything left out gets filled with defaults. Slides 9, 12, 13 and 14 all come back to it.
 
 Outcome 3 adds verification to the build. An AI-built planner will happily fill itself with benchmark figures that look precise but have no source, so students must know which numbers they have checked and which are assumptions.
 
-Outcome 4 is about message match. The landing page is the destination for an ad, so it has to pick up where the ad left off. Slide 17 uses an example ad to make this concrete.
+Outcome 4 is about message match. The landing page is the destination for an ad, so it has to pick up where the ad left off. Slide 18 uses an example ad to make this concrete.
 
 Outcome 5 brings back the Week 2 Diligence and security material and applies it to something students have built themselves.
 
-Outcome 6 is optional. Students who finish early start building a Claude Project from their Music Planet sources (Client Intelligence Brief, tone of voice, brand guidelines, buyer personas, campaign concept and A3 brief) and finish it before the A3 deadline.
+Outcome 6 is optional. Students who finish early start building a Claude Project from their Music Planet sources (Client Intelligence Brief, tone of voice, brand guidelines, buyer personas, campaign strategy and A3 brief) and finish it before the A3 deadline.
 
 Pause after the callout and give students 60 seconds to confirm they have both accounts open. Students who hit a login wall mid-activity lose momentum and disrupt the group.</div>
 </div>
@@ -340,113 +340,164 @@ For Activity 2, students should run the Meta-CRAFT prompt in Claude or ChatGPT, 
   <div class="speaker-notes">Transition to Activity 1. Confirm all students have Claude or ChatGPT open before moving on.</div>
 </div>
 
-<!-- SLIDE 12: What you are building -->
+<!-- SLIDE 12: Planner inputs -->
 <div class="slide slide-content" id="s12">
   <div class="slide-inner">
     <div class="uoa-badge">Activity 1</div>
-    <h2 class="slide-title">What you are building: the Format is the spec</h2>
+    <h2 class="slide-title">The Format is the spec: what goes in</h2>
     <div class="slide-body">
-      <p style="margin-bottom:14px;">A planner that shows what each tactic in your A3 campaign should achieve for the money you give it. When you are building a tool, your Format instruction is the design. Anything you leave out, the AI fills with defaults.</p>
-      <div class="fmt-grid">
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div class="col-card"><div class="col-title">Context</div><div class="col-body">Your Client Intelligence Brief and A3 concept.</div></div>
-          <div class="col-card"><div class="col-title">Action</div><div class="col-body">Pick the KPIs that fit the goal, apply benchmark assumptions and project outcomes for the spend.</div></div>
-          <div class="col-card" style="background:#0E2841;"><div class="col-title" style="color:var(--cyan);">A3 constraints</div><div class="col-body" style="color:rgba(255,255,255,0.8);">$10,000 NZD in total, 30 days, SEO not eligible.</div></div>
+      <p style="margin-bottom:14px;">A planner that takes your A3 strategy from goals to tactics and turns it into a ranked, costed plan. When you are building a tool, your Format instruction is the design. Anything you leave out, the AI fills with defaults.</p>
+      <div style="background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:5px solid var(--cyan);padding:18px 22px;">
+        <div style="font-size:clamp(14px,1.45vw,17px);font-weight:700;color:var(--blue);margin-bottom:12px;">Input panel: what the user can enter</div>
+        <ul class="rule-list" style="gap:11px;margin-top:0;">
+          <li data-n="1"><div><strong>Goals.</strong> Tick boxes for awareness, engagement and conversion. Tick one or more.</div></li>
+          <li data-n="2"><div><strong>Objectives.</strong> Text fields for the measurable targets that support each goal. Add as many as you need, each linked to a goal.</div></li>
+          <li data-n="3"><div><strong>Tactics.</strong> Text fields for the tactics that deliver each objective. Add as many as you need, each linked to an objective.</div></li>
+          <li data-n="4"><div><strong>Industry.</strong> A text field, such as specialist music retail. Benchmarks vary a lot between industries.</div></li>
+          <li data-n="5"><div><strong>Budget and duration.</strong> Two fields: total budget in NZD and campaign length in days. For A3, that is $10,000 and 30 days.</div></li>
+        </ul>
+      </div>
+      <div class="callout" style="margin-top:16px;">Start wide, then narrow. Enter every goal, objective and tactic you are considering. The planner helps you rank them and refine down.</div>
+    </div>
+  </div>
+  <div class="speaker-notes">This is the slide to slow down on. In a content prompt, a weak Format instruction costs you some tidying. In a tool, Format is the product: it decides what the user can enter, what they see and whether the tool can be trusted.
+
+The input panel mirrors the planning logic students have used all semester. Goals sit at the top, objectives are the measurable targets that support them, and tactics are chosen to deliver the objectives. Goals are tick boxes because a campaign can serve more than one. Objectives and tactics are text fields because they are specific to each team's campaign, and the "add as many as you need" instruction lets students enter a long list and narrow it down.
+
+One practical point to stress: the planner is built once, from the prompt. It cannot look anything up while it runs. Students should list their actual A3 goals, objectives and tactics in the prompt, along with the industry, so the AI builds in suitable benchmarks for each tactic. A tactic added later through the text fields will need its benchmarks entered by hand. The same applies to industry: the field records which industry the benchmarks assume, but changing it on screen will not change the figures unless the student asks the AI to rebuild them.
+
+Budget and duration are fields rather than fixed values so the tool works beyond A3, but students should use $10,000 and 30 days for their campaign.
+
+The callout sets up the workflow: start wide with every option the team is considering, then use the ranking on the next slide to refine down to a shortlist they can defend.</div>
+</div>
+
+<!-- SLIDE 13: Planner outputs -->
+<div class="slide slide-content" id="s13">
+  <div class="slide-inner">
+    <div class="uoa-badge">Activity 1</div>
+    <h2 class="slide-title">The Format is the spec: what comes out</h2>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;">Build it in two passes. Get the core planner working first, then add ranking and budget allocation with follow-up prompts.</p>
+      <div class="two-col" style="margin-top:0;">
+        <div style="background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:5px solid var(--navy);padding:16px 20px;">
+          <div style="font-size:clamp(14px,1.45vw,17px);font-weight:700;color:var(--navy);margin-bottom:10px;">Pass 1: the core planner</div>
+          <ul class="rule-list" style="gap:9px;margin-top:0;">
+            <li data-n="1"><div><strong>KPI table.</strong> For each tactic, the KPIs that measure its success, with benchmark ranges.</div></li>
+            <li data-n="2"><div><strong>Sources.</strong> Every benchmark has an editable source field, marked "unverified" until you enter where you checked it.</div></li>
+            <li data-n="3"><div><strong>Projected outcomes.</strong> Low-to-high ranges for each tactic, and whether they reach the objective.</div></li>
+            <li data-n="4"><div><strong>Plain-language note.</strong> What the projections assume, written for the client.</div></li>
+          </ul>
         </div>
-        <div style="background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:5px solid var(--cyan);padding:18px 22px;">
-          <div style="font-size:clamp(14px,1.45vw,17px);font-weight:700;color:var(--blue);margin-bottom:12px;">Format: what the screen must show, top to bottom</div>
-          <ul class="rule-list" style="gap:11px;margin-top:0;">
-            <li data-n="1"><div><strong>Input panel, in this order.</strong> Goal as a dropdown (awareness, engagement or conversion). Objective as a text field for the measurable target that supports the goal. Tactic as a dropdown. Budget in NZD, capped at $10,000.</div></li>
-            <li data-n="2"><div><strong>KPI table.</strong> Only the KPIs that match the selected goal, each with its benchmark range and a one-line note on what it measures.</div></li>
-            <li data-n="3"><div><strong>Projected outcomes.</strong> Low-to-high ranges that update as the inputs change, with a clear answer to one question: does this tactic and budget reach your objective?</div></li>
-            <li data-n="4"><div><strong>Assumptions panel.</strong> Every benchmark the maths relies on, visible, editable and labelled as verified or assumed.</div></li>
-            <li data-n="5"><div><strong>Plain-language note.</strong> Two or three sentences a client could read, explaining what the projections assume.</div></li>
+        <div style="background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:5px solid var(--cyan);padding:16px 20px;">
+          <div style="font-size:clamp(14px,1.45vw,17px);font-weight:700;color:var(--blue);margin-bottom:10px;">Pass 2: rank and allocate</div>
+          <ul class="rule-list" style="gap:9px;margin-top:0;">
+            <li data-n="5"><div><strong>Ranking.</strong> Objectives and tactics ranked by impact on the goals, with the criteria shown and the weighting adjustable.</div></li>
+            <li data-n="6"><div><strong>Budget allocation.</strong> A suggested split by tactic, rolled up to percentages by objective and goal as a visual.</div></li>
+            <li data-n="7"><div><strong>Predicted impact.</strong> Outcome ranges for each tactic at its allocated budget.</div></li>
+            <li data-n="8"><div><strong>Refine.</strong> Untick a tactic or objective and the ranking and budget recalculate.</div></li>
           </ul>
         </div>
       </div>
       <div class="callout" style="margin-top:16px;">Test your Format instruction: could someone sketch the screen from it alone? If not, it is not specific enough yet.</div>
     </div>
   </div>
-  <div class="speaker-notes">This is the slide to slow down on. In a content prompt, a weak Format instruction costs you some tidying. In a tool, Format is the product: it decides what the user can enter, what they see and whether the tool can be trusted. Students who skip it get a generic calculator with a free-text box and a single confident number at the bottom.
+  <div class="speaker-notes">Two passes keeps the build manageable on a free account, where very long outputs can be cut off, and it models good practice: get something working, check it, then extend it with targeted follow-up prompts rather than one enormous prompt.
 
-Walk through why each element matters.
+Pass 1 elements:
 
-Input panel: the order mirrors the planning logic students have used all semester. The goal comes first, the objective is the measurable target that supports it, and the tactic is chosen to deliver the objective. Goal and tactic are dropdowns because the logic depends on them, and dropdowns stop the tool breaking on unexpected text such as "FB ads" or "insta". The objective is a text field because it is specific to each campaign, for example "1,500 showroom visits from guitar owners in 30 days". Capping the budget at $10,000 builds the A3 constraint into the tool itself.
+KPI table: the KPIs should measure the success of each tactic. A Meta video campaign and a Google Search campaign have different measures of success even when they serve the same objective.
 
-KPI table: asking for only the KPIs that match the goal is what makes the goal input do any work. Without that instruction the tool tends to show every KPI for every tactic.
+Sources: the planner cannot look anything up while it runs, so any source it displays was written into the code by the AI at build time. Fabricated citations are one of the most common hallucinations, and a source column that looks authoritative but is invented would be worse than none. Defaulting every source to "unverified" makes the gap visible and turns verification into part of using the tool. Slide 15 picks this up.
 
-Projected outcomes as ranges: a single number implies a precision that no forecast has. Ranges are more honest and much easier to defend in an A4. Comparing the projection with the objective is what makes the planner useful: it tells a student whether the tactic and budget they chose can plausibly deliver the target they set, before they commit to it in A3.
+Projected outcomes as ranges: a single number implies a precision no forecast has. Ranges are more honest and easier to defend in the A4. Comparing projections with each objective tells students whether a tactic can plausibly deliver the target they set.
 
-Assumptions panel: this is what makes verification possible. If the benchmarks are buried in the code, nobody can check or correct them. If they sit on screen and can be edited, students can replace AI guesses with figures they have verified.
+Plain-language note: the audience for the output is ultimately the client, which links back to Target audience in CRAFT.
 
-Plain-language note: the audience for the output is ultimately the client, not the marketer. This links back to Target audience in CRAFT.
+Pass 2 elements:
+
+Ranking: without visible criteria, a ranking is just the model's opinion dressed up as a calculation. Asking the tool to show its criteria, for example projected contribution to the goal relative to cost, and to let students adjust the weighting means students can defend the ranking rather than just report it.
+
+Budget allocation: money is only ever spent on tactics, so the allocation happens at tactic level and rolls up. That keeps the figures consistent: tactic amounts always add to the total, and the objective and goal percentages always add to 100.
+
+Refine: this is what turns the planner into a decision tool. Students start with every option they are considering and narrow down to a shortlist, watching the ranking and budget change as they go.
 
 The sketch test in the callout is a quick self-check. Ask students to read their Format instruction to the person next to them and see if that person could draw the screen.</div>
 </div>
 
-<!-- SLIDE 13: Activity 1 build -->
-<div class="slide slide-exercise" id="s13">
+<!-- SLIDE 14: Activity 1 build -->
+<div class="slide slide-exercise" id="s14">
   <div class="slide-inner">
     <div class="exercise-badge">Activity 1 · Claude or ChatGPT · 25 minutes</div>
-    <h2 class="slide-title">Build your planner</h2>
+    <h2 class="slide-title">Build your planner in two passes</h2>
     <div class="slide-body">
-      <div style="background:white;border:1.5px solid var(--amber);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
-        <div style="font-size:clamp(13px,1.35vw,15px);font-weight:700;color:#78350F;margin-bottom:10px;">Your Format checklist, top to bottom</div>
-        <div class="five-col">
-          <div class="fmt-item"><strong>Input panel</strong>Goal (dropdown), objective (text field), tactic (dropdown), budget in NZD capped at $10,000.</div>
-          <div class="fmt-item"><strong>KPI table</strong>Only the KPIs that match the selected goal.</div>
-          <div class="fmt-item"><strong>Projected outcomes</strong>Low-to-high ranges, and whether they reach your objective.</div>
-          <div class="fmt-item"><strong>Assumptions panel</strong>Every benchmark visible, editable and labelled.</div>
-          <div class="fmt-item"><strong>Plain-language note</strong>What the projections assume, written for the client.</div>
+      <div style="background:white;border:1.5px solid var(--amber);border-radius:10px;padding:12px 16px;margin-bottom:14px;">
+        <div style="font-size:clamp(13px,1.35vw,15px);font-weight:700;color:#78350F;margin-bottom:8px;">Your Format checklist</div>
+        <div class="four-col" style="gap:8px;margin-bottom:8px;">
+          <div class="fmt-item"><strong>Inputs</strong>Goals (tick boxes), objectives and tactics (add as many as needed), industry, budget, duration.</div>
+          <div class="fmt-item"><strong>KPI table</strong>KPIs per tactic with benchmark ranges.</div>
+          <div class="fmt-item"><strong>Sources</strong>Editable, "unverified" until you check.</div>
+          <div class="fmt-item"><strong>Projections</strong>Ranges per tactic, against each objective, plus a client note.</div>
+        </div>
+        <div class="four-col" style="gap:8px;">
+          <div class="fmt-item" style="background:#EFF6FF;"><strong>Ranking</strong>Objectives and tactics, criteria shown, weighting adjustable.</div>
+          <div class="fmt-item" style="background:#EFF6FF;"><strong>Budget split</strong>By tactic, with % by objective and goal.</div>
+          <div class="fmt-item" style="background:#EFF6FF;"><strong>Predicted impact</strong>Ranges at each tactic's allocated budget.</div>
+          <div class="fmt-item" style="background:#EFF6FF;"><strong>Refine</strong>Untick an item and everything recalculates.</div>
         </div>
       </div>
-      <ul class="step-list">
-        <li data-n="1"><div><strong>Write your prompt (8 min):</strong> Use the Meta-CRAFT prompt. Spend most of your time on Format: describe every item in the checklist, in the order it appears on screen.</div></li>
-        <li data-n="2"><div><strong>Build and test (12 min):</strong> First, hold the build against your checklist. Is every section there? If not, fix it with one targeted follow-up rather than starting over. Then keep the tactic and budget the same and change the goal. Finally, try a different tactic for the same objective.</div></li>
-        <li data-n="3"><div><strong>Check the numbers (5 min):</strong> Work through the questions on the next slide.</div></li>
+      <ul class="step-list" style="gap:9px;">
+        <li data-n="1"><div><strong>Write your pass 1 prompt (8 min):</strong> Use the Meta-CRAFT prompt. List your A3 goals, objectives, tactics and industry, and describe every pass 1 item in Format.</div></li>
+        <li data-n="2"><div><strong>Build and check (7 min):</strong> Hold the build against the checklist. Fix anything missing with one targeted follow-up rather than starting over.</div></li>
+        <li data-n="3"><div><strong>Pass 2 (5 min):</strong> Use follow-up prompts to add ranking, budget split, predicted impact and refining. Then untick your weakest tactic and watch the plan change.</div></li>
+        <li data-n="4"><div><strong>Check the numbers (5 min):</strong> Work through the questions on the next slide.</div></li>
       </ul>
     </div>
   </div>
-  <div class="speaker-notes">The checklist stays on screen for the whole activity because it is the spec students are writing and testing against. It repeats slide 12 in compact form.
+  <div class="speaker-notes">The checklist stays on screen for the whole activity because it is the spec students are writing and testing against. The top row is pass 1 and the blue row is pass 2.
 
-Step 2 deliberately starts with a Format check before any scenario testing. This is the Description and Discernment loop from Week 2: evaluate what you got before you rewrite anything. A missing section usually means the Format instruction did not ask for it, so the fix is a targeted follow-up ("add an assumptions panel below the outcomes, with each benchmark in an editable field"), not a new prompt from scratch.
+Step 1: students should list their actual A3 goals, objectives, tactics and industry in the prompt. The planner is built once and cannot look anything up while it runs, so the AI needs to know the tactics up front to build in suitable KPIs and benchmarks.
+
+Step 2 deliberately starts with a Format check. This is the Description and Discernment loop from Week 2: evaluate what you got before you rewrite anything. A missing element usually means the Format instruction did not ask for it, so the fix is a targeted follow-up such as "add an editable source field next to each benchmark, defaulting to unverified", not a new prompt from scratch.
 
 The Format misses students hit most often:
-Projections shown as a single number rather than a range, which implies a precision no forecast has.
-Assumptions buried in the code, so nobody can see or correct the benchmarks.
-Every KPI shown regardless of goal, which means the goal input is doing nothing.
-Free-text inputs instead of dropdowns, so the tool breaks or guesses when a student types "insta" or "FB ads".
+Projections shown as a single number rather than a range.
+Sources filled in with confident-looking citations instead of "unverified". If this happens, ask the tool to reset every source to unverified, and use it as a teaching moment.
+A ranking with no visible criteria.
+Budget allocated separately at goal, objective and tactic level, so the figures do not add up.
+Unticking an item that does not trigger a recalculation.
 No budget cap, so the tool happily plans a $50,000 campaign.
 
-On the scenario tests: awareness, engagement and conversion are goals in this course; objectives are the measurable targets that sit underneath them, and tactics are chosen to deliver the objectives. The same Meta campaign measured against an awareness goal should surface reach, impressions and frequency. Against a conversion goal it should surface cost per acquisition, conversion rate and return on ad spend. Trying a different tactic for the same objective shows students whether their tactic choice is the best route to the target, which is a question they should expect in the A4 defence.
+Step 3: if a student's build is too long and gets cut off, they should ask for one pass 2 feature per follow-up prompt.
 
-During the debrief, ask a student which Format item their first build missed and what follow-up prompt fixed it.</div>
+On the terminology: awareness, engagement and conversion are goals in this course; objectives are the measurable targets that sit underneath them, and tactics are chosen to deliver the objectives.
+
+During the debrief, ask a student which tactic they unticked, why it ranked lowest, and whether they agree with the planner's reasoning. That is exactly the kind of question they should expect in the A4 defence.</div>
 </div>
 
-<!-- SLIDE 14: Check the numbers -->
-<div class="slide slide-content" id="s14">
+<!-- SLIDE 15: Check the numbers -->
+<div class="slide slide-content" id="s15">
   <div class="slide-inner">
     <div class="uoa-badge">Activity 1</div>
     <h2 class="slide-title">Before you trust the numbers</h2>
     <div class="slide-body">
-      <p style="margin-bottom:16px;">Your planner looks precise. Open the assumptions panel and ask three questions of every figure.</p>
+      <p style="margin-bottom:16px;">Your planner looks precise. Go through the KPI table and ask three questions of every benchmark.</p>
       <div class="three-col" style="margin-top:0;">
-        <div class="check-card"><div class="q">Where did this number come from?</div><div class="a">Can you name a source, or did the model supply it?</div></div>
+        <div class="check-card"><div class="q">Where did this number come from?</div><div class="a">Can you name a source? Until you can, it stays marked unverified.</div></div>
         <div class="check-card" style="border-top-color:var(--blue);"><div class="q">Does it fit Music Planet?</div><div class="a">Is it New Zealand, retail and current, or a global average?</div></div>
         <div class="check-card" style="border-top-color:var(--cyan);"><div class="q">Would you defend it in your A4?</div><div class="a">If an examiner asked "why that figure?", what would you say?</div></div>
       </div>
-      <div class="callout" style="margin-top:20px;">A figure you cannot verify is an assumption. Label it as one.</div>
+      <div class="callout" style="margin-top:20px;">A figure you cannot verify is an assumption. Label it as one. The same goes for the ranking: would you defend its criteria?</div>
     </div>
   </div>
   <div class="speaker-notes">This slide connects back to the Week 2 hallucination discussion. Specific figures such as cost per click, click-through rates and conversion rates are exactly where language models are most likely to produce confident numbers with no reliable source behind them. Many published benchmarks are also global or US-based averages, which may not reflect New Zealand costs or specialist music retail.
 
 The point is not that students must find a verified source for every figure. It is that they must know which figures are verified and which are assumptions, and say so. An honest, clearly labelled assumption is defensible in an A3 proposal and an A4 defence. An invented benchmark presented as fact is not.
 
-Debrief question: which of the numbers in your planner would you be comfortable defending in your A4, and which would you replace or relabel? Students can type their own figures into the assumptions panel, which is why the Format instruction asked for it to be editable.</div>
+Debrief question: which of the numbers in your planner would you be comfortable defending in your A4, and which would you replace or relabel? Students can type their own figures and sources into the KPI table, which is why the Format instruction asked for benchmarks and sources to be editable. Any source still marked unverified at the end of the activity is an assumption, and should be labelled as one in A3.</div>
 </div>
 
-<!-- SLIDE 15: Section: Activity 2 -->
-<div class="slide slide-section" id="s15">
+<!-- SLIDE 16: Section: Activity 2 -->
+<div class="slide slide-section" id="s16">
   <div class="slide-inner">
     <div class="section-label">Activity 2</div>
     <h2 class="slide-title">A landing page for your A3 campaign</h2>
@@ -455,8 +506,8 @@ Debrief question: which of the numbers in your planner would you be comfortable 
   <div class="speaker-notes">Transition to Activity 2. Confirm all students have a Lovable account open at lovable.dev before moving on.</div>
 </div>
 
-<!-- SLIDE 16: Your brief -->
-<div class="slide slide-content" id="s16">
+<!-- SLIDE 17: Your brief -->
+<div class="slide slide-content" id="s17">
   <div class="slide-inner">
     <div class="uoa-badge">Activity 2</div>
     <h2 class="slide-title">Your brief</h2>
@@ -483,8 +534,8 @@ Debrief question: which of the numbers in your planner would you be comfortable 
 The attribution requirement is the strategic heart of the brief. Music Planet sells online and in five showrooms. A campaign-specific promo code can be redeemed in either place, which makes it one of the few ways to connect a digital campaign to in-store sales. A tracked call to action, such as a UTM-tagged link, only measures what happens online. Students should think about which suits their campaign.</div>
 </div>
 
-<!-- SLIDE 17: Strategic decisions -->
-<div class="slide slide-content" id="s17">
+<!-- SLIDE 18: Strategic decisions -->
+<div class="slide slide-content" id="s18">
   <div class="slide-inner">
     <div class="uoa-badge">Activity 2</div>
     <h2 class="slide-title">Decide these before you prompt</h2>
@@ -518,8 +569,8 @@ Questions 5 and 6 belong together. The ad has no promo code, because a code make
 Students should apply the same thinking to their own A3 campaign. If their team has ad creative, they can paste or describe it in their prompt as Context. If not, they should describe the ad that would send traffic to their page. Some campaigns will suit a promo code; others, like this one, need a different way to track the result.</div>
 </div>
 
-<!-- SLIDE 18: Activity 2 build -->
-<div class="slide slide-exercise" id="s18">
+<!-- SLIDE 19: Activity 2 build -->
+<div class="slide slide-exercise" id="s19">
   <div class="slide-inner">
     <div class="exercise-badge">Activity 2 · Lovable · 25 minutes</div>
     <h2 class="slide-title">Build your landing page</h2>
@@ -537,8 +588,8 @@ Students should apply the same thinking to their own A3 campaign. If their team 
 The reflection question targets the most common failure mode: a page that is polished but generic, with a stock "find your sound" headline that could belong to any music retailer. If students produced that, ask what in their brief allowed it. The usual answer is weak Context or an unresolved decision about differentiation.</div>
 </div>
 
-<!-- SLIDE 19: Test before you share -->
-<div class="slide slide-exercise" id="s19">
+<!-- SLIDE 20: Test before you share -->
+<div class="slide slide-exercise" id="s20">
   <div class="slide-inner">
     <div class="exercise-badge">Peer test · 5 minutes</div>
     <h2 class="slide-title">Test before you share</h2>
@@ -560,8 +611,8 @@ The warning repeats the Week 2 professional rules: treat every prompt and publis
 If time allows, ask one team to share a page and walk through what their partner found.</div>
 </div>
 
-<!-- SLIDE 20: Synthesis -->
-<div class="slide slide-content" id="s20">
+<!-- SLIDE 21: Synthesis -->
+<div class="slide slide-content" id="s21">
   <div class="slide-inner">
     <div class="uoa-badge">Synthesis</div>
     <h2 class="slide-title">What both activities have in common</h2>
@@ -588,8 +639,8 @@ If time allows, ask one team to share a page and walk through what their partner
 Students may want to mention today's builds in their A3b AI reflection, particularly what they had to verify or correct.</div>
 </div>
 
-<!-- SLIDE 21: Stretch task -->
-<div class="slide slide-exercise" id="s21">
+<!-- SLIDE 22: Stretch task -->
+<div class="slide slide-exercise" id="s22">
   <div class="slide-inner">
     <div class="exercise-badge">Stretch task · Start now, finish before A3</div>
     <h2 class="slide-title">Build a Music Planet project to check your A3 work</h2>
@@ -609,7 +660,7 @@ client-intelligence-brief.md
 tone-of-voice.md
 brand-guidelines.md
 buyer-personas.md
-campaign-concept.md
+campaign-strategy.md
 a3-brief.md</pre>
         </div>
       </div>
@@ -623,22 +674,24 @@ client-intelligence-brief.md: the brief students built in Week 2, tidied into Ma
 tone-of-voice.md: how Music Planet should sound, built from three sources: the client brief, the website and recent social posts. Every trait quotes its evidence. The most valuable section records where the sources disagree, for example a brief that describes an expert, premium voice alongside casual, emoji-heavy captions.
 brand-guidelines.md: what students can observe about Music Planet's visual identity and naming from its website and social channels, clearly marked as observed rather than supplied by the client.
 buyer-personas.md: the personas from Week 3.
-campaign-concept.md: a short summary of the team's A3 campaign, including the offer, audience, channels and key message, so the project can check that each piece of work is consistent with the concept.
+campaign-strategy.md: the team's A3 strategy in two parts. The first is the structure from Activity 1: the goal or goals, the objectives under each goal, the tactics under each objective, and the budget split by tactic. The second is the creative side the structure does not capture: the campaign idea or offer, the persona or personas it targets, and the key message. Students should update this file whenever the strategy changes, for example when they cut a tactic, so the project never reviews work against an out-of-date plan.
+
+With both parts in one file, the project can catch problems neither part would show on its own: a social post written for awareness when its tactic sits under a conversion objective, copy aimed at the wrong persona, or a budget line for a tactic the team has since dropped.
 a3-brief.md: the assignment requirements and constraints, including the $10,000 budget, the 30-day timeframe and SEO being out of scope.
 
 Step 1: students gather the source text themselves. AI tools usually cannot get past the login walls on Instagram and Facebook, and web browsing on free plans is unreliable. Many teams already have website and social material from their A2 audit.
 
 Step 2 is where the Discernment lesson sits. Extraction is exactly where AI tends to embellish, and tone of voice is the classic case: a model will happily describe a brand as warm, knowledgeable and community-minded with nothing in the sources to support it. Any claim without a source gets deleted or labelled as an assumption.
 
-Step 3: the project instructions turn a pile of files into a reviewer. A simple version: review anything I share against these files; flag copy that drifts from the tone of voice, content that does not fit the buyer personas, anything inconsistent with the campaign concept or the A3 brief, and any claim about Music Planet that the files do not support. Do not invent facts about Music Planet.
+Step 3: the project instructions turn a pile of files into a reviewer. A simple version: review anything I share against these files; flag copy that drifts from the tone of voice, content that does not fit the buyer personas, anything inconsistent with the campaign strategy or the A3 brief, including work that does not serve the objective its tactic sits under, and any claim about Music Planet that the files do not support. Do not invent facts about Music Planet.
 
 Step 4: the checks to run are the same questions an examiner might ask in the A4 defence. A useful test of the project itself is to give it something the student knows is off-brand and see whether it notices. If it does not, the files are too vague.
 
 The callout matters. The project is a consistency check, not a grade predictor. Students remain responsible for every claim in their A3, and should mention how they used the project in their A3b AI reflection.</div>
 </div>
 
-<!-- SLIDE 22: Section: IOA practice -->
-<div class="slide slide-section" id="s22">
+<!-- SLIDE 23: Section: IOA practice -->
+<div class="slide slide-section" id="s23">
   <div class="slide-inner">
     <div class="section-label">IOA practice</div>
     <h2 class="slide-title">Interactive oral assessment practice</h2>
@@ -647,8 +700,8 @@ The callout matters. The project is a consistency check, not a grade predictor. 
   <div class="speaker-notes">Brief section introduction. Students completed a practice round last week, so this block is rehearsal and confidence-building rather than an introduction. It prepares them for the A4 Individual Proposal Defence: five minutes per student, one student at a time.</div>
 </div>
 
-<!-- SLIDE 23: IOA practice -->
-<div class="slide slide-exercise" id="s23">
+<!-- SLIDE 24: IOA practice -->
+<div class="slide slide-exercise" id="s24">
   <div class="slide-inner">
     <div class="exercise-badge">IOA practice · 30 minutes</div>
     <h2 class="slide-title">Practice defence session</h2>
@@ -668,8 +721,8 @@ The callout matters. The project is a consistency check, not a grade predictor. 
 Step 3 deliberately links back to Activity 1. Examiners can use their partner's planner figures as material for questions such as "where does that conversion rate come from?" or "what would you do if that cost per click doubled?" Students who labelled their assumptions honestly will find these questions much easier to answer. Time each respondent at five minutes to match the A4 format.</div>
 </div>
 
-<!-- SLIDE 24: Close -->
-<div class="slide slide-dark" id="s24">
+<!-- SLIDE 25: Close -->
+<div class="slide slide-dark" id="s25">
   <div class="slide-inner" style="text-align:left;">
     <div class="uoa-badge">MKTG 304 · University of Auckland</div>
     <div style="font-size:clamp(11px,1.1vw,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;">End of tutorial</div>
@@ -718,29 +771,30 @@ Encourage students to keep the links to what they built today. The planner can s
     <div class="nav-item" onclick="goTo(10);closeSidebar()"><span class="n-num">10</span><span class="n-title">Meta-CRAFT prompt</span><span class="n-tag exercise">Tool</span></div>
     <div class="nav-group">Activity 1</div>
     <div class="nav-item" onclick="goTo(11);closeSidebar()"><span class="n-num">11</span><span class="n-title">Activity 1 intro</span></div>
-    <div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">What you are building</span></div>
-    <div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Build your planner</span><span class="n-tag exercise">Activity</span></div>
-    <div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">Before you trust the numbers</span></div>
+    <div class="nav-item" onclick="goTo(12);closeSidebar()"><span class="n-num">12</span><span class="n-title">Planner inputs</span></div>
+    <div class="nav-item" onclick="goTo(13);closeSidebar()"><span class="n-num">13</span><span class="n-title">Planner outputs</span></div>
+    <div class="nav-item" onclick="goTo(14);closeSidebar()"><span class="n-num">14</span><span class="n-title">Build your planner</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">Before you trust the numbers</span></div>
     <div class="nav-group">Activity 2</div>
-    <div class="nav-item" onclick="goTo(15);closeSidebar()"><span class="n-num">15</span><span class="n-title">Activity 2 intro</span></div>
-    <div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">Your brief</span></div>
-    <div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">Decide before you prompt</span></div>
-    <div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">Build your landing page</span><span class="n-tag exercise">Activity</span></div>
-    <div class="nav-item" onclick="goTo(19);closeSidebar()"><span class="n-num">19</span><span class="n-title">Test before you share</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(16);closeSidebar()"><span class="n-num">16</span><span class="n-title">Activity 2 intro</span></div>
+    <div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">Your brief</span></div>
+    <div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">Decide before you prompt</span></div>
+    <div class="nav-item" onclick="goTo(19);closeSidebar()"><span class="n-num">19</span><span class="n-title">Build your landing page</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(20);closeSidebar()"><span class="n-num">20</span><span class="n-title">Test before you share</span><span class="n-tag exercise">Activity</span></div>
     <div class="nav-group">Synthesis</div>
-    <div class="nav-item" onclick="goTo(20);closeSidebar()"><span class="n-num">20</span><span class="n-title">What both activities share</span></div>
-    <div class="nav-item" onclick="goTo(21);closeSidebar()"><span class="n-num">21</span><span class="n-title">Stretch: Music Planet A3 project</span><span class="n-tag exercise">Stretch</span></div>
+    <div class="nav-item" onclick="goTo(21);closeSidebar()"><span class="n-num">21</span><span class="n-title">What both activities share</span></div>
+    <div class="nav-item" onclick="goTo(22);closeSidebar()"><span class="n-num">22</span><span class="n-title">Stretch: Music Planet A3 project</span><span class="n-tag exercise">Stretch</span></div>
     <div class="nav-group">IOA practice</div>
-    <div class="nav-item" onclick="goTo(22);closeSidebar()"><span class="n-num">22</span><span class="n-title">IOA intro</span></div>
-    <div class="nav-item" onclick="goTo(23);closeSidebar()"><span class="n-num">23</span><span class="n-title">Practice defence session</span><span class="n-tag exercise">Activity</span></div>
+    <div class="nav-item" onclick="goTo(23);closeSidebar()"><span class="n-num">23</span><span class="n-title">IOA intro</span></div>
+    <div class="nav-item" onclick="goTo(24);closeSidebar()"><span class="n-num">24</span><span class="n-title">Practice defence session</span><span class="n-tag exercise">Activity</span></div>
     <div class="nav-group">Close</div>
-    <div class="nav-item" onclick="goTo(24);closeSidebar()"><span class="n-num">24</span><span class="n-title">End of semester</span></div>
+    <div class="nav-item" onclick="goTo(25);closeSidebar()"><span class="n-num">25</span><span class="n-title">End of semester</span></div>
   </div>
 </nav>
 <div id="sidebar-overlay" onclick="closeSidebar()"></div>
 <div id="nav-bar">
   <div style="display:flex;align-items:center;gap:12px;"><button class="nav-btn" onclick="toggleSidebar()" title="Slide navigator (N)" style="padding:8px 14px;font-size:16px;line-height:1;">☰</button><button class="nav-btn" id="btn-prev" onclick="navigate(-1)">← Prev</button></div>
-  <span id="slide-counter">1 / 24</span>
+  <span id="slide-counter">1 / 25</span>
   <div style="display:flex;align-items:center;gap:12px;"><span id="notes-hint">S = notes · R = refs · N = nav</span><button class="nav-btn" onclick="toggleRefs()" title="References (R)" style="padding:8px 14px;">📚 Refs</button><button class="nav-btn" onclick="toggleNotes()" title="Speaker notes (S)" style="padding:8px 14px;">🗒 Notes</button><button class="nav-btn" id="btn-next" onclick="navigate(1)">Next →</button></div>
 </div>
 <div id="refs-panel"><h4>References &amp; Sources</h4><ul id="refs-content"></ul></div>
@@ -752,11 +806,11 @@ const SOURCES = {
   1:[], 2:[WEEK2], 3:[], 4:[], 5:[],
   6:[{label:'Claude', url:'https://claude.ai'}, {label:'ChatGPT', url:'https://chatgpt.com'}, {label:'Lovable', url:'https://lovable.dev'}],
   7:[], 8:[META, WEEK2], 9:[], 10:[META],
-  11:[], 12:[], 13:[META], 14:[WEEK2],
-  15:[], 16:[WEEK2], 17:[], 18:[{label:'Lovable', url:'https://lovable.dev'}, META],
-  19:[WEEK2], 20:[], 21:[{label:'Claude', url:'https://claude.ai'}, {label:'ChatGPT', url:'https://chatgpt.com'}, {label:'Gemini', url:'https://gemini.google.com'}, WEEK2], 22:[], 23:[], 24:[]
+  11:[], 12:[], 13:[], 14:[META], 15:[WEEK2],
+  16:[], 17:[WEEK2], 18:[], 19:[{label:'Lovable', url:'https://lovable.dev'}, META],
+  20:[WEEK2], 21:[], 22:[{label:'Claude', url:'https://claude.ai'}, {label:'ChatGPT', url:'https://chatgpt.com'}, {label:'Gemini', url:'https://gemini.google.com'}, WEEK2], 23:[], 24:[], 25:[]
 };
-const TOTAL = 24;
+const TOTAL = 25;
 let current = 1, notesOpen = false, sidebarOpen = false, refsOpen = false;
 function getSlide(n){ return document.getElementById('s'+n); }
 function getNotes(n){ const s = getSlide(n); const el = s ? s.querySelector('.speaker-notes') : null; return el ? el.textContent.trim().replace(/\n[ \t]+/g, '\n') : '(No notes for this slide.)'; }
