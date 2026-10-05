@@ -102,8 +102,11 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
 .check-card { background:white; border-radius:10px; padding:20px 20px; box-shadow:0 2px 10px rgba(0,0,0,0.07); border-top:4px solid var(--navy); }
 .check-card .q { font-size:clamp(15px,1.6vw,19px); font-weight:700; color:var(--navy); line-height:1.35; margin-bottom:8px; }
 .check-card .a { font-size:clamp(12px,1.2vw,14px); color:#555; line-height:1.55; }
+.five-col { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+.fmt-item { background:var(--amber-bg); border-radius:6px; padding:9px 11px; font-size:clamp(11px,1.1vw,13px); color:#451A03; line-height:1.45; }
+.fmt-item strong { display:block; color:#78350F; margin-bottom:3px; font-size:clamp(12px,1.2vw,14px); }
 .fmt-grid { display:grid; grid-template-columns:1fr 2.4fr; gap:20px; align-items:stretch; }
-@media (max-width:900px) { .fmt-grid { grid-template-columns:1fr; } .three-col, .four-col { grid-template-columns:1fr 1fr; } }
+@media (max-width:900px) { .fmt-grid { grid-template-columns:1fr; } .five-col { grid-template-columns:1fr 1fr; } .three-col, .four-col { grid-template-columns:1fr 1fr; } }
 @media (max-width:700px) { .three-col, .four-col, .two-col { grid-template-columns:1fr; } .stage-row { flex-direction:column; gap:10px; } .stage-arrow { transform:rotate(90deg); } }
 @media (max-width:720px) {
   #nav-bar { padding:0 10px; gap:8px; }
@@ -370,25 +373,37 @@ The sketch test in the callout is a quick self-check. Ask students to read their
     <div class="exercise-badge">Activity 1 · Claude or ChatGPT · 25 minutes</div>
     <h2 class="slide-title">Build your planner</h2>
     <div class="slide-body">
-      <p style="margin-bottom:12px;">Your planner takes <strong>four inputs</strong>. Each one should change the output.</p>
-      <div class="four-col" style="margin-bottom:14px;">
-        <div class="col-card"><div class="col-title">Tactic</div><div class="col-body">A channel from your A3 campaign.</div></div>
-        <div class="col-card"><div class="col-title">Budget share</div><div class="col-body">How much of the $10,000 this tactic receives over 30 days.</div></div>
-        <div class="col-card" style="border-left:4px solid var(--cyan);"><div class="col-title" style="color:var(--blue);">Goal</div><div class="col-body">Awareness, engagement or conversion.</div></div>
-        <div class="col-card" style="border-left:4px solid var(--cyan);"><div class="col-title" style="color:var(--blue);">Product category</div><div class="col-body">What the tactic promotes: instruments, equipment, sheet music or lessons.</div></div>
+      <div style="background:white;border:1.5px solid var(--amber);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+        <div style="font-size:clamp(13px,1.35vw,15px);font-weight:700;color:#78350F;margin-bottom:10px;">Your Format checklist, top to bottom</div>
+        <div class="five-col">
+          <div class="fmt-item"><strong>Input panel</strong>Tactic, goal and product category as dropdowns. Budget in NZD, capped at $10,000.</div>
+          <div class="fmt-item"><strong>KPI table</strong>Only the KPIs that match the selected goal.</div>
+          <div class="fmt-item"><strong>Projected outcomes</strong>Low-to-high ranges that update as inputs change.</div>
+          <div class="fmt-item"><strong>Assumptions panel</strong>Every benchmark visible, editable and labelled.</div>
+          <div class="fmt-item"><strong>Plain-language note</strong>What the projections assume, written for the client.</div>
+        </div>
       </div>
       <ul class="step-list">
-        <li data-n="1"><div><strong>Write your prompt (8 min):</strong> Use the Meta-CRAFT prompt. Spend most of your time on Format: describe the input panel and every output section, in the order they appear on screen.</div></li>
-        <li data-n="2"><div><strong>Build and test (12 min):</strong> Run the same tactic and budget against two different goals. Then try two product categories. Note what changes and what stays generic.</div></li>
+        <li data-n="1"><div><strong>Write your prompt (8 min):</strong> Use the Meta-CRAFT prompt. Spend most of your time on Format: describe every item in the checklist, in the order it appears on screen.</div></li>
+        <li data-n="2"><div><strong>Build and test (12 min):</strong> First, hold the build against your checklist. Is every section there? If not, fix it with one targeted follow-up rather than starting over. Then run the same tactic and budget against two different goals, and try two product categories.</div></li>
         <li data-n="3"><div><strong>Check the numbers (5 min):</strong> Work through the questions on the next slide.</div></li>
       </ul>
     </div>
   </div>
-  <div class="speaker-notes">The goal input is the key teaching point. In this course, awareness, engagement and conversion are goals; objectives are the measurable targets that sit underneath them. The same Meta campaign measured against an awareness goal should surface reach, impressions and frequency. Against a conversion goal it should surface cost per acquisition, conversion rate and return on ad spend. If a student's planner shows the same KPIs regardless of goal, their Action instruction did not tell it to switch.
+  <div class="speaker-notes">The checklist stays on screen for the whole activity because it is the spec students are writing and testing against. It repeats slide 12 in compact form.
 
-The product category input should change the value of a conversion, not just the wording. If switching from lessons to digital pianos does not change projected revenue, the planner is ignoring average order value.
+Step 2 deliberately starts with a Format check before any scenario testing. This is the Description and Discernment loop from Week 2: evaluate what you got before you rewrite anything. A missing section usually means the Format instruction did not ask for it, so the fix is a targeted follow-up ("add an assumptions panel below the outcomes, with each benchmark in an editable field"), not a new prompt from scratch.
 
-During the debrief, ask a student to share what changed when they switched goals on the same tactic and budget.</div>
+The Format misses students hit most often:
+Projections shown as a single number rather than a range, which implies a precision no forecast has.
+Assumptions buried in the code, so nobody can see or correct the benchmarks.
+Every KPI shown regardless of goal, which means the goal input is doing nothing.
+Free-text inputs instead of dropdowns, so the tool breaks or guesses when a student types "insta" or "FB ads".
+No budget cap, so the tool happily plans a $50,000 campaign.
+
+On the scenario tests: awareness, engagement and conversion are goals in this course; objectives are the measurable targets that sit underneath them. The same Meta campaign measured against an awareness goal should surface reach, impressions and frequency. Against a conversion goal it should surface cost per acquisition, conversion rate and return on ad spend. If switching from lessons to digital pianos does not change projected revenue, the planner is ignoring average order value.
+
+During the debrief, ask a student which Format item their first build missed and what follow-up prompt fixed it.</div>
 </div>
 
 <!-- SLIDE 14: Check the numbers -->
