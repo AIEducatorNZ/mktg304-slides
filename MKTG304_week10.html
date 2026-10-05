@@ -109,8 +109,12 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
 .ad-figure { margin:0; }
 .ad-figure img { display:block; width:100%; max-width:340px; max-height:56vh; object-fit:contain; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.14); }
 .ad-figure figcaption { max-width:340px; margin-top:10px; font-size:clamp(11px,1.1vw,13px); color:var(--muted); font-style:italic; line-height:1.45; }
+.tov-grid { display:grid; grid-template-columns:1.6fr 1fr; gap:22px; align-items:start; }
+.md-panel { background:#1e2030; border-radius:10px; overflow:hidden; }
+.md-file { background:#2a2d42; color:#80E3F7; font-family:Consolas, 'Courier New', monospace; font-size:12px; padding:7px 14px; }
+.md-panel pre { margin:0; padding:12px 14px; color:#e6edf3; font-family:Consolas, 'Courier New', monospace; font-size:clamp(11px,1.1vw,13px); line-height:1.6; white-space:pre-wrap; }
 .fmt-grid { display:grid; grid-template-columns:1fr 2.4fr; gap:20px; align-items:stretch; }
-@media (max-width:900px) { .ad-grid { grid-template-columns:1fr; } .ad-figure img { margin:0 auto; } .fmt-grid { grid-template-columns:1fr; } .five-col { grid-template-columns:1fr 1fr; } .three-col, .four-col { grid-template-columns:1fr 1fr; } }
+@media (max-width:900px) { .tov-grid { grid-template-columns:1fr; } .ad-grid { grid-template-columns:1fr; } .ad-figure img { margin:0 auto; } .fmt-grid { grid-template-columns:1fr; } .five-col { grid-template-columns:1fr 1fr; } .three-col, .four-col { grid-template-columns:1fr 1fr; } }
 @media (max-width:700px) { .three-col, .four-col, .two-col { grid-template-columns:1fr; } .stage-row { flex-direction:column; gap:10px; } .stage-arrow { transform:rotate(90deg); } }
 @media (max-width:720px) {
   #nav-bar { padding:0 10px; gap:8px; }
@@ -551,20 +555,48 @@ If time allows, ask one team to share a page and walk through what their partner
 <div class="slide slide-exercise" id="s20">
   <div class="slide-inner">
     <div class="exercise-badge">Stretch task · For fast finishers</div>
-    <h2 class="slide-title">Build a brand voice checker</h2>
+    <h2 class="slide-title">Build a tone of voice file for Music Planet</h2>
     <div class="slide-body">
-      <p style="margin-bottom:12px;">Some tools, including Claude, can build apps that call an AI model from inside the app. Use that to turn your Client Intelligence Brief into a working tool.</p>
-      <ul class="step-list">
-        <li data-n="1"><div>Ask for an app where you paste any piece of marketing copy.</div></li>
-        <li data-n="2"><div>The app checks it against Music Planet's brand voice and tone from your Client Intelligence Brief.</div></li>
-        <li data-n="3"><div>It returns a judgement, the lines that drift off-brand and a suggested rewrite.</div></li>
-        <li data-n="4"><div>Test it on your own landing page copy.</div></li>
-      </ul>
+      <p style="margin-bottom:12px;">Turn the brief and Music Planet's own content into a reusable Markdown file you can load into any AI tool for A3.</p>
+      <div class="tov-grid">
+        <ul class="step-list" style="margin-top:0;">
+          <li data-n="1"><div><strong>Gather:</strong> the client marketing brief, the homepage and About page copy, and 8 to 10 recent social captions. Copy and paste the text yourself: AI tools cannot reliably read social media.</div></li>
+          <li data-n="2"><div><strong>Prompt:</strong> ask for a file called tone-of-voice.md using the structure on the right. Every trait must quote its evidence and name its source: brief, website or social.</div></li>
+          <li data-n="3"><div><strong>Check:</strong> delete any trait without a real quote behind it. If it has no evidence, it came from the model, not the brand.</div></li>
+          <li data-n="4"><div><strong>Test:</strong> load the file into a Claude Project, ChatGPT Project or Gemini Gem, or paste it into a chat. Ask for three captions for the TRADEUP offer with and without it, and compare.</div></li>
+        </ul>
+        <div class="md-panel">
+          <div class="md-file">tone-of-voice.md</div>
+<pre># Music Planet: tone of voice
+## Sources
+## Voice in one sentence
+## Characteristics
+   Trait, what it means,
+   evidence quote [source]
+## Do
+## Don't
+## Where the sources disagree
+## Not specified</pre>
+        </div>
+      </div>
+      <div class="warn-callout" style="margin-top:14px;">Same method next: audiences, positioning, and brief facts and constraints. If it is not in your sources, it is not a fact.</div>
     </div>
   </div>
-  <div class="speaker-notes">Optional task for students who finish early. It shows how a static document like the Client Intelligence Brief can become a reusable tool that a whole marketing team could use to keep copy consistent.
+  <div class="speaker-notes">Optional task for students who finish early. It turns the Client Intelligence Brief idea into a set of reusable Markdown files, starting with tone of voice. The files work in Claude Projects, ChatGPT Projects and Gemini Gems, or can simply be pasted into a chat, so the artefact does not depend on which tool a student uses. Free plan limits on Projects vary between tools, so pasting the file into a chat is a fine fallback.
 
-The same Discernment applies: the checker's judgements are the model's interpretation of the brand voice guidelines, not an authoritative ruling. Students should test it on copy they know is on-brand and copy they know is off-brand to see whether it can tell the difference.</div>
+Why three sources: the client marketing brief says what Music Planet wants to sound like, while the website and social posts show how it actually sounds. A good tone of voice file captures both and is honest about any gap between them.
+
+Step 1: students gather the text themselves. AI tools usually cannot get past the login walls on Instagram and Facebook, and web browsing on free plans is unreliable. Many teams already have website and social material from their A2 audit.
+
+Step 2: the evidence requirement is what keeps the file honest. Extraction is exactly where AI tends to embellish, and tone of voice is the classic place for it: a model will happily describe a brand as warm, knowledgeable and community-minded with nothing in the sources to support it.
+
+Step 3: the check is the Discernment lesson in miniature. Any trait without a real quote gets deleted. Where the sources say nothing, the file should say "not specified" rather than fill the gap.
+
+The "where the sources disagree" section is the most valuable part of the file. If the brief describes an expert, premium voice but the captions are casual and emoji-heavy, that is a genuine finding. Students then have to decide which voice their A3 campaign should use, which is exactly the kind of decision that comes up in an A4 defence.
+
+Step 4: if the captions written with the file look much the same as those written without it, the file is too vague to be useful and needs sharper Do and Don't guidance with real example phrases.
+
+The callout points to the other three files: audiences, positioning, and brief facts and constraints. These come almost entirely from the client brief. The facts file holds only what the brief states, plus its constraints such as the $10,000 budget, the 30-day timeframe and SEO being out of scope, and one rule: anything not in the sources is an assumption and must be labelled as one.</div>
 </div>
 
 <!-- SLIDE 21: Synthesis -->
@@ -685,7 +717,7 @@ Encourage students to keep the links to what they built today. The planner can s
     <div class="nav-item" onclick="goTo(17);closeSidebar()"><span class="n-num">17</span><span class="n-title">Decide before you prompt</span></div>
     <div class="nav-item" onclick="goTo(18);closeSidebar()"><span class="n-num">18</span><span class="n-title">Build your landing page</span><span class="n-tag exercise">Activity</span></div>
     <div class="nav-item" onclick="goTo(19);closeSidebar()"><span class="n-num">19</span><span class="n-title">Test before you share</span><span class="n-tag exercise">Activity</span></div>
-    <div class="nav-item" onclick="goTo(20);closeSidebar()"><span class="n-num">20</span><span class="n-title">Stretch: brand voice checker</span><span class="n-tag exercise">Stretch</span></div>
+    <div class="nav-item" onclick="goTo(20);closeSidebar()"><span class="n-num">20</span><span class="n-title">Stretch: tone of voice file</span><span class="n-tag exercise">Stretch</span></div>
     <div class="nav-group">Synthesis</div>
     <div class="nav-item" onclick="goTo(21);closeSidebar()"><span class="n-num">21</span><span class="n-title">What both activities share</span></div>
     <div class="nav-group">IOA practice</div>
@@ -712,7 +744,7 @@ const SOURCES = {
   7:[], 8:[META, WEEK2], 9:[], 10:[META],
   11:[], 12:[], 13:[META], 14:[WEEK2],
   15:[], 16:[WEEK2], 17:[], 18:[{label:'Lovable', url:'https://lovable.dev'}, META],
-  19:[WEEK2], 20:[{label:'Claude', url:'https://claude.ai'}], 21:[], 22:[], 23:[], 24:[]
+  19:[WEEK2], 20:[{label:'Claude', url:'https://claude.ai'}, {label:'ChatGPT', url:'https://chatgpt.com'}, {label:'Gemini', url:'https://gemini.google.com'}, WEEK2], 21:[], 22:[], 23:[], 24:[]
 };
 const TOTAL = 24;
 let current = 1, notesOpen = false, sidebarOpen = false, refsOpen = false;
