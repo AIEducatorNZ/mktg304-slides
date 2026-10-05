@@ -105,8 +105,12 @@ html, body { height:100%; font-family: Arial, Helvetica, sans-serif; background:
 .five-col { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
 .fmt-item { background:var(--amber-bg); border-radius:6px; padding:9px 11px; font-size:clamp(11px,1.1vw,13px); color:#451A03; line-height:1.45; }
 .fmt-item strong { display:block; color:#78350F; margin-bottom:3px; font-size:clamp(12px,1.2vw,14px); }
+.ad-grid { display:grid; grid-template-columns:minmax(220px,0.85fr) 1.6fr; gap:32px; align-items:start; }
+.ad-figure { margin:0; }
+.ad-figure img { display:block; width:100%; max-width:340px; max-height:56vh; object-fit:contain; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.14); }
+.ad-figure figcaption { max-width:340px; margin-top:10px; font-size:clamp(11px,1.1vw,13px); color:var(--muted); font-style:italic; line-height:1.45; }
 .fmt-grid { display:grid; grid-template-columns:1fr 2.4fr; gap:20px; align-items:stretch; }
-@media (max-width:900px) { .fmt-grid { grid-template-columns:1fr; } .five-col { grid-template-columns:1fr 1fr; } .three-col, .four-col { grid-template-columns:1fr 1fr; } }
+@media (max-width:900px) { .ad-grid { grid-template-columns:1fr; } .ad-figure img { margin:0 auto; } .fmt-grid { grid-template-columns:1fr; } .five-col { grid-template-columns:1fr 1fr; } .three-col, .four-col { grid-template-columns:1fr 1fr; } }
 @media (max-width:700px) { .three-col, .four-col, .two-col { grid-template-columns:1fr; } .stage-row { flex-direction:column; gap:10px; } .stage-arrow { transform:rotate(90deg); } }
 @media (max-width:720px) {
   #nav-bar { padding:0 10px; gap:8px; }
@@ -472,25 +476,33 @@ The attribution requirement is the strategic heart of the brief. Music Planet se
     <div class="uoa-badge">Activity 2</div>
     <h2 class="slide-title">Decide these before you prompt</h2>
     <div class="slide-body">
-      <ul class="rule-list">
-        <li data-n="1"><div>What does a visitor already know when they arrive, and which channel sent them?</div></li>
-        <li data-n="2"><div>What is the single most important reason for them to act now?</div></li>
-        <li data-n="3"><div>Why Music Planet rather than Rockshop, MusicWorks or an online-only retailer?</div></li>
-        <li data-n="4"><div>What sections does the page need, and in what order?</div></li>
-        <li data-n="5"><div>Where does the promo code or tracked call to action sit, and how is it framed?</div></li>
-        <li data-n="6"><div>What is the one action you want a visitor to take?</div></li>
-      </ul>
+      <div class="ad-grid">
+        <figure class="ad-figure">
+          <img src="images/music_planet_ad.png" alt="Example Music Planet social feed ad: a guitar being handed across a shop counter, headline Trade up your guitar, promo code TRADEUP, Learn more button">
+          <figcaption>Illustrative example: not a real Music Planet offer. Someone who clicks this ad lands on your page.</figcaption>
+        </figure>
+        <ul class="rule-list" style="margin-top:0;">
+          <li data-n="1"><div>What does a visitor already know when they arrive, and which channel sent them?</div></li>
+          <li data-n="2"><div>What is the single most important reason for them to act now?</div></li>
+          <li data-n="3"><div>Why Music Planet rather than Rockshop, MusicWorks or an online-only retailer?</div></li>
+          <li data-n="4"><div>What sections does the page need, and in what order?</div></li>
+          <li data-n="5"><div>Where does the promo code or tracked call to action sit, and how is it framed?</div></li>
+          <li data-n="6"><div>What is the one action you want a visitor to take?</div></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="speaker-notes">These six decisions belong in the CRAFT prompt. Students who skip them get a generic music retail page.
 
-Points worth drawing out in discussion:
+The ad is an illustrative example with a fictional offer, so make clear it is not a real Music Planet promotion and should not appear in anyone's A3 as fact. Use it to make question 1 concrete. A visitor who clicks "Learn more" on this ad already knows four things: the offer is a guitar trade-in, the headline promised "Trade up your guitar", the setting is a real showroom with staff at a counter, and there is a code called TRADEUP. That is message match: the landing page should pick up exactly where the ad left off. If the page opens with a general "Find your sound" headline and a carousel of keyboards, the visitor has to work out whether they are in the right place, and many will leave.
 
-Question 1 is about message match. A visitor arriving from a Meta ad promising a lessons offer should land on a page about that offer, not on a general homepage. The page should pick up where the ad left off.
+Ask students to point to the elements in the ad that must reappear above the fold on the landing page: the offer in the same words, a visual that continues the showroom setting, and the promo code. Then ask what the page needs that the ad could not fit: how the trade-in works, which showrooms take part, and what a visitor should do next.
 
-Question 3 is where Music Planet's genuine differentiators matter: physical showrooms, the chance to try before buying, lessons, and over 40 years of expertise. These are hard for online-only retailers to copy, so a page that ignores them wastes the brand's strongest advantages.
+Question 3 is where Music Planet's genuine differentiators matter: physical showrooms, the chance to try before buying, lessons, and over 40 years of expertise. The example ad leans on the showroom deliberately, because a trade-in is something an online-only retailer cannot easily offer.
 
-Question 6 surfaces a real tension. For some campaigns the right action is an online purchase. For others it is booking a lesson or visiting a showroom, which is harder to track. This links back to question 5: a promo code redeemable in store is one way to measure an offline action.</div>
+Question 6 surfaces a real tension. For this ad, the action is a showroom visit, which is harder to track than an online purchase. That links back to question 5: a promo code redeemed in store is one way to connect an offline action to a digital campaign.
+
+Students should apply the same thinking to their own A3 campaign. If their team has ad creative, they can paste or describe it in their prompt as Context. If not, they should describe the ad that would send traffic to their page.</div>
 </div>
 
 <!-- SLIDE 18: Activity 2 build -->
